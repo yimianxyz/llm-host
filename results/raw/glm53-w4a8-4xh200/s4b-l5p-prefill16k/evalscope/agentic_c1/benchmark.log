@@ -2340,3 +2340,51 @@ aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1
 2026-11-08 22:09:12 - evalscope - INFO: Test connection successful.
 2026-11-08 22:09:12 - evalscope - INFO: Save the data base to: /root/results/s4b-l5p-prefill16k/evalscope/agentic_c1/parallel_1_number_4/benchmark_data.db
 2026-11-08 22:10:29 - evalscope - INFO: Processing[parallel_1_number_4]  50%| 2/4 [Elapsed: 01:16 < Remaining: 01:17, 38.91s/it]
+2026-11-08 22:11:40 - evalscope - INFO: Processing[parallel_1_number_4] 100%| 4/4 [Elapsed: 02:27 < Remaining: 00:00, 36.50s/it]
+2026-11-08 22:11:40 - evalscope - INFO: 
+Benchmarking summary:
+┌────────────────────────────┬─────────────┐
+│ Metric                     │       Value │
+├────────────────────────────┼─────────────┤
+│ ── General ──              │             │
+│ Test Duration (s)          │      147.62 │
+│ Concurrency                │           1 │
+│ Request Rate (req/s)       │       -1.00 │
+│ Total / Success / Failed   │ 52 / 52 / 0 │
+│ Req Throughput (req/s)     │        0.35 │
+│ ── Latency ──              │             │
+│ Avg Latency (s)            │        2.84 │
+│ TTFT (ms)                  │     1364.23 │
+│ TPOT (ms)                  │        6.72 │
+│ ITL (ms)                   │       24.49 │
+│ ── Tokens ──               │             │
+│ Avg Input Tokens           │    79746.94 │
+│ Avg Output Tokens          │      220.00 │
+│ Output Throughput (tok/s)  │       77.50 │
+│ Total Throughput (tok/s)   │    28169.66 │
+│ ── Multi-turn ──           │             │
+│ Avg Turns/Request          │        7.00 │
+│ KV Cache Hit Rate (%)      │       91.74 │
+│ ── Speculative Decoding ── │             │
+│ Decoded Tok/Iter           │        3.73 │
+│ Spec. Accept Rate          │        0.73 │
+└────────────────────────────┴─────────────┘
+2026-11-08 22:11:40 - evalscope - INFO: 
+Percentile results:
+┌────────────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
+│ Metric         │       1% │       5% │      10% │      25% │      50% │      75% │      90% │      95% │      99% │
+├────────────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+│ Latency (s)    │     1.69 │     1.70 │     1.71 │     1.73 │     1.79 │     2.02 │     2.85 │    14.06 │    14.18 │
+│ TTFT (ms)      │   389.36 │   395.33 │   398.14 │   405.26 │   421.95 │   472.56 │   500.39 │ 12518.08 │ 12604.71 │
+│ ITL (ms)       │     1.19 │    22.93 │    23.22 │    23.56 │    23.94 │    24.22 │    24.48 │    24.60 │    24.93 │
+│ TPOT (ms)      │     5.85 │     5.87 │     5.90 │     5.96 │     6.10 │     7.04 │     8.04 │    10.28 │    14.49 │
+│ Input tokens   │ 74173.00 │ 74173.00 │ 75053.00 │ 76957.00 │ 79917.00 │ 82821.00 │ 84669.00 │ 85493.00 │ 85712.00 │
+│ Output tokens  │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │
+│ Output (tok/s) │    15.52 │    15.65 │    77.30 │   109.63 │   123.47 │   127.30 │   128.96 │   129.39 │   129.92 │
+│ Total (tok/s)  │  5246.47 │  5290.96 │ 26706.04 │ 40133.37 │ 44384.09 │ 46796.88 │ 48851.36 │ 49627.53 │ 50245.18 │
+│ Decode (tok/s) │    68.99 │    97.25 │   124.39 │   142.97 │   164.31 │   167.85 │   169.36 │   170.34 │   171.01 │
+└────────────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┘
+2026-11-08 22:11:40 - evalscope - INFO: Save the summary to: /root/results/s4b-l5p-prefill16k/evalscope/agentic_c1/parallel_1_number_4
+2026-11-08 22:11:40 - evalscope - INFO: Running[perf] 100%| 1/1 [Elapsed: 06:30 < Remaining: 00:00, 390.20s/it]
+2026-11-08 22:11:40 - evalscope - INFO: Performance summary saved to: /root/results/s4b-l5p-prefill16k/evalscope/agentic_c1/performance_summary.txt
+2026-11-08 22:11:40 - evalscope - INFO: HTML report generated: /root/results/s4b-l5p-prefill16k/evalscope/agentic_c1/perf_report.html
