@@ -1,0 +1,780 @@
+===== vllm boot 1 2026-11-08T19:48:31Z =====
+W1108 19:48:34.134000 6847 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:48:34.134000 6847 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:48:34.135000 6847 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+(APIServer pid=6847) INFO 11-08 19:48:39 [startup.py:38] 
+(APIServer pid=6847) INFO 11-08 19:48:39 [startup.py:38]        █     █     █▄   ▄█
+(APIServer pid=6847) INFO 11-08 19:48:39 [startup.py:38]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.33.0
+(APIServer pid=6847) INFO 11-08 19:48:39 [startup.py:38]   █▄█▀ █     █     █     █  model   gpustack/GLM-5.3-W4A8
+(APIServer pid=6847) INFO 11-08 19:48:39 [startup.py:38]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=6847) INFO 11-08 19:48:39 [startup.py:38] 
+(APIServer pid=6847) INFO 11-08 19:48:39 [startup.py:96] non-default args: {'model_tag': 'gpustack/GLM-5.3-W4A8', 'enable_auto_tool_choice': True, 'tool_call_parser': 'glm47', 'enable_prompt_tokens_details': True, 'enable_per_request_metrics': True, 'host': '0.0.0.0', 'model': 'gpustack/GLM-5.3-W4A8', 'trust_remote_code': True, 'revision': 'cb867a359aa39552f48f14f294a5f15418c97789', 'max_model_len': 262144, 'served_model_name': ['glm-5.3'], 'reasoning_parser': 'glm45', 'tensor_parallel_size': 4, 'enable_expert_parallel': True, 'kv_cache_dtype': 'fp8_ds_mla', 'enable_prefix_caching': True, 'max_num_batched_tokens': 32768, 'speculative_config': {'method': 'mtp', 'num_speculative_tokens': 3}}
+(APIServer pid=6847) INFO 11-08 19:48:51 [model.py:744] Resolved architecture: GlmMoeDsaForCausalLM
+(APIServer pid=6847) INFO 11-08 19:48:51 [model.py:2170] Using max model len 262144
+(APIServer pid=6847) INFO 11-08 19:48:53 [cache.py:484] Using fp8_ds_mla data type to store kv cache. It reduces the GPU memory footprint and boosts the performance. Meanwhile, it may cause accuracy drop without a proper scaling factor
+(APIServer pid=6847) INFO 11-08 19:49:07 [model.py:744] Resolved architecture: DeepseekV32MTPModel
+(APIServer pid=6847) INFO 11-08 19:49:07 [model.py:2170] Using max model len 1048576
+(APIServer pid=6847) WARNING 11-08 19:49:07 [speculative.py:1491] Enabling num_speculative_tokens > 1 will run multiple times of forward on same MTP layer,which may result in lower acceptance rate
+(APIServer pid=6847) INFO 11-08 19:49:07 [speculative.py:1799] Overriding draft model max model len from 1048576 to 262144
+(APIServer pid=6847) INFO 11-08 19:49:07 [scheduler.py:310] Chunked prefill is enabled with max_num_batched_tokens=32768.
+(APIServer pid=6847) INFO 11-08 19:49:07 [vllm.py:848] Auto-enabling VLLM_USE_BREAKABLE_CUDAGRAPH=1. Set VLLM_USE_BREAKABLE_CUDAGRAPH=0 to opt out.
+(APIServer pid=6847) INFO 11-08 19:49:07 [kernel.py:480] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native'])
+(APIServer pid=6847) INFO 11-08 19:49:09 [compilation.py:317] Enabled custom fusions: norm_quant, act_quant, allreduce_rms
+[transformers] The following generation flags are not valid and may be ignored: ['top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+W1108 19:49:13.393000 7925 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:49:13.394000 7925 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:49:13.394000 7925 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+(EngineCore pid=7925) INFO 11-08 19:49:18 [core.py:139] Initializing a V1 LLM engine (v0.33.0) with config: model='gpustack/GLM-5.3-W4A8', speculative_config=SpeculativeConfig(method='mtp', model='gpustack/GLM-5.3-W4A8', num_spec_tokens=3), tokenizer='gpustack/GLM-5.3-W4A8', skip_tokenizer_init=False, tokenizer_mode=auto, revision=cb867a359aa39552f48f14f294a5f15418c97789, tokenizer_revision=cb867a359aa39552f48f14f294a5f15418c97789, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=262144, download_dir=None, load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=a2a, disable_custom_all_reduce=False, quantization=compressed-tensors, quantization_config=None, enforce_eager=False, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=fp8_ds_mla, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='glm45', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, custom_histogram_buckets=None, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=glm-5.3, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['+quant_fp8', 'all', '+quant_fp8'], 'ir_enable_torch_wrap': False, 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'cudagraph_decoder_replay': True, 'decoder_replay_cudagraph_capture_sizes': [], 'decoder_replay_trim_threshold': 768, 'compile_sizes': [], 'compile_ranges_endpoints': [170, 32768], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'fuse_allreduce_rms': True, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_rocm_segmented_attn_autotune=False, enable_cutedsl_warmup=True, enable_jit_warmup=True, monokernel=False, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(EngineCore pid=7925) INFO 11-08 19:49:18 [multiproc_executor.py:167] DP group leader: node_rank=0, node_rank_within_dp=0, master_addr=127.0.0.1, mq_connect_ip=172.22.0.2 (local), world_size=4, local_world_size=4
+W1108 19:49:21.172000 8150 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:49:21.172000 8150 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:49:21.172000 8150 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+W1108 19:49:21.222000 8152 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:49:21.222000 8152 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:49:21.222000 8152 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+W1108 19:49:21.247000 8149 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:49:21.247000 8149 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:49:21.247000 8149 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+W1108 19:49:21.350000 8151 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:49:21.350000 8151 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:49:21.351000 8151 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+(Worker pid=8149) INFO 11-08 19:49:27 [parallel_state.py:1929] world_size=4 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_00f4e514bf8c486cb0cb91d861f6471a backend=nccl
+(Worker pid=8152) INFO 11-08 19:49:28 [parallel_state.py:1929] world_size=4 rank=3 local_rank=3 distributed_init_method=file:///tmp/vllm_dist_00f4e514bf8c486cb0cb91d861f6471a backend=nccl
+(Worker pid=8151) INFO 11-08 19:49:28 [parallel_state.py:1929] world_size=4 rank=1 local_rank=1 distributed_init_method=file:///tmp/vllm_dist_00f4e514bf8c486cb0cb91d861f6471a backend=nccl
+(Worker pid=8150) INFO 11-08 19:49:28 [parallel_state.py:1929] world_size=4 rank=2 local_rank=2 distributed_init_method=file:///tmp/vllm_dist_00f4e514bf8c486cb0cb91d861f6471a backend=nccl
+(Worker pid=8149) INFO 11-08 19:49:28 [pynccl.py:148] vLLM is using nccl==2.31.2
+(Worker pid=8149) INFO 11-08 19:49:30 [cuda_communicator.py:353] Using ['FLASHINFER', 'CUSTOM', 'SYMM_MEM', 'PYNCCL'] all-reduce backends (in dispatch order) for group 'tp:0' out of potential backends: ['FLASHINFER_PCIE_IPC', 'FLASHINFER', 'NCCL_SYMM_MEM', 'QUICK_REDUCE', 'AITER_CUSTOM', 'CUSTOM', 'SYMM_MEM', 'PYNCCL'].
+(Worker pid=8149) INFO 11-08 19:49:30 [cuda_communicator.py:353] Using ['PYNCCL'] all-reduce backends (in dispatch order) for group 'ep:0' out of potential backends: ['FLASHINFER_PCIE_IPC', 'FLASHINFER', 'NCCL_SYMM_MEM', 'QUICK_REDUCE', 'AITER_CUSTOM', 'CUSTOM', 'SYMM_MEM', 'PYNCCL'].
+(Worker pid=8149) INFO 11-08 19:49:30 [parallel_state.py:2385] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank 0, EPLB rank N/A
+(Worker pid=8149) INFO 11-08 19:49:30 [gpu_worker.py:513] Using V2 Model Runner
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:49:31 [model_runner.py:399] Loading model from scratch...
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:49:31 [__init__.py:778] Selected FlashInferFp8DeepGEMMDynamicBlockScaledKernel for CompressedTensorsW8A8Fp8
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:49:31 [deep_gemm.py:200] deep_gemm not found in site-packages, trying vendored vllm.third_party.deep_gemm
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:49:31 [deep_gemm.py:227] DeepGEMM PDL enabled on vllm.third_party.deep_gemm.
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:49:31 [deep_gemm.py:139] DeepGEMM E8M0 enabled on current platform.
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:49:31 [cuda.py:508] Using FLASHMLA_SPARSE attention backend out of potential backends: ['FLASHMLA_SPARSE'].
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:49:31 [selector.py:131] Using FLASH_ATTN MLA prefill backend.
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:49:31 [expert_map_manager.py:250] [EP Rank 0/4] Expert parallelism is enabled. Expert placement strategy: linear. Local/global number of experts: 64/256. Experts local to global index map: 0->0, 1->1, 2->2, 3->3, 4->4, 5->5, 6->6, 7->7, 8->8, 9->9, 10->10, 11->11, 12->12, 13->13, 14->14, 15->15, 16->16, 17->17, 18->18, 19->19, 20->20, 21->21, 22->22, 23->23, 24->24, 25->25, 26->26, 27->27, 28->28, 29->29, 30->30, 31->31, 32->32, 33->33, 34->34, 35->35, 36->36, 37->37, 38->38, 39->39, 40->40, 41->41, 42->42, 43->43, 44->44, 45->45, 46->46, 47->47, 48->48, 49->49, 50->50, 51->51, 52->52, 53->53, 54->54, 55->55, 56->56, 57->57, 58->58, 59->59, 60->60, 61->61, 62->62, 63->63.
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:49:31 [compressed_tensors_moe.py:186] Using CompressedTensorsW4A8Fp8MoEMethod
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:49:31 [w4a8.py:96] Using CUTLASS W4A8 MoE backend.
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:49:32 [base_loader.py:82] Initializing model took 0.894885 seconds
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:49:33 [weight_utils.py:1144] Filesystem type for checkpoints: OVERLAY. Checkpoint size: 372.27 GiB. Available RAM: 466.69 GiB.
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:49:33 [weight_utils.py:1167] Auto-prefetch is disabled because the filesystem (OVERLAY) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+Loading safetensors checkpoint shards:   0% Completed | 0/141 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:   1% Completed | 1/141 [00:00<01:17,  1.80it/s]
+Loading safetensors checkpoint shards:   1% Completed | 2/141 [00:00<00:49,  2.78it/s]
+Loading safetensors checkpoint shards:   2% Completed | 3/141 [00:01<01:11,  1.92it/s]
+Loading safetensors checkpoint shards:   3% Completed | 4/141 [00:02<01:27,  1.56it/s]
+Loading safetensors checkpoint shards:   4% Completed | 5/141 [00:03<01:36,  1.40it/s]
+Loading safetensors checkpoint shards:   4% Completed | 6/141 [00:03<01:15,  1.79it/s]
+Loading safetensors checkpoint shards:   5% Completed | 7/141 [00:04<01:22,  1.62it/s]
+Loading safetensors checkpoint shards:   6% Completed | 8/141 [00:04<01:07,  1.96it/s]
+Loading safetensors checkpoint shards:   6% Completed | 9/141 [00:04<00:52,  2.51it/s]
+Loading safetensors checkpoint shards:   7% Completed | 10/141 [00:05<01:06,  1.98it/s]
+Loading safetensors checkpoint shards:   8% Completed | 11/141 [00:06<01:19,  1.64it/s]
+Loading safetensors checkpoint shards:   9% Completed | 12/141 [00:06<01:27,  1.48it/s]
+Loading safetensors checkpoint shards:   9% Completed | 13/141 [00:07<01:06,  1.93it/s]
+Loading safetensors checkpoint shards:  10% Completed | 14/141 [00:07<01:13,  1.72it/s]
+Loading safetensors checkpoint shards:  11% Completed | 15/141 [00:08<01:15,  1.67it/s]
+Loading safetensors checkpoint shards:  11% Completed | 16/141 [00:09<01:17,  1.62it/s]
+Loading safetensors checkpoint shards:  12% Completed | 17/141 [00:09<01:17,  1.59it/s]
+Loading safetensors checkpoint shards:  13% Completed | 18/141 [00:10<01:15,  1.64it/s]
+Loading safetensors checkpoint shards:  13% Completed | 19/141 [00:10<01:13,  1.67it/s]
+Loading safetensors checkpoint shards:  14% Completed | 20/141 [00:11<01:10,  1.72it/s]
+Loading safetensors checkpoint shards:  15% Completed | 21/141 [00:12<01:07,  1.77it/s]
+Loading safetensors checkpoint shards:  16% Completed | 22/141 [00:12<01:09,  1.70it/s]
+Loading safetensors checkpoint shards:  16% Completed | 23/141 [00:13<01:09,  1.69it/s]
+Loading safetensors checkpoint shards:  17% Completed | 24/141 [00:13<01:09,  1.69it/s]
+Loading safetensors checkpoint shards:  18% Completed | 25/141 [00:14<01:05,  1.76it/s]
+Loading safetensors checkpoint shards:  18% Completed | 26/141 [00:14<01:04,  1.77it/s]
+Loading safetensors checkpoint shards:  19% Completed | 27/141 [00:15<01:06,  1.72it/s]
+Loading safetensors checkpoint shards:  20% Completed | 28/141 [00:16<01:05,  1.73it/s]
+Loading safetensors checkpoint shards:  21% Completed | 29/141 [00:16<01:03,  1.77it/s]
+Loading safetensors checkpoint shards:  21% Completed | 30/141 [00:17<01:02,  1.77it/s]
+Loading safetensors checkpoint shards:  22% Completed | 31/141 [00:17<01:01,  1.80it/s]
+Loading safetensors checkpoint shards:  23% Completed | 32/141 [00:18<01:00,  1.79it/s]
+Loading safetensors checkpoint shards:  23% Completed | 33/141 [00:18<01:02,  1.71it/s]
+Loading safetensors checkpoint shards:  24% Completed | 34/141 [00:19<01:02,  1.70it/s]
+Loading safetensors checkpoint shards:  25% Completed | 35/141 [00:19<00:52,  2.02it/s]
+Loading safetensors checkpoint shards:  26% Completed | 36/141 [00:20<00:44,  2.33it/s]
+Loading safetensors checkpoint shards:  26% Completed | 37/141 [00:20<00:36,  2.88it/s]
+Loading safetensors checkpoint shards:  27% Completed | 38/141 [00:21<00:47,  2.17it/s]
+Loading safetensors checkpoint shards:  28% Completed | 39/141 [00:21<00:49,  2.05it/s]
+Loading safetensors checkpoint shards:  28% Completed | 40/141 [00:22<00:55,  1.83it/s]
+Loading safetensors checkpoint shards:  29% Completed | 41/141 [00:22<00:54,  1.82it/s]
+Loading safetensors checkpoint shards:  30% Completed | 42/141 [00:23<00:44,  2.24it/s]
+Loading safetensors checkpoint shards:  30% Completed | 43/141 [00:23<00:38,  2.55it/s]
+Loading safetensors checkpoint shards:  31% Completed | 44/141 [00:23<00:31,  3.11it/s]
+Loading safetensors checkpoint shards:  32% Completed | 45/141 [00:24<00:41,  2.32it/s]
+Loading safetensors checkpoint shards:  33% Completed | 46/141 [00:24<00:33,  2.86it/s]
+Loading safetensors checkpoint shards:  33% Completed | 47/141 [00:24<00:30,  3.05it/s]
+Loading safetensors checkpoint shards:  34% Completed | 48/141 [00:24<00:25,  3.58it/s]
+Loading safetensors checkpoint shards:  35% Completed | 49/141 [00:25<00:37,  2.45it/s]
+Loading safetensors checkpoint shards:  35% Completed | 50/141 [00:25<00:30,  3.02it/s]
+Loading safetensors checkpoint shards:  36% Completed | 51/141 [00:25<00:28,  3.16it/s]
+Loading safetensors checkpoint shards:  37% Completed | 52/141 [00:26<00:26,  3.42it/s]
+Loading safetensors checkpoint shards:  38% Completed | 53/141 [00:26<00:24,  3.65it/s]
+Loading safetensors checkpoint shards:  38% Completed | 54/141 [00:26<00:32,  2.70it/s]
+Loading safetensors checkpoint shards:  39% Completed | 55/141 [00:27<00:26,  3.24it/s]
+Loading safetensors checkpoint shards:  40% Completed | 56/141 [00:27<00:31,  2.68it/s]
+Loading safetensors checkpoint shards:  40% Completed | 57/141 [00:28<00:37,  2.26it/s]
+Loading safetensors checkpoint shards:  41% Completed | 58/141 [00:28<00:32,  2.57it/s]
+Loading safetensors checkpoint shards:  42% Completed | 59/141 [00:28<00:26,  3.09it/s]
+Loading safetensors checkpoint shards:  43% Completed | 60/141 [00:29<00:29,  2.73it/s]
+Loading safetensors checkpoint shards:  43% Completed | 61/141 [00:29<00:33,  2.38it/s]
+Loading safetensors checkpoint shards:  44% Completed | 62/141 [00:30<00:33,  2.37it/s]
+Loading safetensors checkpoint shards:  45% Completed | 63/141 [00:30<00:28,  2.78it/s]
+Loading safetensors checkpoint shards:  45% Completed | 64/141 [00:30<00:32,  2.38it/s]
+Loading safetensors checkpoint shards:  46% Completed | 65/141 [00:31<00:35,  2.11it/s]
+Loading safetensors checkpoint shards:  47% Completed | 66/141 [00:31<00:33,  2.26it/s]
+Loading safetensors checkpoint shards:  48% Completed | 67/141 [00:32<00:36,  2.04it/s]
+Loading safetensors checkpoint shards:  48% Completed | 68/141 [00:32<00:28,  2.53it/s]
+Loading safetensors checkpoint shards:  49% Completed | 69/141 [00:32<00:27,  2.63it/s]
+Loading safetensors checkpoint shards:  50% Completed | 70/141 [00:33<00:28,  2.52it/s]
+Loading safetensors checkpoint shards:  50% Completed | 71/141 [00:33<00:28,  2.50it/s]
+Loading safetensors checkpoint shards:  51% Completed | 72/141 [00:34<00:24,  2.76it/s]
+Loading safetensors checkpoint shards:  52% Completed | 73/141 [00:34<00:24,  2.83it/s]
+Loading safetensors checkpoint shards:  52% Completed | 74/141 [00:34<00:22,  2.94it/s]
+Loading safetensors checkpoint shards:  53% Completed | 75/141 [00:35<00:21,  3.01it/s]
+Loading safetensors checkpoint shards:  54% Completed | 76/141 [00:35<00:22,  2.91it/s]
+Loading safetensors checkpoint shards:  55% Completed | 77/141 [00:35<00:19,  3.24it/s]
+Loading safetensors checkpoint shards:  55% Completed | 78/141 [00:36<00:20,  3.04it/s]
+Loading safetensors checkpoint shards:  56% Completed | 79/141 [00:36<00:18,  3.39it/s]
+Loading safetensors checkpoint shards:  57% Completed | 80/141 [00:36<00:22,  2.76it/s]
+Loading safetensors checkpoint shards:  57% Completed | 81/141 [00:37<00:20,  2.93it/s]
+Loading safetensors checkpoint shards:  58% Completed | 82/141 [00:37<00:26,  2.23it/s]
+Loading safetensors checkpoint shards:  59% Completed | 83/141 [00:38<00:22,  2.52it/s]
+Loading safetensors checkpoint shards:  60% Completed | 84/141 [00:38<00:21,  2.65it/s]
+Loading safetensors checkpoint shards:  60% Completed | 85/141 [00:38<00:19,  2.90it/s]
+Loading safetensors checkpoint shards:  61% Completed | 86/141 [00:39<00:20,  2.63it/s]
+Loading safetensors checkpoint shards:  62% Completed | 87/141 [00:39<00:19,  2.73it/s]
+Loading safetensors checkpoint shards:  62% Completed | 88/141 [00:39<00:17,  2.96it/s]
+Loading safetensors checkpoint shards:  63% Completed | 89/141 [00:40<00:18,  2.78it/s]
+Loading safetensors checkpoint shards:  64% Completed | 90/141 [00:40<00:16,  3.14it/s]
+Loading safetensors checkpoint shards:  65% Completed | 91/141 [00:40<00:20,  2.44it/s]
+Loading safetensors checkpoint shards:  65% Completed | 92/141 [00:41<00:19,  2.54it/s]
+Loading safetensors checkpoint shards:  66% Completed | 93/141 [00:41<00:18,  2.58it/s]
+Loading safetensors checkpoint shards:  67% Completed | 94/141 [00:41<00:17,  2.68it/s]
+Loading safetensors checkpoint shards:  67% Completed | 95/141 [00:42<00:17,  2.69it/s]
+Loading safetensors checkpoint shards:  68% Completed | 96/141 [00:42<00:15,  2.88it/s]
+Loading safetensors checkpoint shards:  69% Completed | 97/141 [00:42<00:15,  2.93it/s]
+Loading safetensors checkpoint shards:  70% Completed | 98/141 [00:43<00:16,  2.57it/s]
+Loading safetensors checkpoint shards:  70% Completed | 99/141 [00:44<00:19,  2.15it/s]
+Loading safetensors checkpoint shards:  71% Completed | 100/141 [00:44<00:20,  1.97it/s]
+Loading safetensors checkpoint shards:  72% Completed | 101/141 [00:44<00:17,  2.30it/s]
+Loading safetensors checkpoint shards:  72% Completed | 102/141 [00:45<00:18,  2.13it/s]
+Loading safetensors checkpoint shards:  73% Completed | 103/141 [00:45<00:15,  2.48it/s]
+Loading safetensors checkpoint shards:  74% Completed | 104/141 [00:46<00:16,  2.28it/s]
+Loading safetensors checkpoint shards:  74% Completed | 105/141 [00:46<00:13,  2.61it/s]
+Loading safetensors checkpoint shards:  75% Completed | 106/141 [00:46<00:13,  2.68it/s]
+Loading safetensors checkpoint shards:  76% Completed | 107/141 [00:47<00:12,  2.82it/s]
+Loading safetensors checkpoint shards:  77% Completed | 108/141 [00:47<00:11,  2.91it/s]
+Loading safetensors checkpoint shards:  77% Completed | 109/141 [00:47<00:10,  3.02it/s]
+Loading safetensors checkpoint shards:  78% Completed | 110/141 [00:48<00:10,  3.05it/s]
+Loading safetensors checkpoint shards:  79% Completed | 111/141 [00:48<00:10,  2.82it/s]
+Loading safetensors checkpoint shards:  79% Completed | 112/141 [00:48<00:09,  3.16it/s]
+Loading safetensors checkpoint shards:  80% Completed | 113/141 [00:49<00:10,  2.57it/s]
+Loading safetensors checkpoint shards:  81% Completed | 114/141 [00:49<00:08,  3.08it/s]
+Loading safetensors checkpoint shards:  82% Completed | 115/141 [00:49<00:09,  2.86it/s]
+Loading safetensors checkpoint shards:  82% Completed | 116/141 [00:50<00:07,  3.37it/s]
+Loading safetensors checkpoint shards:  83% Completed | 117/141 [00:50<00:08,  2.79it/s]
+Loading safetensors checkpoint shards:  84% Completed | 118/141 [00:50<00:06,  3.32it/s]
+Loading safetensors checkpoint shards:  84% Completed | 119/141 [00:51<00:07,  3.02it/s]
+Loading safetensors checkpoint shards:  85% Completed | 120/141 [00:51<00:05,  3.52it/s]
+Loading safetensors checkpoint shards:  86% Completed | 121/141 [00:51<00:06,  3.24it/s]
+Loading safetensors checkpoint shards:  87% Completed | 122/141 [00:52<00:05,  3.30it/s]
+Loading safetensors checkpoint shards:  87% Completed | 123/141 [00:52<00:05,  3.49it/s]
+Loading safetensors checkpoint shards:  88% Completed | 124/141 [00:52<00:05,  3.19it/s]
+Loading safetensors checkpoint shards:  89% Completed | 125/141 [00:52<00:04,  3.57it/s]
+Loading safetensors checkpoint shards:  89% Completed | 126/141 [00:53<00:04,  3.33it/s]
+Loading safetensors checkpoint shards:  90% Completed | 127/141 [00:53<00:03,  3.57it/s]
+Loading safetensors checkpoint shards:  91% Completed | 128/141 [00:53<00:03,  3.32it/s]
+Loading safetensors checkpoint shards:  91% Completed | 129/141 [00:53<00:03,  3.73it/s]
+Loading safetensors checkpoint shards:  92% Completed | 130/141 [00:54<00:03,  3.40it/s]
+Loading safetensors checkpoint shards:  93% Completed | 131/141 [00:54<00:02,  3.99it/s]
+Loading safetensors checkpoint shards:  94% Completed | 132/141 [00:54<00:02,  3.92it/s]
+Loading safetensors checkpoint shards:  94% Completed | 133/141 [00:54<00:01,  4.23it/s]
+Loading safetensors checkpoint shards:  95% Completed | 134/141 [00:55<00:01,  4.34it/s]
+Loading safetensors checkpoint shards:  96% Completed | 135/141 [00:55<00:01,  4.27it/s]
+Loading safetensors checkpoint shards:  97% Completed | 137/141 [00:55<00:00,  6.66it/s]
+Loading safetensors checkpoint shards:  98% Completed | 138/141 [00:55<00:00,  7.12it/s]
+Loading safetensors checkpoint shards:  99% Completed | 139/141 [00:55<00:00,  5.90it/s]
+Loading safetensors checkpoint shards:  99% Completed | 140/141 [00:56<00:00,  6.03it/s]
+Loading safetensors checkpoint shards: 100% Completed | 141/141 [00:56<00:00,  5.34it/s]
+Loading safetensors checkpoint shards: 100% Completed | 141/141 [00:56<00:00,  2.51it/s]
+
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:50:29 [default_loader.py:506] Loading weights took 56.28 seconds
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:50:35 [w4a8.py:266] Using MoEPrepareAndFinalizeNoDPEPModular
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:51:37 [base_loader.py:82] Initializing model took 0.016424 seconds
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:51:39 [weight_utils.py:830] Skipped 137/141 safetensors shard(s) holding no weights the model loads
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:51:39 [weight_utils.py:1144] Filesystem type for checkpoints: OVERLAY. Checkpoint size: 12.64 GiB. Available RAM: 317.53 GiB.
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:00<00:00, 11.02it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:00<00:00,  7.90it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:00<00:00,  8.24it/s]
+
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:51:39 [default_loader.py:506] Loading weights took 0.49 seconds
+(Worker_TP3_EP3 pid=8152) INFO 11-08 19:51:40 [model_runner.py:428] Model loading took 111.3 GiB memory and 128.748256 seconds
+(Worker_TP3_EP3 pid=8152) INFO 11-08 19:51:40 [interface.py:776] Setting kv cache block size to 64 for DEEPSEEK_V32_INDEXER/FLASHMLA_SPARSE backend(s).
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:51:41 [model_runner.py:428] Model loading took 111.3 GiB memory and 130.005208 seconds
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:51:41 [topk_topp_sampler.py:149] Using FlashInfer for top-p & top-k sampling.
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:51:41 [torch_utils.py:281] Reducing Torch threads from 17 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:51:41 [interface.py:776] Setting kv cache block size to 64 for DEEPSEEK_V32_INDEXER/FLASHMLA_SPARSE backend(s).
+(Worker_TP1_EP1 pid=8151) INFO 11-08 19:51:42 [model_runner.py:428] Model loading took 111.3 GiB memory and 130.899747 seconds
+(Worker_TP1_EP1 pid=8151) INFO 11-08 19:51:42 [interface.py:776] Setting kv cache block size to 64 for DEEPSEEK_V32_INDEXER/FLASHMLA_SPARSE backend(s).
+(Worker_TP2_EP2 pid=8150) INFO 11-08 19:51:42 [model_runner.py:428] Model loading took 111.3 GiB memory and 131.094783 seconds
+(Worker_TP2_EP2 pid=8150) INFO 11-08 19:51:42 [interface.py:776] Setting kv cache block size to 64 for DEEPSEEK_V32_INDEXER/FLASHMLA_SPARSE backend(s).
+(EngineCore pid=7925) INFO 11-08 19:51:42 [torch_utils.py:281] Reducing Torch threads from 17 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(EngineCore pid=7925) INFO 11-08 19:51:42 [utils.py:381] Using LBNHC KV cache layout.
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:52:15 [indexer.py:1035] DSA indexer decode path: use_flattening=False supports_varlen=False (next_n=4, use_fp4_cache=False)
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:52:15 [speculator.py:323] Attention backend(s) FLASHMLA_SPARSE cannot update draft decode metadata in place; falling back to rebuilding attention metadata eagerly.
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:52:15 [breakable_cudagraph.py:294] Breakable CUDA graph enabled
+Capturing CUDA graphs (PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s](Worker_TP0_EP0 pid=8149) WARNING 11-08 19:52:22 [flashmla_sparse.py:1296] Padding num_heads from 16 to 64 for FP8 sparse decode kernel
+Capturing CUDA graphs (PIECEWISE):   2%|▏         | 1/51 [00:21<17:46, 21.33s/it]Capturing CUDA graphs (PIECEWISE):   4%|▍         | 2/51 [00:21<07:21,  9.01s/it]Capturing CUDA graphs (PIECEWISE):   6%|▌         | 3/51 [00:23<04:26,  5.56s/it]Capturing CUDA graphs (PIECEWISE):   8%|▊         | 4/51 [00:23<02:45,  3.52s/it]Capturing CUDA graphs (PIECEWISE):  10%|▉         | 5/51 [00:25<02:19,  3.03s/it]Capturing CUDA graphs (PIECEWISE):  12%|█▏        | 6/51 [00:26<01:36,  2.14s/it]Capturing CUDA graphs (PIECEWISE):  14%|█▎        | 7/51 [00:27<01:23,  1.91s/it](EngineCore pid=7925) INFO 11-08 19:52:43 [shm_broadcast.py:878] No available shared memory broadcast block found in 60 seconds. This typically happens when some processes are hanging or doing some time-consuming work (e.g. compilation, weight/kv cache quantization).
+Capturing CUDA graphs (PIECEWISE):  16%|█▌        | 8/51 [00:27<01:01,  1.42s/it]Capturing CUDA graphs (PIECEWISE):  18%|█▊        | 9/51 [00:42<03:50,  5.50s/it]Capturing CUDA graphs (PIECEWISE):  20%|█▉        | 10/51 [00:42<02:40,  3.92s/it]Capturing CUDA graphs (PIECEWISE):  22%|██▏       | 11/51 [00:43<01:53,  2.84s/it]Capturing CUDA graphs (PIECEWISE):  24%|██▎       | 12/51 [00:43<01:21,  2.10s/it]Capturing CUDA graphs (PIECEWISE):  25%|██▌       | 13/51 [00:50<02:09,  3.41s/it]Capturing CUDA graphs (PIECEWISE):  27%|██▋       | 14/51 [00:50<01:32,  2.50s/it]Capturing CUDA graphs (PIECEWISE):  29%|██▉       | 15/51 [00:51<01:18,  2.18s/it]Capturing CUDA graphs (PIECEWISE):  31%|███▏      | 16/51 [00:52<00:57,  1.64s/it]Capturing CUDA graphs (PIECEWISE):  33%|███▎      | 17/51 [01:08<03:22,  5.95s/it]Capturing CUDA graphs (PIECEWISE):  35%|███▌      | 18/51 [01:08<02:21,  4.28s/it]Capturing CUDA graphs (PIECEWISE):  37%|███▋      | 19/51 [01:09<01:39,  3.11s/it]Capturing CUDA graphs (PIECEWISE):  39%|███▉      | 20/51 [01:09<01:11,  2.30s/it]Capturing CUDA graphs (PIECEWISE):  41%|████      | 21/51 [01:09<00:51,  1.73s/it]Capturing CUDA graphs (PIECEWISE):  43%|████▎     | 22/51 [01:10<00:38,  1.33s/it]Capturing CUDA graphs (PIECEWISE):  45%|████▌     | 23/51 [01:10<00:29,  1.05s/it]Capturing CUDA graphs (PIECEWISE):  47%|████▋     | 24/51 [01:10<00:22,  1.17it/s]Capturing CUDA graphs (PIECEWISE):  49%|████▉     | 25/51 [01:23<01:55,  4.45s/it]Capturing CUDA graphs (PIECEWISE):  51%|█████     | 26/51 [01:24<01:20,  3.24s/it]Capturing CUDA graphs (PIECEWISE):  53%|█████▎    | 27/51 [01:24<00:57,  2.39s/it](Worker_TP0_EP0 pid=8149) INFO 11-08 19:53:40 [flashinfer_all_reduce.py:235] Initialized FlashInfer Allreduce norm fusion workspace with backend=mnnvl
+2026-11-08 19:53:40,886 - INFO - core.py:594 - flashinfer.jit: Building JIT module trtllm_mnnvl_comm; this can take several minutes on first use.
+(EngineCore pid=7925) INFO 11-08 19:53:43 [shm_broadcast.py:878] No available shared memory broadcast block found in 60 seconds. This typically happens when some processes are hanging or doing some time-consuming work (e.g. compilation, weight/kv cache quantization).
+Capturing CUDA graphs (PIECEWISE):  55%|█████▍    | 28/51 [02:08<05:42, 14.88s/it]Capturing CUDA graphs (PIECEWISE):  57%|█████▋    | 29/51 [02:10<03:58, 10.85s/it]Capturing CUDA graphs (PIECEWISE):  59%|█████▉    | 30/51 [02:10<02:42,  7.72s/it]Capturing CUDA graphs (PIECEWISE):  61%|██████    | 31/51 [02:10<01:50,  5.52s/it]Capturing CUDA graphs (PIECEWISE):  63%|██████▎   | 32/51 [02:11<01:15,  3.99s/it]Capturing CUDA graphs (PIECEWISE):  65%|██████▍   | 33/51 [02:26<02:14,  7.48s/it]Capturing CUDA graphs (PIECEWISE):  67%|██████▋   | 34/51 [02:27<01:31,  5.37s/it](EngineCore pid=7925) INFO 11-08 19:54:43 [shm_broadcast.py:878] No available shared memory broadcast block found in 60 seconds. This typically happens when some processes are hanging or doing some time-consuming work (e.g. compilation, weight/kv cache quantization).
+Capturing CUDA graphs (PIECEWISE):  69%|██████▊   | 35/51 [02:27<01:02,  3.90s/it]Capturing CUDA graphs (PIECEWISE):  71%|███████   | 36/51 [02:28<00:43,  2.87s/it]Capturing CUDA graphs (PIECEWISE):  73%|███████▎  | 37/51 [02:29<00:34,  2.45s/it]Capturing CUDA graphs (PIECEWISE):  75%|███████▍  | 38/51 [02:30<00:23,  1.84s/it]Capturing CUDA graphs (PIECEWISE):  76%|███████▋  | 39/51 [02:30<00:16,  1.41s/it]Capturing CUDA graphs (PIECEWISE):  78%|███████▊  | 40/51 [02:31<00:12,  1.11s/it]Capturing CUDA graphs (PIECEWISE):  80%|████████  | 41/51 [02:41<00:39,  3.97s/it]Capturing CUDA graphs (PIECEWISE):  82%|████████▏ | 42/51 [02:42<00:26,  2.91s/it]Capturing CUDA graphs (PIECEWISE):  84%|████████▍ | 43/51 [02:42<00:17,  2.16s/it]Capturing CUDA graphs (PIECEWISE):  86%|████████▋ | 44/51 [02:42<00:11,  1.64s/it]Capturing CUDA graphs (PIECEWISE):  88%|████████▊ | 45/51 [02:55<00:28,  4.80s/it]Capturing CUDA graphs (PIECEWISE):  90%|█████████ | 46/51 [03:03<00:29,  5.88s/it]Capturing CUDA graphs (PIECEWISE):  92%|█████████▏| 47/51 [03:04<00:17,  4.37s/it]Capturing CUDA graphs (PIECEWISE):  94%|█████████▍| 48/51 [03:04<00:09,  3.17s/it]Capturing CUDA graphs (PIECEWISE):  96%|█████████▌| 49/51 [03:05<00:04,  2.43s/it]Capturing CUDA graphs (PIECEWISE):  98%|█████████▊| 50/51 [03:06<00:01,  1.87s/it]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [03:06<00:00,  1.52s/it]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [03:06<00:00,  3.66s/it]
+Capturing CUDA graphs (FULL):   0%|          | 0/2 [00:00<?, ?it/s]Capturing CUDA graphs (FULL):  50%|█████     | 1/2 [00:02<00:02,  2.91s/it]Capturing CUDA graphs (FULL): 100%|██████████| 2/2 [00:03<00:00,  1.42s/it]Capturing CUDA graphs (FULL): 100%|██████████| 2/2 [00:03<00:00,  1.64s/it]
+(Worker_TP3_EP3 pid=8152) INFO 11-08 19:55:26 [speculator.py:110] Capturing model for speculator...
+(Worker_TP1_EP1 pid=8151) INFO 11-08 19:55:26 [speculator.py:110] Capturing model for speculator...
+(Worker_TP2_EP2 pid=8150) INFO 11-08 19:55:26 [speculator.py:110] Capturing model for speculator...
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:55:26 [speculator.py:110] Capturing model for speculator...
+Capturing prefill CUDA graphs (PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing prefill CUDA graphs (PIECEWISE):  18%|█▊        | 9/51 [00:00<00:00, 79.88it/s]Capturing prefill CUDA graphs (PIECEWISE):  35%|███▌      | 18/51 [00:00<00:00, 84.74it/s]Capturing prefill CUDA graphs (PIECEWISE):  53%|█████▎    | 27/51 [00:00<00:00, 85.55it/s]Capturing prefill CUDA graphs (PIECEWISE):  71%|███████   | 36/51 [00:00<00:00, 84.63it/s]Capturing prefill CUDA graphs (PIECEWISE):  88%|████████▊ | 45/51 [00:00<00:00, 81.65it/s]Capturing prefill CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:00<00:00, 84.11it/s]
+Capturing prefill CUDA graphs (FULL):   0%|          | 0/49 [00:00<?, ?it/s]Capturing prefill CUDA graphs (FULL):  16%|█▋        | 8/49 [00:00<00:00, 75.14it/s]Capturing prefill CUDA graphs (FULL):  33%|███▎      | 16/49 [00:01<00:02, 11.25it/s]Capturing prefill CUDA graphs (FULL):  41%|████      | 20/49 [00:02<00:04,  6.70it/s]Capturing prefill CUDA graphs (FULL):  57%|█████▋    | 28/49 [00:02<00:01, 11.52it/s]Capturing prefill CUDA graphs (FULL):  67%|██████▋   | 33/49 [00:03<00:01,  8.00it/s]Capturing prefill CUDA graphs (FULL):  82%|████████▏ | 40/49 [00:03<00:00, 11.86it/s]Capturing prefill CUDA graphs (FULL):  96%|█████████▌| 47/49 [00:03<00:00, 16.48it/s]Capturing prefill CUDA graphs (FULL): 100%|██████████| 49/49 [00:03<00:00, 12.74it/s]
+Capturing decode CUDA graphs (FULL):   0%|          | 0/51 [00:00<?, ?it/s]Capturing decode CUDA graphs (FULL):   2%|▏         | 1/51 [00:00<00:10,  4.67it/s]Capturing decode CUDA graphs (FULL):  16%|█▌        | 8/51 [00:00<00:01, 29.95it/s]Capturing decode CUDA graphs (FULL):  31%|███▏      | 16/51 [00:00<00:00, 45.88it/s]Capturing decode CUDA graphs (FULL):  45%|████▌     | 23/51 [00:00<00:00, 53.01it/s]Capturing decode CUDA graphs (FULL):  59%|█████▉    | 30/51 [00:00<00:00, 58.36it/s]Capturing decode CUDA graphs (FULL):  75%|███████▍  | 38/51 [00:00<00:00, 63.30it/s]Capturing decode CUDA graphs (FULL):  92%|█████████▏| 47/51 [00:00<00:00, 69.39it/s]Capturing decode CUDA graphs (FULL): 100%|██████████| 51/51 [00:00<00:00, 56.54it/s]
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:55:32 [model_runner.py:1163] Graph capturing finished in 196 secs, took 3.58 GiB
+(Worker_TP3_EP3 pid=8152) INFO 11-08 19:55:32 [model_runner.py:1163] Graph capturing finished in 196 secs, took 3.58 GiB
+(Worker_TP2_EP2 pid=8150) INFO 11-08 19:55:32 [model_runner.py:1163] Graph capturing finished in 196 secs, took 3.58 GiB
+(Worker_TP1_EP1 pid=8151) INFO 11-08 19:55:32 [model_runner.py:1163] Graph capturing finished in 196 secs, took 3.58 GiB
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:55:32 [gpu_worker.py:772] Available KV cache memory: 6.71 GiB
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:55:32 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8904 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9496. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(Worker_TP3_EP3 pid=8152) INFO 11-08 19:55:32 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8904 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9496. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(Worker_TP2_EP2 pid=8150) INFO 11-08 19:55:32 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8904 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9496. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(Worker_TP1_EP1 pid=8151) INFO 11-08 19:55:32 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8904 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9496. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584] EngineCore failed to start.
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584] Traceback (most recent call last):
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1555, in run_engine_core
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]     return func(*args, **kwargs)
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1232, in __init__
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]     super().__init__(
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 163, in __init__
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]     return func(*args, **kwargs)
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 321, in _initialize_kv_caches
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]     kv_cache_configs = get_kv_cache_configs(
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]                        ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/core/kv_cache_planning.py", line 1554, in get_kv_cache_configs
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]     _check_enough_kv_cache_memory(
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/core/kv_cache_planning.py", line 77, in _check_enough_kv_cache_memory
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584]     raise ValueError(
+(EngineCore pid=7925) ERROR 11-08 19:55:32 [core.py:1584] ValueError: To serve at least one request with the model's max seq len (262144), (13.36 GiB KV cache is needed, which is larger than the available KV cache memory (6.71 GiB). Based on the available memory, the estimated maximum model length is 131584. Try increasing `gpu_memory_utilization` (which also controls CPU memory on the CPU backend) or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+(EngineCore pid=7925) ERROR 11-08 19:55:35 [multiproc_executor.py:380] Worker proc VllmWorker-3 died unexpectedly (exit code: None), shutting down executor.
+(EngineCore pid=7925) INFO 11-08 19:55:35 [multiproc_executor.py:580] [shutdown] Executor: waiting for worker exit count=4
+Process EngineCore:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1588, in run_engine_core
+    raise e
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1555, in run_engine_core
+    engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1232, in __init__
+    super().__init__(
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 163, in __init__
+    kv_cache_config = self._initialize_kv_caches(vllm_config)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 321, in _initialize_kv_caches
+    kv_cache_configs = get_kv_cache_configs(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/core/kv_cache_planning.py", line 1554, in get_kv_cache_configs
+    _check_enough_kv_cache_memory(
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/core/kv_cache_planning.py", line 77, in _check_enough_kv_cache_memory
+    raise ValueError(
+ValueError: To serve at least one request with the model's max seq len (262144), (13.36 GiB KV cache is needed, which is larger than the available KV cache memory (6.71 GiB). Based on the available memory, the estimated maximum model length is 131584. Try increasing `gpu_memory_utilization` (which also controls CPU memory on the CPU backend) or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+(APIServer pid=6847) INFO 11-08 19:55:37 [utils.py:628] [shutdown] Process manager: send sigterm to process EngineCore
+Traceback (most recent call last):
+  File "/usr/local/bin/vllm", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/main.py", line 117, in main
+    args.dispatch_function(args)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/serve.py", line 156, in cmd
+    uvloop.run(run_server(args))
+  File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 96, in run
+    return __asyncio.run(
+           ^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1515, in uvloop.loop.Loop.run_until_complete
+  File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+    return await main
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/launchers/api_server/entry.py", line 176, in run_server
+    await run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/launchers/api_server/entry.py", line 190, in run_server_worker
+    async with build_async_engine_client(
+  File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/launchers/api_server/entry.py", line 60, in build_async_engine_client
+    async with build_async_engine_client_from_engine_args(
+  File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/launchers/api_server/entry.py", line 94, in build_async_engine_client_from_engine_args
+    async_llm = AsyncLLM.from_vllm_config(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 264, in from_vllm_config
+    return cls(
+           ^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 193, in __init__
+    self.engine_core = EngineCoreClient.make_async_mp_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 170, in make_async_mp_client
+    return AsyncMPClient(
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 1163, in __init__
+    super().__init__(
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 699, in __init__
+    with launch_core_engines(
+  File "/usr/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 1393, in launch_core_engines
+    wait_for_engine_startup(
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 1473, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 4 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+===== vllm boot 2 2026-11-08T19:55:44Z =====
+W1108 19:55:47.285000 13818 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:55:47.286000 13818 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:55:47.286000 13818 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+(APIServer pid=13818) INFO 11-08 19:55:52 [startup.py:38] 
+(APIServer pid=13818) INFO 11-08 19:55:52 [startup.py:38]        █     █     █▄   ▄█
+(APIServer pid=13818) INFO 11-08 19:55:52 [startup.py:38]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.33.0
+(APIServer pid=13818) INFO 11-08 19:55:52 [startup.py:38]   █▄█▀ █     █     █     █  model   gpustack/GLM-5.3-W4A8
+(APIServer pid=13818) INFO 11-08 19:55:52 [startup.py:38]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=13818) INFO 11-08 19:55:52 [startup.py:38] 
+(APIServer pid=13818) INFO 11-08 19:55:52 [startup.py:96] non-default args: {'model_tag': 'gpustack/GLM-5.3-W4A8', 'enable_auto_tool_choice': True, 'tool_call_parser': 'glm47', 'enable_prompt_tokens_details': True, 'enable_per_request_metrics': True, 'host': '0.0.0.0', 'model': 'gpustack/GLM-5.3-W4A8', 'trust_remote_code': True, 'revision': 'cb867a359aa39552f48f14f294a5f15418c97789', 'max_model_len': 262144, 'served_model_name': ['glm-5.3'], 'reasoning_parser': 'glm45', 'tensor_parallel_size': 4, 'enable_expert_parallel': True, 'kv_cache_dtype': 'fp8_ds_mla', 'enable_prefix_caching': True, 'max_num_batched_tokens': 32768, 'speculative_config': {'method': 'mtp', 'num_speculative_tokens': 3}}
+(APIServer pid=13818) INFO 11-08 19:55:52 [model.py:744] Resolved architecture: GlmMoeDsaForCausalLM
+(APIServer pid=13818) INFO 11-08 19:55:52 [model.py:2170] Using max model len 262144
+(APIServer pid=13818) INFO 11-08 19:55:54 [cache.py:484] Using fp8_ds_mla data type to store kv cache. It reduces the GPU memory footprint and boosts the performance. Meanwhile, it may cause accuracy drop without a proper scaling factor
+(APIServer pid=13818) INFO 11-08 19:55:54 [model.py:744] Resolved architecture: DeepseekV32MTPModel
+(APIServer pid=13818) INFO 11-08 19:55:54 [model.py:2170] Using max model len 1048576
+(APIServer pid=13818) WARNING 11-08 19:55:54 [speculative.py:1491] Enabling num_speculative_tokens > 1 will run multiple times of forward on same MTP layer,which may result in lower acceptance rate
+(APIServer pid=13818) INFO 11-08 19:55:54 [speculative.py:1799] Overriding draft model max model len from 1048576 to 262144
+(APIServer pid=13818) INFO 11-08 19:55:54 [scheduler.py:310] Chunked prefill is enabled with max_num_batched_tokens=32768.
+(APIServer pid=13818) INFO 11-08 19:55:54 [vllm.py:848] Auto-enabling VLLM_USE_BREAKABLE_CUDAGRAPH=1. Set VLLM_USE_BREAKABLE_CUDAGRAPH=0 to opt out.
+(APIServer pid=13818) INFO 11-08 19:55:54 [kernel.py:480] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native'])
+(APIServer pid=13818) INFO 11-08 19:55:58 [compilation.py:317] Enabled custom fusions: norm_quant, act_quant, allreduce_rms
+[transformers] The following generation flags are not valid and may be ignored: ['top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+W1108 19:56:02.367000 14247 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:56:02.367000 14247 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:56:02.368000 14247 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+(EngineCore pid=14247) INFO 11-08 19:56:07 [core.py:139] Initializing a V1 LLM engine (v0.33.0) with config: model='gpustack/GLM-5.3-W4A8', speculative_config=SpeculativeConfig(method='mtp', model='gpustack/GLM-5.3-W4A8', num_spec_tokens=3), tokenizer='gpustack/GLM-5.3-W4A8', skip_tokenizer_init=False, tokenizer_mode=auto, revision=cb867a359aa39552f48f14f294a5f15418c97789, tokenizer_revision=cb867a359aa39552f48f14f294a5f15418c97789, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=262144, download_dir=None, load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=a2a, disable_custom_all_reduce=False, quantization=compressed-tensors, quantization_config=None, enforce_eager=False, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=fp8_ds_mla, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='glm45', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, custom_histogram_buckets=None, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=glm-5.3, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['+quant_fp8', 'all', '+quant_fp8'], 'ir_enable_torch_wrap': False, 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'cudagraph_decoder_replay': True, 'decoder_replay_cudagraph_capture_sizes': [], 'decoder_replay_trim_threshold': 768, 'compile_sizes': [], 'compile_ranges_endpoints': [170, 32768], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'fuse_allreduce_rms': True, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_rocm_segmented_attn_autotune=False, enable_cutedsl_warmup=True, enable_jit_warmup=True, monokernel=False, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(EngineCore pid=14247) INFO 11-08 19:56:07 [multiproc_executor.py:167] DP group leader: node_rank=0, node_rank_within_dp=0, master_addr=127.0.0.1, mq_connect_ip=172.22.0.2 (local), world_size=4, local_world_size=4
+W1108 19:56:10.440000 14473 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:56:10.441000 14473 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:56:10.441000 14473 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+W1108 19:56:10.565000 14472 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:56:10.565000 14472 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:56:10.565000 14472 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+W1108 19:56:10.587000 14474 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:56:10.588000 14474 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:56:10.588000 14474 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+W1108 19:56:10.616000 14471 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:56:10.617000 14471 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:56:10.617000 14471 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+(Worker pid=14473) INFO 11-08 19:56:16 [parallel_state.py:1929] world_size=4 rank=3 local_rank=3 distributed_init_method=file:///tmp/vllm_dist_f3bfe2b250b84afcb2e62cef0a887856 backend=nccl
+(Worker pid=14471) INFO 11-08 19:56:17 [parallel_state.py:1929] world_size=4 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_f3bfe2b250b84afcb2e62cef0a887856 backend=nccl
+(Worker pid=14474) INFO 11-08 19:56:17 [parallel_state.py:1929] world_size=4 rank=2 local_rank=2 distributed_init_method=file:///tmp/vllm_dist_f3bfe2b250b84afcb2e62cef0a887856 backend=nccl
+(Worker pid=14472) INFO 11-08 19:56:17 [parallel_state.py:1929] world_size=4 rank=1 local_rank=1 distributed_init_method=file:///tmp/vllm_dist_f3bfe2b250b84afcb2e62cef0a887856 backend=nccl
+(Worker pid=14471) INFO 11-08 19:56:18 [pynccl.py:148] vLLM is using nccl==2.31.2
+(Worker pid=14471) INFO 11-08 19:56:19 [cuda_communicator.py:353] Using ['FLASHINFER', 'CUSTOM', 'SYMM_MEM', 'PYNCCL'] all-reduce backends (in dispatch order) for group 'tp:0' out of potential backends: ['FLASHINFER_PCIE_IPC', 'FLASHINFER', 'NCCL_SYMM_MEM', 'QUICK_REDUCE', 'AITER_CUSTOM', 'CUSTOM', 'SYMM_MEM', 'PYNCCL'].
+(Worker pid=14471) INFO 11-08 19:56:20 [cuda_communicator.py:353] Using ['PYNCCL'] all-reduce backends (in dispatch order) for group 'ep:0' out of potential backends: ['FLASHINFER_PCIE_IPC', 'FLASHINFER', 'NCCL_SYMM_MEM', 'QUICK_REDUCE', 'AITER_CUSTOM', 'CUSTOM', 'SYMM_MEM', 'PYNCCL'].
+(Worker pid=14471) INFO 11-08 19:56:20 [parallel_state.py:2385] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank 0, EPLB rank N/A
+(Worker pid=14471) INFO 11-08 19:56:20 [gpu_worker.py:513] Using V2 Model Runner
+(Worker_TP0_EP0 pid=14471) INFO 11-08 19:56:21 [model_runner.py:399] Loading model from scratch...
+(Worker_TP0_EP0 pid=14471) INFO 11-08 19:56:21 [__init__.py:778] Selected FlashInferFp8DeepGEMMDynamicBlockScaledKernel for CompressedTensorsW8A8Fp8
+(Worker_TP0_EP0 pid=14471) INFO 11-08 19:56:21 [deep_gemm.py:200] deep_gemm not found in site-packages, trying vendored vllm.third_party.deep_gemm
+(Worker_TP0_EP0 pid=14471) INFO 11-08 19:56:21 [deep_gemm.py:227] DeepGEMM PDL enabled on vllm.third_party.deep_gemm.
+(Worker_TP0_EP0 pid=14471) INFO 11-08 19:56:21 [deep_gemm.py:139] DeepGEMM E8M0 enabled on current platform.
+(Worker_TP0_EP0 pid=14471) INFO 11-08 19:56:21 [cuda.py:508] Using FLASHMLA_SPARSE attention backend out of potential backends: ['FLASHMLA_SPARSE'].
+(Worker_TP0_EP0 pid=14471) INFO 11-08 19:56:21 [selector.py:131] Using FLASH_ATTN MLA prefill backend.
+(Worker_TP0_EP0 pid=14471) INFO 11-08 19:56:21 [expert_map_manager.py:250] [EP Rank 0/4] Expert parallelism is enabled. Expert placement strategy: linear. Local/global number of experts: 64/256. Experts local to global index map: 0->0, 1->1, 2->2, 3->3, 4->4, 5->5, 6->6, 7->7, 8->8, 9->9, 10->10, 11->11, 12->12, 13->13, 14->14, 15->15, 16->16, 17->17, 18->18, 19->19, 20->20, 21->21, 22->22, 23->23, 24->24, 25->25, 26->26, 27->27, 28->28, 29->29, 30->30, 31->31, 32->32, 33->33, 34->34, 35->35, 36->36, 37->37, 38->38, 39->39, 40->40, 41->41, 42->42, 43->43, 44->44, 45->45, 46->46, 47->47, 48->48, 49->49, 50->50, 51->51, 52->52, 53->53, 54->54, 55->55, 56->56, 57->57, 58->58, 59->59, 60->60, 61->61, 62->62, 63->63.
+(Worker_TP0_EP0 pid=14471) INFO 11-08 19:56:21 [compressed_tensors_moe.py:186] Using CompressedTensorsW4A8Fp8MoEMethod
+(Worker_TP0_EP0 pid=14471) INFO 11-08 19:56:21 [w4a8.py:96] Using CUTLASS W4A8 MoE backend.
+(Worker_TP0_EP0 pid=14471) INFO 11-08 19:56:22 [base_loader.py:82] Initializing model took 0.883848 seconds
+(Worker_TP0_EP0 pid=14471) INFO 11-08 19:56:22 [weight_utils.py:1144] Filesystem type for checkpoints: OVERLAY. Checkpoint size: 372.27 GiB. Available RAM: 316.95 GiB.
+(Worker_TP0_EP0 pid=14471) INFO 11-08 19:56:22 [weight_utils.py:1174] Auto-prefetch is disabled because the filesystem (OVERLAY) is not a recognized network FS (NFS/Lustre) and the checkpoint size (372.27 GiB) exceeds 90% of available RAM (316.95 GiB).
+Loading safetensors checkpoint shards:   0% Completed | 0/141 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:   1% Completed | 1/141 [00:00<00:31,  4.40it/s]
+Loading safetensors checkpoint shards:   1% Completed | 2/141 [00:00<00:25,  5.45it/s]
+Loading safetensors checkpoint shards:   2% Completed | 3/141 [00:00<00:32,  4.26it/s]
+Loading safetensors checkpoint shards:   3% Completed | 4/141 [00:00<00:30,  4.56it/s]
+Loading safetensors checkpoint shards:   4% Completed | 5/141 [00:01<00:32,  4.23it/s]
+Loading safetensors checkpoint shards:   4% Completed | 6/141 [00:01<00:32,  4.10it/s]
+Loading safetensors checkpoint shards:   5% Completed | 7/141 [00:01<00:30,  4.44it/s]
+Loading safetensors checkpoint shards:   6% Completed | 8/141 [00:01<00:31,  4.20it/s]
+Loading safetensors checkpoint shards:   6% Completed | 9/141 [00:01<00:27,  4.77it/s]
+Loading safetensors checkpoint shards:   7% Completed | 10/141 [00:02<00:30,  4.31it/s]
+Loading safetensors checkpoint shards:   8% Completed | 11/141 [00:02<00:27,  4.66it/s]
+Loading safetensors checkpoint shards:   9% Completed | 12/141 [00:02<00:31,  4.16it/s]
+Loading safetensors checkpoint shards:   9% Completed | 13/141 [00:02<00:27,  4.65it/s]
+Loading safetensors checkpoint shards:  10% Completed | 14/141 [00:03<00:30,  4.20it/s]
+Loading safetensors checkpoint shards:  11% Completed | 15/141 [00:03<00:27,  4.65it/s]
+Loading safetensors checkpoint shards:  11% Completed | 16/141 [00:03<00:29,  4.28it/s]
+Loading safetensors checkpoint shards:  12% Completed | 17/141 [00:03<00:28,  4.28it/s]
+Loading safetensors checkpoint shards:  13% Completed | 18/141 [00:04<00:27,  4.41it/s]
+Loading safetensors checkpoint shards:  13% Completed | 19/141 [00:04<00:29,  4.12it/s]
+Loading safetensors checkpoint shards:  14% Completed | 20/141 [00:04<00:26,  4.54it/s]
+Loading safetensors checkpoint shards:  15% Completed | 21/141 [00:04<00:28,  4.19it/s]
+Loading safetensors checkpoint shards:  16% Completed | 22/141 [00:04<00:25,  4.65it/s]
+Loading safetensors checkpoint shards:  16% Completed | 23/141 [00:05<00:27,  4.28it/s]
+Loading safetensors checkpoint shards:  17% Completed | 24/141 [00:05<00:24,  4.75it/s]
+Loading safetensors checkpoint shards:  18% Completed | 25/141 [00:05<00:27,  4.29it/s]
+Loading safetensors checkpoint shards:  18% Completed | 26/141 [00:05<00:23,  4.81it/s]
+Loading safetensors checkpoint shards:  19% Completed | 27/141 [00:06<00:26,  4.31it/s]
+Loading safetensors checkpoint shards:  20% Completed | 28/141 [00:06<00:24,  4.66it/s]
+Loading safetensors checkpoint shards:  21% Completed | 29/141 [00:06<00:25,  4.37it/s]
+Loading safetensors checkpoint shards:  21% Completed | 30/141 [00:06<00:26,  4.26it/s]
+Loading safetensors checkpoint shards:  22% Completed | 31/141 [00:07<00:24,  4.49it/s]
+Loading safetensors checkpoint shards:  23% Completed | 32/141 [00:07<00:26,  4.17it/s]
+Loading safetensors checkpoint shards:  23% Completed | 33/141 [00:07<00:23,  4.62it/s]
+Loading safetensors checkpoint shards:  24% Completed | 34/141 [00:07<00:25,  4.25it/s]
+Loading safetensors checkpoint shards:  25% Completed | 35/141 [00:07<00:22,  4.69it/s]
+Loading safetensors checkpoint shards:  26% Completed | 36/141 [00:08<00:24,  4.33it/s]
+Loading safetensors checkpoint shards:  26% Completed | 37/141 [00:08<00:21,  4.87it/s]
+Loading safetensors checkpoint shards:  27% Completed | 38/141 [00:08<00:23,  4.33it/s]
+Loading safetensors checkpoint shards:  28% Completed | 39/141 [00:08<00:21,  4.77it/s]
+Loading safetensors checkpoint shards:  28% Completed | 40/141 [00:09<00:23,  4.30it/s]
+Loading safetensors checkpoint shards:  29% Completed | 41/141 [00:09<00:23,  4.34it/s]
+Loading safetensors checkpoint shards:  30% Completed | 42/141 [00:09<00:22,  4.47it/s]
+Loading safetensors checkpoint shards:  30% Completed | 43/141 [00:09<00:23,  4.22it/s]
+Loading safetensors checkpoint shards:  31% Completed | 44/141 [00:09<00:20,  4.71it/s]
+Loading safetensors checkpoint shards:  32% Completed | 45/141 [00:10<00:22,  4.32it/s]
+Loading safetensors checkpoint shards:  33% Completed | 46/141 [00:10<00:19,  4.75it/s]
+Loading safetensors checkpoint shards:  33% Completed | 47/141 [00:10<00:21,  4.34it/s]
+Loading safetensors checkpoint shards:  34% Completed | 48/141 [00:10<00:19,  4.87it/s]
+Loading safetensors checkpoint shards:  35% Completed | 49/141 [00:11<00:21,  4.36it/s]
+Loading safetensors checkpoint shards:  35% Completed | 50/141 [00:11<00:18,  4.88it/s]
+Loading safetensors checkpoint shards:  36% Completed | 51/141 [00:11<00:20,  4.47it/s]
+Loading safetensors checkpoint shards:  37% Completed | 52/141 [00:11<00:19,  4.62it/s]
+Loading safetensors checkpoint shards:  38% Completed | 53/141 [00:11<00:19,  4.57it/s]
+Loading safetensors checkpoint shards:  38% Completed | 54/141 [00:12<00:20,  4.29it/s]
+Loading safetensors checkpoint shards:  39% Completed | 55/141 [00:12<00:18,  4.75it/s]
+Loading safetensors checkpoint shards:  40% Completed | 56/141 [00:12<00:19,  4.36it/s]
+Loading safetensors checkpoint shards:  40% Completed | 57/141 [00:12<00:17,  4.77it/s]
+Loading safetensors checkpoint shards:  41% Completed | 58/141 [00:13<00:18,  4.40it/s]
+Loading safetensors checkpoint shards:  42% Completed | 59/141 [00:13<00:16,  4.87it/s]
+Loading safetensors checkpoint shards:  43% Completed | 60/141 [00:13<00:18,  4.36it/s]
+Loading safetensors checkpoint shards:  43% Completed | 61/141 [00:13<00:16,  4.82it/s]
+Loading safetensors checkpoint shards:  44% Completed | 62/141 [00:13<00:18,  4.34it/s]
+Loading safetensors checkpoint shards:  45% Completed | 63/141 [00:14<00:16,  4.61it/s]
+Loading safetensors checkpoint shards:  45% Completed | 64/141 [00:14<00:17,  4.41it/s]
+Loading safetensors checkpoint shards:  46% Completed | 65/141 [00:14<00:17,  4.25it/s]
+Loading safetensors checkpoint shards:  47% Completed | 66/141 [00:14<00:16,  4.56it/s]
+Loading safetensors checkpoint shards:  48% Completed | 67/141 [00:15<00:17,  4.23it/s]
+Loading safetensors checkpoint shards:  48% Completed | 68/141 [00:15<00:15,  4.74it/s]
+Loading safetensors checkpoint shards:  49% Completed | 69/141 [00:15<00:16,  4.37it/s]
+Loading safetensors checkpoint shards:  50% Completed | 70/141 [00:15<00:14,  4.81it/s]
+Loading safetensors checkpoint shards:  50% Completed | 71/141 [00:15<00:16,  4.34it/s]
+Loading safetensors checkpoint shards:  51% Completed | 72/141 [00:16<00:14,  4.90it/s]
+Loading safetensors checkpoint shards:  52% Completed | 73/141 [00:16<00:15,  4.41it/s]
+Loading safetensors checkpoint shards:  52% Completed | 74/141 [00:16<00:13,  4.85it/s]
+Loading safetensors checkpoint shards:  53% Completed | 75/141 [00:16<00:14,  4.45it/s]
+Loading safetensors checkpoint shards:  54% Completed | 76/141 [00:16<00:14,  4.43it/s]
+Loading safetensors checkpoint shards:  55% Completed | 77/141 [00:17<00:13,  4.60it/s]
+Loading safetensors checkpoint shards:  55% Completed | 78/141 [00:17<00:14,  4.29it/s]
+Loading safetensors checkpoint shards:  56% Completed | 79/141 [00:17<00:12,  4.77it/s]
+Loading safetensors checkpoint shards:  57% Completed | 80/141 [00:17<00:13,  4.38it/s]
+Loading safetensors checkpoint shards:  57% Completed | 81/141 [00:18<00:12,  4.80it/s]
+Loading safetensors checkpoint shards:  58% Completed | 82/141 [00:18<00:13,  4.33it/s]
+Loading safetensors checkpoint shards:  59% Completed | 83/141 [00:18<00:12,  4.82it/s]
+Loading safetensors checkpoint shards:  60% Completed | 84/141 [00:18<00:12,  4.42it/s]
+Loading safetensors checkpoint shards:  60% Completed | 85/141 [00:18<00:11,  4.93it/s]
+Loading safetensors checkpoint shards:  61% Completed | 86/141 [00:19<00:12,  4.43it/s]
+Loading safetensors checkpoint shards:  62% Completed | 87/141 [00:19<00:12,  4.49it/s]
+Loading safetensors checkpoint shards:  62% Completed | 88/141 [00:19<00:11,  4.55it/s]
+Loading safetensors checkpoint shards:  63% Completed | 89/141 [00:19<00:12,  4.25it/s]
+Loading safetensors checkpoint shards:  64% Completed | 90/141 [00:20<00:10,  4.74it/s]
+Loading safetensors checkpoint shards:  65% Completed | 91/141 [00:20<00:11,  4.35it/s]
+Loading safetensors checkpoint shards:  65% Completed | 92/141 [00:20<00:10,  4.81it/s]
+Loading safetensors checkpoint shards:  66% Completed | 93/141 [00:20<00:10,  4.38it/s]
+Loading safetensors checkpoint shards:  67% Completed | 94/141 [00:20<00:09,  4.89it/s]
+Loading safetensors checkpoint shards:  67% Completed | 95/141 [00:21<00:10,  4.24it/s]
+Loading safetensors checkpoint shards:  68% Completed | 96/141 [00:21<00:09,  4.78it/s]
+Loading safetensors checkpoint shards:  69% Completed | 97/141 [00:21<00:10,  4.34it/s]
+Loading safetensors checkpoint shards:  70% Completed | 98/141 [00:21<00:09,  4.56it/s]
+Loading safetensors checkpoint shards:  70% Completed | 99/141 [00:22<00:09,  4.41it/s]
+Loading safetensors checkpoint shards:  71% Completed | 100/141 [00:22<00:09,  4.22it/s]
+Loading safetensors checkpoint shards:  72% Completed | 101/141 [00:22<00:08,  4.59it/s]
+Loading safetensors checkpoint shards:  72% Completed | 102/141 [00:22<00:09,  4.26it/s]
+Loading safetensors checkpoint shards:  73% Completed | 103/141 [00:22<00:08,  4.70it/s]
+Loading safetensors checkpoint shards:  74% Completed | 104/141 [00:23<00:08,  4.34it/s]
+Loading safetensors checkpoint shards:  74% Completed | 105/141 [00:23<00:07,  4.77it/s]
+Loading safetensors checkpoint shards:  75% Completed | 106/141 [00:23<00:08,  4.31it/s]
+Loading safetensors checkpoint shards:  76% Completed | 107/141 [00:23<00:07,  4.83it/s]
+Loading safetensors checkpoint shards:  77% Completed | 108/141 [00:24<00:07,  4.38it/s]
+Loading safetensors checkpoint shards:  77% Completed | 109/141 [00:24<00:06,  4.76it/s]
+Loading safetensors checkpoint shards:  78% Completed | 110/141 [00:24<00:06,  4.45it/s]
+Loading safetensors checkpoint shards:  79% Completed | 111/141 [00:24<00:06,  4.40it/s]
+Loading safetensors checkpoint shards:  79% Completed | 112/141 [00:24<00:06,  4.64it/s]
+Loading safetensors checkpoint shards:  80% Completed | 113/141 [00:25<00:06,  4.31it/s]
+Loading safetensors checkpoint shards:  81% Completed | 114/141 [00:25<00:05,  4.79it/s]
+Loading safetensors checkpoint shards:  82% Completed | 115/141 [00:25<00:05,  4.44it/s]
+Loading safetensors checkpoint shards:  82% Completed | 116/141 [00:25<00:05,  4.89it/s]
+Loading safetensors checkpoint shards:  83% Completed | 117/141 [00:26<00:05,  4.39it/s]
+Loading safetensors checkpoint shards:  84% Completed | 118/141 [00:26<00:04,  4.90it/s]
+Loading safetensors checkpoint shards:  84% Completed | 119/141 [00:26<00:04,  4.44it/s]
+Loading safetensors checkpoint shards:  85% Completed | 120/141 [00:26<00:04,  4.95it/s]
+Loading safetensors checkpoint shards:  86% Completed | 121/141 [00:26<00:04,  4.45it/s]
+Loading safetensors checkpoint shards:  87% Completed | 122/141 [00:27<00:04,  4.48it/s]
+Loading safetensors checkpoint shards:  87% Completed | 123/141 [00:27<00:03,  4.56it/s]
+Loading safetensors checkpoint shards:  88% Completed | 124/141 [00:27<00:03,  4.31it/s]
+Loading safetensors checkpoint shards:  89% Completed | 125/141 [00:27<00:03,  4.64it/s]
+Loading safetensors checkpoint shards:  89% Completed | 126/141 [00:28<00:03,  4.34it/s]
+Loading safetensors checkpoint shards:  90% Completed | 127/141 [00:28<00:02,  4.78it/s]
+Loading safetensors checkpoint shards:  91% Completed | 128/141 [00:28<00:02,  4.40it/s]
+Loading safetensors checkpoint shards:  91% Completed | 129/141 [00:28<00:02,  4.94it/s]
+Loading safetensors checkpoint shards:  92% Completed | 130/141 [00:28<00:02,  4.43it/s]
+Loading safetensors checkpoint shards:  93% Completed | 131/141 [00:29<00:02,  4.95it/s]
+===== vllm boot 1 2026-11-08T19:57:07Z =====
+W1108 19:57:09.857000 268 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:57:09.858000 268 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:57:09.858000 268 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+(APIServer pid=268) INFO 11-08 19:57:14 [startup.py:38] 
+(APIServer pid=268) INFO 11-08 19:57:14 [startup.py:38]        █     █     █▄   ▄█
+(APIServer pid=268) INFO 11-08 19:57:14 [startup.py:38]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.33.0
+(APIServer pid=268) INFO 11-08 19:57:14 [startup.py:38]   █▄█▀ █     █     █     █  model   gpustack/GLM-5.3-W4A8
+(APIServer pid=268) INFO 11-08 19:57:14 [startup.py:38]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=268) INFO 11-08 19:57:14 [startup.py:38] 
+(APIServer pid=268) INFO 11-08 19:57:14 [startup.py:96] non-default args: {'model_tag': 'gpustack/GLM-5.3-W4A8', 'enable_auto_tool_choice': True, 'tool_call_parser': 'glm47', 'enable_prompt_tokens_details': True, 'enable_per_request_metrics': True, 'host': '0.0.0.0', 'model': 'gpustack/GLM-5.3-W4A8', 'trust_remote_code': True, 'revision': 'cb867a359aa39552f48f14f294a5f15418c97789', 'max_model_len': 262144, 'served_model_name': ['glm-5.3'], 'reasoning_parser': 'glm45', 'tensor_parallel_size': 4, 'decode_context_parallel_size': 4, 'enable_expert_parallel': True, 'kv_cache_dtype': 'fp8_ds_mla', 'enable_prefix_caching': True, 'max_num_batched_tokens': 32768, 'speculative_config': {'method': 'mtp', 'num_speculative_tokens': 3}}
+(APIServer pid=268) INFO 11-08 19:57:15 [model.py:744] Resolved architecture: GlmMoeDsaForCausalLM
+(APIServer pid=268) INFO 11-08 19:57:15 [model.py:2170] Using max model len 262144
+(APIServer pid=268) INFO 11-08 19:57:17 [cache.py:484] Using fp8_ds_mla data type to store kv cache. It reduces the GPU memory footprint and boosts the performance. Meanwhile, it may cause accuracy drop without a proper scaling factor
+(APIServer pid=268) INFO 11-08 19:57:17 [model.py:744] Resolved architecture: DeepseekV32MTPModel
+(APIServer pid=268) INFO 11-08 19:57:17 [model.py:2170] Using max model len 1048576
+(APIServer pid=268) WARNING 11-08 19:57:17 [speculative.py:1491] Enabling num_speculative_tokens > 1 will run multiple times of forward on same MTP layer,which may result in lower acceptance rate
+(APIServer pid=268) INFO 11-08 19:57:17 [speculative.py:1799] Overriding draft model max model len from 1048576 to 262144
+(APIServer pid=268) INFO 11-08 19:57:17 [scheduler.py:310] Chunked prefill is enabled with max_num_batched_tokens=32768.
+(APIServer pid=268) INFO 11-08 19:57:17 [vllm.py:848] Auto-enabling VLLM_USE_BREAKABLE_CUDAGRAPH=1. Set VLLM_USE_BREAKABLE_CUDAGRAPH=0 to opt out.
+(APIServer pid=268) INFO 11-08 19:57:17 [kernel.py:480] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native'])
+(APIServer pid=268) INFO 11-08 19:57:20 [compilation.py:317] Enabled custom fusions: norm_quant, act_quant, allreduce_rms
+[transformers] The following generation flags are not valid and may be ignored: ['top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+W1108 19:57:24.643000 682 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:57:24.643000 682 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:57:24.643000 682 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+(EngineCore pid=682) INFO 11-08 19:57:29 [core.py:139] Initializing a V1 LLM engine (v0.33.0) with config: model='gpustack/GLM-5.3-W4A8', speculative_config=SpeculativeConfig(method='mtp', model='gpustack/GLM-5.3-W4A8', num_spec_tokens=3), tokenizer='gpustack/GLM-5.3-W4A8', skip_tokenizer_init=False, tokenizer_mode=auto, revision=cb867a359aa39552f48f14f294a5f15418c97789, tokenizer_revision=cb867a359aa39552f48f14f294a5f15418c97789, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=262144, download_dir=None, load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=4, dcp_comm_backend=a2a, disable_custom_all_reduce=False, quantization=compressed-tensors, quantization_config=None, enforce_eager=False, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=fp8_ds_mla, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='glm45', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, custom_histogram_buckets=None, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=glm-5.3, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['+quant_fp8', 'all', '+quant_fp8'], 'ir_enable_torch_wrap': False, 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'cudagraph_decoder_replay': True, 'decoder_replay_cudagraph_capture_sizes': [], 'decoder_replay_trim_threshold': 768, 'compile_sizes': [], 'compile_ranges_endpoints': [170, 32768], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'fuse_allreduce_rms': True, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_rocm_segmented_attn_autotune=False, enable_cutedsl_warmup=True, enable_jit_warmup=True, monokernel=False, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(EngineCore pid=682) INFO 11-08 19:57:29 [multiproc_executor.py:167] DP group leader: node_rank=0, node_rank_within_dp=0, master_addr=127.0.0.1, mq_connect_ip=172.22.0.2 (local), world_size=4, local_world_size=4
+W1108 19:57:32.429000 908 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:57:32.429000 908 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:57:32.429000 908 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+W1108 19:57:32.542000 905 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:57:32.542000 905 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:57:32.542000 905 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+W1108 19:57:32.566000 907 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:57:32.566000 907 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:57:32.566000 907 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+W1108 19:57:32.584000 909 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 19:57:32.585000 909 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 19:57:32.585000 909 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+(Worker pid=908) INFO 11-08 19:57:38 [parallel_state.py:1929] world_size=4 rank=3 local_rank=3 distributed_init_method=file:///tmp/vllm_dist_9e58f592fb534c199f76957c7f38ca16 backend=nccl
+(Worker pid=905) INFO 11-08 19:57:39 [parallel_state.py:1929] world_size=4 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_9e58f592fb534c199f76957c7f38ca16 backend=nccl
+(Worker pid=907) INFO 11-08 19:57:39 [parallel_state.py:1929] world_size=4 rank=2 local_rank=2 distributed_init_method=file:///tmp/vllm_dist_9e58f592fb534c199f76957c7f38ca16 backend=nccl
+(Worker pid=909) INFO 11-08 19:57:39 [parallel_state.py:1929] world_size=4 rank=1 local_rank=1 distributed_init_method=file:///tmp/vllm_dist_9e58f592fb534c199f76957c7f38ca16 backend=nccl
+(Worker pid=905) INFO 11-08 19:57:40 [pynccl.py:148] vLLM is using nccl==2.31.2
+(Worker pid=905) INFO 11-08 19:57:41 [cuda_communicator.py:353] Using ['FLASHINFER', 'CUSTOM', 'SYMM_MEM', 'PYNCCL'] all-reduce backends (in dispatch order) for group 'tp:0' out of potential backends: ['FLASHINFER_PCIE_IPC', 'FLASHINFER', 'NCCL_SYMM_MEM', 'QUICK_REDUCE', 'AITER_CUSTOM', 'CUSTOM', 'SYMM_MEM', 'PYNCCL'].
+(Worker pid=905) INFO 11-08 19:57:41 [cuda_communicator.py:353] Using ['PYNCCL'] all-reduce backends (in dispatch order) for group 'dcp:0' out of potential backends: ['FLASHINFER_PCIE_IPC', 'FLASHINFER', 'NCCL_SYMM_MEM', 'QUICK_REDUCE', 'AITER_CUSTOM', 'CUSTOM', 'SYMM_MEM', 'PYNCCL'].
+(Worker pid=905) INFO 11-08 19:57:42 [cuda_communicator.py:353] Using ['PYNCCL'] all-reduce backends (in dispatch order) for group 'ep:0' out of potential backends: ['FLASHINFER_PCIE_IPC', 'FLASHINFER', 'NCCL_SYMM_MEM', 'QUICK_REDUCE', 'AITER_CUSTOM', 'CUSTOM', 'SYMM_MEM', 'PYNCCL'].
+(Worker pid=905) INFO 11-08 19:57:42 [parallel_state.py:2385] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank 0, EPLB rank N/A
+(Worker pid=905) INFO 11-08 19:57:42 [gpu_worker.py:513] Using V2 Model Runner
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:57:43 [model_runner.py:399] Loading model from scratch...
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:57:43 [__init__.py:778] Selected FlashInferFp8DeepGEMMDynamicBlockScaledKernel for CompressedTensorsW8A8Fp8
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:57:43 [deep_gemm.py:200] deep_gemm not found in site-packages, trying vendored vllm.third_party.deep_gemm
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:57:43 [deep_gemm.py:227] DeepGEMM PDL enabled on vllm.third_party.deep_gemm.
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:57:43 [deep_gemm.py:139] DeepGEMM E8M0 enabled on current platform.
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:57:43 [cuda.py:508] Using FLASHMLA_SPARSE attention backend out of potential backends: ['FLASHMLA_SPARSE'].
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:57:43 [selector.py:131] Using FLASH_ATTN MLA prefill backend.
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:57:44 [dcp.py:1519] Using direct symmetric-memory DCP A2A for MLA.
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:57:44 [dcp.py:1585] Using direct symmetric-memory DCP query gather for MLA.
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:57:44 [expert_map_manager.py:250] [EP Rank 0/4] Expert parallelism is enabled. Expert placement strategy: linear. Local/global number of experts: 64/256. Experts local to global index map: 0->0, 1->1, 2->2, 3->3, 4->4, 5->5, 6->6, 7->7, 8->8, 9->9, 10->10, 11->11, 12->12, 13->13, 14->14, 15->15, 16->16, 17->17, 18->18, 19->19, 20->20, 21->21, 22->22, 23->23, 24->24, 25->25, 26->26, 27->27, 28->28, 29->29, 30->30, 31->31, 32->32, 33->33, 34->34, 35->35, 36->36, 37->37, 38->38, 39->39, 40->40, 41->41, 42->42, 43->43, 44->44, 45->45, 46->46, 47->47, 48->48, 49->49, 50->50, 51->51, 52->52, 53->53, 54->54, 55->55, 56->56, 57->57, 58->58, 59->59, 60->60, 61->61, 62->62, 63->63.
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:57:44 [compressed_tensors_moe.py:186] Using CompressedTensorsW4A8Fp8MoEMethod
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:57:44 [w4a8.py:96] Using CUTLASS W4A8 MoE backend.
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:57:45 [base_loader.py:82] Initializing model took 1.642005 seconds
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:57:46 [weight_utils.py:1144] Filesystem type for checkpoints: OVERLAY. Checkpoint size: 372.27 GiB. Available RAM: 691.45 GiB.
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:57:46 [weight_utils.py:1167] Auto-prefetch is disabled because the filesystem (OVERLAY) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+Loading safetensors checkpoint shards:   0% Completed | 0/141 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:   1% Completed | 1/141 [00:00<00:33,  4.20it/s]
+Loading safetensors checkpoint shards:   1% Completed | 2/141 [00:00<00:26,  5.18it/s]
+Loading safetensors checkpoint shards:   2% Completed | 3/141 [00:00<00:33,  4.17it/s]
+Loading safetensors checkpoint shards:   3% Completed | 4/141 [00:00<00:30,  4.48it/s]
+Loading safetensors checkpoint shards:   4% Completed | 5/141 [00:01<00:32,  4.18it/s]
+Loading safetensors checkpoint shards:   4% Completed | 6/141 [00:01<00:33,  4.07it/s]
+Loading safetensors checkpoint shards:   5% Completed | 7/141 [00:01<00:30,  4.39it/s]
+Loading safetensors checkpoint shards:   6% Completed | 8/141 [00:01<00:31,  4.20it/s]
+Loading safetensors checkpoint shards:   6% Completed | 9/141 [00:02<00:27,  4.76it/s]
+Loading safetensors checkpoint shards:   7% Completed | 10/141 [00:02<00:30,  4.28it/s]
+Loading safetensors checkpoint shards:   8% Completed | 11/141 [00:02<00:28,  4.62it/s]
+Loading safetensors checkpoint shards:   9% Completed | 12/141 [00:02<00:31,  4.06it/s]
+Loading safetensors checkpoint shards:   9% Completed | 13/141 [00:02<00:28,  4.54it/s]
+Loading safetensors checkpoint shards:  10% Completed | 14/141 [00:03<00:30,  4.14it/s]
+Loading safetensors checkpoint shards:  11% Completed | 15/141 [00:03<00:27,  4.50it/s]
+Loading safetensors checkpoint shards:  11% Completed | 16/141 [00:03<00:30,  4.13it/s]
+Loading safetensors checkpoint shards:  12% Completed | 17/141 [00:03<00:29,  4.23it/s]
+Loading safetensors checkpoint shards:  13% Completed | 18/141 [00:04<00:28,  4.36it/s]
+Loading safetensors checkpoint shards:  13% Completed | 19/141 [00:04<00:29,  4.16it/s]
+Loading safetensors checkpoint shards:  14% Completed | 20/141 [00:04<00:26,  4.52it/s]
+Loading safetensors checkpoint shards:  15% Completed | 21/141 [00:04<00:28,  4.27it/s]
+Loading safetensors checkpoint shards:  16% Completed | 22/141 [00:05<00:25,  4.71it/s]
+Loading safetensors checkpoint shards:  16% Completed | 23/141 [00:05<00:26,  4.43it/s]
+Loading safetensors checkpoint shards:  17% Completed | 24/141 [00:05<00:24,  4.87it/s]
+Loading safetensors checkpoint shards:  18% Completed | 25/141 [00:05<00:25,  4.47it/s]
+Loading safetensors checkpoint shards:  18% Completed | 26/141 [00:05<00:23,  4.96it/s]
+Loading safetensors checkpoint shards:  19% Completed | 27/141 [00:06<00:25,  4.52it/s]
+Loading safetensors checkpoint shards:  20% Completed | 28/141 [00:06<00:23,  4.81it/s]
+Loading safetensors checkpoint shards:  21% Completed | 29/141 [00:06<00:24,  4.56it/s]
+Loading safetensors checkpoint shards:  21% Completed | 30/141 [00:06<00:25,  4.41it/s]
+Loading safetensors checkpoint shards:  22% Completed | 31/141 [00:06<00:23,  4.66it/s]
+Loading safetensors checkpoint shards:  23% Completed | 32/141 [00:07<00:25,  4.30it/s]
+Loading safetensors checkpoint shards:  23% Completed | 33/141 [00:07<00:22,  4.74it/s]
+Loading safetensors checkpoint shards:  24% Completed | 34/141 [00:07<00:24,  4.34it/s]
+Loading safetensors checkpoint shards:  25% Completed | 35/141 [00:07<00:22,  4.81it/s]
+Loading safetensors checkpoint shards:  26% Completed | 36/141 [00:08<00:23,  4.42it/s]
+Loading safetensors checkpoint shards:  26% Completed | 37/141 [00:08<00:20,  4.97it/s]
+Loading safetensors checkpoint shards:  27% Completed | 38/141 [00:08<00:23,  4.42it/s]
+Loading safetensors checkpoint shards:  28% Completed | 39/141 [00:08<00:20,  4.88it/s]
+Loading safetensors checkpoint shards:  28% Completed | 40/141 [00:08<00:23,  4.38it/s]
+Loading safetensors checkpoint shards:  29% Completed | 41/141 [00:09<00:22,  4.45it/s]
+Loading safetensors checkpoint shards:  30% Completed | 42/141 [00:09<00:21,  4.55it/s]
+Loading safetensors checkpoint shards:  30% Completed | 43/141 [00:09<00:22,  4.27it/s]
+Loading safetensors checkpoint shards:  31% Completed | 44/141 [00:09<00:20,  4.77it/s]
+Loading safetensors checkpoint shards:  32% Completed | 45/141 [00:10<00:22,  4.36it/s]
+Loading safetensors checkpoint shards:  33% Completed | 46/141 [00:10<00:19,  4.80it/s]
+Loading safetensors checkpoint shards:  33% Completed | 47/141 [00:10<00:21,  4.37it/s]
+Loading safetensors checkpoint shards:  34% Completed | 48/141 [00:10<00:18,  4.92it/s]
+Loading safetensors checkpoint shards:  35% Completed | 49/141 [00:10<00:21,  4.38it/s]
+Loading safetensors checkpoint shards:  35% Completed | 50/141 [00:11<00:18,  4.90it/s]
+Loading safetensors checkpoint shards:  36% Completed | 51/141 [00:11<00:19,  4.57it/s]
+Loading safetensors checkpoint shards:  37% Completed | 52/141 [00:11<00:18,  4.69it/s]
+Loading safetensors checkpoint shards:  38% Completed | 53/141 [00:11<00:19,  4.59it/s]
+Loading safetensors checkpoint shards:  38% Completed | 54/141 [00:12<00:19,  4.39it/s]
+Loading safetensors checkpoint shards:  39% Completed | 55/141 [00:12<00:17,  4.81it/s]
+Loading safetensors checkpoint shards:  40% Completed | 56/141 [00:12<00:19,  4.46it/s]
+Loading safetensors checkpoint shards:  40% Completed | 57/141 [00:12<00:17,  4.85it/s]
+Loading safetensors checkpoint shards:  41% Completed | 58/141 [00:12<00:18,  4.43it/s]
+Loading safetensors checkpoint shards:  42% Completed | 59/141 [00:13<00:16,  4.92it/s]
+Loading safetensors checkpoint shards:  43% Completed | 60/141 [00:13<00:18,  4.42it/s]
+Loading safetensors checkpoint shards:  43% Completed | 61/141 [00:13<00:16,  4.90it/s]
+Loading safetensors checkpoint shards:  44% Completed | 62/141 [00:13<00:17,  4.42it/s]
+Loading safetensors checkpoint shards:  45% Completed | 63/141 [00:13<00:16,  4.68it/s]
+Loading safetensors checkpoint shards:  45% Completed | 64/141 [00:14<00:17,  4.43it/s]
+Loading safetensors checkpoint shards:  46% Completed | 65/141 [00:14<00:17,  4.32it/s]
+Loading safetensors checkpoint shards:  47% Completed | 66/141 [00:14<00:16,  4.63it/s]
+Loading safetensors checkpoint shards:  48% Completed | 67/141 [00:14<00:16,  4.41it/s]
+Loading safetensors checkpoint shards:  48% Completed | 68/141 [00:15<00:14,  4.94it/s]
+Loading safetensors checkpoint shards:  49% Completed | 69/141 [00:15<00:15,  4.61it/s]
+Loading safetensors checkpoint shards:  50% Completed | 70/141 [00:15<00:14,  5.04it/s]
+Loading safetensors checkpoint shards:  50% Completed | 71/141 [00:15<00:15,  4.50it/s]
+Loading safetensors checkpoint shards:  51% Completed | 72/141 [00:15<00:13,  5.07it/s]
+Loading safetensors checkpoint shards:  52% Completed | 73/141 [00:16<00:14,  4.62it/s]
+Loading safetensors checkpoint shards:  52% Completed | 74/141 [00:16<00:13,  5.06it/s]
+Loading safetensors checkpoint shards:  53% Completed | 75/141 [00:16<00:13,  4.72it/s]
+Loading safetensors checkpoint shards:  54% Completed | 76/141 [00:16<00:13,  4.66it/s]
+Loading safetensors checkpoint shards:  55% Completed | 77/141 [00:16<00:13,  4.86it/s]
+Loading safetensors checkpoint shards:  55% Completed | 78/141 [00:17<00:13,  4.54it/s]
+Loading safetensors checkpoint shards:  56% Completed | 79/141 [00:17<00:12,  5.04it/s]
+Loading safetensors checkpoint shards:  57% Completed | 80/141 [00:17<00:13,  4.59it/s]
+Loading safetensors checkpoint shards:  57% Completed | 81/141 [00:17<00:11,  5.02it/s]
+Loading safetensors checkpoint shards:  58% Completed | 82/141 [00:18<00:13,  4.51it/s]
+Loading safetensors checkpoint shards:  59% Completed | 83/141 [00:18<00:11,  4.99it/s]
+Loading safetensors checkpoint shards:  60% Completed | 84/141 [00:18<00:13,  4.37it/s]
+Loading safetensors checkpoint shards:  60% Completed | 85/141 [00:18<00:11,  4.83it/s]
+Loading safetensors checkpoint shards:  61% Completed | 86/141 [00:18<00:12,  4.34it/s]
+Loading safetensors checkpoint shards:  62% Completed | 87/141 [00:19<00:12,  4.41it/s]
+Loading safetensors checkpoint shards:  62% Completed | 88/141 [00:19<00:11,  4.43it/s]
+Loading safetensors checkpoint shards:  63% Completed | 89/141 [00:19<00:12,  4.13it/s]
+Loading safetensors checkpoint shards:  64% Completed | 90/141 [00:19<00:11,  4.58it/s]
+Loading safetensors checkpoint shards:  65% Completed | 91/141 [00:20<00:11,  4.21it/s]
+Loading safetensors checkpoint shards:  65% Completed | 92/141 [00:20<00:10,  4.63it/s]
+Loading safetensors checkpoint shards:  66% Completed | 93/141 [00:20<00:11,  4.23it/s]
+Loading safetensors checkpoint shards:  67% Completed | 94/141 [00:20<00:09,  4.74it/s]
+Loading safetensors checkpoint shards:  67% Completed | 95/141 [00:20<00:10,  4.26it/s]
+Loading safetensors checkpoint shards:  68% Completed | 96/141 [00:21<00:09,  4.78it/s]
+Loading safetensors checkpoint shards:  69% Completed | 97/141 [00:21<00:10,  4.28it/s]
+Loading safetensors checkpoint shards:  70% Completed | 98/141 [00:21<00:09,  4.52it/s]
+Loading safetensors checkpoint shards:  70% Completed | 99/141 [00:21<00:09,  4.37it/s]
+Loading safetensors checkpoint shards:  71% Completed | 100/141 [00:22<00:09,  4.25it/s]
+Loading safetensors checkpoint shards:  72% Completed | 101/141 [00:22<00:08,  4.54it/s]
+Loading safetensors checkpoint shards:  72% Completed | 102/141 [00:22<00:09,  4.25it/s]
+Loading safetensors checkpoint shards:  73% Completed | 103/141 [00:22<00:08,  4.72it/s]
+Loading safetensors checkpoint shards:  74% Completed | 104/141 [00:22<00:08,  4.33it/s]
+Loading safetensors checkpoint shards:  74% Completed | 105/141 [00:23<00:07,  4.82it/s]
+Loading safetensors checkpoint shards:  75% Completed | 106/141 [00:23<00:08,  4.33it/s]
+Loading safetensors checkpoint shards:  76% Completed | 107/141 [00:23<00:07,  4.83it/s]
+Loading safetensors checkpoint shards:  77% Completed | 108/141 [00:23<00:07,  4.36it/s]
+Loading safetensors checkpoint shards:  77% Completed | 109/141 [00:24<00:06,  4.71it/s]
+Loading safetensors checkpoint shards:  78% Completed | 110/141 [00:24<00:07,  4.40it/s]
+Loading safetensors checkpoint shards:  79% Completed | 111/141 [00:24<00:06,  4.31it/s]
+Loading safetensors checkpoint shards:  79% Completed | 112/141 [00:24<00:06,  4.53it/s]
+Loading safetensors checkpoint shards:  80% Completed | 113/141 [00:24<00:06,  4.29it/s]
+Loading safetensors checkpoint shards:  81% Completed | 114/141 [00:25<00:05,  4.76it/s]
+Loading safetensors checkpoint shards:  82% Completed | 115/141 [00:25<00:05,  4.37it/s]
+Loading safetensors checkpoint shards:  82% Completed | 116/141 [00:25<00:05,  4.80it/s]
+Loading safetensors checkpoint shards:  83% Completed | 117/141 [00:25<00:05,  4.33it/s]
+Loading safetensors checkpoint shards:  84% Completed | 118/141 [00:25<00:04,  4.85it/s]
+Loading safetensors checkpoint shards:  84% Completed | 119/141 [00:26<00:05,  4.39it/s]
+Loading safetensors checkpoint shards:  85% Completed | 120/141 [00:26<00:04,  4.89it/s]
+Loading safetensors checkpoint shards:  86% Completed | 121/141 [00:26<00:04,  4.45it/s]
+Loading safetensors checkpoint shards:  87% Completed | 122/141 [00:26<00:04,  4.51it/s]
+Loading safetensors checkpoint shards:  87% Completed | 123/141 [00:27<00:03,  4.57it/s]
+Loading safetensors checkpoint shards:  88% Completed | 124/141 [00:27<00:04,  4.24it/s]
+Loading safetensors checkpoint shards:  89% Completed | 125/141 [00:27<00:03,  4.71it/s]
+Loading safetensors checkpoint shards:  89% Completed | 126/141 [00:27<00:03,  4.44it/s]
+Loading safetensors checkpoint shards:  90% Completed | 127/141 [00:27<00:02,  4.88it/s]
+Loading safetensors checkpoint shards:  91% Completed | 128/141 [00:28<00:02,  4.37it/s]
+Loading safetensors checkpoint shards:  91% Completed | 129/141 [00:28<00:02,  4.88it/s]
+Loading safetensors checkpoint shards:  92% Completed | 130/141 [00:28<00:02,  4.49it/s]
+Loading safetensors checkpoint shards:  93% Completed | 131/141 [00:28<00:02,  4.98it/s]
+Loading safetensors checkpoint shards:  94% Completed | 132/141 [00:29<00:01,  4.51it/s]
+Loading safetensors checkpoint shards:  94% Completed | 133/141 [00:29<00:01,  4.68it/s]
+Loading safetensors checkpoint shards:  95% Completed | 134/141 [00:29<00:01,  4.64it/s]
+Loading safetensors checkpoint shards:  96% Completed | 135/141 [00:29<00:01,  4.53it/s]
+Loading safetensors checkpoint shards:  97% Completed | 137/141 [00:29<00:00,  6.93it/s]
+Loading safetensors checkpoint shards:  98% Completed | 138/141 [00:29<00:00,  7.33it/s]
+Loading safetensors checkpoint shards:  99% Completed | 139/141 [00:30<00:00,  5.93it/s]
+Loading safetensors checkpoint shards:  99% Completed | 140/141 [00:30<00:00,  6.03it/s]
+Loading safetensors checkpoint shards: 100% Completed | 141/141 [00:30<00:00,  5.32it/s]
+Loading safetensors checkpoint shards: 100% Completed | 141/141 [00:30<00:00,  4.61it/s]
+
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:58:16 [default_loader.py:506] Loading weights took 30.63 seconds
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:58:19 [w4a8.py:266] Using MoEPrepareAndFinalizeNoDPEPModular

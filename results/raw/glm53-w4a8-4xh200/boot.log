@@ -1,0 +1,10 @@
+[start 2026-11-08T19:20:26Z] deadline 2026-11-09T04:26:26Z
+[start 2026-11-08T19:20:33Z] sshd up
+[start 2026-11-08T19:48:31Z] weights ready in 1678s (373G)
+[start 2026-11-08T19:48:31Z] vllm boot 1:  --served-model-name glm-5.3 --host 0.0.0.0 --port 8000 --trust-remote-code --tensor-parallel-size 4 --enable-expert-parallel --kv-cache-dtype fp8_ds_mla --gpu-memory-utilization 0.92 --max-model-len 262144 --max-num-batched-tokens 32768 --speculative-config {"method":"mtp","num_speculative_tokens":3} --enable-prefix-caching --enable-prompt-tokens-details --enable-per-request-metrics --enable-auto-tool-choice --tool-call-parser glm47 --reasoning-parser glm45
+[start 2026-11-08T19:55:39Z] vllm boot 1 exited with 1
+[start 2026-11-08T19:55:44Z] vllm boot 2:  --served-model-name glm-5.3 --host 0.0.0.0 --port 8000 --trust-remote-code --tensor-parallel-size 4 --enable-expert-parallel --kv-cache-dtype fp8_ds_mla --gpu-memory-utilization 0.92 --max-model-len 262144 --max-num-batched-tokens 32768 --speculative-config {"method":"mtp","num_speculative_tokens":3} --enable-prefix-caching --enable-prompt-tokens-details --enable-per-request-metrics --enable-auto-tool-choice --tool-call-parser glm47 --reasoning-parser glm45
+[start 2026-11-08T19:57:06Z] deadline 2026-11-09T04:26:26Z
+[start 2026-11-08T19:57:06Z] sshd up
+[start 2026-11-08T19:57:07Z] weights ready in 1s (373G)
+[start 2026-11-08T19:57:07Z] vllm boot 1:  --served-model-name glm-5.3 --host 0.0.0.0 --port 8000 --trust-remote-code --tensor-parallel-size 4 --enable-expert-parallel --kv-cache-dtype fp8_ds_mla --gpu-memory-utilization 0.92 --max-model-len 262144 --max-num-batched-tokens 32768 --speculative-config {"method":"mtp","num_speculative_tokens":3} --enable-prefix-caching --enable-prompt-tokens-details --enable-per-request-metrics --enable-auto-tool-choice --tool-call-parser glm47 --reasoning-parser glm45 --decode-context-parallel-size 4

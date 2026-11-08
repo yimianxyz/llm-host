@@ -1,0 +1,12 @@
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/d970a75d825485bcb4a624643490f13c13a5e5f8acf7e36ae3b54e15b119559c.lock (elapsed: 10.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/3eb99eb400c46c3126029d90bb9f9892b70293e4e6b5053d37a3942dd35cfeee.lock (elapsed: 10.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/d970a75d825485bcb4a624643490f13c13a5e5f8acf7e36ae3b54e15b119559c.lock (elapsed: 20.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/3eb99eb400c46c3126029d90bb9f9892b70293e4e6b5053d37a3942dd35cfeee.lock (elapsed: 20.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/3eb99eb400c46c3126029d90bb9f9892b70293e4e6b5053d37a3942dd35cfeee.lock (elapsed: 30.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/3eb99eb400c46c3126029d90bb9f9892b70293e4e6b5053d37a3942dd35cfeee.lock (elapsed: 40.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/3eb99eb400c46c3126029d90bb9f9892b70293e4e6b5053d37a3942dd35cfeee.lock (elapsed: 50.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/3eb99eb400c46c3126029d90bb9f9892b70293e4e6b5053d37a3942dd35cfeee.lock (elapsed: 60.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/3eb99eb400c46c3126029d90bb9f9892b70293e4e6b5053d37a3942dd35cfeee.lock (elapsed: 70.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/3eb99eb400c46c3126029d90bb9f9892b70293e4e6b5053d37a3942dd35cfeee.lock (elapsed: 80.0 seconds)
+[32m✓ Downloaded[0m
+  path: /root/.cache/huggingface/hub/models--gpustack--GLM-5.3-W4A8/snapshots/cb867a359aa39552f48f14f294a5f15418c97789

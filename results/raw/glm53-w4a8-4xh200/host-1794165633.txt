@@ -1,0 +1,49 @@
+Sun Nov  8 19:20:33 UTC 2026
+index, name, memory.total [MiB], driver_version
+0, NVIDIA H200, 143771 MiB, 595.91.07
+1, NVIDIA H200, 143771 MiB, 595.91.07
+2, NVIDIA H200, 143771 MiB, 595.91.07
+3, NVIDIA H200, 143771 MiB, 595.91.07
+	[4mGPU0	GPU1	GPU2	GPU3	NIC0	NIC1	NIC2	NIC3	NIC4	NIC5	NIC6	NIC7	CPU Affinity	NUMA Affinity	GPU NUMA ID[0m
+GPU0	 X 	NV18	NV18	NV18	PHB	PHB	PHB	PHB	PHB	PHB	PHB	PHB	0-39	0		N/A
+GPU1	NV18	 X 	NV18	NV18	PHB	PHB	PHB	PHB	PHB	PHB	PHB	PHB	0-39	0		N/A
+GPU2	NV18	NV18	 X 	NV18	PHB	PHB	PHB	PHB	PHB	PHB	PHB	PHB	0-39	0		N/A
+GPU3	NV18	NV18	NV18	 X 	PHB	PHB	PHB	PHB	PHB	PHB	PHB	PHB	0-39	0		N/A
+NIC0	PHB	PHB	PHB	PHB	 X 	PHB	PHB	PHB	PHB	PHB	PHB	PHB				
+NIC1	PHB	PHB	PHB	PHB	PHB	 X 	PHB	PHB	PHB	PHB	PHB	PHB				
+NIC2	PHB	PHB	PHB	PHB	PHB	PHB	 X 	PHB	PHB	PHB	PHB	PHB				
+NIC3	PHB	PHB	PHB	PHB	PHB	PHB	PHB	 X 	PHB	PHB	PHB	PHB				
+NIC4	PHB	PHB	PHB	PHB	PHB	PHB	PHB	PHB	 X 	PHB	PHB	PHB				
+NIC5	PHB	PHB	PHB	PHB	PHB	PHB	PHB	PHB	PHB	 X 	PHB	PHB				
+NIC6	PHB	PHB	PHB	PHB	PHB	PHB	PHB	PHB	PHB	PHB	 X 	PHB				
+NIC7	PHB	PHB	PHB	PHB	PHB	PHB	PHB	PHB	PHB	PHB	PHB	 X 				
+
+Legend:
+
+  X    = Self
+  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)
+  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node
+  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)
+  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)
+  PIX  = Connection traversing at most a single PCIe bridge
+  NV#  = Connection traversing a bonded set of # NVLinks
+
+NIC Legend:
+
+  NIC0: mlx5_0
+  NIC1: mlx5_1
+  NIC2: mlx5_2
+  NIC3: mlx5_3
+  NIC4: mlx5_4
+  NIC5: mlx5_5
+  NIC6: mlx5_6
+  NIC7: mlx5_7
+
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         600G   92M  600G   1% /
+shm             352G     0  352G   0% /dev/shm
+               total        used        free      shared  buff/cache   available
+Mem:            1511          53         691           0         778        1457
+Swap:              0           0           0
+nproc=160 cgroup_cpu.max=6800000 100000
+runpod_env: RUNPOD_API_KEY RUNPOD_CPU_COUNT RUNPOD_DC_ID RUNPOD_GPU_COUNT RUNPOD_GPU_NAME RUNPOD_MEM_GB RUNPOD_POD_HOSTNAME RUNPOD_POD_ID RUNPOD_PUBLIC_IP RUNPOD_TCP_PORT_ 

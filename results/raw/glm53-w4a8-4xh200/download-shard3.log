@@ -1,0 +1,14 @@
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/951dab58e40a752e4cd1e192860cf2f87ca432d9f09177d144f9698b0db80c33.lock (elapsed: 10.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/70082210ec0429690df6314045fc61b16e105e54555e8ee8a72aa96fed5332d0.lock (elapsed: 10.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/951dab58e40a752e4cd1e192860cf2f87ca432d9f09177d144f9698b0db80c33.lock (elapsed: 20.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/70082210ec0429690df6314045fc61b16e105e54555e8ee8a72aa96fed5332d0.lock (elapsed: 20.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/951dab58e40a752e4cd1e192860cf2f87ca432d9f09177d144f9698b0db80c33.lock (elapsed: 30.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/70082210ec0429690df6314045fc61b16e105e54555e8ee8a72aa96fed5332d0.lock (elapsed: 30.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/951dab58e40a752e4cd1e192860cf2f87ca432d9f09177d144f9698b0db80c33.lock (elapsed: 40.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/70082210ec0429690df6314045fc61b16e105e54555e8ee8a72aa96fed5332d0.lock (elapsed: 40.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/951dab58e40a752e4cd1e192860cf2f87ca432d9f09177d144f9698b0db80c33.lock (elapsed: 50.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/951dab58e40a752e4cd1e192860cf2f87ca432d9f09177d144f9698b0db80c33.lock (elapsed: 60.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/951dab58e40a752e4cd1e192860cf2f87ca432d9f09177d144f9698b0db80c33.lock (elapsed: 70.0 seconds)
+Still waiting to acquire lock on /root/.cache/huggingface/hub/.locks/models--gpustack--GLM-5.3-W4A8/951dab58e40a752e4cd1e192860cf2f87ca432d9f09177d144f9698b0db80c33.lock (elapsed: 80.0 seconds)
+[32m✓ Downloaded[0m
+  path: /root/.cache/huggingface/hub/models--gpustack--GLM-5.3-W4A8/snapshots/cb867a359aa39552f48f14f294a5f15418c97789
