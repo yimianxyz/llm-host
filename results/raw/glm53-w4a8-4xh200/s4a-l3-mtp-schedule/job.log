@@ -1,0 +1,1 @@
++ bash evals/bench.sh apply deploy/configs/L3-mtp-schedule.args

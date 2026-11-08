@@ -2,13 +2,15 @@
 Price $21.16/hr, 4 GPUs. SLO: TTFT p50 <= 5 s, interactivity >= 50 tok/s, zero failures.
 
 ## Agentic (OpenHands multi-turn, EvalScope)
-| step | c | requests | failed | ttft_p50_ms | ttft_p90_ms | tpot_ms | interactivity | out_tok_s | total_tok_s_per_gpu | kv_hit_pct | prefix_hit | mtp_al | decoded_per_iter | preemptions | slo_ok | usd_per_session_hr | usd_per_m_out |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| r01-rehearsal | 1 | 12 | 0 | 92.64 | 211.63 | 4.58 | 218.3 | 194.3204 | 1481 | 64.9449 | 0.6494 |  | 1.0067 | 0.0 | True | 21.16 | 30.25 |
-| r01-rehearsal | 4 | 24 | 0 | 190.03 | 548.86 | 8.71 | 114.8 | 404.3194 | 3082 | 64.9658 | 0.6496 |  | 1.0072 | 0.0 | True | 5.29 | 14.54 |
-| s3-baseline | 1 | 52 | 0 | 428.59 | 484.84 | 5.93 | 168.6 | 81.6755 | 7431 | 91.7517 | 0.9175 | 3.802 | 3.8024 | 0.0 | True | 21.16 | 71.97 |
-| s3-baseline | 4 | 104 | 0 | 503.65 | 745.37 | 19.92 | 50.2 | 126.3797 | 11481 | 91.7644 | 0.9176 | 3.752 | 3.7598 | 0.0 | True | 5.29 | 46.51 |
-| s3-baseline | 8 | 208 | 0 | 576.89 | 1108.0 | 38.57 | 25.9 | 144.9076 | 13166 | 91.7564 | 0.9176 | 3.78 | 3.8487 | 0.0 | False |  | 40.56 |
+interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 x the run's own acceptance; inter_real = 1000 x al_real / step_ms re-weights the measured step time by the acceptance on real coding prompts (see al_ref) and is what the SLO uses; inter_real_mean is the same from the mean TPOT, which includes the prefill stalls in full.
+
+| step | c | requests | failed | ttft_p50_ms | ttft_p90_ms | ttft_p99_ms | tpot_p50_ms | tpot_mean_ms | itl_p50_ms | itl_p99_ms | interactivity | step_ms | al_real | inter_real | inter_real_mean | out_tok_s | total_tok_s_per_gpu | prefix_hit | mtp_al | preemptions | slo_ok | usd_per_session_hr | usd_per_m_out |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| r01-rehearsal | 1 | 12 | 0 | 92.64 | 211.63 | 211.84 | 4.58 | 4.58 | 4.62 | 5.19 | 218.3 |  |  | 218.3 | 218.3 | 194.3204 | 1481 | 0.6494 |  | 0.0 | True | 21.16 | 30.25 |
+| r01-rehearsal | 4 | 24 | 0 | 190.03 | 548.86 | 670.86 | 8.64 | 8.71 | 8.46 | 17.11 | 115.7 |  |  | 115.7 | 114.8 | 404.3194 | 3082 | 0.6496 |  | 0.0 | True | 5.29 | 14.54 |
+| s3-baseline | 1 | 52 | 0 | 428.59 | 484.84 | 12910.29 | 5.74 | 5.93 | 23.11 | 29.25 | 174.2 | 21.8 | 2.95 | 135.2 | 130.8 | 81.6755 | 7431 | 0.9175 | 3.802 | 0.0 | True | 21.16 | 71.97 |
+| s3-baseline | 4 | 104 | 0 | 503.65 | 745.37 | 39379.9 | 11.4 | 19.92 | 33.68 | 1412.99 | 87.7 | 42.8 | 2.95 | 69.0 | 39.5 | 126.3797 | 11481 | 0.9176 | 3.752 | 0.0 | True | 5.29 | 46.51 |
+| s3-baseline | 8 | 208 | 0 | 576.89 | 1108.0 | 77281.53 | 17.51 | 38.57 | 43.21 | 1421.22 | 57.1 | 66.2 | 2.95 | 44.6 | 20.2 | 144.9076 | 13166 | 0.9176 | 3.78 | 0.0 | False |  | 40.56 |
 
 ## Max sessions at SLO per step
 | step | max_sessions_at_slo | usd_per_session_hr |
@@ -21,6 +23,7 @@ Price $21.16/hr, 4 GPUs. SLO: TTFT p50 <= 5 s, interactivity >= 50 tok/s, zero f
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | r01-rehearsal | 1 | 8 | 0 | 289 | 328 | 5.17 | 5.19 | 193.3 | 184 | 414 | 0.18 |  | 31.97 |
 | s3b-reference | 1 | 8 | 0 | 1402 | 1412 | 13.86 | 21.04 | 72.1 | 64 | 144 | 0.063 | 1.395 | 91.79 |
+| s3b-reference | 16 | 64 | 0 | 1575 | 13616 | 51.22 | 78.9 | 19.5 | 257 | 579 | 0.157 | 1.361 | 22.84 |
 
 ## Quality, MTP acceptance, restarts, KV capacity
 | step | file | result |
