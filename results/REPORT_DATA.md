@@ -24,6 +24,7 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | r01-rehearsal | 1 | 8 | 0 | 289 | 328 | 5.17 | 5.19 | 193.3 | 184 | 414 | 0.18 |  | 31.97 |
 | s3b-reference | 1 | 8 | 0 | 1402 | 1412 | 13.86 | 21.04 | 72.1 | 64 | 144 | 0.063 | 1.395 | 91.79 |
 | s3b-reference | 16 | 64 | 0 | 1575 | 13616 | 51.22 | 78.9 | 19.5 | 257 | 579 | 0.157 | 1.361 | 22.84 |
+| s3b-reference | 64 | 128 | 0 | 5178 | 71439 | 109.5 | 214.61 | 9.1 | 390 | 877 | 0.024 | 1.371 | 15.08 |
 
 ## Quality, MTP acceptance, restarts, KV capacity
 | step | file | result |

@@ -3,9 +3,10 @@
 
   python evals/report.py [--price 21.16] [--gpus 4]
 
-Conventions: interactivity = 1000 / TPOT (tok/s per user); throughput per GPU = total tok/s / GPUs, where total
+Conventions: interactivity = 1000 / median per-request TPOT (tok/s per user); throughput per GPU = total tok/s / GPUs, where total
 includes prefix-cached prompt tokens ("logical" throughput, as in the vLLM GLM-5.3 blog). An agentic point
-meets the SLO when TTFT p50 <= 5 s, interactivity >= 50 tok/s, and no request failed (NVIDIA Dynamo's SLO).
+meets the SLO when TTFT p50 <= 5 s, interactivity >= 50 tok/s, and no request failed (NVIDIA Dynamo's SLO), with
+interactivity taken at real-prompt MTP acceptance (inter_real, see al_ref).
 """
 
 import argparse
@@ -38,6 +39,18 @@ def pct(rows, key, p):
     return None
 
 
+def al_ref(pod, step, c):
+    """Acceptance length on real coding prompts (speed_bench) for an agentic point. The OpenHands workload forces
+    ignore_eos at temperature 0, so outputs past the natural end degenerate into repetition that MTP predicts almost
+    perfectly; its own acceptance is not representative. Use the step's own measurement when it covered concurrency
+    c (a per-batch-size schedule picks the draft count by batch), else the B4 baseline's (3 drafts)."""
+    own = load(os.path.join(RAW, pod, step, "mtp_al.json"))
+    if own and c <= (own.get("max_concurrency") or 0):
+        return own.get("spec_decode_acceptance_length")
+    base = [load(p) for p in live(sorted(glob.glob(f"{RAW}/*/s2-quality/mtp_al.json")))]
+    return base[-1].get("spec_decode_acceptance_length") if base and base[-1] else None
+
+
 def agentic_rows(price, gpus):
     out = []
     for s in live(sorted(glob.glob(f"{RAW}/*/*/evalscope/*/parallel_*_number_*/benchmark_summary.json"))):
@@ -48,16 +61,28 @@ def agentic_rows(price, gpus):
             continue
         m = load(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(s)))), f"{name}.metrics.json")) or {}
         c = summ.get("Concurrency")
-        tpot = summ.get("TPOT (ms)") or 0
+        tpot = pct(perc, "TPOT (ms)", "50%") or 0
+        tpot_mean = summ.get("TPOT (ms)") or 0
         ttft50 = pct(perc, "TTFT (ms)", "50%")
         inter = 1000 / tpot if tpot else None
+        al_run = m.get("mtp_acceptance_length")
+        al_real = al_ref(pod, step, c) if al_run else None
+        scale = al_real / al_run if al_real else 1
+        step_ms = tpot * al_run if tpot and al_run else None
+        inter_real = 1000 * scale / tpot if tpot else None
+        inter_real_mean = 1000 * scale / tpot_mean if tpot_mean else None
         failed = summ.get("Failed Requests", 0)
-        ok = ttft50 is not None and ttft50 <= 5000 and inter is not None and inter >= 50 and failed == 0
+        ok = ttft50 is not None and ttft50 <= 5000 and inter_real is not None and inter_real >= 50 and failed == 0
         tot = summ.get("Total Throughput (tok/s)") or 0
         out.append({
             "pod": pod, "step": step, "name": name, "c": c, "requests": summ.get("Total Requests"), "failed": failed,
-            "ttft_p50_ms": ttft50, "ttft_p90_ms": pct(perc, "TTFT (ms)", "90%"), "tpot_ms": tpot,
-            "interactivity": round(inter, 1) if inter else None, "out_tok_s": summ.get("Output Throughput (tok/s)"),
+            "ttft_p50_ms": ttft50, "ttft_p90_ms": pct(perc, "TTFT (ms)", "90%"), "ttft_p99_ms": pct(perc, "TTFT (ms)", "99%"),
+            "tpot_p50_ms": tpot, "tpot_mean_ms": tpot_mean, "itl_p50_ms": pct(perc, "ITL (ms)", "50%"),
+            "itl_p99_ms": pct(perc, "ITL (ms)", "99%"),
+            "interactivity": round(inter, 1) if inter else None, "step_ms": round(step_ms, 1) if step_ms else None,
+            "al_real": round(al_real, 2) if al_real else None, "inter_real": round(inter_real, 1) if inter_real else None,
+            "inter_real_mean": round(inter_real_mean, 1) if inter_real_mean else None,
+            "out_tok_s": summ.get("Output Throughput (tok/s)"),
             "total_tok_s_per_gpu": round(tot / gpus), "kv_hit_pct": summ.get("KV Cache Hit Rate (%)"),
             "decoded_per_iter": summ.get("Decoded Tok/Iter"), "mtp_al": m.get("mtp_acceptance_length"),
             "prefix_hit": m.get("prefix_cache_hit_rate"), "preemptions": m.get("preemptions"), "slo_ok": ok,
@@ -134,15 +159,15 @@ def pareto(rows, path):
     fig, ax = plt.subplots(figsize=(8, 5))
     series = {}
     for r in rows:
-        if r["interactivity"]:
-            series.setdefault(f"{r['step']}", []).append((r["interactivity"], r["total_tok_s_per_gpu"], r["c"]))
+        if r["inter_real"] and not r["step"].startswith("r0"):
+            series.setdefault(f"{r['step']}", []).append((r["inter_real"], r["total_tok_s_per_gpu"], r["c"]))
     for label, pts in series.items():
         pts.sort()
         ax.plot([p[0] for p in pts], [p[1] for p in pts], marker="o", label=label)
         for x, y, c in pts:
             ax.annotate(f"c{c}", (x, y), fontsize=7)
     ax.axvline(50, ls="--", c="grey", lw=0.8)
-    ax.set_xlabel("interactivity (tok/s per user, 1000/TPOT)")
+    ax.set_xlabel("interactivity at real-prompt MTP acceptance (tok/s per user)")
     ax.set_ylabel("logical total tok/s per GPU")
     ax.set_title("GLM-5.3 W4A8 on 4x H200: agentic OpenHands workload")
     ax.legend(fontsize=7)
@@ -160,8 +185,14 @@ def main():
     md = ["# Report data (generated by evals/report.py; do not edit)\n",
           f"Price ${a.price}/hr, {a.gpus} GPUs. SLO: TTFT p50 <= 5 s, interactivity >= 50 tok/s, zero failures.\n",
           "\n## Agentic (OpenHands multi-turn, EvalScope)\n",
-          table(ag, ["step", "c", "requests", "failed", "ttft_p50_ms", "ttft_p90_ms", "tpot_ms", "interactivity", "out_tok_s",
-                     "total_tok_s_per_gpu", "kv_hit_pct", "prefix_hit", "mtp_al", "decoded_per_iter", "preemptions",
+          "interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 x the run's own acceptance; "
+          "inter_real = 1000 x al_real / step_ms re-weights the measured step time by the acceptance on real coding "
+          "prompts (see al_ref) and is what the SLO uses; inter_real_mean is the same from the mean TPOT, which "
+          "includes the prefill stalls in full.\n\n",
+          table(ag, ["step", "c", "requests", "failed", "ttft_p50_ms", "ttft_p90_ms", "ttft_p99_ms", "tpot_p50_ms",
+                     "tpot_mean_ms", "itl_p50_ms", "itl_p99_ms", "interactivity", "step_ms",
+                     "al_real", "inter_real", "inter_real_mean", "out_tok_s",
+                     "total_tok_s_per_gpu", "prefix_hit", "mtp_al", "preemptions",
                      "slo_ok", "usd_per_session_hr", "usd_per_m_out"]),
           "\n## Max sessions at SLO per step\n"]
     best = {}

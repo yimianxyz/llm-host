@@ -102,3 +102,70 @@ This log is append-only, with one entry per step. Each entry records the config,
 **Single-stream speed at long context (no other load):** decode stays at 120-157 tok/s at 128K-200K context. That is about 2x Z.ai's own API at 66 tok/s, because sparse attention keeps attention cost flat and MTP3 contributes about 2.95 tokens per step. Cold prefill runs at about 5.5K tok/s, so a 74K-token cold first turn costs about 13 s.
 
 **Gate A, quality half: W4A8 + FP8 sparse KV + DCP4 + MTP3 preserves quality.** No fallback to FP8 or 8x H200 is needed.
+
+## Step 3: baseline performance on B4 (20:45-21:35Z): 4 sessions at SLO, $5.29 per session-hour
+
+**Workload:** the vLLM GLM-5.3 blog's OpenHands multi-turn workload on EvalScope (commit acd09b44).
+- Each conversation has 13 turns. The first turn is 74K tokens, unique per conversation. Each later turn adds about 1K tokens, and every turn emits 220 tokens.
+- Each concurrency point runs 2c conversations, with disjoint dataset slices per point.
+
+**The workload overstates MTP, and the report now corrects for it.**
+- **The artifact:** the workload sends `ignore_eos: true` at temperature 0. Once the model would naturally stop, it is forced on and degenerates into loops ("Let me start by exploring the repository structure." repeated). Decoded samples are in `evalscope/agentic_c4/.../benchmark_data.db`.
+- **The effect:** MTP predicts those loops almost perfectly, so the run's acceptance length is **3.8 of a possible 4**. On real coding prompts (SPEED-Bench) it is 2.95.
+- **The correction:** `report.py` derives the engine step time as TPOT x the run's own acceptance length. That is the hardware quantity; verify cost does not depend on acceptance. It then reports `inter_real` = real acceptance / step time. Raw TPOT overstates per-user speed by about 29%.
+- The SLO uses the median per-request TPOT, as `docs/DESIGN.md` specifies; until now the report had used EvalScope's mean.
+
+| c | TTFT p50 / p90 / p99 | ITL p50 / p99 (one engine step) | Per-user tok/s at real AL, median (mean) | Logical tok/s per GPU | Prefix hit | SLO |
+|---|---|---|---|---|---|---|
+| 1 | 0.43 / 0.48 / 12.9 s | 23 / 29 ms | **135** (131) | 7,431 | 91.8% | pass |
+| 4 | 0.50 / 0.75 / 39.4 s | 34 / 1,413 ms | **69** (39.5) | 11,481 | 91.8% | pass |
+| 8 | 0.58 / 1.11 / 77.3 s | 43 / 1,421 ms | **44.6** (20.2) | 13,166 | 91.8% | fail |
+| 16 | collapsed: 0 of 32 conversations finished in about 20 min | | | | 91.8% falling to 71% | fail |
+
+**What limits per-user speed: other sessions' cold prefills, not decode.**
+- **Two kinds of steps:** ITL is bimodal.
+  - A pure decode step takes 23-43 ms for 1-8 users.
+  - A step carrying an 8K prefill chunk takes about **1.41 s**, the ITL p99.
+- **Cold first turns:** each new conversation's 74K-token first turn is 9 such chunks, about 13 s of compute. Every co-running session stalls through it.
+- **Effect on speed:** the median request between stalls stays fast (69 tok/s at c=4), but the mean, which counts the stalls in full, is 39.5.
+- **Effect on TTFT:** p99 TTFT (39 s at c=4) is a cold first turn queued behind another cold first turn.
+- **Prefill to decode ratio:** prompt tokens computed per turn exceed decoded tokens by about 30:1.
+
+**Prefill runs at about 5.5-5.8K tok/s whatever the context length.**
+- The evidence:
+  - an 8K random prompt takes 1.40 s to first token (reference c=1);
+  - a 128K needle prefills at 5.6K tok/s;
+  - a 200K needle at 5.5K tok/s.
+- Sparse attention keeps attention cost flat, so prefill is bound by the MoE and linear layers (W4A8 CUTLASS grouped GEMM plus EP/DCP collectives). That is about 1.4K tok/s per GPU, or roughly 16% of FP8 peak FLOPs.
+- **Prefill throughput is the lever for this workload.** Rung L5p tests bigger chunks, which give more tokens per expert per step.
+
+**The c=16 collapse is a prefix-cache working-set cliff, not KV exhaustion.**
+- **What the engine logged** (`s3-baseline/c16_engine_stats.txt`): KV usage stayed at 45-55%, with 7 running and 9 waiting. Prompt throughput ran at about 5.5K tok/s against 16 tok/s of generation, and the cumulative prefix hit fell from 91.8% to 71%.
+- **Why the gauge looked healthy:** it counts only blocks held by running requests. The cached history of sessions waiting between turns is evictable.
+- **Why it collapsed:** 16 sessions x about 85K tokens is a 1.36M-token working set against 1,042,944 tokens of KV. LRU eviction destroys waiting sessions' prefixes, they re-prefill 74-85K tokens, that steals the prefill budget, and fewer turns complete.
+- **The cliff on B4** sits at about 12 sessions of this size: 12 x 85K is roughly equal to capacity.
+- **This is what CPU KV offload (L2) addresses:** a 300 GB tier holds about 5.5M more tokens. It matters even more for long-running hosting, where many idle sessions should keep their context warm between turns.
+
+**Reference shapes (random 8192 in / 1024 out, `vllm bench serve`):**
+
+| c | TTFT p50 | TPOT p50 | tok/s per user | Output tok/s | Total tok/s per GPU | MTP AL |
+|---|---|---|---|---|---|---|
+| 1 | 1.40 s | 13.9 ms | 72 | 64 | 144 | 1.40 |
+| 16 | 1.58 s | 51.2 ms | 19.5 | 257 | 579 | 1.36 |
+| 64 | 5.18 s | 109.5 ms | 9.1 | 390 | 877 | 1.37 |
+
+Random token IDs give MTP almost nothing to predict (acceptance length 1.37-1.40), so this shape understates real decode speed by about 2x. Use it only against published random-shape numbers. For example, the SGLang cookbook's GLM-5 figures come from FP8 on 8 GPUs, so they are not directly comparable.
+
+**Economics at the SLO point (c=4, $21.16/hr):**
+- **Per session-hour:** **$5.29**.
+- **Per agent turn:** **about $0.010.** That is one turn with 80K tokens of context and 220 tokens out; 2,068 turns per hour.
+- **Per logical token:** $0.128 per 1M, counting cached prompt tokens. Logical throughput is 45.9K tok/s, of which about 8% is computed.
+- **Per output token:** $46.5 per 1M. This is meaningless for agents, because each turn emits only 220 tokens.
+- **At c=8:** past the SLO, $0.0089 per turn. At c=1: $0.016 per turn.
+
+**Gate A: PASS.** Quality holds (Step 2) and the baseline serves 4 concurrent agent sessions at SLO on 4x H200 + W4A8, so there is no fallback to 8 GPUs. The ladder continues on evidence:
+- **L3 (MTP schedule):** more accepted tokens per step at c <= 4.
+- **L5p (16K chunks):** prefill efficiency, the actual bottleneck.
+- **L2 (CPU KV offload):** removes the working-set cliff; c=16 runs only time-capped.
+
+**Spend:** balance $153.76 at 21:30Z ($46.24 spent; about 7.3 pod-hours left).

@@ -7,7 +7,8 @@
 #   setup-client               EvalScope (vLLM blog's pinned commit) in /root/client-venv
 #   agentic C1 [C2 ...]        vLLM GLM-5.3 blog OpenHands multi-turn workload, one point per concurrency
 #   reference C1 [C2 ...]      random 8192 in / 1024 out, SGLang cookbook shape
-#   mtp-al                     MTP acceptance on real prompts (speed_bench), temperature 1.0, top_p 0.95
+#   mtp-al                     MTP acceptance on real prompts (speed_bench), temperature 1.0, top_p 0.95; AL_CONC sets
+#                              concurrency, which picks the draft count under a per-batch-size MTP schedule
 #   gate-full | gate-spot      quality gate (evals/quality.py)
 #   soak-block C MINUTES       agentic load for a fixed time, used by the soak and the idle runner
 #   probe SECONDS [INTERVAL]   liveness via a real generation; CSV of ts,http_code,seconds
@@ -130,7 +131,7 @@ mtp-al)
   vllm bench serve --backend openai-chat --base-url "$BASE" --endpoint /v1/chat/completions \
     --model "$MODEL" --served-model-name glm-5.3 --tokenizer "$TOK" --trust-remote-code \
     --dataset-name speed_bench --dataset-path /root/data/speed-bench --speed-bench-category "${AL_CATEGORY:-coding}" \
-    --speed-bench-output-len 2048 --num-prompts "${AL_PROMPTS:-64}" --max-concurrency 8 \
+    --speed-bench-output-len 2048 --num-prompts "${AL_PROMPTS:-64}" --max-concurrency "${AL_CONC:-8}" \
     --temperature 1.0 --top-p 0.95 --chat-template-kwargs '{"reasoning_effort":"high"}' --seed "$RANDOM" \
     --save-result --result-dir "$OUT" --result-filename mtp_al.json > "$OUT/mtp_al.log" 2>&1
   echo "bench exit=$?"

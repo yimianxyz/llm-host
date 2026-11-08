@@ -6,3 +6,4 @@
 | 2026-11-08T19:18Z | rehearsal pod 0ahvagkjn8k4pw created (1x A40, CA-MTL-1) | - | - | $0.59/hr |
 | 2026-11-08T19:19Z | main pod fbsy2njw0xt5mp created (4x H200 SXM, EUR-IS-5) | - | - | $21.16/hr; deadline 9.1 h |
 | 2026-11-08T20:36Z | Step 1 done (B4 serving) | $173.226279286 (runpodctl user) | ~1.3 | config debugging B0-B3 cost ~35 min |
+| 2026-11-08T21:30Z | Step 3 done (baseline + reference shapes) | $153.7645384526 (runpodctl user) | ~2.2 | c=16 stopped early (collapse) |
