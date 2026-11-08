@@ -1,0 +1,20 @@
+# L3: MTP per-batch-size schedule (v0.33): 5 drafts at batch <=4, 3 at 5-16, 1 above 16. Deep drafts pay off only while
+# decode is bandwidth-bound; vLLM #65312 measured k=5 at 107 tok/s vs ~1,950 tok/s with a schedule at c=256.
+--served-model-name glm-5.3
+--host 0.0.0.0
+--port 8000
+--trust-remote-code
+--tensor-parallel-size 4
+--enable-expert-parallel
+--kv-cache-dtype fp8_ds_mla
+--gpu-memory-utilization 0.92
+--max-model-len 262144
+--max-num-batched-tokens 8192
+--speculative-config {"method":"mtp","num_speculative_tokens":5,"num_speculative_tokens_per_batch_size":[[1,4,5],[5,16,3],[17,1024,1]]}
+--enable-prefix-caching
+--enable-prompt-tokens-details
+--enable-per-request-metrics
+--enable-auto-tool-choice
+--tool-call-parser glm47
+--reasoning-parser glm45
+--decode-context-parallel-size 4

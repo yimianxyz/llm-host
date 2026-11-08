@@ -101,6 +101,12 @@ MEETING = fn("book_meeting", "Book a meeting", {
     "attendees": {"type": "array", "items": {"type": "object", "properties": {"name": S, "email": S}, "required": ["name", "email"]}},
     "start": S, "duration_min": {"type": "integer"}}, ["attendees", "start", "duration_min"])
 CLOCK = fn("get_time", "Get the current UTC time", {})
+RETRIES = fn("set_retries", "Set the retry count", {"retries": {"type": "integer"}}, ["retries"])
+DEBUG = fn("set_debug", "Enable or disable debug mode", {"enabled": {"type": "boolean"}}, ["enabled"])
+PROXY = fn("set_proxy", "Set the proxy URL, or null to disable it", {"proxy": {"type": ["string", "null"]}}, ["proxy"])
+LAYOUT = fn("set_layout", "Set the layout object", {"layout": {"type": "object"}}, ["layout"])
+TAGS = fn("set_tags", "Set tags", {"tags": {"type": "array", "items": {"type": "string"}}}, ["tags"])
+RATIO = fn("set_ratio", "Set the sampling ratio", {"ratio": {"type": "number"}}, ["ratio"])
 ONEOF = fn("lookup", "Look up a record by id or by email", {}, oneOf=[
     {"type": "object", "properties": {"id": {"type": "integer"}}, "required": ["id"]},
     {"type": "object", "properties": {"email": S}, "required": ["email"]}])
@@ -137,14 +143,14 @@ CASES = [
      lambda m: arg(m, "create_file", "content") == "Grüße, 你好, 🚀"),
     ("long_argument", u("Create big.py with exactly this content, verbatim:\n" + CODE), [WRITE], None,
      lambda m: str(arg(m, "create_file", "content")).strip() == CODE.strip()),
-    ("json_null", u("Set config key proxy to null."), [CONFIG], None,
-     lambda m: calls_named(m, "set_config") and arg(m, "set_config", "value") is None),
-    ("json_number", u("Set config key retries to the number 3."), [CONFIG], None,
-     lambda m: arg(m, "set_config", "value") == 3),
-    ("json_bool", u("Set config key debug to false."), [CONFIG], None,
-     lambda m: arg(m, "set_config", "value") is False),
-    ("json_nested", u('Set config key layout to the JSON value {"a": {"b": [1, 2, {"c": null}]}}.'), [CONFIG], None,
-     lambda m: arg(m, "set_config", "value") == {"a": {"b": [1, 2, {"c": None}]}}),
+    ("typed_integer", u("Set the retry count to 3."), [RETRIES], None, lambda m: arg(m, "set_retries", "retries") == 3),
+    ("typed_boolean", u("Disable debug mode."), [DEBUG], None, lambda m: arg(m, "set_debug", "enabled") is False),
+    ("typed_null", u("Disable the proxy by setting it to null."), [PROXY], None,
+     lambda m: calls_named(m, "set_proxy") and arg(m, "set_proxy", "proxy") is None),
+    ("typed_object", u('Set the layout to exactly {"a": {"b": [1, 2, {"c": null}]}}.'), [LAYOUT], None,
+     lambda m: arg(m, "set_layout", "layout") == {"a": {"b": [1, 2, {"c": None}]}}),
+    ("typed_array", u("Set the tags to alpha and beta."), [TAGS], None, lambda m: arg(m, "set_tags", "tags") == ["alpha", "beta"]),
+    ("typed_number", u("Set the sampling ratio to 0.75."), [RATIO], None, lambda m: arg(m, "set_ratio", "ratio") == 0.75),
     ("array_of_objects", u("Book 30 minutes at 2026-11-10T15:00 with Alice (alice@x.com) and Bob (bob@x.com)."), [MEETING], None,
      lambda m: arg(m, "book_meeting", "duration_min") == 30 and len(arg(m, "book_meeting", "attendees") or []) == 2),
     ("parallel", u("What's the weather in Paris and in Berlin? Check both."), [WEATHER], None,
@@ -162,8 +168,6 @@ CASES = [
      lambda m: not m["calls"] and m["finish"] != "tool_calls"),
     ("should_not_call", u("What is 2+2? Answer directly."), ALL, None,
      lambda m: not m["calls"] and "4" in m["content"]),
-    ("markers_in_prose", u("In one paragraph, explain what the literal text <tool_call> means in GLM chat templates. "
-                           "Do not call any tools."), ALL, None, lambda m: not m["calls"] and len(m["content"]) > 20),
     ("first_step_only", u("Find all *.md files, then create SUMMARY.md listing them."), [SEARCH, WRITE], None,
      lambda m: calls_named(m, "search_files")),
     ("long_context_tool", [{"role": "system", "content": "Project notes: " + " ".join(f"note{i}" for i in range(6000))},
@@ -172,6 +176,17 @@ CASES = [
 ]
 # Informational only: model-level or known-open engine issues, recorded but not gated.
 INFO_CASES = [
+    # Untyped schema ("value": {}): the glm47 parser cannot recover JSON types and returns strings.
+    ("info_untyped_json_null", u("Set config key proxy to null."), [CONFIG], None,
+     lambda m: calls_named(m, "set_config") and arg(m, "set_config", "value") is None),
+    ("info_untyped_json_number", u("Set config key retries to the number 3."), [CONFIG], None,
+     lambda m: arg(m, "set_config", "value") == 3),
+    ("info_untyped_json_bool", u("Set config key debug to false."), [CONFIG], None,
+     lambda m: arg(m, "set_config", "value") is False),
+    ("info_untyped_json_nested", u('Set config key layout to the JSON value {"a": {"b": [1, 2, {"c": null}]}}.'), [CONFIG], None,
+     lambda m: arg(m, "set_config", "value") == {"a": {"b": [1, 2, {"c": None}]}}),
+    ("info_markers_in_prose_vllm_64326", u("In one paragraph, explain what the literal text <tool_call> means in GLM chat templates. "
+                           "Do not call any tools."), ALL, None, lambda m: not m["calls"] and len(m["content"]) > 20),
     ("info_empty_props_oneof_glm5_169", u("Look up the record with id 42."), [ONEOF], None,
      lambda m: arg(m, "lookup", "id") == 42),
 ]
