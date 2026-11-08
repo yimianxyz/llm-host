@@ -1,0 +1,19 @@
+{
+  "task": "niah",
+  "max_model_len": 262144,
+  "words_per_token": 0.916,
+  "gate_pass": true,
+  "items": [
+    {
+      "length": 131072,
+      "depth": 0.5,
+      "prompt_tokens": 130538,
+      "found": true,
+      "ttft_s": 23.44,
+      "prefill_tok_s": 5568,
+      "decode_tok_s": 1991.1,
+      "answer": "garden-garden-919"
+    }
+  ],
+  "wall_seconds": 23.6
+}

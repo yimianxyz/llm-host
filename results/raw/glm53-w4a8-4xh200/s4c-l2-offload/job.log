@@ -1,1 +1,52 @@
 + bash evals/bench.sh apply deploy/configs/L2-offload300.args
+{"restart_to_ready_s": 357}
+(Worker_TP0_DCP0_EP0 pid=53615) INFO 11-08 22:15:48 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8879 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9521. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(Worker_TP3_DCP3_EP3 pid=53618) INFO 11-08 22:15:49 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8879 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9521. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(Worker_TP2_DCP2_EP2 pid=53617) INFO 11-08 22:15:49 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8879 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9521. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(Worker_TP1_DCP1_EP1 pid=53616) INFO 11-08 22:15:49 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8879 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9521. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=53385) INFO 11-08 22:15:49 [kv_cache_utils.py:1147] GPU KV cache size: 965,376 tokens, Maximum concurrency for 262,144 tokens per request: 3.68x
++ bash evals/bench.sh gate-spot
+{
+  "task": "toolcalls",
+  "gated_cases": 48,
+  "passed": 48,
+  "pass_rate": 1.0,
+  "gate_pass": true,
+  "flaky_then_passed": 0,
+  "informational": {
+    "info_untyped_json_null": false,
+    "info_untyped_json_null/stream": false,
+    "info_untyped_json_number": false,
+    "info_untyped_json_number/stream": false,
+    "info_untyped_json_bool": false,
+    "info_untyped_json_bool/stream": false,
+    "info_untyped_json_nested": false,
+    "info_untyped_json_nested/stream": false,
+    "info_markers_in_prose_vllm_64326": false,
+    "info_markers_in_prose_vllm_64326/stream": true,
+    "info_empty_props_oneof_glm5_169": false,
+    "info_empty_props_oneof_glm5_169/stream": false
+  },
+  "wall_seconds": 81.9
+}
+{"length": 131072, "depth": 0.5, "prompt_tokens": 130538, "found": true, "ttft_s": 23.44, "prefill_tok_s": 5568, "decode_tok_s": 1991.1, "answer": "garden-garden-919"}
+{
+  "task": "niah",
+  "max_model_len": 262144,
+  "words_per_token": 0.916,
+  "gate_pass": true,
+  "wall_seconds": 23.6
+}
+{
+  "task": "gsm8k",
+  "n": 200,
+  "accuracy": 0.985,
+  "gate_pass": true,
+  "effort": "high",
+  "seconds": 24.4,
+  "mean_completion_tokens": 129,
+  "truncated": 0,
+  "wall_seconds": 26.6
+}
++ AGENTIC_OFFSET=12
++ bash evals/bench.sh agentic 8

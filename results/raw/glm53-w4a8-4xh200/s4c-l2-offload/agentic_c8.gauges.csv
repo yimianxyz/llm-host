@@ -1,0 +1,4 @@
+ts,vllm:num_requests_running,vllm:num_requests_waiting,vllm:kv_cache_usage_perc
+1794176458,0.0,0.0,0.0
+1794176473,1.0,7.0,0.076657824933687
+1794176488,3.0,5.0,0.16153846153846152
