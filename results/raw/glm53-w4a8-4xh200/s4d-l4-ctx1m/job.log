@@ -1,0 +1,2 @@
++ L=1040000
++ bash evals/bench.sh apply deploy/configs/L4-ctx1m.args

@@ -83,3 +83,6 @@
 2026-11-08 23:05:38 - evalscope - INFO: Loaded 16 conversations
 2026-11-08 23:05:39 - evalscope - INFO: Test connection successful.
 2026-11-08 23:05:39 - evalscope - INFO: Save the data base to: /root/results/s5a-l7-dspark/evalscope/agentic_c8/parallel_8_number_16/benchmark_data.db
+2026-11-08 23:26:37 - evalscope - INFO: Got signal SIGTERM: exit
+2026-11-08 23:26:37 - evalscope - INFO: Got signal SIGTERM: exit
+2026-11-08 23:26:37 - evalscope - INFO: Running[perf]   0%| 0/1 [Elapsed: 20:59 < Remaining: ?, ?it/s]
