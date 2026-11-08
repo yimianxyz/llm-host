@@ -57,6 +57,10 @@ apply)
   b0=$(boot_no); t0=$(date +%s)
   # Match only the vLLM process: PID 1 (start.sh) contains the text "vllm serve" and must survive.
   pkill -TERM -f "bin/vllm serve"
+  # vLLM can ignore SIGTERM during engine init, and after an engine failure the API server can hang
+  # with the GPUs already freed; escalate so the supervisor in start.sh always gets its restart.
+  for _ in $(seq 15); do [ "$(boot_no)" -gt "$b0" ] && break; sleep 2; done
+  if [ "$(boot_no)" -le "$b0" ]; then pkill -KILL -f "bin/vllm serve"; pkill -KILL -f "VLLM::"; fi
   until [ "$(boot_no)" -gt "$b0" ]; do sleep 2; done
   if secs=$(wait_ready 3600 "$b0"); then
     echo "{\"restart_to_ready_s\": $(( $(date +%s) - t0 ))}" | tee "$OUT/apply.json"
