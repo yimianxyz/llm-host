@@ -1,4 +1,4 @@
-# Rung L3: MTP per-batch schedule (applied on top of the L2 decision, see FINDINGS). Spot gate, MTP acceptance, agentic subset.
+# Rung L3 (run first: at c=4 per-user speed is the SLO limit while KV has ~3x headroom). Spot gate, MTP acceptance, agentic subset.
 set -x
 bash evals/bench.sh apply deploy/configs/L3-mtp-schedule.args || exit 1
 bash evals/bench.sh gate-spot

@@ -18,6 +18,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(ROOT, "results", "raw")
 
 
+def live(paths):
+    """Skip quarantined runs (results/raw/<pod>/x-*), e.g. benchmarks that ran against a crashed server."""
+    return [p for p in paths if not os.path.basename(os.path.dirname(p)).startswith("x-") and "/x-" not in p]
+
+
 def load(p):
     try:
         with open(p) as f:
@@ -35,7 +40,7 @@ def pct(rows, key, p):
 
 def agentic_rows(price, gpus):
     out = []
-    for s in sorted(glob.glob(f"{RAW}/*/*/evalscope/*/parallel_*_number_*/benchmark_summary.json")):
+    for s in live(sorted(glob.glob(f"{RAW}/*/*/evalscope/*/parallel_*_number_*/benchmark_summary.json"))):
         parts = s.split(os.sep)
         pod, step, name = parts[-6], parts[-5], parts[-3]
         summ, perc = load(s), load(s.replace("benchmark_summary.json", "benchmark_percentile.json"))
@@ -64,9 +69,9 @@ def agentic_rows(price, gpus):
 
 def reference_rows(price, gpus):
     out = []
-    for p in sorted(glob.glob(f"{RAW}/*/*/ref_c*.json")):
+    for p in live(sorted(glob.glob(f"{RAW}/*/*/ref_c*.json"))):
         r = load(p)
-        if not r or "median_ttft_ms" not in r:
+        if not r or "median_ttft_ms" not in r or not r.get("median_tpot_ms"):
             continue
         parts = p.split(os.sep)
         m = load(p.replace(".json", ".metrics.json")) or {}
@@ -89,7 +94,7 @@ def table(rows, cols):
 
 def quality_rows():
     out = []
-    for p in sorted(glob.glob(f"{RAW}/*/*/*.json")):
+    for p in live(sorted(glob.glob(f"{RAW}/*/*/*.json"))):
         name = os.path.basename(p)
         if name not in ("gsm8k.json", "toolcalls.json", "niah.json", "gpqa.json", "mtp_al.json", "apply.json"):
             continue
@@ -111,7 +116,7 @@ def quality_rows():
         elif name == "apply.json":
             row["result"] = f"restart to ready {r.get('restart_to_ready_s')} s"
         out.append(row)
-    for p in sorted(glob.glob(f"{RAW}/*/*/boot_facts.txt")):
+    for p in live(sorted(glob.glob(f"{RAW}/*/*/boot_facts.txt"))):
         parts = p.split(os.sep)
         kv = [l.split("] ", 1)[-1].strip() for l in open(p) if "GPU KV cache size" in l]
         if kv:
