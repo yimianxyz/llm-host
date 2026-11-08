@@ -1,0 +1,1 @@
++ bash evals/bench.sh apply deploy/configs/L2-offload300.args
