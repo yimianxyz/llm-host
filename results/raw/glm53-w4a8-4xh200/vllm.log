@@ -24488,3 +24488,77 @@ INFO:     127.0.0.1:60528 - "POST /v1/chat/completions HTTP/1.1" 200 OK
 (APIServer pid=80411) INFO 11-08 23:57:56 [loggers.py:335] Engine 000: Avg prompt throughput: 7547.8 tokens/s, Avg generation throughput: 26.0 tokens/s, Running: 6 reqs, Waiting: 2 reqs, GPU KV cache usage: 30.1%, Prefix cache hit rate: 88.8%, External prefix cache hit rate: 0.0%
 (APIServer pid=80411) INFO 11-08 23:57:56 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 3.53, Accepted throughput: 18.70 tokens/s, Drafted throughput: 22.20 tokens/s, Accepted: 187 tokens, Drafted: 222 tokens, Per-position acceptance rate: 0.932, 0.838, 0.757, 0.000, 0.000, Avg Draft acceptance rate: 84.2%
 (APIServer pid=80411) INFO 11-08 23:57:56 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_store_bytes=2493845504, vllm:kv_offload_store_time=0.12645091220736504, vllm:kv_offload_store_size_count=48, vllm:kv_offload_store_size_sum=2493845504, vllm:kv_offload_cpu_cache_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_allocation_size_count=12, vllm:kv_offload_cpu_allocation_size_sum=178, vllm:kv_offload_cpu_cache_write_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_cache_read_usage_perc=0.0, vllm:kv_offload_lookup_sync_delay_seconds_count=2, vllm:kv_offload_lookup_sync_delay_seconds_sum=2.3443950340151787e-05
+INFO:     127.0.0.1:60470 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=80411) INFO 11-08 23:58:06 [loggers.py:335] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 18.2 tokens/s, Running: 5 reqs, Waiting: 2 reqs, GPU KV cache usage: 27.8%, Prefix cache hit rate: 88.8%, External prefix cache hit rate: 0.0%
+(APIServer pid=80411) INFO 11-08 23:58:06 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 3.43, Accepted throughput: 13.10 tokens/s, Drafted throughput: 16.20 tokens/s, Accepted: 131 tokens, Drafted: 162 tokens, Per-position acceptance rate: 0.944, 0.852, 0.630, 0.000, 0.000, Avg Draft acceptance rate: 80.9%
+(APIServer pid=80411) INFO 11-08 23:58:06 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_store_bytes=2451814400, vllm:kv_offload_store_time=0.12706719970703126, vllm:kv_offload_store_size_count=44, vllm:kv_offload_store_size_sum=2451814400, vllm:kv_offload_cpu_cache_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_allocation_size_count=11, vllm:kv_offload_cpu_allocation_size_sum=175, vllm:kv_offload_cpu_cache_write_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_cache_read_usage_perc=0.0
+INFO:     127.0.0.1:55644 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=80411) INFO 11-08 23:58:16 [loggers.py:335] Engine 000: Avg prompt throughput: 7416.9 tokens/s, Avg generation throughput: 16.4 tokens/s, Running: 6 reqs, Waiting: 2 reqs, GPU KV cache usage: 31.7%, Prefix cache hit rate: 88.5%, External prefix cache hit rate: 0.0%
+(APIServer pid=80411) INFO 11-08 23:58:16 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 2.96, Accepted throughput: 10.80 tokens/s, Drafted throughput: 16.50 tokens/s, Accepted: 108 tokens, Drafted: 165 tokens, Per-position acceptance rate: 0.891, 0.636, 0.436, 0.000, 0.000, Avg Draft acceptance rate: 65.5%
+(APIServer pid=80411) INFO 11-08 23:58:16 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_store_bytes=2675980288, vllm:kv_offload_store_time=0.13699619179964065, vllm:kv_offload_store_size_count=52, vllm:kv_offload_store_size_sum=2675980288, vllm:kv_offload_cpu_cache_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_allocation_size_count=13, vllm:kv_offload_cpu_allocation_size_sum=191, vllm:kv_offload_cpu_cache_write_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_cache_read_usage_perc=0.0, vllm:kv_offload_lookup_sync_delay_seconds_count=1, vllm:kv_offload_lookup_sync_delay_seconds_sum=9.385868906974792e-06
+INFO:     127.0.0.1:60500 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58332 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=80411) INFO 11-08 23:58:26 [loggers.py:335] Engine 000: Avg prompt throughput: 7416.8 tokens/s, Avg generation throughput: 15.4 tokens/s, Running: 6 reqs, Waiting: 2 reqs, GPU KV cache usage: 29.4%, Prefix cache hit rate: 88.2%, External prefix cache hit rate: 0.0%
+(APIServer pid=80411) INFO 11-08 23:58:26 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 3.12, Accepted throughput: 10.60 tokens/s, Drafted throughput: 15.00 tokens/s, Accepted: 106 tokens, Drafted: 150 tokens, Per-position acceptance rate: 0.880, 0.720, 0.520, 0.000, 0.000, Avg Draft acceptance rate: 70.7%
+(APIServer pid=80411) INFO 11-08 23:58:26 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_store_bytes=2451814400, vllm:kv_offload_store_time=0.12876406359672543, vllm:kv_offload_store_size_count=44, vllm:kv_offload_store_size_sum=2451814400, vllm:kv_offload_cpu_cache_usage_perc=0.0013485296676526883, vllm:kv_offload_cpu_allocation_size_count=12, vllm:kv_offload_cpu_allocation_size_sum=174, vllm:kv_offload_cpu_cache_write_usage_perc=0.0013485296676526883, vllm:kv_offload_cpu_cache_read_usage_perc=0.0, vllm:kv_offload_lookup_sync_delay_seconds_count=1, vllm:kv_offload_lookup_sync_delay_seconds_sum=9.921845048666e-06
+INFO:     127.0.0.1:60514 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=80411) INFO 11-08 23:58:36 [loggers.py:335] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 17.1 tokens/s, Running: 5 reqs, Waiting: 3 reqs, GPU KV cache usage: 27.4%, Prefix cache hit rate: 88.2%, External prefix cache hit rate: 0.0%
+(APIServer pid=80411) INFO 11-08 23:58:36 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 3.19, Accepted throughput: 11.80 tokens/s, Drafted throughput: 16.20 tokens/s, Accepted: 118 tokens, Drafted: 162 tokens, Per-position acceptance rate: 0.870, 0.741, 0.574, 0.000, 0.000, Avg Draft acceptance rate: 72.8%
+(APIServer pid=80411) INFO 11-08 23:58:36 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_store_bytes=2675980288, vllm:kv_offload_store_time=0.13794390416145325, vllm:kv_offload_store_size_count=52, vllm:kv_offload_store_size_sum=2675980288, vllm:kv_offload_cpu_cache_usage_perc=0.0013485296676526883, vllm:kv_offload_cpu_allocation_size_count=12, vllm:kv_offload_cpu_allocation_size_sum=191, vllm:kv_offload_cpu_cache_write_usage_perc=0.0013485296676526883, vllm:kv_offload_cpu_cache_read_usage_perc=0.0
+INFO:     127.0.0.1:56608 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56616 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=80411) INFO 11-08 23:58:37 [launcher.py:256] [shutdown] API server: shutdown triggered
+(APIServer pid=80411) INFO 11-08 23:58:37 [launcher.py:272] [shutdown] API server: stopping engine client mode=abort timeout=0s
+(APIServer pid=80411) INFO 11-08 23:58:37 [core_client.py:792] [shutdown] MPClient: start timeout=0s
+(APIServer pid=80411) INFO 11-08 23:58:37 [core_client.py:794] [shutdown] MPClient: stopping engine manager
+(APIServer pid=80411) INFO 11-08 23:58:37 [utils.py:628] [shutdown] Process manager: send sigterm to process EngineCore
+(APIServer pid=80411) WARNING 11-08 23:58:37 [utils.py:648] [shutdown] Process manager: force killing remaining processes count=1
+(APIServer pid=80411) WARNING 11-08 23:58:37 [utils.py:653] [shutdown] Process manager: force killing remaining process EngineCore pid 80880
+(EngineCore pid=80880) INFO 11-08 23:58:37 [core.py:1525] [shutdown] EngineCore: trigger received signal=SIGTERM
+(APIServer pid=80411) WARNING 11-08 23:58:37 [system_utils.py:248] [shutdown] force killing sub process VLLM::Worker_TP1_DCP1_EP1 pid 81110
+(APIServer pid=80411) WARNING 11-08 23:58:37 [system_utils.py:248] [shutdown] force killing sub process VLLM::Worker_TP0_DCP0_EP0 pid 81111
+(APIServer pid=80411) WARNING 11-08 23:58:37 [system_utils.py:248] [shutdown] force killing sub process VLLM::Worker_TP3_DCP3_EP3 pid 81112
+(APIServer pid=80411) WARNING 11-08 23:58:37 [system_utils.py:248] [shutdown] force killing sub process VLLM::Worker_TP2_DCP2_EP2 pid 81113
+(APIServer pid=80411) INFO 11-08 23:58:37 [core_client.py:796] [shutdown] MPClient: engine manager stopped
+(APIServer pid=80411) INFO 11-08 23:58:37 [core_client.py:797] [shutdown] MPClient: cleaning up background resources
+(APIServer pid=80411) INFO 11-08 23:58:37 [core_client.py:799] [shutdown] MPClient: complete
+(APIServer pid=80411) ERROR 11-08 23:58:37 [async_llm.py:943] AsyncLLM output_handler failed.
+(APIServer pid=80411) ERROR 11-08 23:58:37 [async_llm.py:943] Traceback (most recent call last):
+(APIServer pid=80411) ERROR 11-08 23:58:37 [async_llm.py:943]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 880, in output_handler
+(APIServer pid=80411) ERROR 11-08 23:58:37 [async_llm.py:943]     outputs = await engine_core.get_output_async()
+(APIServer pid=80411) ERROR 11-08 23:58:37 [async_llm.py:943]               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=80411) ERROR 11-08 23:58:37 [async_llm.py:943]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 1278, in get_output_async
+(APIServer pid=80411) ERROR 11-08 23:58:37 [async_llm.py:943]     raise self._format_exception(outputs) from None
+(APIServer pid=80411) ERROR 11-08 23:58:37 [async_llm.py:943] vllm.v1.engine.exceptions.EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.
+(APIServer pid=80411) INFO 11-08 23:58:37 [launcher.py:281] [shutdown] API server: engine client stopped
+(APIServer pid=80411) INFO 11-08 23:58:37 [launcher.py:284] [shutdown] API server: signalling HTTP server shutdown
+(APIServer pid=80411) INFO 11-08 23:58:37 [launcher.py:306] [shutdown] API server: shutting down FastAPI HTTP server
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 4 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 7 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+===== vllm boot 22 2026-11-08T23:58:43Z =====
+W1108 23:58:46.740000 83261 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 23:58:46.741000 83261 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 23:58:46.741000 83261 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+(APIServer pid=83261) INFO 11-08 23:58:53 [startup.py:38] 
+(APIServer pid=83261) INFO 11-08 23:58:53 [startup.py:38]        █     █     █▄   ▄█
+(APIServer pid=83261) INFO 11-08 23:58:53 [startup.py:38]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.33.0
+(APIServer pid=83261) INFO 11-08 23:58:53 [startup.py:38]   █▄█▀ █     █     █     █  model   gpustack/GLM-5.3-W4A8
+(APIServer pid=83261) INFO 11-08 23:58:53 [startup.py:38]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=83261) INFO 11-08 23:58:53 [startup.py:38] 
+(APIServer pid=83261) INFO 11-08 23:58:53 [startup.py:96] non-default args: {'model_tag': 'gpustack/GLM-5.3-W4A8', 'enable_auto_tool_choice': True, 'tool_call_parser': 'glm47', 'enable_prompt_tokens_details': True, 'enable_per_request_metrics': True, 'host': '0.0.0.0', 'model': 'gpustack/GLM-5.3-W4A8', 'trust_remote_code': True, 'revision': 'cb867a359aa39552f48f14f294a5f15418c97789', 'max_model_len': 1048576, 'served_model_name': ['glm-5.3'], 'reasoning_parser': 'glm45', 'tensor_parallel_size': 4, 'decode_context_parallel_size': 4, 'enable_expert_parallel': True, 'kv_cache_dtype': 'fp8_ds_mla', 'enable_prefix_caching': True, 'kv_offloading_size': 300.0, 'max_num_batched_tokens': 2048, 'max_cudagraph_capture_size': 128, 'speculative_config': {'method': 'mtp', 'num_speculative_tokens': 5, 'num_speculative_tokens_per_batch_size': [[1, 4, 5], [5, 16, 3], [17, 1024, 1]]}, 'profiler_config': ProfilerConfig(profiler='torch', torch_profiler_dir='/root/results/profile', torch_profiler_activities=None, proton_profiler_dir='', proton_context='shadow', proton_data='tree', proton_backend=None, proton_mode=None, proton_hook=None, proton_output_format=None, proton_graph_attribution=False, torch_profiler_with_stack=False, torch_profiler_with_flops=False, torch_profiler_use_gzip=True, torch_profiler_dump_cuda_time_total=True, torch_profiler_record_shapes=False, torch_profiler_with_memory=False, capture_torch_profiler=False, detailed_trace_annotation=False, ignore_frontend=False, delay_iterations=0, max_iterations=0, warmup_iterations=0, active_iterations=5, wait_iterations=0)}
+(APIServer pid=83261) INFO 11-08 23:58:53 [model.py:744] Resolved architecture: GlmMoeDsaForCausalLM
+(APIServer pid=83261) INFO 11-08 23:58:53 [model.py:2170] Using max model len 1048576
+(APIServer pid=83261) INFO 11-08 23:58:55 [cache.py:484] Using fp8_ds_mla data type to store kv cache. It reduces the GPU memory footprint and boosts the performance. Meanwhile, it may cause accuracy drop without a proper scaling factor
+(APIServer pid=83261) INFO 11-08 23:58:55 [model.py:744] Resolved architecture: DeepseekV32MTPModel
+(APIServer pid=83261) INFO 11-08 23:58:55 [model.py:2170] Using max model len 1048576
+(APIServer pid=83261) WARNING 11-08 23:58:55 [speculative.py:1491] Enabling num_speculative_tokens > 1 will run multiple times of forward on same MTP layer,which may result in lower acceptance rate
+(APIServer pid=83261) INFO 11-08 23:59:00 [vllm.py:848] Auto-enabling VLLM_USE_BREAKABLE_CUDAGRAPH=1. Set VLLM_USE_BREAKABLE_CUDAGRAPH=0 to opt out.
+(APIServer pid=83261) INFO 11-08 23:59:00 [kernel.py:480] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native'])
+(APIServer pid=83261) WARNING 11-08 23:59:00 [vllm.py:2360] max_num_scheduled_tokens is set to 2048 based on the speculative decoding settings. This may lead to suboptimal performance. Consider increasing max_num_batched_tokens to accommodate the additional draft token slots, or decrease num_speculative_tokens.
+(APIServer pid=83261) INFO 11-08 23:59:03 [compilation.py:317] Enabled custom fusions: norm_quant, act_quant, allreduce_rms
+[transformers] The following generation flags are not valid and may be ignored: ['top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.

@@ -1,0 +1,2 @@
++ APPLY_MAX_BOOTS=2
++ bash evals/bench.sh apply deploy/configs/L4d-ctx1m-bt2k.args

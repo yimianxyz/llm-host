@@ -106,3 +106,7 @@
   "Spec. Accept Rate": 0.7383
 }
 2026-11-08 23:57:52 - evalscope - INFO: Processing[parallel_8_number_16]  38%| 6/16 [Elapsed: 04:27 < Remaining: 05:34, 33.49s/it]
+2026-11-08 23:58:37 - evalscope - INFO: Got signal SIGTERM: exit
+2026-11-08 23:58:37 - evalscope - INFO: Got signal SIGTERM: exit
+2026-11-08 23:58:37 - evalscope - INFO: Got signal SIGTERM: exit
+2026-11-08 23:58:37 - evalscope - INFO: Running[perf]   0%| 0/1 [Elapsed: 05:15 < Remaining: ?, ?it/s]
