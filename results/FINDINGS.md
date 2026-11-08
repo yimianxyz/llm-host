@@ -34,3 +34,29 @@ This log is append-only, with one entry per step. Each entry records the config,
 - Cold start, measured so far: create to container start took 54 s (image cached on host), then 7 s to sshd.
 - **Hugging Face download to EUR-IS-5:** one `hf download` process sustains about 220-230 MB/s, and 4 more parallel shard processes (`deploy/fastdl.sh`) raise it to about 270-310 MB/s. The link is mostly network-bound, so 400 GB takes about 25 minutes.
 - **Design implication for question 7:** a standard network volume (200-400 MB/s) would not load faster than Hugging Face does here. Re-downloading on every cold start costs about 25 min, or about $9.
+
+## Step 1: deploy on 4x H200 (pod fbsy2njw0xt5mp, EUR-IS-5, $21.16/hr), 19:19Z onward
+
+**Cold start, measured:**
+- 19:19:33: create.
+- 19:20:26: container start (image already cached on the host).
+- 19:20:33: sshd up.
+- 19:48:31: **weights ready, after 1,678 s (28 min) for 373 GiB**, about 230 MB/s average from Hugging Face. Adding 4 parallel shards partway through lifted it to about 270-310 MB/s.
+- After that: weights load from local disk in **56 s**, and total model loading takes 130 s. The first CUDA-graph capture takes 196 s, and warm boots drop to **29 s** because the compile cache lives on the container disk.
+
+**A container restart keeps the container disk.** An accidental PID-1 kill restarted the container at 19:57:05, and `start.sh` reported `weights ready in 1s (373G)`. Recovering from a crash is therefore one vLLM boot, about 5 min, with no re-download.
+
+**B0 (TP4+EP, MTP3, 32K batched tokens, no DCP) does not boot.**
+- vLLM reports `Model loading took 111.3 GiB` per GPU, not the 93 GiB the W4A8 card implies. The MTP draft model loads a separate 12.64 GiB checkpoint, and runtime layouts add the rest.
+- After 3.58 GiB of CUDA graphs and activations, `Available KV cache memory: 6.71 GiB` remains. Because MLA's KV is replicated on every TP rank, the node holds only **about 131K tokens**, so `--max-model-len 262144` cannot be served and vLLM refuses to start.
+- The engine also logs `Padding num_heads from 16 to 64 for FP8 sparse decode kernel`. At TP4 each rank has 16 heads, but the kernel's tile is 64, so decode attention does 4x wasted work.
+- **Conclusion: without DCP, 4x H200 + W4A8 + MTP holds about one agent session. DCP is mandatory, not optional.**
+
+**B1 = B0 + DCP4 sizes KV fine but OOMs in warmup.**
+- KV sizing: `GPU KV cache size: 494,080 tokens` (3.8x B0) and `Maximum concurrency for 262,144 tokens: 1.88x`. DCP's all-gather also removes the 16-to-64 head padding.
+- The failure: the warmup `_dummy_run` then fails inside `flash_mla_with_kvcache` (FP8 mixed-batch path) on an 8 GiB allocation, with 7.67 GiB free. That buffer scales with `max_num_batched_tokens` x the 64 gathered heads and is not covered by the memory profile.
+- The fix is B2, which uses 16K batched tokens.
+
+**Operational lessons:**
+- **Never `pkill -f "vllm serve"`.** It matches PID 1, because the start script contains that text, and kills the container. `bench.sh apply` now matches `bin/vllm serve`, which only the real vLLM process has.
+- **Do not request 5 GPUs.** GLM-5.3 has 64 heads and 256 experts with an expert width of 2048, so TP, EP and DCP only work at 2, 4 or 8 GPUs. A fifth GPU would sit idle.
