@@ -1,6 +1,6 @@
 # L7: the kept config (B4 + L2 CPU offload) with the DSpark drafter instead of MTP (L3's schedule is MTP-only).
 # RedHatAI/GLM-5.3-speculator.dspark: 1B BF16, 3 sliding-window layers on target layers 2/20/39/58/75, 8 drafts in one
-# pass. Model-card config; revision pinned.
+# pass. Model-card config; revision pinned. The drafter is not MLA, so it needs its own KV dtype (auto = BF16).
 --served-model-name glm-5.3
 --host 0.0.0.0
 --port 8000
@@ -11,7 +11,7 @@
 --gpu-memory-utilization 0.92
 --max-model-len 262144
 --max-num-batched-tokens 8192
---speculative-config {"method":"dspark","model":"RedHatAI/GLM-5.3-speculator.dspark","revision":"b374b95663447ea0e935151be4f3d6666e36e6d7","num_speculative_tokens":8}
+--speculative-config {"method":"dspark","model":"RedHatAI/GLM-5.3-speculator.dspark","revision":"b374b95663447ea0e935151be4f3d6666e36e6d7","num_speculative_tokens":8,"kv_cache_dtype":"auto"}
 --enable-prefix-caching
 --enable-prompt-tokens-details
 --enable-per-request-metrics
