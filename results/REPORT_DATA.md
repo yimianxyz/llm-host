@@ -14,6 +14,7 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s4a-l3-mtp-schedule | 1 | 52 | 0 | 396.77 | 468.25 | 12966.72 | 4.48 | 4.7 | 26.31 | 27.84 | 223.2 | 24.3 | 3.54 | 145.9 | 139.1 | 91.6837 | 8342 | 0.9178 | 5.419 | 0.0 | True | 21.16 | 64.11 |
 | s4a-l3-mtp-schedule | 4 | 104 | 0 | 569.25 | 1164.9 | 39456.65 | 9.42 | 17.05 | 39.96 | 1419.99 | 106.2 | 49.5 | 3.54 | 71.6 | 39.5 | 133.7617 | 12156 | 0.9177 | 5.255 | 0.0 | True | 5.29 | 43.94 |
 | s4a-l3-mtp-schedule | 8 | 208 | 0 | 573.46 | 1411.02 | 77454.93 | 17.75 | 37.92 | 43.97 | 1423.85 | 56.3 | 67.0 | 2.95 | 44.0 | 20.6 | 144.5272 | 13131 | 0.9176 | 3.777 | 0.0 | False |  | 40.67 |
+| s4b-l5p-prefill16k | 1 | 52 | 0 | 421.95 | 500.39 | 12604.71 | 6.1 | 6.72 | 23.94 | 24.93 | 163.9 | 21.4 | 2.95 | 138.0 | 125.3 | 77.4986 | 7042 | 0.9174 | 3.503 | 0.0 | True | 21.16 | 75.84 |
 
 ## Max sessions at SLO per step
 | step | max_sessions_at_slo | usd_per_session_hr |
@@ -21,6 +22,7 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | r01-rehearsal | 4 | 5.29 |
 | s3-baseline | 4 | 5.29 |
 | s4a-l3-mtp-schedule | 4 | 5.29 |
+| s4b-l5p-prefill16k | 1 | 21.16 |
 
 ## Reference shape (random 8192/1024, vllm bench serve)
 | step | c | n | failed | ttft_p50_ms | ttft_p90_ms | tpot_p50_ms | tpot_p90_ms | interactivity | out_tok_s | total_tok_s_per_gpu | goodput_rps | mtp_al | usd_per_m_out |
@@ -48,9 +50,12 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s4a-l3-mtp-schedule | mtp_al.json | AL 3.5424507334419912 rate 50.84901466883983 tpot 10.33 ms |
 | s4a-l3-mtp-schedule | niah.json | 130580 tok d=0.5 found=True ttft=23.36s prefill=5589 tok/s decode=10257.1 tok/s |
 | s4a-l3-mtp-schedule | toolcalls.json | 48/48 gate=True info={'info_untyped_json_null': False, 'info_untyped_json_null/stream': False, 'info_untyped_json_number': False, 'info_untyped_json_number/stream': False, 'info_untyped_json_bool': False, 'info_untyped_json_bool/stream': False, 'info_untyped_json_nested': False, 'info_untyped_json_nested/stream': False, 'info_markers_in_prose_vllm_64326': False, 'info_markers_in_prose_vllm_64326/stream': False, 'info_empty_props_oneof_glm5_169': False, 'info_empty_props_oneof_glm5_169/stream': False} |
+| s4b-l5p-prefill16k | apply.json | restart to ready 249 s |
+| s4b-l5p-prefill16k | toolcalls.json | 48/48 gate=True info={'info_untyped_json_null': False, 'info_untyped_json_null/stream': False, 'info_untyped_json_number': False, 'info_untyped_json_number/stream': False, 'info_untyped_json_bool': False, 'info_untyped_json_bool/stream': False, 'info_untyped_json_nested': False, 'info_untyped_json_nested/stream': False, 'info_markers_in_prose_vllm_64326': False, 'info_markers_in_prose_vllm_64326/stream': False, 'info_empty_props_oneof_glm5_169': False, 'info_empty_props_oneof_glm5_169/stream': False} |
 | r01-rehearsal | boot_facts | GPU KV cache size: 362,096 tokens, Maximum concurrency for 32,768 tokens per request: 11.05x |
 | s1e-apply-b2 | boot_facts | GPU KV cache size: 895,232 tokens, Maximum concurrency for 262,144 tokens per request: 3.42x |
 | s1f-apply-b4 | boot_facts | GPU KV cache size: 1,042,944 tokens, Maximum concurrency for 262,144 tokens per request: 3.98x |
 | s4a-l3-mtp-schedule | boot_facts | GPU KV cache size: 965,376 tokens, Maximum concurrency for 262,144 tokens per request: 3.68x |
+| s4b-l5p-prefill16k | boot_facts | GPU KV cache size: 785,664 tokens, Maximum concurrency for 262,144 tokens per request: 3.00x |
 
 ![pareto](pareto.png)

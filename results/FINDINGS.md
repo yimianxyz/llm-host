@@ -204,3 +204,30 @@ Random token IDs give MTP almost nothing to predict (acceptance length 1.37-1.40
 - **Already-queued rung:** L5p is measured on B4 (one variable). If both are kept, the combination is validated in Step 6.
 
 **Lesson for the eval design:** acceptance must be measured at the concurrency that selects the draft count. A per-batch-size schedule measured at c=8 would have reported B4's 3-draft AL, so this rung measured it at c=4.
+
+## Step 4, rung L5p: 16K prefill chunks at util 0.91 (22:00-22:12Z): REVERTED (spot gate failed)
+
+**Config:** `deploy/configs/L5p-bt16k-util091.args`, which is B4 with `--max-num-batched-tokens 16384` and `--gpu-memory-utilization 0.91`. It is measured against B4 (one variable), started before L3 was kept.
+
+**What happened:**
+- **Boot:** KV capacity is **785,664 tokens**, 25% below B4.
+- **Crash:** the tool-call suite passed 48/48. Then the 128K needle crashed the engine on its first 16K chunk: `CUDA out of memory. Tried to allocate 4.00 GiB ... 3.22 GiB free`, the same allocation that killed B2.
+- **Lower utilization did not help:** at 0.91 there was *less* free memory at the crash than B2 had at 0.92 (3.53 GiB). That suggests the 1% of KV given up was absorbed elsewhere, probably by CUDA-graph memory and allocator fragmentation, not left as headroom.
+- **Fitting 16K chunks** would need utilization of about 0.89 and about 33% less KV than B4.
+- **After the supervisor's automatic restart,** agentic c=1 ran 52 requests with no crash: 74K cold turns at 16K chunks fit, and 128K context does not.
+
+**The c=1 run answers the rung's real question: bigger chunks barely speed up prefill.**
+
+| | 8K chunks (B4) | 16K chunks (L5p) |
+|---|---|---|
+| Cold 74K first turn, TTFT p95 / p99 | 12.88 / 12.91 s | 12.52 / 12.60 s (-2.8%) |
+| Warm-turn TTFT p50 | 429 ms | 422 ms |
+| TPOT p50 (raw) | 5.74 ms | 6.10 ms |
+
+**Interpretation:**
+- Prefill time is linear in tokens at about 5.8K tok/s and barely depends on tokens per step.
+- Doubling tokens per expert per step did not help, so the bound is per-token compute in the W4A8 / attention kernels, not GEMM shape or launch overhead.
+- Chunk size is therefore not a throughput lever on this stack. It only trades the length of each decode stall (the 1.41 s ITL p99 is one 8K chunk) against KV memory, because the unprofiled FlashMLA buffer is 256 KiB per batched token.
+- **The opposite direction is the one worth a rung:** 4K chunks would roughly halve each stall, return about 1 GiB per GPU to KV, and should cost only a few percent of prefill speed.
+
+**Decision: revert** (the plan's rule: the spot gate failed). The best config stays B4 + L3.
