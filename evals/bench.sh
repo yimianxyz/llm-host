@@ -100,7 +100,7 @@ agentic)
     metrics_start "$name"
     "$CLIENT/evalscope" perf --model glm-5.3 --url "$BASE/v1/chat/completions" --api openai --api-key "$VLLM_API_KEY" \
       --dataset swe_smith --dataset-path "$DATA" --dataset-offset "$offset" --max-tokens 220 --multi-turn \
-      --number "$n" --parallel "$c" --extra-args '{"ignore_eos":true}' \
+      --number "$n" --parallel "$c" --extra-args '{"ignore_eos":true}' ${AGENTIC_DURATION:+--duration $AGENTIC_DURATION} \
       --name "$name" --outputs-dir "$OUT/evalscope" --no-timestamp > "$OUT/$name.log" 2>&1
     echo "evalscope exit=$? c=$c n=$n offset=$offset"
     metrics_end "$name"
