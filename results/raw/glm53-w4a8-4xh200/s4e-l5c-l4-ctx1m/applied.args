@@ -10,7 +10,7 @@
 --enable-expert-parallel
 --kv-cache-dtype fp8_ds_mla
 --gpu-memory-utilization 0.92
---max-model-len 1048576
+--max-model-len 651264
 --max-num-batched-tokens 4096
 --max-cudagraph-capture-size 128
 --speculative-config {"method":"mtp","num_speculative_tokens":5,"num_speculative_tokens_per_batch_size":[[1,4,5],[5,16,3],[17,1024,1]]}

@@ -1,0 +1,26 @@
+# L4 on L5c: the native 1M context. On the L2 config it did not fit even at util 0.93: graph memory grew from 4.5 to
+# 9.0 GiB per GPU, leaving 8.35 GiB of KV against the 13.36 GiB one 1M request needs (vLLM's estimate: 655,104
+# tokens max). L5c's capture cap and 4K chunks shrink exactly those buffers. Util stays 0.92, because outside-budget
+# headroom is what the unprofiled FlashMLA buffer needs.
+--served-model-name glm-5.3
+--host 0.0.0.0
+--port 8000
+--trust-remote-code
+--tensor-parallel-size 4
+--enable-expert-parallel
+--kv-cache-dtype fp8_ds_mla
+--gpu-memory-utilization 0.92
+--max-model-len 1048576
+--max-num-batched-tokens 4096
+--max-cudagraph-capture-size 128
+--speculative-config {"method":"mtp","num_speculative_tokens":5,"num_speculative_tokens_per_batch_size":[[1,4,5],[5,16,3],[17,1024,1]]}
+--enable-prefix-caching
+--enable-prompt-tokens-details
+--enable-per-request-metrics
+--enable-auto-tool-choice
+--tool-call-parser glm47
+--reasoning-parser glm45
+--decode-context-parallel-size 4
+--kv-offloading-size 300
+--kv-offloading-backend native
+--profiler-config {"profiler":"torch","torch_profiler_dir":"/root/results/profile","torch_profiler_with_stack":false}

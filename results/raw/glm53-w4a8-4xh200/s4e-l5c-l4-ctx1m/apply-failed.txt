@@ -1,0 +1,41 @@
+vLLM crashed 1 times; last log lines:
+    return cls(
+           ^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 193, in __init__
+    self.engine_core = EngineCoreClient.make_async_mp_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 170, in make_async_mp_client
+    return AsyncMPClient(
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 1163, in __init__
+    super().__init__(
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 699, in __init__
+    with launch_core_engines(
+  File "/usr/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 1393, in launch_core_engines
+    wait_for_engine_startup(
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 1473, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 4 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+===== vllm boot 18 2026-11-08T23:37:26Z =====
+W1108 23:37:29.581000 78340 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 23:37:29.581000 78340 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 23:37:29.582000 78340 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+(APIServer pid=78340) INFO 11-08 23:37:34 [startup.py:38] 
+(APIServer pid=78340) INFO 11-08 23:37:34 [startup.py:38]        █     █     █▄   ▄█
+(APIServer pid=78340) INFO 11-08 23:37:34 [startup.py:38]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.33.0
+(APIServer pid=78340) INFO 11-08 23:37:34 [startup.py:38]   █▄█▀ █     █     █     █  model   gpustack/GLM-5.3-W4A8
+(APIServer pid=78340) INFO 11-08 23:37:34 [startup.py:38]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=78340) INFO 11-08 23:37:34 [startup.py:38] 
+(APIServer pid=78340) INFO 11-08 23:37:34 [startup.py:96] non-default args: {'model_tag': 'gpustack/GLM-5.3-W4A8', 'enable_auto_tool_choice': True, 'tool_call_parser': 'glm47', 'enable_prompt_tokens_details': True, 'enable_per_request_metrics': True, 'host': '0.0.0.0', 'model': 'gpustack/GLM-5.3-W4A8', 'trust_remote_code': True, 'revision': 'cb867a359aa39552f48f14f294a5f15418c97789', 'max_model_len': 1048576, 'served_model_name': ['glm-5.3'], 'reasoning_parser': 'glm45', 'tensor_parallel_size': 4, 'decode_context_parallel_size': 4, 'enable_expert_parallel': True, 'kv_cache_dtype': 'fp8_ds_mla', 'enable_prefix_caching': True, 'kv_offloading_size': 300.0, 'max_num_batched_tokens': 4096, 'max_cudagraph_capture_size': 128, 'speculative_config': {'method': 'mtp', 'num_speculative_tokens': 5, 'num_speculative_tokens_per_batch_size': [[1, 4, 5], [5, 16, 3], [17, 1024, 1]]}, 'profiler_config': ProfilerConfig(profiler='torch', torch_profiler_dir='/root/results/profile', torch_profiler_activities=None, proton_profiler_dir='', proton_context='shadow', proton_data='tree', proton_backend=None, proton_mode=None, proton_hook=None, proton_output_format=None, proton_graph_attribution=False, torch_profiler_with_stack=False, torch_profiler_with_flops=False, torch_profiler_use_gzip=True, torch_profiler_dump_cuda_time_total=True, torch_profiler_record_shapes=False, torch_profiler_with_memory=False, capture_torch_profiler=False, detailed_trace_annotation=False, ignore_frontend=False, delay_iterations=0, max_iterations=0, warmup_iterations=0, active_iterations=5, wait_iterations=0)}
+(APIServer pid=78340) INFO 11-08 23:37:34 [model.py:744] Resolved architecture: GlmMoeDsaForCausalLM
+(APIServer pid=78340) INFO 11-08 23:37:34 [model.py:2170] Using max model len 1048576
