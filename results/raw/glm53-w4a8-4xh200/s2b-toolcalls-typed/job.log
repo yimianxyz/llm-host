@@ -1,1 +1,24 @@
 + /root/client-venv/bin/python evals/quality.py toolcalls --out /root/results/s2b-toolcalls-typed/toolcalls.json
+{
+  "task": "toolcalls",
+  "gated_cases": 48,
+  "passed": 48,
+  "pass_rate": 1.0,
+  "gate_pass": true,
+  "flaky_then_passed": 0,
+  "informational": {
+    "info_untyped_json_null": false,
+    "info_untyped_json_null/stream": false,
+    "info_untyped_json_number": false,
+    "info_untyped_json_number/stream": false,
+    "info_untyped_json_bool": false,
+    "info_untyped_json_bool/stream": false,
+    "info_untyped_json_nested": false,
+    "info_untyped_json_nested/stream": false,
+    "info_markers_in_prose_vllm_64326": false,
+    "info_markers_in_prose_vllm_64326/stream": true,
+    "info_empty_props_oneof_glm5_169": false,
+    "info_empty_props_oneof_glm5_169/stream": false
+  },
+  "wall_seconds": 93.7
+}
