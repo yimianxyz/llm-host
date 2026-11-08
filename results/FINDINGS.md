@@ -170,7 +170,7 @@ Random token IDs give MTP almost nothing to predict (acceptance length 1.37-1.40
 
 **Spend:** balance $153.76 at 21:30Z ($46.24 spent; about 7.3 pod-hours left).
 
-## Step 4, rung L3: MTP per-batch-size schedule (21:35-21:54Z): REVERTED
+## Step 4, rung L3: MTP per-batch-size schedule (21:35-21:54Z): KEPT (plan's keep rule)
 
 **Config:** `deploy/configs/L3-mtp-schedule.args`, which is B4 with `num_speculative_tokens_per_batch_size` [[1,4,5],[5,16,3],[17,1024,1]]. That gives 5 drafts at batch sizes up to 4 and 3 drafts from 5 to 16.
 
@@ -193,10 +193,14 @@ Random token IDs give MTP almost nothing to predict (acceptance length 1.37-1.40
 - At c=4 the mean is set by other sessions' prefill stalls, which more drafts do not touch.
 - The vLLM #65312 result (a schedule beats fixed k=5 at c=256) is about large batches. In our SLO region the schedule only adds depth.
 
-**Decision: revert to B4 (3 drafts).**
-- **What L3 offers:** +8% single-user decode and +4% at the SLO point.
-- **What it costs:** 7.4% KV, which moves the working-set cliff from about 12.3 to about 11.4 sessions; 13% higher TTFT p50 at c=4; and a three-band schedule to maintain.
-- **The result:** max sessions at SLO is unchanged at 4.
-- **When to revisit:** a workload dominated by long single-user generations (writing whole files), where the +8% applies to every token.
+**Decision: keep.**
+- **The plan's rule:** keep a rung when max sessions at SLO stays level and c=1 interactivity rises by 5% or more.
+- **L3 meets it:** sessions stay at 4, and c=1 rises 8% at real acceptance (28% on the raw, artifact-inflated numbers).
+- **I first reverted it** on the costs below, but that overrode the agreed rule. Those costs go to the final report as the trade-off instead:
+  - **KV:** 7.4% less, which moves the working-set cliff from about 12.3 to about 11.4 sessions. L2's CPU tier is meant to absorb this.
+  - **Context:** a 1M context no longer fits in GPU KV (965K tokens). L4 measures the ceiling on the final config.
+  - **TTFT:** 13% higher p50 at c=4, about 65 ms.
+- **What it is worth:** +8% applies to every token of long single-user generations, such as writing whole files.
+- **Already-queued rung:** L5p is measured on B4 (one variable). If both are kept, the combination is validated in Step 6.
 
 **Lesson for the eval design:** acceptance must be measured at the concurrency that selects the draft count. A per-batch-size schedule measured at c=8 would have reported B4's 3-draft AL, so this rung measured it at c=4.
