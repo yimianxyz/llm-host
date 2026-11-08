@@ -75,3 +75,15 @@ evalscope exit=0 c=1 n=4 offset=0
   "requests_finished": 53.0,
   "kv_cache_usage_perc_end": 0.0
 }
+evalscope exit=0 c=4 n=8 offset=4
+{
+  "mtp_acceptance_length": 5.812,
+  "mtp_acceptance_rate": 0.602,
+  "prefix_cache_hit_rate": 0.916,
+  "external_prefix_cache_hit_rate": 0.0,
+  "preemptions": 0.0,
+  "prompt_tokens": 8290864.0,
+  "generation_tokens": 23100.0,
+  "requests_finished": 105.0,
+  "kv_cache_usage_perc_end": 0.0
+}

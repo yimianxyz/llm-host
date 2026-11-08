@@ -10,6 +10,7 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | r01-rehearsal | 4 | 24 | 0 | 190.03 | 548.86 | 670.86 | 8.64 | 8.71 | 8.46 | 17.11 | 115.7 |  |  | 115.7 | 114.8 | 404.3194 | 3082 | 0.6496 |  | 0.0 | True | 5.29 | 14.54 |
 | idle-soak | 4 | 104 | 0 | 554.51 | 13171.22 | 39558.32 | 10.69 | 18.73 | 39.67 | 1420.95 | 93.5 | 55.4 | 2.95 | 53.3 | 30.4 | 127.6516 | 11583 | 0.9143 | 5.178 | 0.0 | True | 5.29 | 46.05 |
 | idle-soak | 4 | 104 | 0 | 545.11 | 9071.72 | 39469.17 | 10.65 | 19.46 | 39.54 | 1418.65 | 93.9 | 48.7 | 2.95 | 60.6 | 33.2 | 120.3643 | 10902 | 0.9144 | 4.572 | 0.0 | True | 5.29 | 48.83 |
+| idle-soak | 4 | 104 | 0 | 608.9 | 1122.79 | 39546.53 | 10.59 | 19.46 | 40.0 | 1422.32 | 94.4 | 56.2 | 2.95 | 52.5 | 28.5 | 127.9404 | 11630 | 0.9145 | 5.31 | 0.0 | True | 5.29 | 45.94 |
 | s3-baseline | 1 | 52 | 0 | 428.59 | 484.84 | 12910.29 | 5.74 | 5.93 | 23.11 | 29.25 | 174.2 | 21.8 | 2.95 | 135.2 | 130.8 | 81.6755 | 7431 | 0.9175 | 3.802 | 0.0 | True | 21.16 | 71.97 |
 | s3-baseline | 4 | 104 | 0 | 503.65 | 745.37 | 39379.9 | 11.4 | 19.92 | 33.68 | 1412.99 | 87.7 | 42.8 | 2.95 | 69.0 | 39.5 | 126.3797 | 11481 | 0.9176 | 3.752 | 0.0 | True | 5.29 | 46.51 |
 | s3-baseline | 8 | 208 | 0 | 576.89 | 1108.0 | 77281.53 | 17.51 | 38.57 | 43.21 | 1421.22 | 57.1 | 66.2 | 2.95 | 44.6 | 20.2 | 144.9076 | 13166 | 0.9176 | 3.78 | 0.0 | False |  | 40.56 |
@@ -19,6 +20,7 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s4b-l5p-prefill16k | 1 | 52 | 0 | 421.95 | 500.39 | 12604.71 | 6.1 | 6.72 | 23.94 | 24.93 | 163.9 | 21.4 | 2.95 | 138.0 | 125.3 | 77.4986 | 7042 | 0.9174 | 3.503 | 0.0 | True | 21.16 | 75.84 |
 | s4c-l2-offload | 8 | 208 | 0 | 613.52 | 1378.03 | 77700.76 | 20.23 | 39.52 | 44.06 | 1429.1 | 49.4 | 76.9 | 2.95 | 38.4 | 19.6 | 138.1952 | 12560 | 0.9146 | 3.799 | 0.0 | False |  | 42.53 |
 | s4c2-l2-c16 | 16 | 208 | 0 | 3949.56 | 26910.17 | 180351.55 | 28.3 | 51.42 | 51.95 | 1427.84 | 35.3 | 104.7 | 2.95 | 28.2 | 15.5 | 139.2877 | 12648 | 0.0051 | 3.701 | 0.0 | False |  | 42.2 |
+| s5a-l7-dspark | 1 | 52 | 0 | 457.37 | 524.97 | 15240.92 | 3.61 | 4.27 | 25.75 | 27.35 | 277.0 | 21.2 | 3.92 | 185.0 | 156.4 | 87.0677 | 7911 | 0.9161 | 5.868 | 0.0 | True | 21.16 | 67.51 |
 
 ## Max sessions at SLO per step
 | step | max_sessions_at_slo | usd_per_session_hr |
@@ -28,6 +30,7 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s3-baseline | 4 | 5.29 |
 | s4a-l3-mtp-schedule | 4 | 5.29 |
 | s4b-l5p-prefill16k | 1 | 21.16 |
+| s5a-l7-dspark | 1 | 21.16 |
 
 ## Reference shape (random 8192/1024, vllm bench serve)
 | step | c | n | in | failed | ttft_p50_ms | ttft_p90_ms | tpot_p50_ms | tpot_p90_ms | itl_p50_ms | interactivity | out_tok_s | total_tok_s_per_gpu | goodput_rps | mtp_al | usd_per_m_out |
@@ -61,11 +64,17 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s4c-l2-offload | gsm8k.json | acc 0.985 n=200 gate=True tokens=129 |
 | s4c-l2-offload | niah.json | 130538 tok d=0.5 found=True ttft=23.44s prefill=5568 tok/s decode=1991.1 tok/s |
 | s4c-l2-offload | toolcalls.json | 48/48 gate=True info={'info_untyped_json_null': False, 'info_untyped_json_null/stream': False, 'info_untyped_json_number': False, 'info_untyped_json_number/stream': False, 'info_untyped_json_bool': False, 'info_untyped_json_bool/stream': False, 'info_untyped_json_nested': False, 'info_untyped_json_nested/stream': False, 'info_markers_in_prose_vllm_64326': False, 'info_markers_in_prose_vllm_64326/stream': True, 'info_empty_props_oneof_glm5_169': False, 'info_empty_props_oneof_glm5_169/stream': False} |
+| s5a-l7-dspark | apply.json | restart to ready 316 s |
+| s5a-l7-dspark | gsm8k.json | acc 0.985 n=200 gate=True tokens=125 |
+| s5a-l7-dspark | mtp_al.json | AL 3.918090159153404 rate 36.47612698941755 tpot 13.07 ms |
+| s5a-l7-dspark | niah.json | 130589 tok d=0.5 found=True ttft=27.28s prefill=4787 tok/s decode=284.7 tok/s |
+| s5a-l7-dspark | toolcalls.json | 48/48 gate=True info={'info_untyped_json_null': False, 'info_untyped_json_null/stream': False, 'info_untyped_json_number': False, 'info_untyped_json_number/stream': False, 'info_untyped_json_bool': False, 'info_untyped_json_bool/stream': False, 'info_untyped_json_nested': False, 'info_untyped_json_nested/stream': False, 'info_markers_in_prose_vllm_64326': False, 'info_markers_in_prose_vllm_64326/stream': False, 'info_empty_props_oneof_glm5_169': False, 'info_empty_props_oneof_glm5_169/stream': False} |
 | r01-rehearsal | boot_facts | GPU KV cache size: 362,096 tokens, Maximum concurrency for 32,768 tokens per request: 11.05x |
 | s1e-apply-b2 | boot_facts | GPU KV cache size: 895,232 tokens, Maximum concurrency for 262,144 tokens per request: 3.42x |
 | s1f-apply-b4 | boot_facts | GPU KV cache size: 1,042,944 tokens, Maximum concurrency for 262,144 tokens per request: 3.98x |
 | s4a-l3-mtp-schedule | boot_facts | GPU KV cache size: 965,376 tokens, Maximum concurrency for 262,144 tokens per request: 3.68x |
 | s4b-l5p-prefill16k | boot_facts | GPU KV cache size: 785,664 tokens, Maximum concurrency for 262,144 tokens per request: 3.00x |
 | s4c-l2-offload | boot_facts | GPU KV cache size: 965,376 tokens, Maximum concurrency for 262,144 tokens per request: 3.68x |
+| s5a-l7-dspark | boot_facts | GPU KV cache size: 484,557 tokens, Maximum concurrency for 262,144 tokens per request: 1.85x |
 
 ![pareto](pareto.png)

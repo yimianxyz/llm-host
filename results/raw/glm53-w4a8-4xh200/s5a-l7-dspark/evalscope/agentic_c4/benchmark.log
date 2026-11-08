@@ -83,3 +83,74 @@
 2026-11-08 23:02:19 - evalscope - INFO: Loaded 8 conversations
 2026-11-08 23:02:20 - evalscope - INFO: Test connection successful.
 2026-11-08 23:02:20 - evalscope - INFO: Save the data base to: /root/results/s5a-l7-dspark/evalscope/agentic_c4/parallel_4_number_8/benchmark_data.db
+2026-11-08 23:03:49 - evalscope - INFO: Processing[parallel_4_number_8]  12%| 1/8 [Elapsed: 01:28 < Remaining: 10:21, 88.80s/it]
+2026-11-08 23:05:20 - evalscope - INFO: Processing[parallel_4_number_8]  62%| 5/8 [Elapsed: 02:59 < Remaining: 01:31, 30.55s/it]
+2026-11-08 23:05:29 - evalscope - INFO: {
+  "Test Duration (s)": 189.022,
+  "Concurrency": 4,
+  "Request Rate (req/s)": -1.0,
+  "Total Requests": 100,
+  "Success Requests": 100,
+  "Failed Requests": 0,
+  "Req Throughput (req/s)": 0.529,
+  "Avg Latency (s)": 7.4293,
+  "Avg Input Tokens": 79545.58,
+  "Output Throughput (tok/s)": 116.3886,
+  "Total Throughput (tok/s)": 42199.1001,
+  "TTFT (ms)": 2825.61,
+  "TPOT (ms)": 21.02,
+  "ITL (ms)": 126.89,
+  "Avg Output Tokens": 220.0,
+  "Avg Turns/Request": 6.82,
+  "KV Cache Hit Rate (%)": 91.2962,
+  "Decoded Tok/Iter": 6.8856,
+  "Spec. Accept Rate": 0.8548
+}
+2026-11-08 23:05:35 - evalscope - INFO: Processing[parallel_4_number_8] 100%| 8/8 [Elapsed: 03:15 < Remaining: 00:00, 12.91s/it]
+2026-11-08 23:05:35 - evalscope - INFO: 
+Benchmarking summary:
+┌────────────────────────────┬───────────────┐
+│ Metric                     │         Value │
+├────────────────────────────┼───────────────┤
+│ ── General ──              │               │
+│ Test Duration (s)          │        195.17 │
+│ Concurrency                │             4 │
+│ Request Rate (req/s)       │         -1.00 │
+│ Total / Success / Failed   │ 104 / 104 / 0 │
+│ Req Throughput (req/s)     │          0.53 │
+│ ── Latency ──              │               │
+│ Avg Latency (s)            │          7.20 │
+│ TTFT (ms)                  │       2735.13 │
+│ TPOT (ms)                  │         20.40 │
+│ ITL (ms)                   │        122.39 │
+│ ── Tokens ──               │               │
+│ Avg Input Tokens           │      79719.72 │
+│ Avg Output Tokens          │        220.00 │
+│ Output Throughput (tok/s)  │        117.23 │
+│ Total Throughput (tok/s)   │      42598.07 │
+│ ── Multi-turn ──           │               │
+│ Avg Turns/Request          │          7.00 │
+│ KV Cache Hit Rate (%)      │         91.60 │
+│ ── Speculative Decoding ── │               │
+│ Decoded Tok/Iter           │          6.83 │
+│ Spec. Accept Rate          │          0.85 │
+└────────────────────────────┴───────────────┘
+2026-11-08 23:05:35 - evalscope - INFO: 
+Percentile results:
+┌────────────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
+│ Metric         │       1% │       5% │      10% │      25% │      50% │      75% │      90% │      95% │      99% │
+├────────────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+│ Latency (s)    │     1.32 │     1.68 │     1.79 │     2.13 │     2.39 │     3.51 │    17.72 │    33.57 │    62.29 │
+│ TTFT (ms)      │   445.33 │   461.88 │   475.05 │   518.74 │   545.38 │   708.16 │   971.07 │ 15352.94 │ 46397.86 │
+│ ITL (ms)       │     1.27 │    13.84 │    24.80 │    36.96 │    41.95 │    43.64 │    84.66 │   360.96 │  1666.70 │
+│ TPOT (ms)      │     3.87 │     4.76 │     5.52 │     6.81 │     8.41 │    13.69 │    72.22 │    80.93 │   150.34 │
+│ Input tokens   │ 74173.00 │ 74173.00 │ 74930.00 │ 76752.00 │ 79717.00 │ 82667.00 │ 84597.00 │ 85479.00 │ 85582.00 │
+│ Output tokens  │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │
+│ Output (tok/s) │     3.53 │     6.55 │    12.41 │    62.83 │    92.39 │   103.50 │   122.90 │   131.17 │   166.23 │
+│ Total (tok/s)  │  1194.26 │  2234.09 │  4653.50 │ 21665.89 │ 33401.66 │ 37981.94 │ 46191.94 │ 50100.17 │ 64016.98 │
+│ Decode (tok/s) │     6.65 │    12.36 │    13.85 │    73.43 │   120.60 │   150.39 │   181.02 │   210.11 │   258.13 │
+└────────────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┘
+2026-11-08 23:05:35 - evalscope - INFO: Save the summary to: /root/results/s5a-l7-dspark/evalscope/agentic_c4/parallel_4_number_8
+2026-11-08 23:05:35 - evalscope - INFO: Running[perf] 100%| 1/1 [Elapsed: 03:16 < Remaining: 00:00, 196.72s/it]
+2026-11-08 23:05:35 - evalscope - INFO: Performance summary saved to: /root/results/s5a-l7-dspark/evalscope/agentic_c4/performance_summary.txt
+2026-11-08 23:05:36 - evalscope - INFO: HTML report generated: /root/results/s5a-l7-dspark/evalscope/agentic_c4/perf_report.html
