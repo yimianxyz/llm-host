@@ -11,6 +11,7 @@
 #                              concurrency, which picks the draft count under a per-batch-size MTP schedule
 #   gate-full | gate-spot      quality gate (evals/quality.py)
 #   soak-block C MINUTES       agentic load for a fixed time, used by the soak and the idle runner
+#   profile                    torch profile of one cold prefill (needs --profiler-config in serve.args)
 #   probe SECONDS [INTERVAL]   liveness via a real generation; CSV of ts,http_code,seconds
 set -uo pipefail
 [ -f /root/.pod_env ] && . /root/.pod_env
@@ -160,6 +161,26 @@ soak-block)
   echo "soak exit=$? c=$c minutes=$minutes"
   metrics_end "$name"
   echo $(( (offset + 2 * c) % DATA_N )) > "$off_file" ;;
+
+profile)
+  # Needs --profiler-config with torch_profiler_dir=/root/results/profile in serve.args. Profiles one cold
+  # prefill of PROFILE_TOKENS (default 32768) and keeps each rank's CUDA-time table.
+  P=/root/results/profile; mkdir -p "$P" "$OUT/profile"; t0=$(date +%s)
+  curl -s -X POST "$BASE/start_profile" -H "Authorization: Bearer $VLLM_API_KEY"; echo
+  python3 - "${PROFILE_TOKENS:-32768}" <<'EOF'
+import json, os, random, sys, time, urllib.request
+n = int(sys.argv[1]); words = "alpha beta gamma delta kernel tensor expert router cache token stream".split()
+prompt = f"{random.random()} " + " ".join(random.choice(words) for _ in range(int(n * 0.8)))
+body = json.dumps({"model": "glm-5.3", "prompt": prompt, "max_tokens": 1}).encode()
+req = urllib.request.Request("http://127.0.0.1:8000/v1/completions", body, {"Content-Type": "application/json",
+                             "Authorization": "Bearer " + os.environ["VLLM_API_KEY"]})
+t = time.time(); r = json.load(urllib.request.urlopen(req, timeout=600))
+print(f"prompt_tokens={r['usage']['prompt_tokens']} seconds={time.time() - t:.2f}")
+EOF
+  curl -s -X POST "$BASE/stop_profile" -H "Authorization: Bearer $VLLM_API_KEY"; echo
+  sleep 60
+  find "$P" -type f -newermt "@$t0" -exec mv {} "$OUT/profile/" \;
+  ls -la "$OUT/profile" ;;
 
 probe)
   end=$(( $(date +%s) + $1 ))

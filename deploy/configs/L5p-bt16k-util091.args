@@ -18,3 +18,4 @@
 --tool-call-parser glm47
 --reasoning-parser glm45
 --decode-context-parallel-size 4
+--profiler-config {"profiler":"torch","torch_profiler_dir":"/root/results/profile","torch_profiler_with_stack":false}

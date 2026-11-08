@@ -11,12 +11,16 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s3-baseline | 1 | 52 | 0 | 428.59 | 484.84 | 12910.29 | 5.74 | 5.93 | 23.11 | 29.25 | 174.2 | 21.8 | 2.95 | 135.2 | 130.8 | 81.6755 | 7431 | 0.9175 | 3.802 | 0.0 | True | 21.16 | 71.97 |
 | s3-baseline | 4 | 104 | 0 | 503.65 | 745.37 | 39379.9 | 11.4 | 19.92 | 33.68 | 1412.99 | 87.7 | 42.8 | 2.95 | 69.0 | 39.5 | 126.3797 | 11481 | 0.9176 | 3.752 | 0.0 | True | 5.29 | 46.51 |
 | s3-baseline | 8 | 208 | 0 | 576.89 | 1108.0 | 77281.53 | 17.51 | 38.57 | 43.21 | 1421.22 | 57.1 | 66.2 | 2.95 | 44.6 | 20.2 | 144.9076 | 13166 | 0.9176 | 3.78 | 0.0 | False |  | 40.56 |
+| s4a-l3-mtp-schedule | 1 | 52 | 0 | 396.77 | 468.25 | 12966.72 | 4.48 | 4.7 | 26.31 | 27.84 | 223.2 | 24.3 | 3.54 | 145.9 | 139.1 | 91.6837 | 8342 | 0.9178 | 5.419 | 0.0 | True | 21.16 | 64.11 |
+| s4a-l3-mtp-schedule | 4 | 104 | 0 | 569.25 | 1164.9 | 39456.65 | 9.42 | 17.05 | 39.96 | 1419.99 | 106.2 | 49.5 | 3.54 | 71.6 | 39.5 | 133.7617 | 12156 | 0.9177 | 5.255 | 0.0 | True | 5.29 | 43.94 |
+| s4a-l3-mtp-schedule | 8 | 208 | 0 | 573.46 | 1411.02 | 77454.93 | 17.75 | 37.92 | 43.97 | 1423.85 | 56.3 | 67.0 | 2.95 | 44.0 | 20.6 | 144.5272 | 13131 | 0.9176 | 3.777 | 0.0 | False |  | 40.67 |
 
 ## Max sessions at SLO per step
 | step | max_sessions_at_slo | usd_per_session_hr |
 |---|---|---|
 | r01-rehearsal | 4 | 5.29 |
 | s3-baseline | 4 | 5.29 |
+| s4a-l3-mtp-schedule | 4 | 5.29 |
 
 ## Reference shape (random 8192/1024, vllm bench serve)
 | step | c | n | failed | ttft_p50_ms | ttft_p90_ms | tpot_p50_ms | tpot_p90_ms | interactivity | out_tok_s | total_tok_s_per_gpu | goodput_rps | mtp_al | usd_per_m_out |
@@ -39,8 +43,14 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s2-quality | niah.json | 130578 tok d=0.1 found=True ttft=23.36s prefill=5591 tok/s decode=120.0 tok/s; 130543 tok d=0.5 found=True ttft=23.29s prefill=5605 tok/s decode=156.9 tok/s; 130574 tok d=0.9 found=True ttft=23.27s prefill=5611 tok/s decode=147.3 tok/s; 204350 tok d=0.1 found=True ttft=37.32s prefill=5475 tok/s decode=137.8 tok/s; 204296 tok d=0.5 found=True ttft=37.23s prefill=5487 tok/s decode=130.8 tok/s; 204325 tok d=0.9 found=True ttft=37.28s prefill=5481 tok/s decode=130.5 tok/s |
 | s2-quality | toolcalls.json | 37/46 gate=False info={'info_empty_props_oneof_glm5_169': False, 'info_empty_props_oneof_glm5_169/stream': False} |
 | s2b-toolcalls-typed | toolcalls.json | 48/48 gate=True info={'info_untyped_json_null': False, 'info_untyped_json_null/stream': False, 'info_untyped_json_number': False, 'info_untyped_json_number/stream': False, 'info_untyped_json_bool': False, 'info_untyped_json_bool/stream': False, 'info_untyped_json_nested': False, 'info_untyped_json_nested/stream': False, 'info_markers_in_prose_vllm_64326': False, 'info_markers_in_prose_vllm_64326/stream': True, 'info_empty_props_oneof_glm5_169': False, 'info_empty_props_oneof_glm5_169/stream': False} |
+| s4a-l3-mtp-schedule | apply.json | restart to ready 297 s |
+| s4a-l3-mtp-schedule | gsm8k.json | acc 0.985 n=200 gate=True tokens=133 |
+| s4a-l3-mtp-schedule | mtp_al.json | AL 3.5424507334419912 rate 50.84901466883983 tpot 10.33 ms |
+| s4a-l3-mtp-schedule | niah.json | 130580 tok d=0.5 found=True ttft=23.36s prefill=5589 tok/s decode=10257.1 tok/s |
+| s4a-l3-mtp-schedule | toolcalls.json | 48/48 gate=True info={'info_untyped_json_null': False, 'info_untyped_json_null/stream': False, 'info_untyped_json_number': False, 'info_untyped_json_number/stream': False, 'info_untyped_json_bool': False, 'info_untyped_json_bool/stream': False, 'info_untyped_json_nested': False, 'info_untyped_json_nested/stream': False, 'info_markers_in_prose_vllm_64326': False, 'info_markers_in_prose_vllm_64326/stream': False, 'info_empty_props_oneof_glm5_169': False, 'info_empty_props_oneof_glm5_169/stream': False} |
 | r01-rehearsal | boot_facts | GPU KV cache size: 362,096 tokens, Maximum concurrency for 32,768 tokens per request: 11.05x |
 | s1e-apply-b2 | boot_facts | GPU KV cache size: 895,232 tokens, Maximum concurrency for 262,144 tokens per request: 3.42x |
 | s1f-apply-b4 | boot_facts | GPU KV cache size: 1,042,944 tokens, Maximum concurrency for 262,144 tokens per request: 3.98x |
+| s4a-l3-mtp-schedule | boot_facts | GPU KV cache size: 965,376 tokens, Maximum concurrency for 262,144 tokens per request: 3.68x |
 
 ![pareto](pareto.png)

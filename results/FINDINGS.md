@@ -169,3 +169,34 @@ Random token IDs give MTP almost nothing to predict (acceptance length 1.37-1.40
 - **L2 (CPU KV offload):** removes the working-set cliff; c=16 runs only time-capped.
 
 **Spend:** balance $153.76 at 21:30Z ($46.24 spent; about 7.3 pod-hours left).
+
+## Step 4, rung L3: MTP per-batch-size schedule (21:35-21:54Z): REVERTED
+
+**Config:** `deploy/configs/L3-mtp-schedule.args`, which is B4 with `num_speculative_tokens_per_batch_size` [[1,4,5],[5,16,3],[17,1024,1]]. That gives 5 drafts at batch sizes up to 4 and 3 drafts from 5 to 16.
+
+**Restart and quality:**
+- Restart to ready took 297 s.
+- The spot gate passed: tool calls 48/48, GSM8K-200 98.5%, 128K needle found.
+- KV capacity is **965,376 tokens**, 7.4% below B4's 1,042,944, because deeper drafts need more buffers.
+
+| | c=1 | c=4 | c=8 (3 drafts in both) |
+|---|---|---|---|
+| Real-prompt AL (SPEED-Bench coding; L3 measured at c=4) | 2.95 to **3.54** (+20%) | 2.95 to 3.54 | 2.95 |
+| Engine step (ITL p50) | 23.1 to 26.3 ms | 33.7 to 40.0 ms | 43.2 to 44.0 ms |
+| Per-user tok/s at real AL, median | 135 to **146** (+8%) | 69.0 to **71.6** (+4%) | 44.6 to 44.0 |
+| Per-user tok/s, mean | 131 to 139 | 39.5 to 39.5 | 20.2 to 20.6 |
+| TTFT p50 | 429 to 397 ms | 504 to 569 ms | 577 to 573 ms |
+| Time per 220-token turn at real AL (TTFT + 219 x step / AL) | 2.05 to 1.90 s (-7%) | 3.68 to 3.63 s (-1%) | unchanged |
+
+**Why the gain is small:**
+- Verifying 6 tokens instead of 4 makes each step 11-16% slower, which eats most of the 20% acceptance gain.
+- At c=4 the mean is set by other sessions' prefill stalls, which more drafts do not touch.
+- The vLLM #65312 result (a schedule beats fixed k=5 at c=256) is about large batches. In our SLO region the schedule only adds depth.
+
+**Decision: revert to B4 (3 drafts).**
+- **What L3 offers:** +8% single-user decode and +4% at the SLO point.
+- **What it costs:** 7.4% KV, which moves the working-set cliff from about 12.3 to about 11.4 sessions; 13% higher TTFT p50 at c=4; and a three-band schedule to maintain.
+- **The result:** max sessions at SLO is unchanged at 4.
+- **When to revisit:** a workload dominated by long single-user generations (writing whole files), where the +8% applies to every token.
+
+**Lesson for the eval design:** acceptance must be measured at the concurrency that selects the draft count. A per-batch-size schedule measured at c=8 would have reported B4's 3-draft AL, so this rung measured it at c=4.
