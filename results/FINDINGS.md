@@ -283,3 +283,37 @@ The prompt took 4.71 s, which is 5.57K tok/s: three 8K chunks at about 830 ms of
 1. On 4x H200 with W4A8, prefill speed (about 5.6K tok/s) is set by this kernel mismatch and by DCP collectives, so it is structural.
 2. On 8x H200 with FP8 and TP8, each rank has 8 heads, so it is still mixed-batch. The fast prefill path needs 32 or more heads per rank, i.e. TP2 or DP attention.
 3. The cheap lever is `--dcp-q-replicate`: replicate the query projection so each step skips the query all-gather (the largest collective here, 9.4%). It costs about 2 GiB of weights per GPU, which is affordable only if DSpark frees the MTP layer's 12.64 GiB.
+
+## Step 5, rung L7: DSpark drafter instead of MTP, on B4 + L2 (22:46-23:27Z): REVERTED (collapses at c=8)
+
+**Config:** `deploy/configs/L7-dspark.args`, which is the L2 config with `RedHatAI/GLM-5.3-speculator.dspark` (a 1B BF16 drafter that proposes 8 tokens in one pass) replacing MTP.
+- **The first boot failed:** `No valid attention backend ... head_size=64, kv_cache_dtype=fp8_ds_mla, use_mla=False`. The drafter is not MLA, so it needs its own KV dtype: `"kv_cache_dtype":"auto"` in the speculative config. It then uses FLASH_ATTN.
+- **Memory:** model loading took 107.14 GiB per GPU against 107.27 GiB for MTP, so the expected 12.64 GiB MTP saving did not materialize. Available KV memory fell from 12.3 to 7.8 GiB per GPU, and the drafter's BF16 KV adds about 3.6 KB per token per GPU. **The GPU KV pool halves: 484,557 tokens, against 965,376.**
+- **Restart to ready:** 316 s.
+- **The spot gate passed:** tool calls 48/48, GSM8K-200 98.5%, 128K needle found. But that needle prefilled at 4,787 tok/s against 5,589 (-14%).
+
+**Acceptance on real coding prompts (SPEED-Bench, c=8):** AL **3.92** with 8 drafts, against 2.95 for MTP3 and 3.54 for MTP5. Per-position acceptance is 0.76, 0.57, 0.44, 0.35, 0.27, 0.22, 0.17, 0.14. Median TPOT on that run is 13.07 ms against MTP3's 14.19 ms.
+
+| | c=1 | c=4 | c=8 |
+|---|---|---|---|
+| Per-user tok/s at real AL, median: L3 MTP to DSpark | 145.9 to **185.0 (+27%)** | 71.6 to **80.2 (+12%)** | 44.0 to **collapse** |
+| Per-user tok/s, mean (prefill stalls counted in full) | 139.1 to 156.4 (+12%) | 39.5 to **33.0 (-16%)** | 20.6 to collapse |
+| Engine step, ITL p50 | 26.3 to 25.8 ms | 40.0 to 42.0 ms | |
+| Prefill-chunk step, ITL p99 | 1.39 to 1.67 s (+20%) | 1.42 to 1.67 s | |
+| TTFT p50 / p99 | 0.40 / 13.0 to 0.46 / 15.2 s | 0.57 / 39.5 to 0.55 / 46.4 s | |
+| Logical tok/s per GPU | 8,342 to 7,911 (-5%) | 12,156 to **10,650 (-12%)** | |
+
+**Why c=8 collapsed:**
+- **The run:** after 21 minutes, 81 turns had finished and 0 of 16 conversations, so I killed it. L3 finished all 208 turns in about 9 minutes. The engine averaged 4.6 running and 3.0 waiting requests, 4.8K tok/s of prompt against 22 tok/s of generation.
+- **GPU prefix hits fell to 0%** over the window (91.8% for L3 at c=8); all 6.6M prompt tokens of the 81 turns were recomputed. Eight sessions of 74-86K tokens (0.6-0.69M) exceed the 484K pool, and LRU on a cyclic working set evicts each session just before its next turn. This is B4's c=16 cliff, moved down to between 4 and 8 sessions.
+- **The CPU tier did not rescue it:** only 6.4% of lookups hit host memory, against 91.25% for L2 at c=16. The likely cause is the drafter's second KV-cache group, since a prefix hit needs blocks for every group. I did not verify the mechanism.
+
+**Decision: revert.**
+- **The plan's rule:** sessions stay at 4 and c=1 rises 27%, which alone would keep it. But "revert if any errors appear" applies: the c=8 point never completed.
+- **The deeper reason:** DSpark undoes the property L2 was kept for, graceful degradation past HBM. A long-running service does not control its load, and a collapse at 8 sessions is disqualifying.
+- **It also rules out 1M context,** since the pool is 484K tokens.
+- **Slower prefill costs throughput:** decode is faster, but slower prefill cuts throughput 12% at c=4 on this prefill-heavy workload.
+- **When DSpark is the right choice:** a single-user or at most 4-session deployment (a personal coding agent) gets +27% / +12% decode speed. Untested fixes that could recover KV: FP8 drafter KV (FLASH_ATTN supports it on Hopper), or offload support for the drafter's KV group.
+- **Correction to the prefill-profile note:** DSpark frees no weight memory, so `--dcp-q-replicate` (about 2 GiB per GPU) stays unaffordable.
+
+The best config stays L2 (B4 + L3 + L2).

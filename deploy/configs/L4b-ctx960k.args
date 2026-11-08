@@ -1,0 +1,22 @@
+# L4 fallback: the L2 config at its own KV pool (965,376 tokens at util 0.92), if util 0.93 does not boot.
+--served-model-name glm-5.3
+--host 0.0.0.0
+--port 8000
+--trust-remote-code
+--tensor-parallel-size 4
+--enable-expert-parallel
+--kv-cache-dtype fp8_ds_mla
+--gpu-memory-utilization 0.92
+--max-model-len 960000
+--max-num-batched-tokens 8192
+--speculative-config {"method":"mtp","num_speculative_tokens":5,"num_speculative_tokens_per_batch_size":[[1,4,5],[5,16,3],[17,1024,1]]}
+--enable-prefix-caching
+--enable-prompt-tokens-details
+--enable-per-request-metrics
+--enable-auto-tool-choice
+--tool-call-parser glm47
+--reasoning-parser glm45
+--decode-context-parallel-size 4
+--kv-offloading-size 300
+--kv-offloading-backend native
+--profiler-config {"profiler":"torch","torch_profiler_dir":"/root/results/profile","torch_profiler_with_stack":false}

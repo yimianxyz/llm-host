@@ -11,6 +11,7 @@
 #   mtp-al                     MTP acceptance on real prompts (speed_bench), temperature 1.0, top_p 0.95; AL_CONC sets
 #                              concurrency, which picks the draft count under a per-batch-size MTP schedule
 #   gate-full | gate-spot      quality gate (evals/quality.py)
+#   niah L1 [L2 ...]           single-stream needle at each prompt length, depth 0.5 (context ceiling)
 #   soak-block C MINUTES       agentic load for a fixed time, used by the soak and the idle runner
 #   profile                    torch profile of one cold prefill (needs --profiler-config in serve.args)
 #   probe SECONDS [INTERVAL]   liveness via a real generation; CSV of ts,http_code,seconds
@@ -150,6 +151,9 @@ gate-spot)
   "$CLIENT/python" evals/quality.py toolcalls --out "$OUT/toolcalls.json"
   "$CLIENT/python" evals/quality.py niah --lengths 131072 --depths 0.5 --out "$OUT/niah.json"
   "$CLIENT/python" evals/quality.py gsm8k --limit 200 --out "$OUT/gsm8k.json" ;;
+
+niah)
+  "$CLIENT/python" evals/quality.py niah --lengths "$@" --depths 0.5 --out "$OUT/niah_long.json" ;;
 
 soak-block)
   c=$1; minutes=${2:-15}
