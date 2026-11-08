@@ -1,0 +1,27 @@
+{
+  "base_url": "https://fbsy2njw0xt5mp-8000.proxy.runpod.net",
+  "ts": "2026-11-08T20:23:35Z",
+  "auth": {
+    "pass": false,
+    "no_key_status": 502,
+    "key_status": 502,
+    "models": []
+  },
+  "reasoning": {
+    "pass": false,
+    "error": "InternalServerError('Error code: 502')"
+  },
+  "tool_call": {
+    "pass": false,
+    "error": "InternalServerError('Error code: 502')"
+  },
+  "ttfat": {
+    "pass": false,
+    "error": "InternalServerError('Error code: 502')"
+  },
+  "long_stream": {
+    "pass": false,
+    "error": "InternalServerError('Error code: 502')"
+  },
+  "pass": false
+}
