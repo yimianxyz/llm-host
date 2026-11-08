@@ -71,3 +71,15 @@ This log is append-only, with one entry per step. Each entry records the config,
 - Smaller batched tokens also shrink the profiled activation peak, which is why B2's KV (895K) was much larger than B1's (494K).
 
 **Hung-engine failure mode:** after an engine OOM, the vLLM API server and EngineCore can stay alive with the GPUs already freed. The supervisor then waits forever. `bench.sh apply` now escalates from SIGTERM to SIGKILL after 30 s, and a long-running deployment must watch for "process alive, engine dead". `ready.sh` runs a real generation for that reason.
+
+**Step 1 outcome: B4 is the working baseline** (`deploy/configs/B4-dcp4-bt8k.args`: TP4, EP, DCP4, FP8 `fp8_ds_mla` KV, MTP3, 8K batched tokens, util 0.92, 262K max length).
+- **KV capacity:** `GPU KV cache size: 1,042,944 tokens`, max concurrency 3.98x at 262K. That is about 12 full-length OpenHands sessions (86K each) resident, against about 1 for B0.
+- **Restart time:** a warm config swap takes **277 s** to the first real generation.
+- **Smoke, through the public proxy from a Mac in the US to EUR-IS-5:**
+  - Auth is enforced: 401 without the key, 200 with it.
+  - Reasoning is split from the answer.
+  - Tool calls parse: `get_weather({"city": "Paris"})` with `finish_reason=tool_calls`.
+  - A 110 s stream survives the proxy.
+  - Time to first answer token under concurrent quality-gate load: 0.39 s (low effort), 1.36 s (high), 4.3 s (max).
+- **The 128K needle was retrieved** in 24 s wall, on the request shape that crashed B2.
+- **Spend:** balance $173.226279286 at 20:36Z.
