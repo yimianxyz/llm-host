@@ -80,3 +80,17 @@ evalscope exit=2 c=16 n=32 offset=28
 + bash evals/bench.sh profile
 
 prompt_tokens=26228 seconds=4.71
+
+total 24700
+drwxr-xr-x 2 root root    4096 Nov  8 22:27 .
+drwxr-xr-x 4 root root    4096 Nov  8 22:26 ..
+-rw-r--r-- 1 root root     812 Nov  8 22:26 d54b52b05e61_52938.async_llm.1794176800903848067.pt.trace.json.gz
+-rw-r--r-- 1 root root       1 Nov  8 22:26 d54b52b05e61_52938.async_llm.profiler_out.txt
+-rw-r--r-- 1 root root 6292720 Nov  8 22:26 dp0_pp0_tp0_dcp0_ep0_rank0.1794176801431742493.pt.trace.json.gz
+-rw-r--r-- 1 root root   20651 Nov  8 22:26 dp0_pp0_tp0_dcp0_ep0_rank0.profiler_out.txt
+-rw-r--r-- 1 root root 6291633 Nov  8 22:26 dp0_pp0_tp1_dcp1_ep1_rank1.1794176801680980695.pt.trace.json.gz
+-rw-r--r-- 1 root root   20651 Nov  8 22:26 dp0_pp0_tp1_dcp1_ep1_rank1.profiler_out.txt
+-rw-r--r-- 1 root root 6289871 Nov  8 22:26 dp0_pp0_tp2_dcp2_ep2_rank2.1794176801475147575.pt.trace.json.gz
+-rw-r--r-- 1 root root   20651 Nov  8 22:26 dp0_pp0_tp2_dcp2_ep2_rank2.profiler_out.txt
+-rw-r--r-- 1 root root 6294286 Nov  8 22:26 dp0_pp0_tp3_dcp3_ep3_rank3.1794176801470008609.pt.trace.json.gz
+-rw-r--r-- 1 root root   20651 Nov  8 22:26 dp0_pp0_tp3_dcp3_ep3_rank3.profiler_out.txt
