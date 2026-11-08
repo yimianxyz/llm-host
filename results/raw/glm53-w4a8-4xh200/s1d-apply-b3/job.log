@@ -1,1 +1,3 @@
 + bash evals/bench.sh apply deploy/configs/B3-dcp4-bt16k-expseg.args
+Terminated
++ nvidia-smi --query-gpu=index,memory.used,memory.total --format=csv

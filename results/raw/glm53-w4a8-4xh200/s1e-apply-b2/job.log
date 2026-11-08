@@ -1,0 +1,1 @@
++ bash evals/bench.sh apply deploy/configs/B2-dcp4-bt16k.args
