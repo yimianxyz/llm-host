@@ -1,1 +1,17 @@
 + bash evals/bench.sh gate-full
+{
+  "task": "toolcalls",
+  "gated_cases": 46,
+  "passed": 37,
+  "pass_rate": 0.8043,
+  "gate_pass": false,
+  "flaky_then_passed": 0,
+  "informational": {
+    "info_empty_props_oneof_glm5_169": false,
+    "info_empty_props_oneof_glm5_169/stream": false
+  },
+  "wall_seconds": 133.2
+}
+{"length": 131072, "depth": 0.1, "prompt_tokens": 130578, "found": true, "ttft_s": 23.36, "prefill_tok_s": 5591, "decode_tok_s": 120.0, "answer": "parent-company-915"}
+{"length": 131072, "depth": 0.5, "prompt_tokens": 130543, "found": true, "ttft_s": 23.29, "prefill_tok_s": 5605, "decode_tok_s": 156.9, "answer": "morning-student-470"}
+{"length": 131072, "depth": 0.9, "prompt_tokens": 130574, "found": true, "ttft_s": 23.27, "prefill_tok_s": 5611, "decode_tok_s": 147.3, "answer": "party-party-644"}

@@ -1,0 +1,1366 @@
+{
+  "task": "toolcalls",
+  "gated_cases": 46,
+  "passed": 37,
+  "pass_rate": 0.8043,
+  "gate_pass": false,
+  "flaky_then_passed": 0,
+  "informational": {
+    "info_empty_props_oneof_glm5_169": false,
+    "info_empty_props_oneof_glm5_169/stream": false
+  },
+  "failures": [
+    {
+      "case": "json_null",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 1.35,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "proxy",
+            "value": "null"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_null",
+        "stream": false,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.34,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "proxy",
+              "value": "null"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_null",
+      "stream": true,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 1.35,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "proxy",
+            "value": "null"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_null",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.33,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "proxy",
+              "value": "null"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_number",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 1.15,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "retries",
+            "value": "3"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_number",
+        "stream": false,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.27,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "retries",
+              "value": "3"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_number",
+      "stream": true,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 1.02,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "retries",
+            "value": "3"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_number",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.36,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "retries",
+              "value": "3"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_bool",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 1.02,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "debug",
+            "value": "false"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_bool",
+        "stream": false,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.35,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "debug",
+              "value": "false"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_bool",
+      "stream": true,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 1.02,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "debug",
+            "value": "false"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_bool",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.35,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "debug",
+              "value": "false"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_nested",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 4.88,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "layout",
+            "value": "{\"a\": {\"b\": [1, 2, {\"c\": null}]}}"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_nested",
+        "stream": false,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.78,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "layout",
+              "value": "{\"a\": {\"b\": [1, 2, {\"c\": null}]}}"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_nested",
+      "stream": true,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 4.88,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "layout",
+            "value": "{\"a\": {\"b\": [1, 2, {\"c\": null}]}}"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_nested",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.77,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "layout",
+              "value": "{\"a\": {\"b\": [1, 2, {\"c\": null}]}}"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "markers_in_prose",
+      "stream": true,
+      "ok": false,
+      "finish": "length",
+      "seconds": 118.47,
+      "calls": [
+        {
+          "name": "book_meeting",
+          "args": {
+            "attendees": [
+              "name"
+            ]
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "markers_in_prose",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 10.63,
+        "calls": [
+          {
+            "name": "search_files",
+            "args": {
+              "pattern": "*.txt"
+            }
+          }
+        ],
+        "content": "In GLM chat templates, the sequence `"
+      },
+      "informational": false
+    },
+    {
+      "case": "info_empty_props_oneof_glm5_169",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 4.06,
+      "calls": [
+        {
+          "name": "lookup",
+          "args": {
+            "id": "42"
+          }
+        }
+      ],
+      "content": "",
+      "informational": true
+    },
+    {
+      "case": "info_empty_props_oneof_glm5_169",
+      "stream": true,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 4.06,
+      "calls": [
+        {
+          "name": "lookup",
+          "args": {
+            "id": "42"
+          }
+        }
+      ],
+      "content": "",
+      "informational": true
+    }
+  ],
+  "cases": [
+    {
+      "case": "simple",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.35,
+      "calls": [
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Paris",
+            "unit": "c"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "simple",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.29,
+      "calls": [
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Paris"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "enum",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.36,
+      "calls": [
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Tokyo",
+            "unit": "f"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "enum",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.34,
+      "calls": [
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Tokyo",
+            "unit": "f"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "int_bool",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.79,
+      "calls": [
+        {
+          "name": "search_files",
+          "args": {
+            "pattern": "*.py",
+            "max_results": 5,
+            "include_hidden": true
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "int_bool",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.78,
+      "calls": [
+        {
+          "name": "search_files",
+          "args": {
+            "pattern": "*.py",
+            "max_results": 5,
+            "include_hidden": true
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "quotes",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.49,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "a.txt",
+            "content": "He said \"hello\" and left"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "quotes",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.49,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "a.txt",
+            "content": "He said \"hello\" and left"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "multiline_code",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.91,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "add.py",
+            "content": "def add(a, b):\n    return a + b\n"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "multiline_code",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.91,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "add.py",
+            "content": "def add(a, b):\n    return a + b\n"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "unicode",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 2.49,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "hi.txt",
+            "content": "Gr\u00fc\u00dfe, \u4f60\u597d, \ud83d\ude80"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "unicode",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.9,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "content": "Gr\u00fc\u00dfe, \u4f60\u597d, \ud83d\ude80",
+            "path": "hi.txt"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "long_argument",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 28.72,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "big.py",
+            "content": "def f0(x):\n    return x * 0 + 0  # step 0\ndef f1(x):\n    return x * 1 + 1  # step 1\ndef f2(x):\n    return x * 2 + 2  # step 2\ndef f3(x):\n    return x * 3 + 3  # step 3\ndef f4(x):\n    return x * 4 + 4  # step 4\ndef f5(x):\n    return x * 5 + 5  # step 5\ndef f6(x):\n    return x * 6 + 6  # step 6\ndef f7(x):\n    return x * 7 + 7  # step 7\ndef f8(x):\n    return x * 8 + 8  # step 8\ndef f9(x):\n    return x * 9 + 9  # step 9\ndef f10(x):\n    return x * 10 + 10  # step 10\ndef f11(x):\n    return x * 11 + 11  # step 11\ndef f12(x):\n    return x * 12 + 12  # step 12\ndef f13(x):\n    return x * 13 + 13  # step 13\ndef f14(x):\n    return x * 14 + 14  # step 14\ndef f15(x):\n    return x * 15 + 15  # step 15\ndef f16(x):\n    return x * 16 + 16  # step 16\ndef f17(x):\n    return x * 17 + 17  # step 17\ndef f18(x):\n    return x * 18 + 18  # step 18\ndef f19(x):\n    return x * 19 + 19  # step 19\ndef f20(x):\n    return x * 20 + 20  # step 20\ndef f21(x):\n    return x * 21 + 21  # step 21\ndef f22(x):\n    return x * 22 + 22  # step 22\ndef f23(x):\n    return x * 23 + 23  # step 23\ndef f24(x):\n    return x * 24 + 24  # step 24\ndef f25(x):\n    return x * 25 + 25  # step 25\ndef f26(x):\n    return x * 26 + 26  # step 26\ndef f27(x):\n    return x * 27 + 27  # step 27\ndef f28(x):\n    return x * 28 + 28  # step 28\ndef f29(x):\n    return x * 29 + 29  # step 29\ndef f30(x):\n    return x * 30 + 30  # step 30\ndef f31(x):\n    return x * 31 + 31  # step 31\ndef f32(x):\n    return x * 32 + 32  # step 32\ndef f33(x):\n    return x * 33 + 33  # step 33\ndef f34(x):\n    return x * 34 + 34  # step 34\ndef f35(x):\n    return x * 35 + 35  # step 35\ndef f36(x):\n    return x * 36 + 36  # step 36\ndef f37(x):\n    return x * 37 + 37  # step 37\ndef f38(x):\n    return x * 38 + 38  # step 38\ndef f39(x):\n    return x * 39 + 39  # step 39\ndef f40(x):\n    return x * 40 + 40  # step 40\ndef f41(x):\n    return x * 41 + 41  # step 41\ndef f42(x):\n    return x * 42 + 42  # step 42\ndef f43(x):\n    return x * 43 + 43  # step 43\ndef f44(x):\n    return x * 44 + 44  # step 44\ndef f45(x):\n    return x * 45 + 45  # step 45\ndef f46(x):\n    return x * 46 + 46  # step 46\ndef f47(x):\n    return x * 47 + 47  # step 47\ndef f48(x):\n    return x * 48 + 48  # step 48\ndef f49(x):\n    return x * 49 + 49  # step 49\ndef f50(x):\n    return x * 50 + 50  # step 50\ndef f51(x):\n    return x * 51 + 51  # step 51\ndef f52(x):\n    return x * 52 + 52  # step 52\ndef f53(x):\n    return x * 53 + 53  # step 53\ndef f54(x):\n    return x * 54 + 54  # step 54\ndef f55(x):\n    return x * 55 + 55  # step 55\ndef f56(x):\n    return x * 56 + 56  # step 56\ndef f57(x):\n    return x * 57 + 57  # step 57\ndef f58(x):\n    return x * 58 + 58  # step 58\ndef f59(x):\n    return x * 59 + 59  # step 59\ndef f60(x):\n    return x * 60 + 60  # step 60\ndef f61(x):\n    return x * 61 + 61  # step 61\ndef f62(x):\n    return x * 62 + 62  # step 62\ndef f63(x):\n    return x * 63 + 63  # step 63\ndef f64(x):\n    return x * 64 + 64  # step 64\ndef f65(x):\n    return x * 65 + 65  # step 65\ndef f66(x):\n    return x * 66 + 66  # step 66\ndef f67(x):\n    return x * 67 + 67  # step 67\ndef f68(x):\n    return x * 68 + 68  # step 68\ndef f69(x):\n    return x * 69 + 69  # step 69\ndef f70(x):\n    return x * 70 + 70  # step 70\ndef f71(x):\n    return x * 71 + 71  # step 71\ndef f72(x):\n    return x * 72 + 72  # step 72\ndef f73(x):\n    return x * 73 + 73  # step 73\ndef f74(x):\n    return x * 74 + 74  # step 74\ndef f75(x):\n    return x * 75 + 75  # step 75\ndef f76(x):\n    return x * 76 + 76  # step 76\ndef f77(x):\n    return x * 77 + 77  # step 77\ndef f78(x):\n    return x * 78 + 78  # step 78\ndef f79(x):\n    return x * 79 + 79  # step 79\ndef f80(x):\n    return x * 80 + 80  # step 80\ndef f81(x):\n    return x * 81 + 81  # step 81\ndef f82(x):\n    return x * 82 + 82  # step 82\ndef f83(x):\n    return x * 83 + 83  # step 83\ndef f84(x):\n    return x * 84 + 84  # step 84\ndef f85(x):\n    return x * 85 + 85  # step 85\ndef f86(x):\n    return x * 86 + 86  # step 86\ndef f87(x):\n    return x * 87 + 87  # step 87\ndef f88(x):\n    return x * 88 + 88  # step 88\ndef f89(x):\n    return x * 89 + 89  # step 89\ndef f90(x):\n    return x * 90 + 90  # step 90\ndef f91(x):\n    return x * 91 + 91  # step 91\ndef f92(x):\n    return x * 92 + 92  # step 92\ndef f93(x):\n    return x * 93 + 93  # step 93\ndef f94(x):\n    return x * 94 + 94  # step 94\ndef f95(x):\n    return x * 95 + 95  # step 95\ndef f96(x):\n    return x * 96 + 96  # step 96\ndef f97(x):\n    return x * 97 + 97  # step 97\ndef f98(x):\n    return x * 98 + 98  # step 98\ndef f99(x):\n    return x * 99 + 99  # step 99\ndef f100(x):\n    return x * 100 + 100  # step 100\ndef f101(x):\n    return x * 101 + 101  # step 101\ndef f102(x):\n    return x * 102 + 102  # step 102\ndef f103(x):\n    return x * 103 + 103  # step 103\ndef f104(x):\n    return x * 104 + 104  # step 104\ndef f105(x):\n    return x * 105 + 105  # step 105\ndef f106(x):\n    return x * 106 + 106  # step 106\ndef f107(x):\n    return x * 107 + 107  # step 107\ndef f108(x):\n    return x * 108 + 108  # step 108\ndef f109(x):\n    return x * 109 + 109  # step 109\ndef f110(x):\n    return x * 110 + 110  # step 110\ndef f111(x):\n    return x * 111 + 111  # step 111\ndef f112(x):\n    return x * 112 + 112  # step 112\ndef f113(x):\n    return x * 113 + 113  # step 113\ndef f114(x):\n    return x * 114 + 114  # step 114\ndef f115(x):\n    return x * 115 + 115  # step 115\ndef f116(x):\n    return x * 116 + 116  # step 116\ndef f117(x):\n    return x * 117 + 117  # step 117\ndef f118(x):\n    return x * 118 + 118  # step 118\ndef f119(x):\n    return x * 119 + 119  # step 119\n"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "long_argument",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 28.72,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "big.py",
+            "content": "def f0(x):\n    return x * 0 + 0  # step 0\ndef f1(x):\n    return x * 1 + 1  # step 1\ndef f2(x):\n    return x * 2 + 2  # step 2\ndef f3(x):\n    return x * 3 + 3  # step 3\ndef f4(x):\n    return x * 4 + 4  # step 4\ndef f5(x):\n    return x * 5 + 5  # step 5\ndef f6(x):\n    return x * 6 + 6  # step 6\ndef f7(x):\n    return x * 7 + 7  # step 7\ndef f8(x):\n    return x * 8 + 8  # step 8\ndef f9(x):\n    return x * 9 + 9  # step 9\ndef f10(x):\n    return x * 10 + 10  # step 10\ndef f11(x):\n    return x * 11 + 11  # step 11\ndef f12(x):\n    return x * 12 + 12  # step 12\ndef f13(x):\n    return x * 13 + 13  # step 13\ndef f14(x):\n    return x * 14 + 14  # step 14\ndef f15(x):\n    return x * 15 + 15  # step 15\ndef f16(x):\n    return x * 16 + 16  # step 16\ndef f17(x):\n    return x * 17 + 17  # step 17\ndef f18(x):\n    return x * 18 + 18  # step 18\ndef f19(x):\n    return x * 19 + 19  # step 19\ndef f20(x):\n    return x * 20 + 20  # step 20\ndef f21(x):\n    return x * 21 + 21  # step 21\ndef f22(x):\n    return x * 22 + 22  # step 22\ndef f23(x):\n    return x * 23 + 23  # step 23\ndef f24(x):\n    return x * 24 + 24  # step 24\ndef f25(x):\n    return x * 25 + 25  # step 25\ndef f26(x):\n    return x * 26 + 26  # step 26\ndef f27(x):\n    return x * 27 + 27  # step 27\ndef f28(x):\n    return x * 28 + 28  # step 28\ndef f29(x):\n    return x * 29 + 29  # step 29\ndef f30(x):\n    return x * 30 + 30  # step 30\ndef f31(x):\n    return x * 31 + 31  # step 31\ndef f32(x):\n    return x * 32 + 32  # step 32\ndef f33(x):\n    return x * 33 + 33  # step 33\ndef f34(x):\n    return x * 34 + 34  # step 34\ndef f35(x):\n    return x * 35 + 35  # step 35\ndef f36(x):\n    return x * 36 + 36  # step 36\ndef f37(x):\n    return x * 37 + 37  # step 37\ndef f38(x):\n    return x * 38 + 38  # step 38\ndef f39(x):\n    return x * 39 + 39  # step 39\ndef f40(x):\n    return x * 40 + 40  # step 40\ndef f41(x):\n    return x * 41 + 41  # step 41\ndef f42(x):\n    return x * 42 + 42  # step 42\ndef f43(x):\n    return x * 43 + 43  # step 43\ndef f44(x):\n    return x * 44 + 44  # step 44\ndef f45(x):\n    return x * 45 + 45  # step 45\ndef f46(x):\n    return x * 46 + 46  # step 46\ndef f47(x):\n    return x * 47 + 47  # step 47\ndef f48(x):\n    return x * 48 + 48  # step 48\ndef f49(x):\n    return x * 49 + 49  # step 49\ndef f50(x):\n    return x * 50 + 50  # step 50\ndef f51(x):\n    return x * 51 + 51  # step 51\ndef f52(x):\n    return x * 52 + 52  # step 52\ndef f53(x):\n    return x * 53 + 53  # step 53\ndef f54(x):\n    return x * 54 + 54  # step 54\ndef f55(x):\n    return x * 55 + 55  # step 55\ndef f56(x):\n    return x * 56 + 56  # step 56\ndef f57(x):\n    return x * 57 + 57  # step 57\ndef f58(x):\n    return x * 58 + 58  # step 58\ndef f59(x):\n    return x * 59 + 59  # step 59\ndef f60(x):\n    return x * 60 + 60  # step 60\ndef f61(x):\n    return x * 61 + 61  # step 61\ndef f62(x):\n    return x * 62 + 62  # step 62\ndef f63(x):\n    return x * 63 + 63  # step 63\ndef f64(x):\n    return x * 64 + 64  # step 64\ndef f65(x):\n    return x * 65 + 65  # step 65\ndef f66(x):\n    return x * 66 + 66  # step 66\ndef f67(x):\n    return x * 67 + 67  # step 67\ndef f68(x):\n    return x * 68 + 68  # step 68\ndef f69(x):\n    return x * 69 + 69  # step 69\ndef f70(x):\n    return x * 70 + 70  # step 70\ndef f71(x):\n    return x * 71 + 71  # step 71\ndef f72(x):\n    return x * 72 + 72  # step 72\ndef f73(x):\n    return x * 73 + 73  # step 73\ndef f74(x):\n    return x * 74 + 74  # step 74\ndef f75(x):\n    return x * 75 + 75  # step 75\ndef f76(x):\n    return x * 76 + 76  # step 76\ndef f77(x):\n    return x * 77 + 77  # step 77\ndef f78(x):\n    return x * 78 + 78  # step 78\ndef f79(x):\n    return x * 79 + 79  # step 79\ndef f80(x):\n    return x * 80 + 80  # step 80\ndef f81(x):\n    return x * 81 + 81  # step 81\ndef f82(x):\n    return x * 82 + 82  # step 82\ndef f83(x):\n    return x * 83 + 83  # step 83\ndef f84(x):\n    return x * 84 + 84  # step 84\ndef f85(x):\n    return x * 85 + 85  # step 85\ndef f86(x):\n    return x * 86 + 86  # step 86\ndef f87(x):\n    return x * 87 + 87  # step 87\ndef f88(x):\n    return x * 88 + 88  # step 88\ndef f89(x):\n    return x * 89 + 89  # step 89\ndef f90(x):\n    return x * 90 + 90  # step 90\ndef f91(x):\n    return x * 91 + 91  # step 91\ndef f92(x):\n    return x * 92 + 92  # step 92\ndef f93(x):\n    return x * 93 + 93  # step 93\ndef f94(x):\n    return x * 94 + 94  # step 94\ndef f95(x):\n    return x * 95 + 95  # step 95\ndef f96(x):\n    return x * 96 + 96  # step 96\ndef f97(x):\n    return x * 97 + 97  # step 97\ndef f98(x):\n    return x * 98 + 98  # step 98\ndef f99(x):\n    return x * 99 + 99  # step 99\ndef f100(x):\n    return x * 100 + 100  # step 100\ndef f101(x):\n    return x * 101 + 101  # step 101\ndef f102(x):\n    return x * 102 + 102  # step 102\ndef f103(x):\n    return x * 103 + 103  # step 103\ndef f104(x):\n    return x * 104 + 104  # step 104\ndef f105(x):\n    return x * 105 + 105  # step 105\ndef f106(x):\n    return x * 106 + 106  # step 106\ndef f107(x):\n    return x * 107 + 107  # step 107\ndef f108(x):\n    return x * 108 + 108  # step 108\ndef f109(x):\n    return x * 109 + 109  # step 109\ndef f110(x):\n    return x * 110 + 110  # step 110\ndef f111(x):\n    return x * 111 + 111  # step 111\ndef f112(x):\n    return x * 112 + 112  # step 112\ndef f113(x):\n    return x * 113 + 113  # step 113\ndef f114(x):\n    return x * 114 + 114  # step 114\ndef f115(x):\n    return x * 115 + 115  # step 115\ndef f116(x):\n    return x * 116 + 116  # step 116\ndef f117(x):\n    return x * 117 + 117  # step 117\ndef f118(x):\n    return x * 118 + 118  # step 118\ndef f119(x):\n    return x * 119 + 119  # step 119\n"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "json_null",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 1.35,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "proxy",
+            "value": "null"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_null",
+        "stream": false,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.34,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "proxy",
+              "value": "null"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_null",
+      "stream": true,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 1.35,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "proxy",
+            "value": "null"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_null",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.33,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "proxy",
+              "value": "null"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_number",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 1.15,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "retries",
+            "value": "3"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_number",
+        "stream": false,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.27,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "retries",
+              "value": "3"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_number",
+      "stream": true,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 1.02,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "retries",
+            "value": "3"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_number",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.36,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "retries",
+              "value": "3"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_bool",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 1.02,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "debug",
+            "value": "false"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_bool",
+        "stream": false,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.35,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "debug",
+              "value": "false"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_bool",
+      "stream": true,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 1.02,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "debug",
+            "value": "false"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_bool",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.35,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "debug",
+              "value": "false"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_nested",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 4.88,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "layout",
+            "value": "{\"a\": {\"b\": [1, 2, {\"c\": null}]}}"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_nested",
+        "stream": false,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.78,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "layout",
+              "value": "{\"a\": {\"b\": [1, 2, {\"c\": null}]}}"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_nested",
+      "stream": true,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 4.88,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "layout",
+            "value": "{\"a\": {\"b\": [1, 2, {\"c\": null}]}}"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_nested",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.77,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "layout",
+              "value": "{\"a\": {\"b\": [1, 2, {\"c\": null}]}}"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "array_of_objects",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 2.69,
+      "calls": [
+        {
+          "name": "book_meeting",
+          "args": {
+            "attendees": [
+              {
+                "email": "alice@x.com",
+                "name": "Alice"
+              },
+              {
+                "email": "bob@x.com",
+                "name": "Bob"
+              }
+            ],
+            "duration_min": 30,
+            "start": "2026-11-10T15:00"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "array_of_objects",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 2.69,
+      "calls": [
+        {
+          "name": "book_meeting",
+          "args": {
+            "attendees": [
+              {
+                "email": "alice@x.com",
+                "name": "Alice"
+              },
+              {
+                "email": "bob@x.com",
+                "name": "Bob"
+              }
+            ],
+            "duration_min": 30,
+            "start": "2026-11-10T15:00"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "parallel",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.3,
+      "calls": [
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Paris"
+          }
+        },
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Berlin"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "parallel",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.29,
+      "calls": [
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Paris"
+          }
+        },
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Berlin"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "shell_special_chars",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.29,
+      "calls": [
+        {
+          "name": "run_shell",
+          "args": {
+            "command": "grep -rn \"TODO\" src/ | wc -l"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "shell_special_chars",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.2,
+      "calls": [
+        {
+          "name": "run_shell",
+          "args": {
+            "command": "grep -rn \"TODO\" src/ | wc -l"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "windows_path",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.41,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "C:\\Users\\me\\my file.txt",
+            "content": "ok"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "windows_path",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.4,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "C:\\Users\\me\\my file.txt",
+            "content": "ok"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "no_arg_tool",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 0.56,
+      "calls": [
+        {
+          "name": "get_time",
+          "args": {}
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "no_arg_tool",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 0.55,
+      "calls": [
+        {
+          "name": "get_time",
+          "args": {}
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "choice_required",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 0.55,
+      "calls": [
+        {
+          "name": "get_time",
+          "args": {}
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "choice_required",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 0.71,
+      "calls": [
+        {
+          "name": "get_time",
+          "args": {}
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "choice_named",
+      "stream": false,
+      "ok": true,
+      "finish": "stop",
+      "seconds": 0.71,
+      "calls": [
+        {
+          "name": "get_time",
+          "args": {}
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "choice_named",
+      "stream": true,
+      "ok": true,
+      "finish": "stop",
+      "seconds": 0.7,
+      "calls": [
+        {
+          "name": "get_time",
+          "args": {}
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "choice_none",
+      "stream": false,
+      "ok": true,
+      "finish": "stop",
+      "seconds": 1.91,
+      "calls": [],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "choice_none",
+      "stream": true,
+      "ok": true,
+      "finish": "stop",
+      "seconds": 1.9,
+      "calls": [],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "should_not_call",
+      "stream": false,
+      "ok": true,
+      "finish": "stop",
+      "seconds": 0.65,
+      "calls": [],
+      "content": "4",
+      "informational": false
+    },
+    {
+      "case": "should_not_call",
+      "stream": true,
+      "ok": true,
+      "finish": "stop",
+      "seconds": 0.65,
+      "calls": [],
+      "content": "4",
+      "informational": false
+    },
+    {
+      "case": "markers_in_prose",
+      "stream": false,
+      "ok": true,
+      "finish": "stop",
+      "seconds": 10.06,
+      "calls": [],
+      "content": "In GLM/ChatGLM chat templates, the literal text \u201c{{ ... }}\u201d isn't used\u2014rather, special control tokens like ``, ``, and `` appear literally in the template and get inserted into the conversation text before it's passed to the model. These tokens are added to the model's vocabulary as special tokens d",
+      "informational": false
+    },
+    {
+      "case": "markers_in_prose",
+      "stream": true,
+      "ok": false,
+      "finish": "length",
+      "seconds": 118.47,
+      "calls": [
+        {
+          "name": "book_meeting",
+          "args": {
+            "attendees": [
+              "name"
+            ]
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "markers_in_prose",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 10.63,
+        "calls": [
+          {
+            "name": "search_files",
+            "args": {
+              "pattern": "*.txt"
+            }
+          }
+        ],
+        "content": "In GLM chat templates, the sequence `"
+      },
+      "informational": false
+    },
+    {
+      "case": "first_step_only",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 4.04,
+      "calls": [
+        {
+          "name": "search_files",
+          "args": {
+            "pattern": "**/*.md"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "first_step_only",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 4.02,
+      "calls": [
+        {
+          "name": "search_files",
+          "args": {
+            "pattern": "*.md"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "long_context_tool",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 4.11,
+      "calls": [
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Oslo"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "long_context_tool",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 4.1,
+      "calls": [
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Oslo"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "info_empty_props_oneof_glm5_169",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 4.06,
+      "calls": [
+        {
+          "name": "lookup",
+          "args": {
+            "id": "42"
+          }
+        }
+      ],
+      "content": "",
+      "informational": true
+    },
+    {
+      "case": "info_empty_props_oneof_glm5_169",
+      "stream": true,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 4.06,
+      "calls": [
+        {
+          "name": "lookup",
+          "args": {
+            "id": "42"
+          }
+        }
+      ],
+      "content": "",
+      "informational": true
+    }
+  ],
+  "wall_seconds": 133.2
+}
