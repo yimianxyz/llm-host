@@ -1,0 +1,45 @@
+{
+  "task": "gsm8k",
+  "n": 20,
+  "accuracy": 0.8,
+  "gate_pass": false,
+  "effort": "low",
+  "seconds": 48.7,
+  "mean_completion_tokens": 1701,
+  "truncated": 0,
+  "failures": [
+    {
+      "ok": false,
+      "gold": 36.0,
+      "pred": 48.0,
+      "tokens": 4867,
+      "finish": "stop",
+      "tail": "$$\n  5 + 5 = 10 \\text{ hours}\n  $$\n\n- One week with 6 hours:  \n  $$\n  6 \\text{ hours}\n  $$\n\n---\n\n### Step 3: Add all the hours together\n\n$$\n32 + 10 + 6 = 48\n$$\n\n---\n\n### Final Answer\n\n$$\n\\boxed{48}\n$$"
+    },
+    {
+      "ok": false,
+      "gold": 12.0,
+      "pred": 18.0,
+      "tokens": 341,
+      "finish": "stop",
+      "tail": "\n\n#### 18"
+    },
+    {
+      "ok": false,
+      "gold": 14000.0,
+      "pred": 8000.0,
+      "tokens": 3279,
+      "finish": "stop",
+      "tail": "000 = 24,000 $\n- Fourth week: $ \\text{Same as first week} = 8,000 $\n\nThis leads to the conclusion that the **fourth week** produces the same amount as the first week.\n\n---\n\n### Final Answer\n\n#### 8000"
+    },
+    {
+      "ok": false,
+      "gold": 40.0,
+      "pred": 58.333,
+      "tokens": 2067,
+      "finish": "stop",
+      "tail": "50 + 0 + 120 + 120 + 20 + 90 = 350\n$$\n\nSince there are 6 days in the week, the average number of birds Mack saw per day is:\n\n$$\n\\frac{350}{6} = 58.333\\ldots\n$$\n\nThus, the final answer is:\n\n#### 58.333"
+    }
+  ],
+  "wall_seconds": 51.3
+}

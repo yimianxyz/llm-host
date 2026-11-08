@@ -174,3 +174,5 @@ long_stream: PASS
   "pass": true
 }
 + bash evals/bench.sh probe 60 15
++ echo REHEARSAL-JOB-DONE
+REHEARSAL-JOB-DONE
