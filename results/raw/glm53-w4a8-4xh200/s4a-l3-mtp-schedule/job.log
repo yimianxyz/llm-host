@@ -29,3 +29,37 @@
   },
   "wall_seconds": 22.4
 }
+{"length": 131072, "depth": 0.5, "prompt_tokens": 130580, "found": true, "ttft_s": 23.36, "prefill_tok_s": 5589, "decode_tok_s": 10257.1, "answer": "money-office-421"}
+{
+  "task": "niah",
+  "max_model_len": 262144,
+  "words_per_token": 0.916,
+  "gate_pass": true,
+  "wall_seconds": 23.5
+}
+{
+  "task": "gsm8k",
+  "n": 200,
+  "accuracy": 0.985,
+  "gate_pass": true,
+  "effort": "high",
+  "seconds": 21.4,
+  "mean_completion_tokens": 133,
+  "truncated": 0,
+  "wall_seconds": 23.6
+}
++ AL_CONC=4
++ bash evals/bench.sh mtp-al
+bench exit=0
+{
+  "mtp_acceptance_length": 3.542,
+  "mtp_acceptance_rate": 0.508,
+  "prefix_cache_hit_rate": 0.0,
+  "external_prefix_cache_hit_rate": null,
+  "preemptions": 0.0,
+  "prompt_tokens": 15682.0,
+  "generation_tokens": 47827.0,
+  "requests_finished": 64.0,
+  "kv_cache_usage_perc_end": 0.0
+}
++ bash evals/bench.sh agentic 1 4 8

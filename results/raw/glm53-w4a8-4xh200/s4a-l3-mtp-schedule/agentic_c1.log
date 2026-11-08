@@ -1,0 +1,103 @@
+2026-11-08 21:43:54 - evalscope - [32mINFO[0m: Save the result to: /root/results/s4a-l3-mtp-schedule/evalscope/agentic_c1[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 21:43:54 - evalscope - [32mINFO[0m: Starting benchmark with args: [0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 21:43:54 - evalscope - [32mINFO[0m: {
+    "model": "glm-5.3",
+    "model_id": "glm-5.3",
+    "attn_implementation": null,
+    "api": "openai",
+    "tokenizer_path": null,
+    "port": 8877,
+    "url": "http://127.0.0.1:8000/v1/chat/completions",
+    "headers": {
+        "Authorization": "Bearer 3f3f6862a670761a65b591adef5f4195aabb95826c6725f9"
+    },
+    "connect_timeout": null,
+    "read_timeout": null,
+    "total_timeout": 21600,
+    "api_key": "3f3f6862a670761a65b591adef5f4195aabb95826c6725f9",
+    "no_test_connection": false,
+    "number": 4,
+    "parallel": 1,
+    "rate": -1.0,
+    "open_loop": false,
+    "sleep_interval": 5,
+    "sla_auto_tune": false,
+    "sla_variable": "parallel",
+    "sla_params": null,
+    "sla_num_runs": 3,
+    "sla_upper_bound": 65536,
+    "sla_lower_bound": 1,
+    "sla_fixed_parallel": null,
+    "sla_number_multiplier": null,
+    "db_commit_interval": 1000,
+    "queue_size_multiplier": 5,
+    "in_flight_task_multiplier": 2,
+    "log_every_n_query": 100,
+    "debug": false,
+    "enable_progress_tracker": false,
+    "visualizer": null,
+    "wandb_api_key": null,
+    "swanlab_api_key": null,
+    "name": "agentic_c1",
+    "outputs_dir": "/root/results/s4a-l3-mtp-schedule/evalscope/agentic_c1",
+    "no_timestamp": true,
+    "max_prompt_length": 131072,
+    "min_prompt_length": 0,
+    "prefix_length": 0,
+    "prompt": null,
+    "query_template": null,
+    "apply_chat_template": true,
+    "image_width": 224,
+    "image_height": 224,
+    "image_format": "RGB",
+    "image_num": 1,
+    "image_patch_size": 28,
+    "dataset": "swe_smith",
+    "dataset_path": "/root/data/openhand-zai-org-GLM-5.3-256.json",
+    "dataset_offset": 0,
+    "frequency_penalty": null,
+    "repetition_penalty": null,
+    "logprobs": null,
+    "max_tokens": 220,
+    "min_tokens": null,
+    "n_choices": null,
+    "seed": null,
+    "stop": null,
+    "stop_token_ids": null,
+    "stream": true,
+    "temperature": 0.0,
+    "top_p": null,
+    "top_k": null,
+    "extra_args": {
+        "ignore_eos": true
+    },
+    "tokenize_prompt": false,
+    "multi_turn": true,
+    "min_turns": 1,
+    "max_turns": null,
+    "multi_turn_args": null
+}[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 21:43:54 - evalscope - [32mINFO[0m: Loading conversations from dataset: swe_smith[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading[conversations]: 0it [00:00, ?it/s][A                                                    
+                                          [A2026-11-08 21:43:54 - evalscope - [32mINFO[0m: Loading pre-built dataset from /root/data/openhand-zai-org-GLM-5.3-256.json[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading[conversations]: 0it [00:00, ?it/s][A                                                    
+                                          [A2026-11-08 21:43:54 - evalscope - [32mINFO[0m: Loaded 256 conversations (offset=0)[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading[conversations]: 0it [00:00, ?it/s][A
+Loading[conversations]: 1it [00:00,  3.67it/s][A                                                    
+                                              [A2026-11-08 21:43:54 - evalscope - [32mINFO[0m: Loading[conversations]   0%| 4/? [Elapsed: 00:00 < Remaining: 00:00,  3.67it/s][0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading[conversations]: 4it [00:00,  3.67it/s][ALoading[conversations]: 4it [00:00, 14.41it/s]
+                                                    2026-11-08 21:43:54 - evalscope - [32mINFO[0m: Loaded 4 conversations[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 21:43:56 - evalscope - [32mINFO[0m: Test connection successful.[0m
+Running[perf]:   0%|          | 0/1 [00:02<?, ?it/s]                                                    2026-11-08 21:43:56 - evalscope - [32mINFO[0m: Save the data base to: /root/results/s4a-l3-mtp-schedule/evalscope/agentic_c1/parallel_1_number_4/benchmark_data.db[0m
+Running[perf]:   0%|          | 0/1 [00:02<?, ?it/s]
+Processing[parallel_1_number_4]:   0%|          | 0/4 [00:00<?, ?it/s][A
+Processing[parallel_1_number_4]:  25%|██▌       | 1/4 [00:31<01:35, 31.83s/it][A
+Processing[parallel_1_number_4]:  50%|█████     | 2/4 [01:03<01:03, 31.70s/it][A                                                    
+                                                                              [A2026-11-08 21:45:00 - evalscope - [32mINFO[0m: Processing[parallel_1_number_4]  50%| 2/4 [Elapsed: 01:03 < Remaining: 01:03, 31.70s/it][0m
+Running[perf]:   0%|          | 0/1 [01:05<?, ?it/s]
+Processing[parallel_1_number_4]:  50%|█████     | 2/4 [01:03<01:03, 31.70s/it][A
+Processing[parallel_1_number_4]:  75%|███████▌  | 3/4 [01:34<00:31, 31.27s/it][A
