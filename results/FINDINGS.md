@@ -60,3 +60,14 @@ This log is append-only, with one entry per step. Each entry records the config,
 **Operational lessons:**
 - **Never `pkill -f "vllm serve"`.** It matches PID 1, because the start script contains that text, and kills the container. `bench.sh apply` now matches `bin/vllm serve`, which only the real vLLM process has.
 - **Do not request 5 GPUs.** GLM-5.3 has 64 heads and 256 experts with an expert width of 2048, so TP, EP and DCP only work at 2, 4 or 8 GPUs. A fifth GPU would sit idle.
+
+**B3 = B2 + `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True` fails at load.** Right after weight loading it logs `expandable_segments: memory mapping failed with OOM` with 22 MB free per GPU, and the workers die. It is not viable alongside DCP's symmetric-memory collectives here.
+
+**B2 = B1 with 16K batched tokens boots with 895,232 KV tokens (11.41 GiB per GPU) but OOMs on its first real 16K prefill chunk.**
+- The memory: a 4.00 GiB allocation in `flash_mla_with_kvcache` with 3.53 GiB free.
+- **Root cause:** in the FP8 mixed-batch path, every token (prefill included) goes through the sparse-decode kernel with 64 DCP-gathered heads. Its transient output and split buffers are about **256 KiB per batched token**: 8 GiB at 32K and 4 GiB at 16K.
+- vLLM's memory profiler does not count this buffer, so the KV cache expands into the space it needs. Earlier I misread both 8 GiB OOMs as B2's; they were B1's first boot and its automatic retry.
+- **Fix, B4:** 8K batched tokens (vLLM's H200 default) gives a 2 GiB buffer, which fits the roughly 3.5 GiB that remains above `gpu-memory-utilization 0.92`.
+- Smaller batched tokens also shrink the profiled activation peak, which is why B2's KV (895K) was much larger than B1's (494K).
+
+**Hung-engine failure mode:** after an engine OOM, the vLLM API server and EngineCore can stay alive with the GPUs already freed. The supervisor then waits forever. `bench.sh apply` now escalates from SIGTERM to SIGKILL after 30 s, and a long-running deployment must watch for "process alive, engine dead". `ready.sh` runs a real generation for that reason.
