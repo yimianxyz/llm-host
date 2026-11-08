@@ -5,5 +5,5 @@ set -x
 bash evals/bench.sh apply deploy/configs/L2-offload300.args || exit 1
 bash evals/bench.sh gate-spot
 AGENTIC_OFFSET=12 bash evals/bench.sh agentic 8
-AGENTIC_OFFSET=28 AGENTIC_DURATION=600 bash evals/bench.sh agentic 16
+AGENTIC_OFFSET=28 AGENTIC_CONVS=16 AGENTIC_TIMEOUT=1500 bash evals/bench.sh agentic 16
 bash evals/bench.sh profile

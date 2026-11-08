@@ -6,7 +6,8 @@
 #   facts                      KV capacity, load and compile times from the current boot's log
 #   setup-client               EvalScope (vLLM blog's pinned commit) in /root/client-venv
 #   agentic C1 [C2 ...]        vLLM GLM-5.3 blog OpenHands multi-turn workload, one point per concurrency
-#   reference C1 [C2 ...]      random 8192 in / 1024 out, SGLang cookbook shape
+#   reference C1 [C2 ...]      random 8192 in / 1024 out, SGLang cookbook shape (REF_IN, REF_OUT, REF_N, REF_WARMUPS
+#                              override it, e.g. one long-context request)
 #   mtp-al                     MTP acceptance on real prompts (speed_bench), temperature 1.0, top_p 0.95; AL_CONC sets
 #                              concurrency, which picks the draft count under a per-batch-size MTP schedule
 #   gate-full | gate-spot      quality gate (evals/quality.py)
@@ -96,13 +97,13 @@ agentic)
   # Conversations per point = 2x concurrency (min 4), as in the vLLM blog's sweep.
   offset=${AGENTIC_OFFSET:-0}
   for c in "$@"; do
-    n=$(( c * 2 < 4 ? 4 : c * 2 ))
+    n=${AGENTIC_CONVS:-$(( c * 2 < 4 ? 4 : c * 2 ))}
     [ $(( offset + n )) -gt $DATA_N ] && offset=0
     name=agentic_c$c
     metrics_start "$name"
-    "$CLIENT/evalscope" perf --model glm-5.3 --url "$BASE/v1/chat/completions" --api openai --api-key "$VLLM_API_KEY" \
-      --dataset swe_smith --dataset-path "$DATA" --dataset-offset "$offset" --max-tokens 220 --multi-turn \
-      --number "$n" --parallel "$c" --extra-args '{"ignore_eos":true}' ${AGENTIC_DURATION:+--duration $AGENTIC_DURATION} \
+    timeout "${AGENTIC_TIMEOUT:-14400}" "$CLIENT/evalscope" perf --model glm-5.3 --url "$BASE/v1/chat/completions" \
+      --api openai --api-key "$VLLM_API_KEY" --dataset swe_smith --dataset-path "$DATA" --dataset-offset "$offset" \
+      --max-tokens 220 --multi-turn --number "$n" --parallel "$c" --extra-args '{"ignore_eos":true}' \
       --name "$name" --outputs-dir "$OUT/evalscope" --no-timestamp > "$OUT/$name.log" 2>&1
     echo "evalscope exit=$? c=$c n=$n offset=$offset"
     metrics_end "$name"
@@ -113,12 +114,13 @@ reference)
   TOK=$(tokenizer_dir)
   for c in "$@"; do
     case $c in 1) n=8 ;; 16) n=64 ;; 64) n=128 ;; *) n=$(( c * 4 )) ;; esac
-    w=$(( c < 8 ? 2 : 16 ))
-    name=ref_c$c
+    n=${REF_N:-$n}; w=${REF_WARMUPS:-$(( c < 8 ? 2 : 16 ))}
+    name=ref_c$c${REF_IN:+_in$REF_IN}
     metrics_start "$name"
     vllm bench serve --backend openai --base-url "$BASE" --endpoint /v1/completions \
       --model "$MODEL" --served-model-name glm-5.3 --tokenizer "$TOK" --trust-remote-code \
-      --dataset-name random --random-input-len 8192 --random-output-len 1024 --random-range-ratio 0 --ignore-eos \
+      --dataset-name random --random-input-len "${REF_IN:-8192}" --random-output-len "${REF_OUT:-1024}" \
+      --random-range-ratio 0 --ignore-eos \
       --num-prompts "$n" --max-concurrency "$c" --num-warmups "$w" --seed "$RANDOM" \
       --percentile-metrics ttft,tpot,itl,e2el --metric-percentiles 50,90,99 --goodput ttft:2000 tpot:80 \
       --save-result --result-dir "$OUT" --result-filename "$name.json" > "$OUT/$name.log" 2>&1
@@ -154,9 +156,11 @@ soak-block)
   off_file=/root/soak_offset; offset=$(cat "$off_file" 2> /dev/null || echo 0)
   name=soak_$(date -u +%Y%m%dT%H%M%S)_c$c
   metrics_start "$name"
-  timeout $(( minutes * 60 + 900 )) "$CLIENT/evalscope" perf --model glm-5.3 --url "$BASE/v1/chat/completions" --api openai \
+  # One agentic point (2c conversations; EvalScope at this commit has no --duration), so blocks are comparable;
+  # MINUTES only caps a stuck block.
+  timeout $(( minutes * 60 )) "$CLIENT/evalscope" perf --model glm-5.3 --url "$BASE/v1/chat/completions" --api openai \
     --api-key "$VLLM_API_KEY" --dataset swe_smith --dataset-path "$DATA" --dataset-offset "$offset" --max-tokens 220 \
-    --multi-turn --number 100000 --duration $(( minutes * 60 )) --parallel "$c" --extra-args '{"ignore_eos":true}' \
+    --multi-turn --number $(( c * 2 < 4 ? 4 : c * 2 )) --parallel "$c" --extra-args '{"ignore_eos":true}' \
     --name "$name" --outputs-dir "$OUT/evalscope" --no-timestamp > "$OUT/$name.log" 2>&1
   echo "soak exit=$? c=$c minutes=$minutes"
   metrics_end "$name"

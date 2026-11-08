@@ -7,3 +7,4 @@ __pycache__/
 data/*.json
 results/raw/**/*.db
 results/raw/**/*.sqlite
+results/raw/**/*.pt.trace.json.gz

@@ -101,6 +101,8 @@ def reference_rows(price, gpus):
         parts = p.split(os.sep)
         m = load(p.replace(".json", ".metrics.json")) or {}
         out.append({"pod": parts[-3], "step": parts[-2], "c": r.get("max_concurrency"), "n": r.get("completed"),
+                    "in": round(r["total_input_tokens"] / r["completed"]) if r.get("completed") else None,
+                    "itl_p50_ms": round(r.get("median_itl_ms") or 0, 2),
                     "failed": r.get("failed"), "ttft_p50_ms": round(r["median_ttft_ms"]), "ttft_p90_ms": round(r["p90_ttft_ms"]),
                     "tpot_p50_ms": round(r["median_tpot_ms"], 2), "tpot_p90_ms": round(r["p90_tpot_ms"], 2),
                     "interactivity": round(1000 / r["median_tpot_ms"], 1), "out_tok_s": round(r["output_throughput"]),
@@ -202,7 +204,8 @@ def main():
     md.append(table([{"step": k, "max_sessions_at_slo": v, "usd_per_session_hr": round(a.price / v, 2)} for k, v in best.items()],
                     ["step", "max_sessions_at_slo", "usd_per_session_hr"]))
     md += ["\n## Reference shape (random 8192/1024, vllm bench serve)\n",
-           table(ref, ["step", "c", "n", "failed", "ttft_p50_ms", "ttft_p90_ms", "tpot_p50_ms", "tpot_p90_ms", "interactivity",
+           table(ref, ["step", "c", "n", "in", "failed", "ttft_p50_ms", "ttft_p90_ms", "tpot_p50_ms", "tpot_p90_ms", "itl_p50_ms",
+                       "interactivity",
                        "out_tok_s", "total_tok_s_per_gpu", "goodput_rps", "mtp_al", "usd_per_m_out"]),
            "\n## Quality, MTP acceptance, restarts, KV capacity\n", table(quality_rows(), ["step", "file", "result"])]
     if pareto(ag, os.path.join(ROOT, "results", "pareto.png")):

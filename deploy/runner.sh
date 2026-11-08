@@ -17,7 +17,7 @@ while true; do
     OUT="$R/$name" bash "/root/done/$name.sh" > "$R/$name/job.log" 2>&1
     echo "$(date -u +%FT%TZ) end $name exit=$?" >> "$R/runner.log"
   elif [ -s /root/idle_soak ] && bash evals/ready.sh > /dev/null 2>&1; then
-    OUT="$R/idle-soak" bash evals/bench.sh soak-block "$(cat /root/idle_soak)" 5 >> "$R/idle-soak.log" 2>&1
+    OUT="$R/idle-soak" bash evals/bench.sh soak-block "$(cat /root/idle_soak)" 20 >> "$R/idle-soak.log" 2>&1
   else
     sleep 15
   fi
