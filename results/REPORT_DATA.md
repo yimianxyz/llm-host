@@ -21,6 +21,7 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s4c-l2-offload | 8 | 208 | 0 | 613.52 | 1378.03 | 77700.76 | 20.23 | 39.52 | 44.06 | 1429.1 | 49.4 | 76.9 | 2.95 | 38.4 | 19.6 | 138.1952 | 12560 | 0.9146 | 3.799 | 0.0 | False |  | 42.53 |
 | s4c2-l2-c16 | 16 | 208 | 0 | 3949.56 | 26910.17 | 180351.55 | 28.3 | 51.42 | 51.95 | 1427.84 | 35.3 | 104.7 | 2.95 | 28.2 | 15.5 | 139.2877 | 12648 | 0.0051 | 3.701 | 0.0 | False |  | 42.2 |
 | s5a-l7-dspark | 1 | 52 | 0 | 457.37 | 524.97 | 15240.92 | 3.61 | 4.27 | 25.75 | 27.35 | 277.0 | 21.2 | 3.92 | 185.0 | 156.4 | 87.0677 | 7911 | 0.9161 | 5.868 | 0.0 | True | 21.16 | 67.51 |
+| s5a-l7-dspark | 4 | 104 | 0 | 545.38 | 971.07 | 46397.86 | 8.41 | 20.4 | 41.95 | 1666.7 | 118.9 | 48.9 | 3.92 | 80.2 | 33.0 | 117.233 | 10650 | 0.916 | 5.812 | 0.0 | True | 5.29 | 50.14 |
 
 ## Max sessions at SLO per step
 | step | max_sessions_at_slo | usd_per_session_hr |
@@ -30,7 +31,7 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s3-baseline | 4 | 5.29 |
 | s4a-l3-mtp-schedule | 4 | 5.29 |
 | s4b-l5p-prefill16k | 1 | 21.16 |
-| s5a-l7-dspark | 1 | 21.16 |
+| s5a-l7-dspark | 4 | 5.29 |
 
 ## Reference shape (random 8192/1024, vllm bench serve)
 | step | c | n | in | failed | ttft_p50_ms | ttft_p90_ms | tpot_p50_ms | tpot_p90_ms | itl_p50_ms | interactivity | out_tok_s | total_tok_s_per_gpu | goodput_rps | mtp_al | usd_per_m_out |
