@@ -8,3 +8,7 @@
 2026-11-08T20:17:42Z start s1e-apply-b2
 2026-11-08T20:22:29Z end s1e-apply-b2 exit=0
 2026-11-08T20:23:29Z start s2-quality
+2026-11-08T20:23:57Z end s2-quality exit=0
+2026-11-08T20:23:57Z start s3-baseline
+2026-11-08T20:25:41Z end s3-baseline exit=0
+2026-11-08T20:25:41Z start s1f-apply-b4

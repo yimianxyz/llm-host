@@ -1,0 +1,774 @@
+2026-11-08 20:23:59 - evalscope - [32mINFO[0m: Save the result to: /root/results/s3-baseline/evalscope/agentic_c1[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 20:23:59 - evalscope - [32mINFO[0m: Starting benchmark with args: [0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 20:23:59 - evalscope - [32mINFO[0m: {
+    "model": "glm-5.3",
+    "model_id": "glm-5.3",
+    "attn_implementation": null,
+    "api": "openai",
+    "tokenizer_path": null,
+    "port": 8877,
+    "url": "http://127.0.0.1:8000/v1/chat/completions",
+    "headers": {
+        "Authorization": "Bearer 3f3f6862a670761a65b591adef5f4195aabb95826c6725f9"
+    },
+    "connect_timeout": null,
+    "read_timeout": null,
+    "total_timeout": 21600,
+    "api_key": "3f3f6862a670761a65b591adef5f4195aabb95826c6725f9",
+    "no_test_connection": false,
+    "number": 4,
+    "parallel": 1,
+    "rate": -1.0,
+    "open_loop": false,
+    "sleep_interval": 5,
+    "sla_auto_tune": false,
+    "sla_variable": "parallel",
+    "sla_params": null,
+    "sla_num_runs": 3,
+    "sla_upper_bound": 65536,
+    "sla_lower_bound": 1,
+    "sla_fixed_parallel": null,
+    "sla_number_multiplier": null,
+    "db_commit_interval": 1000,
+    "queue_size_multiplier": 5,
+    "in_flight_task_multiplier": 2,
+    "log_every_n_query": 100,
+    "debug": false,
+    "enable_progress_tracker": false,
+    "visualizer": null,
+    "wandb_api_key": null,
+    "swanlab_api_key": null,
+    "name": "agentic_c1",
+    "outputs_dir": "/root/results/s3-baseline/evalscope/agentic_c1",
+    "no_timestamp": true,
+    "max_prompt_length": 131072,
+    "min_prompt_length": 0,
+    "prefix_length": 0,
+    "prompt": null,
+    "query_template": null,
+    "apply_chat_template": true,
+    "image_width": 224,
+    "image_height": 224,
+    "image_format": "RGB",
+    "image_num": 1,
+    "image_patch_size": 28,
+    "dataset": "swe_smith",
+    "dataset_path": "/root/data/openhand-zai-org-GLM-5.3-256.json",
+    "dataset_offset": 0,
+    "frequency_penalty": null,
+    "repetition_penalty": null,
+    "logprobs": null,
+    "max_tokens": 220,
+    "min_tokens": null,
+    "n_choices": null,
+    "seed": null,
+    "stop": null,
+    "stop_token_ids": null,
+    "stream": true,
+    "temperature": 0.0,
+    "top_p": null,
+    "top_k": null,
+    "extra_args": {
+        "ignore_eos": true
+    },
+    "tokenize_prompt": false,
+    "multi_turn": true,
+    "min_turns": 1,
+    "max_turns": null,
+    "multi_turn_args": null
+}[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 20:23:59 - evalscope - [32mINFO[0m: Loading conversations from dataset: swe_smith[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading[conversations]: 0it [00:00, ?it/s][A                                                    
+                                          [A2026-11-08 20:23:59 - evalscope - [32mINFO[0m: Loading pre-built dataset from /root/data/openhand-zai-org-GLM-5.3-256.json[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading[conversations]: 0it [00:00, ?it/s][A                                                    
+                                          [A2026-11-08 20:23:59 - evalscope - [32mINFO[0m: Loaded 256 conversations (offset=0)[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading[conversations]: 0it [00:00, ?it/s][A
+Loading[conversations]: 1it [00:00,  3.83it/s][A                                                    
+                                              [A2026-11-08 20:23:59 - evalscope - [32mINFO[0m: Loading[conversations]   0%| 4/? [Elapsed: 00:00 < Remaining: 00:00,  3.83it/s][0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading[conversations]: 4it [00:00,  3.83it/s][ALoading[conversations]: 4it [00:00, 15.14it/s]
+                                                    2026-11-08 20:23:59 - evalscope - [32mINFO[0m: Loaded 4 conversations[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 20:23:59 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1322, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 124, in start_connection
+    raise first_exception
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 75, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 210, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 99, in process_request
+    async with client_session.post(url=url, data=data, headers=headers) as response:
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 1756, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1641, in _create_direct_connection
+    raise last_exc
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1610, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1345, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 20:23:59 - evalscope - [33mWARNING[0m: Retrying... <Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1322, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 124, in start_connection
+    raise first_exception
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 75, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 210, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 99, in process_request
+    async with client_session.post(url=url, data=data, headers=headers) as response:
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 1756, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1641, in _create_direct_connection
+    raise last_exc
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1610, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1345, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+>[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 20:24:09 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1322, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 124, in start_connection
+    raise first_exception
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 75, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 210, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 99, in process_request
+    async with client_session.post(url=url, data=data, headers=headers) as response:
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 1756, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1641, in _create_direct_connection
+    raise last_exc
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1610, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1345, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+[0m
+Running[perf]:   0%|          | 0/1 [00:10<?, ?it/s]                                                    2026-11-08 20:24:09 - evalscope - [33mWARNING[0m: Retrying... <Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1322, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 124, in start_connection
+    raise first_exception
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 75, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 210, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 99, in process_request
+    async with client_session.post(url=url, data=data, headers=headers) as response:
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 1756, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1641, in _create_direct_connection
+    raise last_exc
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1610, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1345, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+>[0m
+Running[perf]:   0%|          | 0/1 [00:10<?, ?it/s]                                                    2026-11-08 20:24:19 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1322, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 124, in start_connection
+    raise first_exception
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 75, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 210, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 99, in process_request
+    async with client_session.post(url=url, data=data, headers=headers) as response:
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 1756, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1641, in _create_direct_connection
+    raise last_exc
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1610, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1345, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+[0m
+Running[perf]:   0%|          | 0/1 [00:20<?, ?it/s]                                                    2026-11-08 20:24:19 - evalscope - [33mWARNING[0m: Retrying... <Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1322, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 124, in start_connection
+    raise first_exception
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 75, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 210, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 99, in process_request
+    async with client_session.post(url=url, data=data, headers=headers) as response:
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 1756, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1641, in _create_direct_connection
+    raise last_exc
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1610, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1345, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+>[0m
+Running[perf]:   0%|          | 0/1 [00:20<?, ?it/s]                                                    2026-11-08 20:24:29 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1322, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 124, in start_connection
+    raise first_exception
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 75, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 210, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 99, in process_request
+    async with client_session.post(url=url, data=data, headers=headers) as response:
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 1756, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1641, in _create_direct_connection
+    raise last_exc
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1610, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1345, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+[0m
+Running[perf]:   0%|          | 0/1 [00:30<?, ?it/s]                                                    2026-11-08 20:24:29 - evalscope - [33mWARNING[0m: Retrying... <Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1322, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 124, in start_connection
+    raise first_exception
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 75, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 210, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 99, in process_request
+    async with client_session.post(url=url, data=data, headers=headers) as response:
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 1756, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1641, in _create_direct_connection
+    raise last_exc
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1610, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1345, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+>[0m
+Running[perf]:   0%|          | 0/1 [00:30<?, ?it/s]                                                    2026-11-08 20:24:39 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1322, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 124, in start_connection
+    raise first_exception
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 75, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 210, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 99, in process_request
+    async with client_session.post(url=url, data=data, headers=headers) as response:
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 1756, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1641, in _create_direct_connection
+    raise last_exc
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1610, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1345, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+[0m
+Running[perf]:   0%|          | 0/1 [00:40<?, ?it/s]                                                    2026-11-08 20:24:39 - evalscope - [33mWARNING[0m: Retrying... <Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1322, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 124, in start_connection
+    raise first_exception
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 75, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 210, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 99, in process_request
+    async with client_session.post(url=url, data=data, headers=headers) as response:
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 1756, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1641, in _create_direct_connection
+    raise last_exc
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1610, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1345, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+>[0m
+Running[perf]:   0%|          | 0/1 [00:40<?, ?it/s]                                                    2026-11-08 20:24:49 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1322, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 124, in start_connection
+    raise first_exception
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 75, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 210, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 99, in process_request
+    async with client_session.post(url=url, data=data, headers=headers) as response:
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 1756, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1641, in _create_direct_connection
+    raise last_exc
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1610, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1345, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+[0m
+Running[perf]:   0%|          | 0/1 [00:50<?, ?it/s]                                                    2026-11-08 20:24:49 - evalscope - [33mWARNING[0m: Retrying... <Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1322, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 124, in start_connection
+    raise first_exception
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 75, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 210, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 99, in process_request
+    async with client_session.post(url=url, data=data, headers=headers) as response:
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 1756, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1641, in _create_direct_connection
+    raise last_exc
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1610, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1345, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+>[0m
+Running[perf]:   0%|          | 0/1 [00:50<?, ?it/s]                                                    2026-11-08 20:24:59 - evalscope - [31mERROR[0m: Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1322, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 124, in start_connection
+    raise first_exception
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 75, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 210, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 99, in process_request
+    async with client_session.post(url=url, data=data, headers=headers) as response:
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 1756, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1641, in _create_direct_connection
+    raise last_exc
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1610, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1345, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+[0m
+Running[perf]:   0%|          | 0/1 [01:00<?, ?it/s]                                                    2026-11-08 20:24:59 - evalscope - [33mWARNING[0m: Retrying... <Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1322, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 124, in start_connection
+    raise first_exception
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 75, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 210, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/plugin/api/default_api.py", line 99, in process_request
+    async with client_session.post(url=url, data=data, headers=headers) as response:
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 1756, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1641, in _create_direct_connection
+    raise last_exc
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1610, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1345, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+>[0m
+Running[perf]:   0%|          | 0/1 [01:00<?, ?it/s]                                                    2026-11-08 20:25:08 - evalscope - [32mINFO[0m: Got signal SIGTERM: exit[0m
+Running[perf]:   0%|          | 0/1 [01:09<?, ?it/s]                                                    2026-11-08 20:25:08 - evalscope - [32mINFO[0m: Running[perf]   0%| 0/1 [Elapsed: 01:09 < Remaining: ?, ?it/s][0m
+Running[perf]:   0%|          | 0/1 [01:09<?, ?it/s]Running[perf]:   0%|          | 0/1 [01:09<?, ?it/s]
+Traceback (most recent call last):
+  File "/root/client-venv/bin/evalscope", line 10, in <module>
+    sys.exit(run_cmd())
+             ^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/cli/cli.py", line 31, in run_cmd
+    cmd.execute()
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/cli/start_perf.py", line 39, in execute
+    run_perf_benchmark(self.args)
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/main.py", line 157, in run_perf_benchmark
+    results = run_multi_benchmark(args, output_path=output_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/main.py", line 97, in run_multi_benchmark
+    benchmark_result = run_one_benchmark(args, output_path=cur_output_path)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/main.py", line 53, in run_one_benchmark
+    metrics_result, percentile_result = loop.run_until_complete(run_multi_turn_benchmark(args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 685, in run_until_complete
+    raise RuntimeError('Event loop stopped before Future completed.')
+RuntimeError: Event loop stopped before Future completed.
