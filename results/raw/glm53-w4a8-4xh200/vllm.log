@@ -778,3 +778,1247 @@ W1108 19:57:32.585000 909 torch/_library/opaque_object.py:211] typ='value' is de
 
 (Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:58:16 [default_loader.py:506] Loading weights took 30.63 seconds
 (Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:58:19 [w4a8.py:266] Using MoEPrepareAndFinalizeNoDPEPModular
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:20 [base_loader.py:82] Initializing model took 0.017278 seconds
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:22 [weight_utils.py:830] Skipped 137/141 safetensors shard(s) holding no weights the model loads
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:22 [weight_utils.py:1144] Filesystem type for checkpoints: OVERLAY. Checkpoint size: 12.64 GiB. Available RAM: 689.38 GiB.
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:00<00:00, 10.47it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:00<00:00,  7.82it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:00<00:00,  8.13it/s]
+
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:22 [default_loader.py:506] Loading weights took 0.50 seconds
+(Worker_TP1_DCP1_EP1 pid=909) INFO 11-08 19:59:24 [model_runner.py:428] Model loading took 111.29 GiB memory and 100.892185 seconds
+(Worker_TP1_DCP1_EP1 pid=909) INFO 11-08 19:59:24 [interface.py:776] Setting kv cache block size to 64 for DEEPSEEK_V32_INDEXER/FLASHMLA_SPARSE backend(s).
+(Worker_TP3_DCP3_EP3 pid=908) INFO 11-08 19:59:24 [model_runner.py:428] Model loading took 111.29 GiB memory and 101.036768 seconds
+(Worker_TP3_DCP3_EP3 pid=908) INFO 11-08 19:59:24 [interface.py:776] Setting kv cache block size to 64 for DEEPSEEK_V32_INDEXER/FLASHMLA_SPARSE backend(s).
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:24 [model_runner.py:428] Model loading took 111.29 GiB memory and 101.118667 seconds
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:24 [topk_topp_sampler.py:149] Using FlashInfer for top-p & top-k sampling.
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:24 [torch_utils.py:281] Reducing Torch threads from 17 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:24 [interface.py:776] Setting kv cache block size to 64 for DEEPSEEK_V32_INDEXER/FLASHMLA_SPARSE backend(s).
+(Worker_TP2_DCP2_EP2 pid=907) INFO 11-08 19:59:24 [model_runner.py:428] Model loading took 111.29 GiB memory and 101.665056 seconds
+(Worker_TP2_DCP2_EP2 pid=907) INFO 11-08 19:59:25 [interface.py:776] Setting kv cache block size to 64 for DEEPSEEK_V32_INDEXER/FLASHMLA_SPARSE backend(s).
+(EngineCore pid=682) INFO 11-08 19:59:25 [torch_utils.py:281] Reducing Torch threads from 17 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(EngineCore pid=682) INFO 11-08 19:59:25 [utils.py:381] Using LBNHC KV cache layout.
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:28 [indexer.py:1035] DSA indexer decode path: use_flattening=False supports_varlen=False (next_n=4, use_fp4_cache=False)
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:28 [dcp.py:1634] Using direct symmetric-memory DCP chunked-context KV gather for MLA.
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:28 [speculator.py:323] Attention backend(s) DEEPSEEK_V32_INDEXER, FLASHMLA_SPARSE cannot update draft decode metadata in place; falling back to rebuilding attention metadata eagerly.
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:28 [breakable_cudagraph.py:294] Breakable CUDA graph enabled
+Capturing CUDA graphs (PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE):   2%|▏         | 1/51 [00:01<01:11,  1.43s/it]Capturing CUDA graphs (PIECEWISE):   4%|▍         | 2/51 [00:01<00:41,  1.19it/s]Capturing CUDA graphs (PIECEWISE):   6%|▌         | 3/51 [00:02<00:31,  1.53it/s]Capturing CUDA graphs (PIECEWISE):   8%|▊         | 4/51 [00:02<00:26,  1.76it/s]Capturing CUDA graphs (PIECEWISE):  10%|▉         | 5/51 [00:03<00:23,  1.94it/s]Capturing CUDA graphs (PIECEWISE):  12%|█▏        | 6/51 [00:03<00:21,  2.06it/s]Capturing CUDA graphs (PIECEWISE):  14%|█▎        | 7/51 [00:03<00:20,  2.15it/s]Capturing CUDA graphs (PIECEWISE):  16%|█▌        | 8/51 [00:04<00:19,  2.20it/s]Capturing CUDA graphs (PIECEWISE):  18%|█▊        | 9/51 [00:04<00:19,  2.12it/s]Capturing CUDA graphs (PIECEWISE):  20%|█▉        | 10/51 [00:05<00:18,  2.20it/s]Capturing CUDA graphs (PIECEWISE):  22%|██▏       | 11/51 [00:05<00:17,  2.24it/s]Capturing CUDA graphs (PIECEWISE):  24%|██▎       | 12/51 [00:06<00:17,  2.25it/s]Capturing CUDA graphs (PIECEWISE):  25%|██▌       | 13/51 [00:06<00:16,  2.27it/s]Capturing CUDA graphs (PIECEWISE):  27%|██▋       | 14/51 [00:07<00:16,  2.29it/s]Capturing CUDA graphs (PIECEWISE):  29%|██▉       | 15/51 [00:07<00:15,  2.31it/s]Capturing CUDA graphs (PIECEWISE):  31%|███▏      | 16/51 [00:07<00:15,  2.30it/s]Capturing CUDA graphs (PIECEWISE):  33%|███▎      | 17/51 [00:08<00:15,  2.26it/s]Capturing CUDA graphs (PIECEWISE):  35%|███▌      | 18/51 [00:08<00:14,  2.20it/s]Capturing CUDA graphs (PIECEWISE):  37%|███▋      | 19/51 [00:09<00:14,  2.21it/s]Capturing CUDA graphs (PIECEWISE):  39%|███▉      | 20/51 [00:09<00:13,  2.22it/s]Capturing CUDA graphs (PIECEWISE):  41%|████      | 21/51 [00:10<00:13,  2.21it/s]Capturing CUDA graphs (PIECEWISE):  43%|████▎     | 22/51 [00:10<00:13,  2.22it/s]Capturing CUDA graphs (PIECEWISE):  45%|████▌     | 23/51 [00:11<00:12,  2.24it/s]Capturing CUDA graphs (PIECEWISE):  47%|████▋     | 24/51 [00:11<00:12,  2.22it/s]Capturing CUDA graphs (PIECEWISE):  49%|████▉     | 25/51 [00:12<00:11,  2.22it/s]Capturing CUDA graphs (PIECEWISE):  51%|█████     | 26/51 [00:12<00:11,  2.18it/s]Capturing CUDA graphs (PIECEWISE):  53%|█████▎    | 27/51 [00:12<00:11,  2.13it/s](Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:41 [flashinfer_all_reduce.py:235] Initialized FlashInfer Allreduce norm fusion workspace with backend=mnnvl
+Capturing CUDA graphs (PIECEWISE):  55%|█████▍    | 28/51 [00:13<00:12,  1.83it/s]Capturing CUDA graphs (PIECEWISE):  57%|█████▋    | 29/51 [00:14<00:11,  1.93it/s]Capturing CUDA graphs (PIECEWISE):  59%|█████▉    | 30/51 [00:14<00:10,  2.02it/s]Capturing CUDA graphs (PIECEWISE):  61%|██████    | 31/51 [00:15<00:09,  2.08it/s]Capturing CUDA graphs (PIECEWISE):  63%|██████▎   | 32/51 [00:15<00:08,  2.13it/s]Capturing CUDA graphs (PIECEWISE):  65%|██████▍   | 33/51 [00:15<00:08,  2.16it/s]Capturing CUDA graphs (PIECEWISE):  67%|██████▋   | 34/51 [00:16<00:07,  2.18it/s]Capturing CUDA graphs (PIECEWISE):  69%|██████▊   | 35/51 [00:16<00:07,  2.20it/s]Capturing CUDA graphs (PIECEWISE):  71%|███████   | 36/51 [00:17<00:06,  2.21it/s]Capturing CUDA graphs (PIECEWISE):  73%|███████▎  | 37/51 [00:17<00:06,  2.22it/s]Capturing CUDA graphs (PIECEWISE):  75%|███████▍  | 38/51 [00:18<00:05,  2.23it/s]Capturing CUDA graphs (PIECEWISE):  76%|███████▋  | 39/51 [00:18<00:05,  2.23it/s]Capturing CUDA graphs (PIECEWISE):  78%|███████▊  | 40/51 [00:19<00:04,  2.22it/s]Capturing CUDA graphs (PIECEWISE):  80%|████████  | 41/51 [00:19<00:04,  2.17it/s]Capturing CUDA graphs (PIECEWISE):  82%|████████▏ | 42/51 [00:20<00:04,  2.17it/s]Capturing CUDA graphs (PIECEWISE):  84%|████████▍ | 43/51 [00:20<00:03,  2.17it/s]Capturing CUDA graphs (PIECEWISE):  86%|████████▋ | 44/51 [00:20<00:03,  2.18it/s]Capturing CUDA graphs (PIECEWISE):  88%|████████▊ | 45/51 [00:21<00:02,  2.19it/s]Capturing CUDA graphs (PIECEWISE):  90%|█████████ | 46/51 [00:21<00:02,  2.24it/s]Capturing CUDA graphs (PIECEWISE):  92%|█████████▏| 47/51 [00:22<00:02,  1.82it/s]Capturing CUDA graphs (PIECEWISE):  94%|█████████▍| 48/51 [00:23<00:01,  1.97it/s]Capturing CUDA graphs (PIECEWISE):  96%|█████████▌| 49/51 [00:23<00:01,  1.75it/s]Capturing CUDA graphs (PIECEWISE):  98%|█████████▊| 50/51 [00:24<00:00,  1.71it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:25<00:00,  1.58it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:25<00:00,  2.03it/s]
+Capturing CUDA graphs (FULL):   0%|          | 0/2 [00:00<?, ?it/s]Capturing CUDA graphs (FULL):  50%|█████     | 1/2 [00:00<00:00,  2.24it/s]Capturing CUDA graphs (FULL): 100%|██████████| 2/2 [00:00<00:00,  2.31it/s]Capturing CUDA graphs (FULL): 100%|██████████| 2/2 [00:00<00:00,  2.30it/s]
+(Worker_TP3_DCP3_EP3 pid=908) INFO 11-08 19:59:54 [speculator.py:110] Capturing model for speculator...
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:54 [speculator.py:110] Capturing model for speculator...
+(Worker_TP2_DCP2_EP2 pid=907) INFO 11-08 19:59:54 [speculator.py:110] Capturing model for speculator...
+Capturing prefill CUDA graphs (PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s](Worker_TP1_DCP1_EP1 pid=909) INFO 11-08 19:59:54 [speculator.py:110] Capturing model for speculator...
+Capturing prefill CUDA graphs (PIECEWISE):  16%|█▌        | 8/51 [00:00<00:00, 72.88it/s]Capturing prefill CUDA graphs (PIECEWISE):  31%|███▏      | 16/51 [00:00<00:00, 74.44it/s]Capturing prefill CUDA graphs (PIECEWISE):  47%|████▋     | 24/51 [00:00<00:00, 76.63it/s]Capturing prefill CUDA graphs (PIECEWISE):  63%|██████▎   | 32/51 [00:00<00:00, 76.45it/s]Capturing prefill CUDA graphs (PIECEWISE):  78%|███████▊  | 40/51 [00:00<00:00, 72.50it/s]Capturing prefill CUDA graphs (PIECEWISE):  94%|█████████▍| 48/51 [00:00<00:00, 72.23it/s]Capturing prefill CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:00<00:00, 74.85it/s]
+Capturing prefill CUDA graphs (FULL):   0%|          | 0/49 [00:00<?, ?it/s]Capturing prefill CUDA graphs (FULL):  12%|█▏        | 6/49 [00:00<00:00, 53.23it/s]Capturing prefill CUDA graphs (FULL):  27%|██▋       | 13/49 [00:00<00:00, 57.75it/s]Capturing prefill CUDA graphs (FULL):  41%|████      | 20/49 [00:00<00:00, 59.50it/s]Capturing prefill CUDA graphs (FULL):  55%|█████▌    | 27/49 [00:00<00:00, 60.41it/s]Capturing prefill CUDA graphs (FULL):  69%|██████▉   | 34/49 [00:00<00:00, 60.83it/s]Capturing prefill CUDA graphs (FULL):  84%|████████▎ | 41/49 [00:00<00:00, 60.96it/s]Capturing prefill CUDA graphs (FULL):  98%|█████████▊| 48/49 [00:00<00:00, 62.77it/s]Capturing prefill CUDA graphs (FULL): 100%|██████████| 49/49 [00:00<00:00, 61.17it/s]
+Capturing decode CUDA graphs (FULL):   0%|          | 0/51 [00:00<?, ?it/s]Capturing decode CUDA graphs (FULL):  12%|█▏        | 6/51 [00:00<00:00, 56.23it/s]Capturing decode CUDA graphs (FULL):  25%|██▌       | 13/51 [00:00<00:00, 60.29it/s]Capturing decode CUDA graphs (FULL):  39%|███▉      | 20/51 [00:00<00:00, 62.33it/s]Capturing decode CUDA graphs (FULL):  53%|█████▎    | 27/51 [00:00<00:00, 63.22it/s]Capturing decode CUDA graphs (FULL):  67%|██████▋   | 34/51 [00:00<00:00, 63.41it/s]Capturing decode CUDA graphs (FULL):  80%|████████  | 41/51 [00:00<00:00, 65.06it/s]Capturing decode CUDA graphs (FULL):  96%|█████████▌| 49/51 [00:00<00:00, 68.60it/s]Capturing decode CUDA graphs (FULL): 100%|██████████| 51/51 [00:00<00:00, 65.64it/s]
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:57 [model_runner.py:1163] Graph capturing finished in 29 secs, took 3.65 GiB
+(Worker_TP3_DCP3_EP3 pid=908) INFO 11-08 19:59:57 [model_runner.py:1163] Graph capturing finished in 29 secs, took 3.65 GiB
+(Worker_TP2_DCP2_EP2 pid=907) INFO 11-08 19:59:57 [model_runner.py:1163] Graph capturing finished in 29 secs, took 3.65 GiB
+(Worker_TP1_DCP1_EP1 pid=909) INFO 11-08 19:59:57 [model_runner.py:1163] Graph capturing finished in 29 secs, took 3.65 GiB
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:58 [gpu_worker.py:772] Available KV cache memory: 6.3 GiB
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:58 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8895 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9505. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(Worker_TP3_DCP3_EP3 pid=908) INFO 11-08 19:59:58 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8895 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9505. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(Worker_TP1_DCP1_EP1 pid=909) INFO 11-08 19:59:58 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8895 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9505. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(Worker_TP2_DCP2_EP2 pid=907) INFO 11-08 19:59:58 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8895 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9505. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=682) INFO 11-08 19:59:58 [kv_cache_utils.py:1147] GPU KV cache size: 494,080 tokens, Maximum concurrency for 262,144 tokens per request: 1.88x
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:58 [kernel_warmup.py:179] JIT kernel warmup starting.
+(Worker_TP3_DCP3_EP3 pid=908) INFO 11-08 19:59:58 [kernel_warmup.py:179] JIT kernel warmup starting.
+(Worker_TP1_DCP1_EP1 pid=909) INFO 11-08 19:59:58 [kernel_warmup.py:179] JIT kernel warmup starting.
+(Worker_TP2_DCP2_EP2 pid=907) INFO 11-08 19:59:58 [kernel_warmup.py:179] JIT kernel warmup starting.
+JIT kernel warmup (123 compile keys):   0%|          | 0/11 [00:00<?, ?kernel/s](Worker_TP2_DCP2_EP2 pid=907) INFO 11-08 20:00:10 [kernel_warmup.py:192] JIT kernel warmup finished in 11.67s.
+(Worker_TP3_DCP3_EP3 pid=908) INFO 11-08 20:00:10 [kernel_warmup.py:192] JIT kernel warmup finished in 11.72s.
+(Worker_TP1_DCP1_EP1 pid=909) INFO 11-08 20:00:10 [kernel_warmup.py:192] JIT kernel warmup finished in 11.86s.
+JIT kernel warmup (123 compile keys): 100%|██████████| 11/11 [00:11<00:00,  1.05s/kernel, StableTopKFromGatheredCandidatesKernel (1 keys)]JIT kernel warmup (123 compile keys): 100%|██████████| 11/11 [00:11<00:00,  1.05s/kernel, StableTopKFromGatheredCandidatesKernel (1 keys)]
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 20:00:10 [kernel_warmup.py:192] JIT kernel warmup finished in 11.94s.
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 20:00:10 [kernel_warmup.py:100] Warming up ll_bf16 router GEMM kernels for shapes: ((6144, 256),).
+DeepGEMM warmup:   0%|          | 0/5427 [00:00<?, ?it/s]DeepGEMM warmup:   0%|          | 1/5427 [00:02<3:35:16,  2.38s/it]DeepGEMM warmup:   0%|          | 6/5427 [00:03<50:01,  1.81it/s]  DeepGEMM warmup:   0%|          | 9/5427 [00:05<47:17,  1.91it/s]DeepGEMM warmup:   0%|          | 14/5427 [00:06<37:13,  2.42it/s]DeepGEMM warmup:   0%|          | 20/5427 [00:08<33:22,  2.70it/s]DeepGEMM warmup:   0%|          | 27/5427 [00:10<27:28,  3.28it/s]DeepGEMM warmup:   1%|          | 33/5427 [00:11<26:12,  3.43it/s]DeepGEMM warmup:   1%|          | 37/5427 [00:13<30:11,  2.98it/s]DeepGEMM warmup:   1%|          | 53/5427 [00:15<17:41,  5.06it/s]DeepGEMM warmup:   1%|          | 59/5427 [00:17<21:09,  4.23it/s]DeepGEMM warmup:   1%|▏         | 69/5427 [00:19<18:58,  4.71it/s]DeepGEMM warmup:   2%|▏         | 110/5427 [00:20<08:33, 10.36it/s]DeepGEMM warmup:  13%|█▎        | 686/5427 [00:23<00:50, 94.64it/s]DeepGEMM warmup:  13%|█▎        | 731/5427 [00:27<01:27, 53.78it/s]DeepGEMM warmup:  14%|█▎        | 737/5427 [00:31<02:13, 35.25it/s]DeepGEMM warmup:  14%|█▎        | 743/5427 [00:32<02:42, 28.86it/s]DeepGEMM warmup:  14%|█▍        | 759/5427 [00:34<03:13, 24.14it/s]DeepGEMM warmup:  14%|█▍        | 764/5427 [00:38<05:32, 14.03it/s]DeepGEMM warmup:  14%|█▍        | 770/5427 [00:42<07:50,  9.89it/s]DeepGEMM warmup:  14%|█▍        | 781/5427 [00:44<08:54,  8.70it/s]DeepGEMM warmup:  25%|██▌       | 1380/5427 [00:46<00:50, 80.36it/s](EngineCore pid=682) INFO 11-08 20:00:59 [shm_broadcast.py:878] No available shared memory broadcast block found in 60 seconds. This typically happens when some processes are hanging or doing some time-consuming work (e.g. compilation, weight/kv cache quantization).
+DeepGEMM warmup:  26%|██▌       | 1415/5427 [00:48<01:06, 60.35it/s]DeepGEMM warmup:  26%|██▌       | 1424/5427 [00:53<02:02, 32.78it/s]DeepGEMM warmup:  26%|██▋       | 1431/5427 [00:58<03:04, 21.61it/s]DeepGEMM warmup:  26%|██▋       | 1437/5427 [01:01<04:12, 15.78it/s]DeepGEMM warmup:  27%|██▋       | 1443/5427 [01:03<04:51, 13.67it/s]DeepGEMM warmup:  27%|██▋       | 1453/5427 [01:05<05:50, 11.32it/s]DeepGEMM warmup:  27%|██▋       | 1458/5427 [01:07<07:00,  9.45it/s]DeepGEMM warmup:  27%|██▋       | 1462/5427 [01:11<11:20,  5.83it/s]DeepGEMM warmup:  27%|██▋       | 1472/5427 [01:15<13:28,  4.89it/s]DeepGEMM warmup:  27%|██▋       | 1485/5427 [01:17<12:54,  5.09it/s]DeepGEMM warmup:  38%|███▊      | 2060/5427 [01:19<00:50, 66.17it/s]DeepGEMM warmup:  39%|███▉      | 2111/5427 [01:21<00:56, 58.46it/s]DeepGEMM warmup:  39%|███▉      | 2121/5427 [01:23<01:12, 45.59it/s]DeepGEMM warmup:  40%|███▉      | 2170/5427 [01:25<01:24, 38.42it/s]DeepGEMM warmup:  51%|█████     | 2754/5427 [01:27<00:23, 115.12it/s]DeepGEMM warmup:  52%|█████▏    | 2805/5427 [01:28<00:28, 92.53it/s] DeepGEMM warmup:  52%|█████▏    | 2816/5427 [01:30<00:38, 67.67it/s]DeepGEMM warmup:  52%|█████▏    | 2824/5427 [01:34<01:06, 39.44it/s]DeepGEMM warmup:  53%|█████▎    | 2864/5427 [01:36<01:17, 33.04it/s]DeepGEMM warmup:  64%|██████▎   | 3448/5427 [01:38<00:20, 96.13it/s]DeepGEMM warmup:  64%|██████▍   | 3499/5427 [01:40<00:23, 80.35it/s]DeepGEMM warmup:  65%|██████▍   | 3509/5427 [01:42<00:31, 60.22it/s]DeepGEMM warmup:  65%|██████▍   | 3515/5427 [01:45<00:52, 36.13it/s]DeepGEMM warmup:  66%|██████▌   | 3558/5427 [01:48<00:59, 31.25it/s](EngineCore pid=682) INFO 11-08 20:01:59 [shm_broadcast.py:878] No available shared memory broadcast block found in 60 seconds. This typically happens when some processes are hanging or doing some time-consuming work (e.g. compilation, weight/kv cache quantization).
+DeepGEMM warmup:  76%|███████▋  | 4142/5427 [01:49<00:12, 106.25it/s]DeepGEMM warmup:  77%|███████▋  | 4163/5427 [01:51<00:15, 83.55it/s] DeepGEMM warmup:  77%|███████▋  | 4174/5427 [01:55<00:27, 45.34it/s]DeepGEMM warmup:  77%|███████▋  | 4182/5427 [01:57<00:33, 37.07it/s]DeepGEMM warmup:  77%|███████▋  | 4188/5427 [01:59<00:47, 26.14it/s]DeepGEMM warmup:  77%|███████▋  | 4192/5427 [02:01<01:00, 20.51it/s]DeepGEMM warmup:  77%|███████▋  | 4195/5427 [02:02<01:18, 15.76it/s]DeepGEMM warmup:  77%|███████▋  | 4202/5427 [02:04<01:36, 12.71it/s]DeepGEMM warmup:  77%|███████▋  | 4204/5427 [02:09<03:01,  6.72it/s]DeepGEMM warmup:  78%|███████▊  | 4206/5427 [02:10<03:39,  5.56it/s]DeepGEMM warmup:  78%|███████▊  | 4213/5427 [02:14<04:49,  4.20it/s]DeepGEMM warmup:  78%|███████▊  | 4219/5427 [02:16<05:30,  3.66it/s]DeepGEMM warmup:  78%|███████▊  | 4223/5427 [02:18<05:57,  3.37it/s]DeepGEMM warmup:  78%|███████▊  | 4229/5427 [02:20<06:24,  3.11it/s]DeepGEMM warmup:  78%|███████▊  | 4245/5427 [02:22<04:18,  4.57it/s]DeepGEMM warmup:  78%|███████▊  | 4247/5427 [02:26<07:18,  2.69it/s]DeepGEMM warmup:  78%|███████▊  | 4256/5427 [02:30<07:19,  2.66it/s]DeepGEMM warmup:  79%|███████▉  | 4275/5427 [02:35<06:00,  3.19it/s]DeepGEMM warmup:  79%|███████▉  | 4286/5427 [02:37<05:21,  3.55it/s]DeepGEMM warmup:  87%|████████▋ | 4734/5427 [02:38<00:12, 53.51it/s]DeepGEMM warmup:  88%|████████▊ | 4785/5427 [02:40<00:13, 49.31it/s]DeepGEMM warmup:  88%|████████▊ | 4795/5427 [02:41<00:16, 39.43it/s](Worker_TP2_DCP2_EP2 pid=907) INFO 11-08 20:02:54 [cache.py:484] Using fp8_ds_mla data type to store kv cache. It reduces the GPU memory footprint and boosts the performance. Meanwhile, it may cause accuracy drop without a proper scaling factor
+(Worker_TP2_DCP2_EP2 pid=907) INFO 11-08 20:02:54 [kernel.py:480] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native'])
+(Worker_TP3_DCP3_EP3 pid=908) INFO 11-08 20:02:54 [cache.py:484] Using fp8_ds_mla data type to store kv cache. It reduces the GPU memory footprint and boosts the performance. Meanwhile, it may cause accuracy drop without a proper scaling factor
+(Worker_TP3_DCP3_EP3 pid=908) INFO 11-08 20:02:54 [kernel.py:480] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native'])
+DeepGEMM warmup:  89%|████████▉ | 4844/5427 [02:43<00:15, 36.45it/s]DeepGEMM warmup: 100%|██████████| 5427/5427 [02:43<00:00, 33.14it/s]
+(Worker_TP1_DCP1_EP1 pid=909) INFO 11-08 20:02:55 [cache.py:484] Using fp8_ds_mla data type to store kv cache. It reduces the GPU memory footprint and boosts the performance. Meanwhile, it may cause accuracy drop without a proper scaling factor
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 20:02:55 [flashinfer_autotune_cache.py:106] Using legacy FlashInfer autotune cache synchronization for multi-rank deployments until FlashInfer coordinates cache hits.
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 20:02:55 [cache.py:484] Using fp8_ds_mla data type to store kv cache. It reduces the GPU memory footprint and boosts the performance. Meanwhile, it may cause accuracy drop without a proper scaling factor
+(Worker_TP1_DCP1_EP1 pid=909) INFO 11-08 20:02:55 [kernel.py:480] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native'])
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 20:02:55 [kernel.py:480] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native'])
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 20:02:55 [compilation.py:317] Enabled custom fusions: norm_quant, act_quant, allreduce_rms
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 20:02:55 [kernel_warmup.py:496] Using FlashInfer autotune cache file: /root/.cache/vllm/flashinfer_autotune_cache/0.7.2.post1/90a/a07ae26529158c18f6ab738e69de07fd21f6ace2674243c440cb5840511e013f/autotune_configs_dp0_rank0.json. Pass --disable-flashinfer-autotune to skip autotuning.
+2026-11-08 20:02:55,091 - INFO - autotuner.py:1048 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+2026-11-08 20:02:55,091 - INFO - autotuner.py:1048 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+2026-11-08 20:02:55,091 - INFO - autotuner.py:1048 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+2026-11-08 20:02:55,091 - INFO - autotuner.py:1048 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 20:02:55 [kernel_warmup.py:371] Running FlashInfer autotune with 32768 tokens and token buckets (1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 768, 1024, 1280, 1536, 1792, 2048, 2560, 3072, 3584, 4096, 8192, 16384, 32768).
+(Worker_TP1_DCP1_EP1 pid=909) INFO 11-08 20:02:55 [kernel_warmup.py:371] Running FlashInfer autotune with 32768 tokens and token buckets (1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 768, 1024, 1280, 1536, 1792, 2048, 2560, 3072, 3584, 4096, 8192, 16384, 32768).
+(Worker_TP3_DCP3_EP3 pid=908) INFO 11-08 20:02:55 [kernel_warmup.py:371] Running FlashInfer autotune with 32768 tokens and token buckets (1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 768, 1024, 1280, 1536, 1792, 2048, 2560, 3072, 3584, 4096, 8192, 16384, 32768).
+(Worker_TP2_DCP2_EP2 pid=907) INFO 11-08 20:02:55 [kernel_warmup.py:371] Running FlashInfer autotune with 32768 tokens and token buckets (1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 768, 1024, 1280, 1536, 1792, 2048, 2560, 3072, 3584, 4096, 8192, 16384, 32768).
+[rank2]:[W1108 20:02:56.935296926 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 2 while trying to allocate 8589934592 bytes (free: 7290748928, total: 150111977472).
+[rank2]:[W1108 20:02:56.940115022 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 2 while trying to allocate 8589934592 bytes (free: 8240758784, total: 150111977472).
+[rank1]:[W1108 20:02:56.946797519 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 1 while trying to allocate 8589934592 bytes (free: 7290748928, total: 150111977472).
+[rank3]:[W1108 20:02:56.947455425 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 3 while trying to allocate 8589934592 bytes (free: 7290748928, total: 150111977472).
+[rank1]:[W1108 20:02:56.950484333 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 1 while trying to allocate 8589934592 bytes (free: 8240758784, total: 150111977472).
+[rank0]:[W1108 20:02:56.955593837 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 8589934592 bytes (free: 7290748928, total: 150111977472).
+[rank3]:[W1108 20:02:56.956798570 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 3 while trying to allocate 8589934592 bytes (free: 8240758784, total: 150111977472).
+[rank0]:[W1108 20:02:56.959213527 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 8589934592 bytes (free: 8240758784, total: 150111977472).
+[20:02:56 /opt/venv/lib/python3.12/site-packages/torch/include/torch/csrc/stable/ops.h:961] Exception across libtorch C API boundary: CUDA out of memory. Tried to allocate 8.00 GiB. GPU 3 has a total capacity of 139.80 GiB of which 7.67 GiB is free. Including non-PyTorch memory, this process has 131.92 GiB memory in use. Of the allocated memory 126.28 GiB is allocated by PyTorch, and 1.14 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+Exception raised from malloc at /__w/pytorch/pytorch/c10/cuda/CUDACachingAllocator.cpp:1927 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x7ea0cccb460d in /usr/local/lib/python3.12/dist-packages/torch/lib/libc10.so)
+frame #1: c10::OutOfMemoryError::OutOfMemoryError(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x72 (0x7ea0cccb5382 in /usr/local/lib/python3.12/dist-packages/torch/lib/libc10.so)
+frame #2: <unknown function> + 0x4731c (0x7ea0ccd9d31c in /usr/local/lib/python3.12/dist-packages/torch/lib/libc10_cuda.so)
+frame #3: <unknown function> + 0x4790e (0x7ea0ccd9d90e in /usr/local/lib/python3.12/dist-packages/torch/lib/libc10_cuda.so)
+frame #4: at::detail::empty_generic(c10::ArrayRef<long>, c10::Allocator*, c10::DispatchKeySet, c10::ScalarType, std::optional<c10::MemoryFormat>) + 0x66b (0x7ea02e9e5dbb in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #5: at::detail::empty_cuda(c10::ArrayRef<long>, c10::ScalarType, std::optional<c10::Device>, std::optional<c10::MemoryFormat>) + 0x7f (0x7ea013aa231f in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #6: at::detail::empty_cuda(c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) + 0x6e (0x7ea013aa251e in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #7: at::native::empty_cuda(c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) + 0x43 (0x7ea013e94ef3 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #8: <unknown function> + 0x3b36662 (0x7ea01689b662 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #9: <unknown function> + 0x3b3677c (0x7ea01689b77c in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #10: at::_ops::empty_memory_format::redispatch(c10::DispatchKeySet, c10::ArrayRef<c10::SymInt>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) + 0xda (0x7ea02fb4d54a in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #11: <unknown function> + 0x2e30369 (0x7ea02ff64369 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #12: at::_ops::empty_memory_format::call(c10::ArrayRef<c10::SymInt>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) + 0x1af (0x7ea02fc07b2f in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #13: at::native::new_empty_symint(at::Tensor const&, c10::ArrayRef<c10::SymInt>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>) + 0xf6 (0x7ea02f2c1766 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #14: <unknown function> + 0x31800e5 (0x7ea0302b40e5 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #15: <unknown function> + 0x66e0c6d (0x7ea033814c6d in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #16: torch_call_dispatcher + 0x294 (0x7ea033815344 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #17: <unknown function> + 0x4f951 (0x7e9edf03e951 in /usr/local/lib/python3.12/dist-packages/vllm/_flashmla_C.abi3.so)
+frame #18: <unknown function> + 0x56f79 (0x7e9edf045f79 in /usr/local/lib/python3.12/dist-packages/vllm/_flashmla_C.abi3.so)
+frame #19: <unknown function> + 0x41a91 (0x7e9edf030a91 in /usr/local/lib/python3.12/dist-packages/vllm/_flashmla_C.abi3.so)
+frame #20: <unknown function> + 0x66e2500 (0x7ea033816500 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #21: <unknown function> + 0x6706ee8 (0x7ea03383aee8 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #22: <unknown function> + 0xb94ce4 (0x7ea0430e1ce4 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #23: <unknown function> + 0xb952e0 (0x7ea0430e22e0 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #24: torch::jit::_get_operation_for_overload_or_packet(std::vector<std::shared_ptr<torch::jit::Operator>, std::allocator<std::shared_ptr<torch::jit::Operator> > > const&, c10::Symbol, pybind11::args const&, pybind11::kwargs const&, bool, std::optional<c10::DispatchKey>) + 0x38 (0x7ea0430e24d8 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #25: <unknown function> + 0xa670de (0x7ea042fb40de in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #26: <unknown function> + 0x4064f2 (0x7ea0429534f2 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #27: VLLM::Worker_TP3_DCP3_EP3() [0x581fed]
+frame #28: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP3_DCP3_EP3)
+frame #29: _PyObject_Call_Prepend + 0xc2 (0x54a802 in VLLM::Worker_TP3_DCP3_EP3)
+frame #30: VLLM::Worker_TP3_DCP3_EP3() [0x5a3778]
+frame #31: _PyObject_MakeTpCall + 0x75 (0x548fb5 in VLLM::Worker_TP3_DCP3_EP3)
+frame #32: _PyEval_EvalFrameDefault + 0xadf (0x5d710f in VLLM::Worker_TP3_DCP3_EP3)
+frame #33: VLLM::Worker_TP3_DCP3_EP3() [0x54cbb4]
+frame #34: PyObject_Call + 0x115 (0x54b1d5 in VLLM::Worker_TP3_DCP3_EP3)
+frame #35: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP3_DCP3_EP3)
+frame #36: VLLM::Worker_TP3_DCP3_EP3() [0x54cbb4]
+frame #37: PyObject_Call + 0x115 (0x54b1d5 in VLLM::Worker_TP3_DCP3_EP3)
+frame #38: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP3_DCP3_EP3)
+frame #39: _PyObject_Call_Prepend + 0x18a (0x54a8ca in VLLM::Worker_TP3_DCP3_EP3)
+frame #40: VLLM::Worker_TP3_DCP3_EP3() [0x5a3778]
+frame #41: _PyObject_MakeTpCall + 0x13e (0x54907e in VLLM::Worker_TP3_DCP3_EP3)
+frame #42: _PyEval_EvalFrameDefault + 0xadf (0x5d710f in VLLM::Worker_TP3_DCP3_EP3)
+frame #43: VLLM::Worker_TP3_DCP3_EP3() [0x54caed]
+frame #44: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP3_DCP3_EP3)
+frame #45: VLLM::Worker_TP3_DCP3_EP3() [0x54caed]
+frame #46: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP3_DCP3_EP3)
+frame #47: _PyObject_Call_Prepend + 0xc2 (0x54a802 in VLLM::Worker_TP3_DCP3_EP3)
+frame #48: VLLM::Worker_TP3_DCP3_EP3() [0x5a3778]
+frame #49: _PyObject_MakeTpCall + 0x75 (0x548fb5 in VLLM::Worker_TP3_DCP3_EP3)
+frame #50: _PyEval_EvalFrameDefault + 0xadf (0x5d710f in VLLM::Worker_TP3_DCP3_EP3)
+frame #51: VLLM::Worker_TP3_DCP3_EP3() [0x54caed]
+frame #52: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP3_DCP3_EP3)
+frame #53: VLLM::Worker_TP3_DCP3_EP3() [0x54caed]
+frame #54: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP3_DCP3_EP3)
+frame #55: _PyObject_Call_Prepend + 0xc2 (0x54a802 in VLLM::Worker_TP3_DCP3_EP3)
+frame #56: VLLM::Worker_TP3_DCP3_EP3() [0x5a3778]
+frame #57: _PyObject_MakeTpCall + 0x75 (0x548fb5 in VLLM::Worker_TP3_DCP3_EP3)
+frame #58: _PyEval_EvalFrameDefault + 0xadf (0x5d710f in VLLM::Worker_TP3_DCP3_EP3)
+frame #59: VLLM::Worker_TP3_DCP3_EP3() [0x54cbb4]
+frame #60: PyObject_Call + 0x115 (0x54b1d5 in VLLM::Worker_TP3_DCP3_EP3)
+frame #61: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP3_DCP3_EP3)
+frame #62: VLLM::Worker_TP3_DCP3_EP3() [0x54cbb4]
+2026-11-08 20:02:56,863 - INFO - autotuner.py:1071 - flashinfer.jit: [Autotuner]: Autotuning process ends
+[20:02:56 /opt/venv/lib/python3.12/site-packages/torch/include/torch/csrc/stable/ops.h:961] Exception across libtorch C API boundary: CUDA out of memory. Tried to allocate 8.00 GiB. GPU 2 has a total capacity of 139.80 GiB of which 7.67 GiB is free. Including non-PyTorch memory, this process has 131.92 GiB memory in use. Of the allocated memory 126.28 GiB is allocated by PyTorch, and 1.14 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+Exception raised from malloc at /__w/pytorch/pytorch/c10/cuda/CUDACachingAllocator.cpp:1927 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x7c701055e60d in /usr/local/lib/python3.12/dist-packages/torch/lib/libc10.so)
+frame #1: c10::OutOfMemoryError::OutOfMemoryError(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x72 (0x7c701055f382 in /usr/local/lib/python3.12/dist-packages/torch/lib/libc10.so)
+frame #2: <unknown function> + 0x4731c (0x7c701097831c in /usr/local/lib/python3.12/dist-packages/torch/lib/libc10_cuda.so)
+frame #3: <unknown function> + 0x4790e (0x7c701097890e in /usr/local/lib/python3.12/dist-packages/torch/lib/libc10_cuda.so)
+frame #4: at::detail::empty_generic(c10::ArrayRef<long>, c10::Allocator*, c10::DispatchKeySet, c10::ScalarType, std::optional<c10::MemoryFormat>) + 0x66b (0x7c6f721e5dbb in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #5: at::detail::empty_cuda(c10::ArrayRef<long>, c10::ScalarType, std::optional<c10::Device>, std::optional<c10::MemoryFormat>) + 0x7f (0x7c6f572a231f in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #6: at::detail::empty_cuda(c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) + 0x6e (0x7c6f572a251e in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #7: at::native::empty_cuda(c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) + 0x43 (0x7c6f57694ef3 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #8: <unknown function> + 0x3b36662 (0x7c6f5a09b662 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #9: <unknown function> + 0x3b3677c (0x7c6f5a09b77c in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #10: at::_ops::empty_memory_format::redispatch(c10::DispatchKeySet, c10::ArrayRef<c10::SymInt>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) + 0xda (0x7c6f7334d54a in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #11: <unknown function> + 0x2e30369 (0x7c6f73764369 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #12: at::_ops::empty_memory_format::call(c10::ArrayRef<c10::SymInt>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) + 0x1af (0x7c6f73407b2f in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #13: at::native::new_empty_symint(at::Tensor const&, c10::ArrayRef<c10::SymInt>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>) + 0xf6 (0x7c6f72ac1766 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #14: <unknown function> + 0x31800e5 (0x7c6f73ab40e5 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #15: <unknown function> + 0x66e0c6d (0x7c6f77014c6d in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #16: torch_call_dispatcher + 0x294 (0x7c6f77015344 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #17: <unknown function> + 0x4f951 (0x7c6e2253e951 in /usr/local/lib/python3.12/dist-packages/vllm/_flashmla_C.abi3.so)
+frame #18: <unknown function> + 0x56f79 (0x7c6e22545f79 in /usr/local/lib/python3.12/dist-packages/vllm/_flashmla_C.abi3.so)
+frame #19: <unknown function> + 0x41a91 (0x7c6e22530a91 in /usr/local/lib/python3.12/dist-packages/vllm/_flashmla_C.abi3.so)
+frame #20: <unknown function> + 0x66e2500 (0x7c6f77016500 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #21: <unknown function> + 0x6706ee8 (0x7c6f7703aee8 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #22: <unknown function> + 0xb94ce4 (0x7c6f868e1ce4 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #23: <unknown function> + 0xb952e0 (0x7c6f868e22e0 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #24: torch::jit::_get_operation_for_overload_or_packet(std::vector<std::shared_ptr<torch::jit::Operator>, std::allocator<std::shared_ptr<torch::jit::Operator> > > const&, c10::Symbol, pybind11::args const&, pybind11::kwargs const&, bool, std::optional<c10::DispatchKey>) + 0x38 (0x7c6f868e24d8 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #25: <unknown function> + 0xa670de (0x7c6f867b40de in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #26: <unknown function> + 0x4064f2 (0x7c6f861534f2 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #27: VLLM::Worker_TP2_DCP2_EP2() [0x581fed]
+frame #28: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP2_DCP2_EP2)
+frame #29: _PyObject_Call_Prepend + 0xc2 (0x54a802 in VLLM::Worker_TP2_DCP2_EP2)
+frame #30: VLLM::Worker_TP2_DCP2_EP2() [0x5a3778]
+frame #31: _PyObject_MakeTpCall + 0x75 (0x548fb5 in VLLM::Worker_TP2_DCP2_EP2)
+frame #32: _PyEval_EvalFrameDefault + 0xadf (0x5d710f in VLLM::Worker_TP2_DCP2_EP2)
+frame #33: VLLM::Worker_TP2_DCP2_EP2() [0x54cbb4]
+frame #34: PyObject_Call + 0x115 (0x54b1d5 in VLLM::Worker_TP2_DCP2_EP2)
+frame #35: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP2_DCP2_EP2)
+frame #36: VLLM::Worker_TP2_DCP2_EP2() [0x54cbb4]
+frame #37: PyObject_Call + 0x115 (0x54b1d5 in VLLM::Worker_TP2_DCP2_EP2)
+frame #38: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP2_DCP2_EP2)
+frame #39: _PyObject_Call_Prepend + 0x18a (0x54a8ca in VLLM::Worker_TP2_DCP2_EP2)
+frame #40: VLLM::Worker_TP2_DCP2_EP2() [0x5a3778]
+frame #41: _PyObject_MakeTpCall + 0x13e (0x54907e in VLLM::Worker_TP2_DCP2_EP2)
+frame #42: _PyEval_EvalFrameDefault + 0xadf (0x5d710f in VLLM::Worker_TP2_DCP2_EP2)
+frame #43: VLLM::Worker_TP2_DCP2_EP2() [0x54caed]
+frame #44: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP2_DCP2_EP2)
+frame #45: VLLM::Worker_TP2_DCP2_EP2() [0x54caed]
+frame #46: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP2_DCP2_EP2)
+frame #47: _PyObject_Call_Prepend + 0xc2 (0x54a802 in VLLM::Worker_TP2_DCP2_EP2)
+frame #48: VLLM::Worker_TP2_DCP2_EP2() [0x5a3778]
+frame #49: _PyObject_MakeTpCall + 0x75 (0x548fb5 in VLLM::Worker_TP2_DCP2_EP2)
+frame #50: _PyEval_EvalFrameDefault + 0xadf (0x5d710f in VLLM::Worker_TP2_DCP2_EP2)
+frame #51: VLLM::Worker_TP2_DCP2_EP2() [0x54caed]
+frame #52: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP2_DCP2_EP2)
+frame #53: VLLM::Worker_TP2_DCP2_EP2() [0x54caed]
+frame #54: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP2_DCP2_EP2)
+frame #55: _PyObject_Call_Prepend + 0xc2 (0x54a802 in VLLM::Worker_TP2_DCP2_EP2)
+frame #56: VLLM::Worker_TP2_DCP2_EP2() [0x5a3778]
+frame #57: _PyObject_MakeTpCall + 0x75 (0x548fb5 in VLLM::Worker_TP2_DCP2_EP2)
+frame #58: _PyEval_EvalFrameDefault + 0xadf (0x5d710f in VLLM::Worker_TP2_DCP2_EP2)
+frame #59: VLLM::Worker_TP2_DCP2_EP2() [0x54cbb4]
+frame #60: PyObject_Call + 0x115 (0x54b1d5 in VLLM::Worker_TP2_DCP2_EP2)
+frame #61: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP2_DCP2_EP2)
+frame #62: VLLM::Worker_TP2_DCP2_EP2() [0x54cbb4]
+2026-11-08 20:02:56,865 - INFO - autotuner.py:1071 - flashinfer.jit: [Autotuner]: Autotuning process ends
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] WorkerProc hit an exception.
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] Traceback (most recent call last):
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 1177, in _execute_worker_rpc
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     output = func(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]              ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 938, in compile_or_warm_up_model
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._compile_or_warm_up_model()
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 982, in _compile_or_warm_up_model
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     kernel_warmup(self)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 272, in kernel_warmup
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     flashinfer_autotune(worker.model_runner)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 518, in flashinfer_autotune
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     _run_flashinfer_autotune_dummy_runs(runner, skip_attn=skip_attn)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 379, in _run_flashinfer_autotune_dummy_runs
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     runner._dummy_run(
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/eplb_utils.py", line 55, in wrapper
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return fn(self, *args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 920, in _dummy_run
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     self.execute_model(
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 2097, in execute_model
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     model_output = self.model(**model_inputs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/deepseek_v2.py", line 1972, in forward
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states = self.model(
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/nvidia/model.py", line 293, in forward
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states, residual = layer(positions, hidden_states, residual, attn_in)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/nvidia/model.py", line 151, in forward
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states = self.self_attn(positions=positions, hidden_states=hidden_states)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/attention.py", line 450, in forward
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     self._sparse_indexer_and_attn(
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/compilation/breakable_cudagraph.py", line 103, in wrapper
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return fn(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/attention.py", line 597, in _sparse_indexer_and_attn
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     attn_out, lse = self.impl.forward_mqa(  # type: ignore[attr-defined]
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1459, in forward_mqa
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     attn_out, lse = self._forward_fp8_kv_mixed_batch(
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1259, in _forward_fp8_kv_mixed_batch
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     _attn_out, _lse = self._fp8_flash_mla_kernel(
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1304, in _fp8_flash_mla_kernel
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     out, lse = flash_mla_with_kvcache(
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                ^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/third_party/flashmla/flash_mla_interface.py", line 193, in flash_mla_with_kvcache
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     out, lse, new_tile_scheduler_metadata, new_num_splits = flash_mla_cuda.sparse_decode_fwd(
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._op(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] RuntimeError: CUDA out of memory. Tried to allocate 8.00 GiB. GPU 3 has a total capacity of 139.80 GiB of which 7.67 GiB is free. Including non-PyTorch memory, this process has 131.92 GiB memory in use. Of the allocated memory 126.28 GiB is allocated by PyTorch, and 1.14 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf) (originally from torch_call_dispatcher( "aten::new_empty", "", stack.data(), TORCH_ABI_VERSION) API call failed at /opt/venv/lib/python3.12/site-packages/torch/include/torch/csrc/stable/ops.h, line 961)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] Traceback (most recent call last):
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 1177, in _execute_worker_rpc
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     output = func(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]              ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 938, in compile_or_warm_up_model
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._compile_or_warm_up_model()
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 982, in _compile_or_warm_up_model
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     kernel_warmup(self)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 272, in kernel_warmup
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     flashinfer_autotune(worker.model_runner)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 518, in flashinfer_autotune
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     _run_flashinfer_autotune_dummy_runs(runner, skip_attn=skip_attn)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 379, in _run_flashinfer_autotune_dummy_runs
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     runner._dummy_run(
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/eplb_utils.py", line 55, in wrapper
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return fn(self, *args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 920, in _dummy_run
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     self.execute_model(
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 2097, in execute_model
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     model_output = self.model(**model_inputs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/deepseek_v2.py", line 1972, in forward
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states = self.model(
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/nvidia/model.py", line 293, in forward
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states, residual = layer(positions, hidden_states, residual, attn_in)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/nvidia/model.py", line 151, in forward
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states = self.self_attn(positions=positions, hidden_states=hidden_states)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/attention.py", line 450, in forward
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     self._sparse_indexer_and_attn(
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/compilation/breakable_cudagraph.py", line 103, in wrapper
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return fn(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/attention.py", line 597, in _sparse_indexer_and_attn
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     attn_out, lse = self.impl.forward_mqa(  # type: ignore[attr-defined]
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1459, in forward_mqa
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     attn_out, lse = self._forward_fp8_kv_mixed_batch(
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1259, in _forward_fp8_kv_mixed_batch
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     _attn_out, _lse = self._fp8_flash_mla_kernel(
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1304, in _fp8_flash_mla_kernel
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     out, lse = flash_mla_with_kvcache(
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                ^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/third_party/flashmla/flash_mla_interface.py", line 193, in flash_mla_with_kvcache
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     out, lse, new_tile_scheduler_metadata, new_num_splits = flash_mla_cuda.sparse_decode_fwd(
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._op(*args, **kwargs)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] RuntimeError: CUDA out of memory. Tried to allocate 8.00 GiB. GPU 3 has a total capacity of 139.80 GiB of which 7.67 GiB is free. Including non-PyTorch memory, this process has 131.92 GiB memory in use. Of the allocated memory 126.28 GiB is allocated by PyTorch, and 1.14 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf) (originally from torch_call_dispatcher( "aten::new_empty", "", stack.data(), TORCH_ABI_VERSION) API call failed at /opt/venv/lib/python3.12/site-packages/torch/include/torch/csrc/stable/ops.h, line 961)
+(Worker_TP3_DCP3_EP3 pid=908) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] 
+[20:02:56 /opt/venv/lib/python3.12/site-packages/torch/include/torch/csrc/stable/ops.h:961] Exception across libtorch C API boundary: CUDA out of memory. Tried to allocate 8.00 GiB. GPU 1 has a total capacity of 139.80 GiB of which 7.67 GiB is free. Including non-PyTorch memory, this process has 131.92 GiB memory in use. Of the allocated memory 126.28 GiB is allocated by PyTorch, and 1.14 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+Exception raised from malloc at /__w/pytorch/pytorch/c10/cuda/CUDACachingAllocator.cpp:1927 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x7b43f1d5e60d in /usr/local/lib/python3.12/dist-packages/torch/lib/libc10.so)
+frame #1: c10::OutOfMemoryError::OutOfMemoryError(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x72 (0x7b43f1d5f382 in /usr/local/lib/python3.12/dist-packages/torch/lib/libc10.so)
+frame #2: <unknown function> + 0x4731c (0x7b43f219031c in /usr/local/lib/python3.12/dist-packages/torch/lib/libc10_cuda.so)
+frame #3: <unknown function> + 0x4790e (0x7b43f219090e in /usr/local/lib/python3.12/dist-packages/torch/lib/libc10_cuda.so)
+frame #4: at::detail::empty_generic(c10::ArrayRef<long>, c10::Allocator*, c10::DispatchKeySet, c10::ScalarType, std::optional<c10::MemoryFormat>) + 0x66b (0x7b43539e5dbb in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #5: at::detail::empty_cuda(c10::ArrayRef<long>, c10::ScalarType, std::optional<c10::Device>, std::optional<c10::MemoryFormat>) + 0x7f (0x7b4338aa231f in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #6: at::detail::empty_cuda(c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) + 0x6e (0x7b4338aa251e in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #7: at::native::empty_cuda(c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) + 0x43 (0x7b4338e94ef3 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #8: <unknown function> + 0x3b36662 (0x7b433b89b662 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #9: <unknown function> + 0x3b3677c (0x7b433b89b77c in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #10: at::_ops::empty_memory_format::redispatch(c10::DispatchKeySet, c10::ArrayRef<c10::SymInt>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) + 0xda (0x7b4354b4d54a in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #11: <unknown function> + 0x2e30369 (0x7b4354f64369 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #12: at::_ops::empty_memory_format::call(c10::ArrayRef<c10::SymInt>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) + 0x1af (0x7b4354c07b2f in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #13: at::native::new_empty_symint(at::Tensor const&, c10::ArrayRef<c10::SymInt>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>) + 0xf6 (0x7b43542c1766 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #14: <unknown function> + 0x31800e5 (0x7b43552b40e5 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #15: <unknown function> + 0x66e0c6d (0x7b4358814c6d in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #16: torch_call_dispatcher + 0x294 (0x7b4358815344 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #17: <unknown function> + 0x4f951 (0x7b42040cf951 in /usr/local/lib/python3.12/dist-packages/vllm/_flashmla_C.abi3.so)
+frame #18: <unknown function> + 0x56f79 (0x7b42040d6f79 in /usr/local/lib/python3.12/dist-packages/vllm/_flashmla_C.abi3.so)
+frame #19: <unknown function> + 0x41a91 (0x7b42040c1a91 in /usr/local/lib/python3.12/dist-packages/vllm/_flashmla_C.abi3.so)
+frame #20: <unknown function> + 0x66e2500 (0x7b4358816500 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #21: <unknown function> + 0x6706ee8 (0x7b435883aee8 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #22: <unknown function> + 0xb94ce4 (0x7b43680e1ce4 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #23: <unknown function> + 0xb952e0 (0x7b43680e22e0 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #24: torch::jit::_get_operation_for_overload_or_packet(std::vector<std::shared_ptr<torch::jit::Operator>, std::allocator<std::shared_ptr<torch::jit::Operator> > > const&, c10::Symbol, pybind11::args const&, pybind11::kwargs const&, bool, std::optional<c10::DispatchKey>) + 0x38 (0x7b43680e24d8 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #25: <unknown function> + 0xa670de (0x7b4367fb40de in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #26: <unknown function> + 0x4064f2 (0x7b43679534f2 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #27: VLLM::Worker_TP1_DCP1_EP1() [0x581fed]
+frame #28: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP1_DCP1_EP1)
+frame #29: _PyObject_Call_Prepend + 0xc2 (0x54a802 in VLLM::Worker_TP1_DCP1_EP1)
+frame #30: VLLM::Worker_TP1_DCP1_EP1() [0x5a3778]
+frame #31: _PyObject_MakeTpCall + 0x75 (0x548fb5 in VLLM::Worker_TP1_DCP1_EP1)
+frame #32: _PyEval_EvalFrameDefault + 0xadf (0x5d710f in VLLM::Worker_TP1_DCP1_EP1)
+frame #33: VLLM::Worker_TP1_DCP1_EP1() [0x54cbb4]
+frame #34: PyObject_Call + 0x115 (0x54b1d5 in VLLM::Worker_TP1_DCP1_EP1)
+frame #35: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP1_DCP1_EP1)
+frame #36: VLLM::Worker_TP1_DCP1_EP1() [0x54cbb4]
+frame #37: PyObject_Call + 0x115 (0x54b1d5 in VLLM::Worker_TP1_DCP1_EP1)
+frame #38: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP1_DCP1_EP1)
+frame #39: _PyObject_Call_Prepend + 0x18a (0x54a8ca in VLLM::Worker_TP1_DCP1_EP1)
+frame #40: VLLM::Worker_TP1_DCP1_EP1() [0x5a3778]
+frame #41: _PyObject_MakeTpCall + 0x13e (0x54907e in VLLM::Worker_TP1_DCP1_EP1)
+frame #42: _PyEval_EvalFrameDefault + 0xadf (0x5d710f in VLLM::Worker_TP1_DCP1_EP1)
+frame #43: VLLM::Worker_TP1_DCP1_EP1() [0x54caed]
+frame #44: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP1_DCP1_EP1)
+frame #45: VLLM::Worker_TP1_DCP1_EP1() [0x54caed]
+frame #46: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP1_DCP1_EP1)
+frame #47: _PyObject_Call_Prepend + 0xc2 (0x54a802 in VLLM::Worker_TP1_DCP1_EP1)
+frame #48: VLLM::Worker_TP1_DCP1_EP1() [0x5a3778]
+frame #49: _PyObject_MakeTpCall + 0x75 (0x548fb5 in VLLM::Worker_TP1_DCP1_EP1)
+frame #50: _PyEval_EvalFrameDefault + 0xadf (0x5d710f in VLLM::Worker_TP1_DCP1_EP1)
+frame #51: VLLM::Worker_TP1_DCP1_EP1() [0x54caed]
+frame #52: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP1_DCP1_EP1)
+frame #53: VLLM::Worker_TP1_DCP1_EP1() [0x54caed]
+frame #54: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP1_DCP1_EP1)
+frame #55: _PyObject_Call_Prepend + 0xc2 (0x54a802 in VLLM::Worker_TP1_DCP1_EP1)
+frame #56: VLLM::Worker_TP1_DCP1_EP1() [0x5a3778]
+frame #57: _PyObject_MakeTpCall + 0x75 (0x548fb5 in VLLM::Worker_TP1_DCP1_EP1)
+frame #58: _PyEval_EvalFrameDefault + 0xadf (0x5d710f in VLLM::Worker_TP1_DCP1_EP1)
+frame #59: VLLM::Worker_TP1_DCP1_EP1() [0x54cbb4]
+frame #60: PyObject_Call + 0x115 (0x54b1d5 in VLLM::Worker_TP1_DCP1_EP1)
+frame #61: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP1_DCP1_EP1)
+frame #62: VLLM::Worker_TP1_DCP1_EP1() [0x54cbb4]
+2026-11-08 20:02:56,870 - INFO - autotuner.py:1071 - flashinfer.jit: [Autotuner]: Autotuning process ends
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] WorkerProc hit an exception.
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] Traceback (most recent call last):
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 1177, in _execute_worker_rpc
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     output = func(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]              ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 938, in compile_or_warm_up_model
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._compile_or_warm_up_model()
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 982, in _compile_or_warm_up_model
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     kernel_warmup(self)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 272, in kernel_warmup
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     flashinfer_autotune(worker.model_runner)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 518, in flashinfer_autotune
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     _run_flashinfer_autotune_dummy_runs(runner, skip_attn=skip_attn)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 379, in _run_flashinfer_autotune_dummy_runs
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     runner._dummy_run(
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/eplb_utils.py", line 55, in wrapper
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return fn(self, *args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 920, in _dummy_run
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     self.execute_model(
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 2097, in execute_model
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     model_output = self.model(**model_inputs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/deepseek_v2.py", line 1972, in forward
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states = self.model(
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/nvidia/model.py", line 293, in forward
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states, residual = layer(positions, hidden_states, residual, attn_in)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/nvidia/model.py", line 151, in forward
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states = self.self_attn(positions=positions, hidden_states=hidden_states)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/attention.py", line 450, in forward
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     self._sparse_indexer_and_attn(
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/compilation/breakable_cudagraph.py", line 103, in wrapper
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return fn(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/attention.py", line 597, in _sparse_indexer_and_attn
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     attn_out, lse = self.impl.forward_mqa(  # type: ignore[attr-defined]
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1459, in forward_mqa
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     attn_out, lse = self._forward_fp8_kv_mixed_batch(
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1259, in _forward_fp8_kv_mixed_batch
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     _attn_out, _lse = self._fp8_flash_mla_kernel(
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1304, in _fp8_flash_mla_kernel
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     out, lse = flash_mla_with_kvcache(
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                ^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/third_party/flashmla/flash_mla_interface.py", line 193, in flash_mla_with_kvcache
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     out, lse, new_tile_scheduler_metadata, new_num_splits = flash_mla_cuda.sparse_decode_fwd(
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._op(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] RuntimeError: CUDA out of memory. Tried to allocate 8.00 GiB. GPU 2 has a total capacity of 139.80 GiB of which 7.67 GiB is free. Including non-PyTorch memory, this process has 131.92 GiB memory in use. Of the allocated memory 126.28 GiB is allocated by PyTorch, and 1.14 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf) (originally from torch_call_dispatcher( "aten::new_empty", "", stack.data(), TORCH_ABI_VERSION) API call failed at /opt/venv/lib/python3.12/site-packages/torch/include/torch/csrc/stable/ops.h, line 961)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] Traceback (most recent call last):
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 1177, in _execute_worker_rpc
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     output = func(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]              ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 938, in compile_or_warm_up_model
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._compile_or_warm_up_model()
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 982, in _compile_or_warm_up_model
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     kernel_warmup(self)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 272, in kernel_warmup
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     flashinfer_autotune(worker.model_runner)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 518, in flashinfer_autotune
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     _run_flashinfer_autotune_dummy_runs(runner, skip_attn=skip_attn)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 379, in _run_flashinfer_autotune_dummy_runs
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     runner._dummy_run(
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/eplb_utils.py", line 55, in wrapper
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return fn(self, *args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 920, in _dummy_run
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     self.execute_model(
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 2097, in execute_model
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     model_output = self.model(**model_inputs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/deepseek_v2.py", line 1972, in forward
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states = self.model(
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/nvidia/model.py", line 293, in forward
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states, residual = layer(positions, hidden_states, residual, attn_in)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/nvidia/model.py", line 151, in forward
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states = self.self_attn(positions=positions, hidden_states=hidden_states)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/attention.py", line 450, in forward
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     self._sparse_indexer_and_attn(
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/compilation/breakable_cudagraph.py", line 103, in wrapper
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return fn(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/attention.py", line 597, in _sparse_indexer_and_attn
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     attn_out, lse = self.impl.forward_mqa(  # type: ignore[attr-defined]
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1459, in forward_mqa
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     attn_out, lse = self._forward_fp8_kv_mixed_batch(
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1259, in _forward_fp8_kv_mixed_batch
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     _attn_out, _lse = self._fp8_flash_mla_kernel(
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1304, in _fp8_flash_mla_kernel
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     out, lse = flash_mla_with_kvcache(
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                ^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/third_party/flashmla/flash_mla_interface.py", line 193, in flash_mla_with_kvcache
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     out, lse, new_tile_scheduler_metadata, new_num_splits = flash_mla_cuda.sparse_decode_fwd(
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._op(*args, **kwargs)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] RuntimeError: CUDA out of memory. Tried to allocate 8.00 GiB. GPU 2 has a total capacity of 139.80 GiB of which 7.67 GiB is free. Including non-PyTorch memory, this process has 131.92 GiB memory in use. Of the allocated memory 126.28 GiB is allocated by PyTorch, and 1.14 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf) (originally from torch_call_dispatcher( "aten::new_empty", "", stack.data(), TORCH_ABI_VERSION) API call failed at /opt/venv/lib/python3.12/site-packages/torch/include/torch/csrc/stable/ops.h, line 961)
+(Worker_TP2_DCP2_EP2 pid=907) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] 
+[20:02:56 /opt/venv/lib/python3.12/site-packages/torch/include/torch/csrc/stable/ops.h:961] Exception across libtorch C API boundary: CUDA out of memory. Tried to allocate 8.00 GiB. GPU 0 has a total capacity of 139.80 GiB of which 7.67 GiB is free. Including non-PyTorch memory, this process has 131.92 GiB memory in use. Of the allocated memory 126.28 GiB is allocated by PyTorch, and 1.14 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+Exception raised from malloc at /__w/pytorch/pytorch/c10/cuda/CUDACachingAllocator.cpp:1927 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x743c2735e60d in /usr/local/lib/python3.12/dist-packages/torch/lib/libc10.so)
+frame #1: c10::OutOfMemoryError::OutOfMemoryError(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x72 (0x743c2735f382 in /usr/local/lib/python3.12/dist-packages/torch/lib/libc10.so)
+frame #2: <unknown function> + 0x4731c (0x743c2775631c in /usr/local/lib/python3.12/dist-packages/torch/lib/libc10_cuda.so)
+frame #3: <unknown function> + 0x4790e (0x743c2775690e in /usr/local/lib/python3.12/dist-packages/torch/lib/libc10_cuda.so)
+frame #4: at::detail::empty_generic(c10::ArrayRef<long>, c10::Allocator*, c10::DispatchKeySet, c10::ScalarType, std::optional<c10::MemoryFormat>) + 0x66b (0x743b88fe5dbb in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #5: at::detail::empty_cuda(c10::ArrayRef<long>, c10::ScalarType, std::optional<c10::Device>, std::optional<c10::MemoryFormat>) + 0x7f (0x743b6e0a231f in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #6: at::detail::empty_cuda(c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) + 0x6e (0x743b6e0a251e in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #7: at::native::empty_cuda(c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) + 0x43 (0x743b6e494ef3 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #8: <unknown function> + 0x3b36662 (0x743b70e9b662 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #9: <unknown function> + 0x3b3677c (0x743b70e9b77c in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so)
+frame #10: at::_ops::empty_memory_format::redispatch(c10::DispatchKeySet, c10::ArrayRef<c10::SymInt>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) + 0xda (0x743b8a14d54a in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #11: <unknown function> + 0x2e30369 (0x743b8a564369 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #12: at::_ops::empty_memory_format::call(c10::ArrayRef<c10::SymInt>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) + 0x1af (0x743b8a207b2f in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #13: at::native::new_empty_symint(at::Tensor const&, c10::ArrayRef<c10::SymInt>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>) + 0xf6 (0x743b898c1766 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #14: <unknown function> + 0x31800e5 (0x743b8a8b40e5 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #15: <unknown function> + 0x66e0c6d (0x743b8de14c6d in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #16: torch_call_dispatcher + 0x294 (0x743b8de15344 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #17: <unknown function> + 0x4f951 (0x743a3953e951 in /usr/local/lib/python3.12/dist-packages/vllm/_flashmla_C.abi3.so)
+frame #18: <unknown function> + 0x56f79 (0x743a39545f79 in /usr/local/lib/python3.12/dist-packages/vllm/_flashmla_C.abi3.so)
+frame #19: <unknown function> + 0x41a91 (0x743a39530a91 in /usr/local/lib/python3.12/dist-packages/vllm/_flashmla_C.abi3.so)
+frame #20: <unknown function> + 0x66e2500 (0x743b8de16500 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #21: <unknown function> + 0x6706ee8 (0x743b8de3aee8 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cpu.so)
+frame #22: <unknown function> + 0xb94ce4 (0x743b9d6e1ce4 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #23: <unknown function> + 0xb952e0 (0x743b9d6e22e0 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #24: torch::jit::_get_operation_for_overload_or_packet(std::vector<std::shared_ptr<torch::jit::Operator>, std::allocator<std::shared_ptr<torch::jit::Operator> > > const&, c10::Symbol, pybind11::args const&, pybind11::kwargs const&, bool, std::optional<c10::DispatchKey>) + 0x38 (0x743b9d6e24d8 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #25: <unknown function> + 0xa670de (0x743b9d5b40de in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #26: <unknown function> + 0x4064f2 (0x743b9cf534f2 in /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_python.so)
+frame #27: VLLM::Worker_TP0_DCP0_EP0() [0x581fed]
+frame #28: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP0_DCP0_EP0)
+frame #29: _PyObject_Call_Prepend + 0xc2 (0x54a802 in VLLM::Worker_TP0_DCP0_EP0)
+frame #30: VLLM::Worker_TP0_DCP0_EP0() [0x5a3778]
+frame #31: _PyObject_MakeTpCall + 0x75 (0x548fb5 in VLLM::Worker_TP0_DCP0_EP0)
+frame #32: _PyEval_EvalFrameDefault + 0xadf (0x5d710f in VLLM::Worker_TP0_DCP0_EP0)
+frame #33: VLLM::Worker_TP0_DCP0_EP0() [0x54cbb4]
+frame #34: PyObject_Call + 0x115 (0x54b1d5 in VLLM::Worker_TP0_DCP0_EP0)
+frame #35: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP0_DCP0_EP0)
+frame #36: VLLM::Worker_TP0_DCP0_EP0() [0x54cbb4]
+frame #37: PyObject_Call + 0x115 (0x54b1d5 in VLLM::Worker_TP0_DCP0_EP0)
+frame #38: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP0_DCP0_EP0)
+frame #39: _PyObject_Call_Prepend + 0x18a (0x54a8ca in VLLM::Worker_TP0_DCP0_EP0)
+frame #40: VLLM::Worker_TP0_DCP0_EP0() [0x5a3778]
+frame #41: _PyObject_MakeTpCall + 0x13e (0x54907e in VLLM::Worker_TP0_DCP0_EP0)
+frame #42: _PyEval_EvalFrameDefault + 0xadf (0x5d710f in VLLM::Worker_TP0_DCP0_EP0)
+frame #43: VLLM::Worker_TP0_DCP0_EP0() [0x54caed]
+frame #44: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP0_DCP0_EP0)
+frame #45: VLLM::Worker_TP0_DCP0_EP0() [0x54caed]
+frame #46: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP0_DCP0_EP0)
+frame #47: _PyObject_Call_Prepend + 0xc2 (0x54a802 in VLLM::Worker_TP0_DCP0_EP0)
+frame #48: VLLM::Worker_TP0_DCP0_EP0() [0x5a3778]
+frame #49: _PyObject_MakeTpCall + 0x75 (0x548fb5 in VLLM::Worker_TP0_DCP0_EP0)
+frame #50: _PyEval_EvalFrameDefault + 0xadf (0x5d710f in VLLM::Worker_TP0_DCP0_EP0)
+frame #51: VLLM::Worker_TP0_DCP0_EP0() [0x54caed]
+frame #52: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP0_DCP0_EP0)
+frame #53: VLLM::Worker_TP0_DCP0_EP0() [0x54caed]
+frame #54: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP0_DCP0_EP0)
+frame #55: _PyObject_Call_Prepend + 0xc2 (0x54a802 in VLLM::Worker_TP0_DCP0_EP0)
+frame #56: VLLM::Worker_TP0_DCP0_EP0() [0x5a3778]
+frame #57: _PyObject_MakeTpCall + 0x75 (0x548fb5 in VLLM::Worker_TP0_DCP0_EP0)
+frame #58: _PyEval_EvalFrameDefault + 0xadf (0x5d710f in VLLM::Worker_TP0_DCP0_EP0)
+frame #59: VLLM::Worker_TP0_DCP0_EP0() [0x54cbb4]
+frame #60: PyObject_Call + 0x115 (0x54b1d5 in VLLM::Worker_TP0_DCP0_EP0)
+frame #61: _PyEval_EvalFrameDefault + 0x4cbe (0x5db2ee in VLLM::Worker_TP0_DCP0_EP0)
+frame #62: VLLM::Worker_TP0_DCP0_EP0() [0x54cbb4]
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] WorkerProc hit an exception.
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] Traceback (most recent call last):
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 1177, in _execute_worker_rpc
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     output = func(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]              ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 938, in compile_or_warm_up_model
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._compile_or_warm_up_model()
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 982, in _compile_or_warm_up_model
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     kernel_warmup(self)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 272, in kernel_warmup
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     flashinfer_autotune(worker.model_runner)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 518, in flashinfer_autotune
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     _run_flashinfer_autotune_dummy_runs(runner, skip_attn=skip_attn)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 379, in _run_flashinfer_autotune_dummy_runs
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     runner._dummy_run(
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/eplb_utils.py", line 55, in wrapper
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return fn(self, *args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 920, in _dummy_run
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     self.execute_model(
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 2097, in execute_model
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     model_output = self.model(**model_inputs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/deepseek_v2.py", line 1972, in forward
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states = self.model(
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/nvidia/model.py", line 293, in forward
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states, residual = layer(positions, hidden_states, residual, attn_in)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/nvidia/model.py", line 151, in forward
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states = self.self_attn(positions=positions, hidden_states=hidden_states)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/attention.py", line 450, in forward
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     self._sparse_indexer_and_attn(
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/compilation/breakable_cudagraph.py", line 103, in wrapper
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return fn(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/attention.py", line 597, in _sparse_indexer_and_attn
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     attn_out, lse = self.impl.forward_mqa(  # type: ignore[attr-defined]
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1459, in forward_mqa
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     attn_out, lse = self._forward_fp8_kv_mixed_batch(
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1259, in _forward_fp8_kv_mixed_batch
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     _attn_out, _lse = self._fp8_flash_mla_kernel(
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1304, in _fp8_flash_mla_kernel
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     out, lse = flash_mla_with_kvcache(
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                ^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/third_party/flashmla/flash_mla_interface.py", line 193, in flash_mla_with_kvcache
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     out, lse, new_tile_scheduler_metadata, new_num_splits = flash_mla_cuda.sparse_decode_fwd(
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._op(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] RuntimeError: CUDA out of memory. Tried to allocate 8.00 GiB. GPU 1 has a total capacity of 139.80 GiB of which 7.67 GiB is free. Including non-PyTorch memory, this process has 131.92 GiB memory in use. Of the allocated memory 126.28 GiB is allocated by PyTorch, and 1.14 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf) (originally from torch_call_dispatcher( "aten::new_empty", "", stack.data(), TORCH_ABI_VERSION) API call failed at /opt/venv/lib/python3.12/site-packages/torch/include/torch/csrc/stable/ops.h, line 961)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] Traceback (most recent call last):
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 1177, in _execute_worker_rpc
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     output = func(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]              ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 938, in compile_or_warm_up_model
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._compile_or_warm_up_model()
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 982, in _compile_or_warm_up_model
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     kernel_warmup(self)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 272, in kernel_warmup
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     flashinfer_autotune(worker.model_runner)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 518, in flashinfer_autotune
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     _run_flashinfer_autotune_dummy_runs(runner, skip_attn=skip_attn)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 379, in _run_flashinfer_autotune_dummy_runs
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     runner._dummy_run(
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/eplb_utils.py", line 55, in wrapper
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return fn(self, *args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 920, in _dummy_run
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     self.execute_model(
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 2097, in execute_model
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     model_output = self.model(**model_inputs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/deepseek_v2.py", line 1972, in forward
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states = self.model(
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/nvidia/model.py", line 293, in forward
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states, residual = layer(positions, hidden_states, residual, attn_in)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/nvidia/model.py", line 151, in forward
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states = self.self_attn(positions=positions, hidden_states=hidden_states)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/attention.py", line 450, in forward
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     self._sparse_indexer_and_attn(
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/compilation/breakable_cudagraph.py", line 103, in wrapper
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return fn(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/attention.py", line 597, in _sparse_indexer_and_attn
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     attn_out, lse = self.impl.forward_mqa(  # type: ignore[attr-defined]
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1459, in forward_mqa
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     attn_out, lse = self._forward_fp8_kv_mixed_batch(
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1259, in _forward_fp8_kv_mixed_batch
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     _attn_out, _lse = self._fp8_flash_mla_kernel(
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1304, in _fp8_flash_mla_kernel
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     out, lse = flash_mla_with_kvcache(
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                ^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/third_party/flashmla/flash_mla_interface.py", line 193, in flash_mla_with_kvcache
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     out, lse, new_tile_scheduler_metadata, new_num_splits = flash_mla_cuda.sparse_decode_fwd(
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._op(*args, **kwargs)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] RuntimeError: CUDA out of memory. Tried to allocate 8.00 GiB. GPU 1 has a total capacity of 139.80 GiB of which 7.67 GiB is free. Including non-PyTorch memory, this process has 131.92 GiB memory in use. Of the allocated memory 126.28 GiB is allocated by PyTorch, and 1.14 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf) (originally from torch_call_dispatcher( "aten::new_empty", "", stack.data(), TORCH_ABI_VERSION) API call failed at /opt/venv/lib/python3.12/site-packages/torch/include/torch/csrc/stable/ops.h, line 961)
+(Worker_TP1_DCP1_EP1 pid=909) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] 
+2026-11-08 20:02:56,874 - INFO - autotuner.py:1071 - flashinfer.jit: [Autotuner]: Autotuning process ends
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] WorkerProc hit an exception.
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] Traceback (most recent call last):
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 1177, in _execute_worker_rpc
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     output = func(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]              ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 938, in compile_or_warm_up_model
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._compile_or_warm_up_model()
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 982, in _compile_or_warm_up_model
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     kernel_warmup(self)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 272, in kernel_warmup
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     flashinfer_autotune(worker.model_runner)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 518, in flashinfer_autotune
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     _run_flashinfer_autotune_dummy_runs(runner, skip_attn=skip_attn)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 379, in _run_flashinfer_autotune_dummy_runs
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     runner._dummy_run(
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/eplb_utils.py", line 55, in wrapper
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return fn(self, *args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 920, in _dummy_run
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     self.execute_model(
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 2097, in execute_model
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     model_output = self.model(**model_inputs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/deepseek_v2.py", line 1972, in forward
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states = self.model(
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/nvidia/model.py", line 293, in forward
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states, residual = layer(positions, hidden_states, residual, attn_in)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/nvidia/model.py", line 151, in forward
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states = self.self_attn(positions=positions, hidden_states=hidden_states)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/attention.py", line 450, in forward
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     self._sparse_indexer_and_attn(
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/compilation/breakable_cudagraph.py", line 103, in wrapper
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return fn(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/attention.py", line 597, in _sparse_indexer_and_attn
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     attn_out, lse = self.impl.forward_mqa(  # type: ignore[attr-defined]
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1459, in forward_mqa
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     attn_out, lse = self._forward_fp8_kv_mixed_batch(
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1259, in _forward_fp8_kv_mixed_batch
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     _attn_out, _lse = self._fp8_flash_mla_kernel(
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1304, in _fp8_flash_mla_kernel
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     out, lse = flash_mla_with_kvcache(
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                ^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/third_party/flashmla/flash_mla_interface.py", line 193, in flash_mla_with_kvcache
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     out, lse, new_tile_scheduler_metadata, new_num_splits = flash_mla_cuda.sparse_decode_fwd(
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._op(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] RuntimeError: CUDA out of memory. Tried to allocate 8.00 GiB. GPU 0 has a total capacity of 139.80 GiB of which 7.67 GiB is free. Including non-PyTorch memory, this process has 131.92 GiB memory in use. Of the allocated memory 126.28 GiB is allocated by PyTorch, and 1.14 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf) (originally from torch_call_dispatcher( "aten::new_empty", "", stack.data(), TORCH_ABI_VERSION) API call failed at /opt/venv/lib/python3.12/site-packages/torch/include/torch/csrc/stable/ops.h, line 961)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] Traceback (most recent call last):
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 1177, in _execute_worker_rpc
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     output = func(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]              ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 938, in compile_or_warm_up_model
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._compile_or_warm_up_model()
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 982, in _compile_or_warm_up_model
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     kernel_warmup(self)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 272, in kernel_warmup
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     flashinfer_autotune(worker.model_runner)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 518, in flashinfer_autotune
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     _run_flashinfer_autotune_dummy_runs(runner, skip_attn=skip_attn)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/warmup/kernel_warmup.py", line 379, in _run_flashinfer_autotune_dummy_runs
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     runner._dummy_run(
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/eplb_utils.py", line 55, in wrapper
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return fn(self, *args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 920, in _dummy_run
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     self.execute_model(
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return func(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu/model_runner.py", line 2097, in execute_model
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     model_output = self.model(**model_inputs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/deepseek_v2.py", line 1972, in forward
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states = self.model(
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/nvidia/model.py", line 293, in forward
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states, residual = layer(positions, hidden_states, residual, attn_in)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/nvidia/model.py", line 151, in forward
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     hidden_states = self.self_attn(positions=positions, hidden_states=hidden_states)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._call_impl(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return forward_call(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/attention.py", line 450, in forward
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     self._sparse_indexer_and_attn(
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/compilation/breakable_cudagraph.py", line 103, in wrapper
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return fn(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v32/attention.py", line 597, in _sparse_indexer_and_attn
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     attn_out, lse = self.impl.forward_mqa(  # type: ignore[attr-defined]
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1459, in forward_mqa
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     attn_out, lse = self._forward_fp8_kv_mixed_batch(
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1259, in _forward_fp8_kv_mixed_batch
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     _attn_out, _lse = self._fp8_flash_mla_kernel(
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/attention/backends/mla/flashmla_sparse.py", line 1304, in _fp8_flash_mla_kernel
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     out, lse = flash_mla_with_kvcache(
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                ^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/vllm/third_party/flashmla/flash_mla_interface.py", line 193, in flash_mla_with_kvcache
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     out, lse, new_tile_scheduler_metadata, new_num_splits = flash_mla_cuda.sparse_decode_fwd(
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]     return self._op(*args, **kwargs)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] RuntimeError: CUDA out of memory. Tried to allocate 8.00 GiB. GPU 0 has a total capacity of 139.80 GiB of which 7.67 GiB is free. Including non-PyTorch memory, this process has 131.92 GiB memory in use. Of the allocated memory 126.28 GiB is allocated by PyTorch, and 1.14 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf) (originally from torch_call_dispatcher( "aten::new_empty", "", stack.data(), TORCH_ABI_VERSION) API call failed at /opt/venv/lib/python3.12/site-packages/torch/include/torch/csrc/stable/ops.h, line 961)
+(Worker_TP0_DCP0_EP0 pid=905) ERROR 11-08 20:02:56 [multiproc_executor.py:1189] 
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584] EngineCore failed to start.
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584] Traceback (most recent call last):
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1555, in run_engine_core
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]     return func(*args, **kwargs)
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1232, in __init__
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]     super().__init__(
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 163, in __init__
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]     return func(*args, **kwargs)
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 389, in _initialize_kv_caches
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]     self.model_executor.compile_or_warm_up_model()
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/abstract.py", line 135, in compile_or_warm_up_model
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]     compilation_times: list[CompilationTimes] = self.collective_rpc(
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]                                                 ^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 556, in collective_rpc
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]     return future if non_block else future.result()
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]                                     ^^^^^^^^^^^^^^^
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 113, in result
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]     return super().result()
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]            ^^^^^^^^^^^^^^^^
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]   File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]     return self.__get_result()
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]            ^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]   File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]     raise self._exception
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 117, in _wait_for_response
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]     response = self.aggregate(self.get_response())
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]                               ^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 525, in get_response
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584]     raise RuntimeError(
+(EngineCore pid=682) ERROR 11-08 20:02:56 [core.py:1584] RuntimeError: Worker failed with error 'CUDA out of memory. Tried to allocate 8.00 GiB. GPU 0 has a total capacity of 139.80 GiB of which 7.67 GiB is free. Including non-PyTorch memory, this process has 131.92 GiB memory in use. Of the allocated memory 126.28 GiB is allocated by PyTorch, and 1.14 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf) (originally from torch_call_dispatcher( "aten::new_empty", "", stack.data(), TORCH_ABI_VERSION) API call failed at /opt/venv/lib/python3.12/site-packages/torch/include/torch/csrc/stable/ops.h, line 961)', please check the stack trace above for the root cause
+(EngineCore pid=682) ERROR 11-08 20:03:00 [multiproc_executor.py:380] Worker proc VllmWorker-2 died unexpectedly (exit code: None), shutting down executor.
+(EngineCore pid=682) INFO 11-08 20:03:00 [multiproc_executor.py:580] [shutdown] Executor: waiting for worker exit count=4
+Process EngineCore:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1588, in run_engine_core
+    raise e
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1555, in run_engine_core
+    engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1232, in __init__
+    super().__init__(
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 163, in __init__
+    kv_cache_config = self._initialize_kv_caches(vllm_config)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 389, in _initialize_kv_caches
+    self.model_executor.compile_or_warm_up_model()
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/abstract.py", line 135, in compile_or_warm_up_model
+    compilation_times: list[CompilationTimes] = self.collective_rpc(
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 556, in collective_rpc
+    return future if non_block else future.result()
+                                    ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 113, in result
+    return super().result()
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 117, in _wait_for_response
+    response = self.aggregate(self.get_response())
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 525, in get_response
+    raise RuntimeError(
+RuntimeError: Worker failed with error 'CUDA out of memory. Tried to allocate 8.00 GiB. GPU 0 has a total capacity of 139.80 GiB of which 7.67 GiB is free. Including non-PyTorch memory, this process has 131.92 GiB memory in use. Of the allocated memory 126.28 GiB is allocated by PyTorch, and 1.14 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf) (originally from torch_call_dispatcher( "aten::new_empty", "", stack.data(), TORCH_ABI_VERSION) API call failed at /opt/venv/lib/python3.12/site-packages/torch/include/torch/csrc/stable/ops.h, line 961)', please check the stack trace above for the root cause
+(APIServer pid=268) INFO 11-08 20:03:02 [utils.py:628] [shutdown] Process manager: send sigterm to process EngineCore
+Traceback (most recent call last):
+  File "/usr/local/bin/vllm", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/main.py", line 117, in main
+    args.dispatch_function(args)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/serve.py", line 156, in cmd
+    uvloop.run(run_server(args))
+  File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 96, in run
+    return __asyncio.run(
+           ^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1515, in uvloop.loop.Loop.run_until_complete
+  File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+    return await main
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/launchers/api_server/entry.py", line 176, in run_server
+    await run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/launchers/api_server/entry.py", line 190, in run_server_worker
+    async with build_async_engine_client(
+  File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/launchers/api_server/entry.py", line 60, in build_async_engine_client
+    async with build_async_engine_client_from_engine_args(
+  File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/launchers/api_server/entry.py", line 94, in build_async_engine_client_from_engine_args
+    async_llm = AsyncLLM.from_vllm_config(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 264, in from_vllm_config
+    return cls(
+           ^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 193, in __init__
+    self.engine_core = EngineCoreClient.make_async_mp_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 170, in make_async_mp_client
+    return AsyncMPClient(
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 1163, in __init__
+    super().__init__(
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 699, in __init__
+    with launch_core_engines(
+  File "/usr/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 1393, in launch_core_engines
+    wait_for_engine_startup(
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 1473, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 4 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+===== vllm boot 2 2026-11-08T20:03:09Z =====
+W1108 20:03:12.050000 6602 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 20:03:12.050000 6602 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 20:03:12.051000 6602 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+(APIServer pid=6602) INFO 11-08 20:03:17 [startup.py:38] 
+(APIServer pid=6602) INFO 11-08 20:03:17 [startup.py:38]        █     █     █▄   ▄█
+(APIServer pid=6602) INFO 11-08 20:03:17 [startup.py:38]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.33.0
+(APIServer pid=6602) INFO 11-08 20:03:17 [startup.py:38]   █▄█▀ █     █     █     █  model   gpustack/GLM-5.3-W4A8
+(APIServer pid=6602) INFO 11-08 20:03:17 [startup.py:38]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=6602) INFO 11-08 20:03:17 [startup.py:38] 
+(APIServer pid=6602) INFO 11-08 20:03:17 [startup.py:96] non-default args: {'model_tag': 'gpustack/GLM-5.3-W4A8', 'enable_auto_tool_choice': True, 'tool_call_parser': 'glm47', 'enable_prompt_tokens_details': True, 'enable_per_request_metrics': True, 'host': '0.0.0.0', 'model': 'gpustack/GLM-5.3-W4A8', 'trust_remote_code': True, 'revision': 'cb867a359aa39552f48f14f294a5f15418c97789', 'max_model_len': 262144, 'served_model_name': ['glm-5.3'], 'reasoning_parser': 'glm45', 'tensor_parallel_size': 4, 'decode_context_parallel_size': 4, 'enable_expert_parallel': True, 'kv_cache_dtype': 'fp8_ds_mla', 'enable_prefix_caching': True, 'max_num_batched_tokens': 32768, 'speculative_config': {'method': 'mtp', 'num_speculative_tokens': 3}}
+(APIServer pid=6602) INFO 11-08 20:03:17 [model.py:744] Resolved architecture: GlmMoeDsaForCausalLM
+(APIServer pid=6602) INFO 11-08 20:03:17 [model.py:2170] Using max model len 262144
+(APIServer pid=6602) INFO 11-08 20:03:19 [cache.py:484] Using fp8_ds_mla data type to store kv cache. It reduces the GPU memory footprint and boosts the performance. Meanwhile, it may cause accuracy drop without a proper scaling factor
+(APIServer pid=6602) INFO 11-08 20:03:19 [model.py:744] Resolved architecture: DeepseekV32MTPModel
+(APIServer pid=6602) INFO 11-08 20:03:19 [model.py:2170] Using max model len 1048576
+(APIServer pid=6602) WARNING 11-08 20:03:19 [speculative.py:1491] Enabling num_speculative_tokens > 1 will run multiple times of forward on same MTP layer,which may result in lower acceptance rate
+(APIServer pid=6602) INFO 11-08 20:03:19 [speculative.py:1799] Overriding draft model max model len from 1048576 to 262144
+(APIServer pid=6602) INFO 11-08 20:03:19 [scheduler.py:310] Chunked prefill is enabled with max_num_batched_tokens=32768.
+(APIServer pid=6602) INFO 11-08 20:03:19 [vllm.py:848] Auto-enabling VLLM_USE_BREAKABLE_CUDAGRAPH=1. Set VLLM_USE_BREAKABLE_CUDAGRAPH=0 to opt out.
+(APIServer pid=6602) INFO 11-08 20:03:19 [kernel.py:480] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native'])
+(APIServer pid=6602) INFO 11-08 20:03:22 [compilation.py:317] Enabled custom fusions: norm_quant, act_quant, allreduce_rms
+[transformers] The following generation flags are not valid and may be ignored: ['top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+W1108 20:03:26.966000 7059 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1108 20:03:26.967000 7059 torch/_library/opaque_object.py:288] register_opaque_type is deprecated, use register_custom_class instead
+W1108 20:03:26.967000 7059 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead

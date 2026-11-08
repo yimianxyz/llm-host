@@ -1,4 +1,5 @@
-# B0: the W4A8 card's verified TP4+EP shape + the vLLM team's GLM-5.3 agentic serving settings.
+# B1: B0 + DCP4. B0 cannot boot: target+MTP draft take 111.3 GiB/GPU, leaving 6.71 GiB KV (131K tokens, replicated on every GPU).
+# DCP4 shards KV by token across the 4 GPUs (~4x tokens) and all-gathers decode heads to 64 (no padding from 16).
 # One flag per line as "--flag value"; "ENV NAME=value" lines become process env. Rationale: docs/DESIGN.md.
 --served-model-name glm-5.3
 --host 0.0.0.0
@@ -17,4 +18,4 @@
 --enable-auto-tool-choice
 --tool-call-parser glm47
 --reasoning-parser glm45
-
+--decode-context-parallel-size 4

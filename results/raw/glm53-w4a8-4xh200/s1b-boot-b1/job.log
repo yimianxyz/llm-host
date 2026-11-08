@@ -1,0 +1,3 @@
++ bash evals/bench.sh setup-client
+client ready
++ bash evals/bench.sh wait 5400
