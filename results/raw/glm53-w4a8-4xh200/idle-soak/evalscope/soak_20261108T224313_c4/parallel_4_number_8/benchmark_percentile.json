@@ -1,0 +1,110 @@
+[
+    {
+        "Percentiles": "1%",
+        "Latency (s)": 2.23,
+        "TTFT (ms)": 524.81,
+        "ITL (ms)": 1.41,
+        "TPOT (ms)": 7.69,
+        "Input tokens": 74173.0,
+        "Output tokens": 220.0,
+        "Output (tok/s)": 4.08,
+        "Total (tok/s)": 1379.15,
+        "Decode (tok/s)": 5.66
+    },
+    {
+        "Percentiles": "5%",
+        "Latency (s)": 2.57,
+        "TTFT (ms)": 543.03,
+        "ITL (ms)": 6.85,
+        "TPOT (ms)": 8.22,
+        "Input tokens": 74173.0,
+        "Output tokens": 220.0,
+        "Output (tok/s)": 5.2,
+        "Total (tok/s)": 1757.26,
+        "Decode (tok/s)": 14.19
+    },
+    {
+        "Percentiles": "10%",
+        "Latency (s)": 2.75,
+        "TTFT (ms)": 547.65,
+        "ITL (ms)": 27.14,
+        "TPOT (ms)": 8.69,
+        "Input tokens": 74996.0,
+        "Output tokens": 220.0,
+        "Output (tok/s)": 16.36,
+        "Total (tok/s)": 6377.73,
+        "Decode (tok/s)": 61.25
+    },
+    {
+        "Percentiles": "25%",
+        "Latency (s)": 2.84,
+        "TTFT (ms)": 565.19,
+        "ITL (ms)": 37.14,
+        "TPOT (ms)": 9.49,
+        "Input tokens": 76858.0,
+        "Output tokens": 220.0,
+        "Output (tok/s)": 67.07,
+        "Total (tok/s)": 23582.62,
+        "Decode (tok/s)": 83.54
+    },
+    {
+        "Percentiles": "50%",
+        "Latency (s)": 2.92,
+        "TTFT (ms)": 608.9,
+        "ITL (ms)": 40.0,
+        "TPOT (ms)": 10.59,
+        "Input tokens": 79796.0,
+        "Output tokens": 220.0,
+        "Output (tok/s)": 75.4,
+        "Total (tok/s)": 27239.83,
+        "Decode (tok/s)": 94.74
+    },
+    {
+        "Percentiles": "75%",
+        "Latency (s)": 3.3,
+        "TTFT (ms)": 873.22,
+        "ITL (ms)": 40.82,
+        "TPOT (ms)": 12.05,
+        "Input tokens": 82736.0,
+        "Output tokens": 220.0,
+        "Output (tok/s)": 77.56,
+        "Total (tok/s)": 29134.63,
+        "Decode (tok/s)": 105.91
+    },
+    {
+        "Percentiles": "90%",
+        "Latency (s)": 13.45,
+        "TTFT (ms)": 1122.79,
+        "ITL (ms)": 47.92,
+        "TPOT (ms)": 16.33,
+        "Input tokens": 84676.0,
+        "Output tokens": 220.0,
+        "Output (tok/s)": 80.09,
+        "Total (tok/s)": 30350.7,
+        "Decode (tok/s)": 115.11
+    },
+    {
+        "Percentiles": "95%",
+        "Latency (s)": 42.33,
+        "TTFT (ms)": 14173.55,
+        "ITL (ms)": 392.87,
+        "TPOT (ms)": 70.46,
+        "Input tokens": 85477.0,
+        "Output tokens": 220.0,
+        "Output (tok/s)": 85.66,
+        "Total (tok/s)": 31461.27,
+        "Decode (tok/s)": 121.71
+    },
+    {
+        "Percentiles": "99%",
+        "Latency (s)": 53.94,
+        "TTFT (ms)": 39546.53,
+        "ITL (ms)": 1422.32,
+        "TPOT (ms)": 176.82,
+        "Input tokens": 85663.0,
+        "Output tokens": 220.0,
+        "Output (tok/s)": 98.55,
+        "Total (tok/s)": 38438.26,
+        "Decode (tok/s)": 130.0
+    }
+]

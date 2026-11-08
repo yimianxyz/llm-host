@@ -22,3 +22,15 @@ soak exit=0 c=4 minutes=20
   "requests_finished": 105.0,
   "kv_cache_usage_perc_end": 0.0
 }
+soak exit=0 c=4 minutes=20
+{
+  "mtp_acceptance_length": 5.31,
+  "mtp_acceptance_rate": 0.862,
+  "prefix_cache_hit_rate": 0.9145,
+  "external_prefix_cache_hit_rate": 0.0,
+  "preemptions": 0.0,
+  "prompt_tokens": 8296810.0,
+  "generation_tokens": 23100.0,
+  "requests_finished": 105.0,
+  "kv_cache_usage_perc_end": 0.0
+}

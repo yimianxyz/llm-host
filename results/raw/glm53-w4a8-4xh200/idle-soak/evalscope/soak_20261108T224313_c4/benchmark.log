@@ -83,3 +83,74 @@
 2026-11-08 22:43:15 - evalscope - INFO: Loaded 8 conversations
 2026-11-08 22:43:17 - evalscope - INFO: Test connection successful.
 2026-11-08 22:43:17 - evalscope - INFO: Save the data base to: /root/results/idle-soak/evalscope/soak_20261108T224313_c4/parallel_4_number_8/benchmark_data.db
+2026-11-08 22:44:45 - evalscope - INFO: Processing[parallel_4_number_8]  12%| 1/8 [Elapsed: 01:28 < Remaining: 10:16, 88.08s/it]
+2026-11-08 22:46:14 - evalscope - INFO: {
+  "Test Duration (s)": 177.0083,
+  "Concurrency": 4,
+  "Request Rate (req/s)": -1.0,
+  "Total Requests": 100,
+  "Success Requests": 100,
+  "Failed Requests": 0,
+  "Req Throughput (req/s)": 0.5649,
+  "Avg Latency (s)": 7.0363,
+  "Avg Input Tokens": 79543.71,
+  "Output Throughput (tok/s)": 124.288,
+  "Total Throughput (tok/s)": 45062.1366,
+  "TTFT (ms)": 2675.4,
+  "TPOT (ms)": 19.91,
+  "ITL (ms)": 104.58,
+  "Avg Output Tokens": 220.0,
+  "Avg Turns/Request": 6.76,
+  "KV Cache Hit Rate (%)": 91.1439,
+  "Decoded Tok/Iter": 5.3977,
+  "Spec. Accept Rate": 0.8147
+}
+2026-11-08 22:46:15 - evalscope - INFO: Processing[parallel_4_number_8]  62%| 5/8 [Elapsed: 02:58 < Remaining: 01:42, 34.22s/it]
+2026-11-08 22:46:16 - evalscope - INFO: Processing[parallel_4_number_8] 100%| 8/8 [Elapsed: 02:58 < Remaining: 00:00, 12.51s/it]
+2026-11-08 22:46:16 - evalscope - INFO: 
+Benchmarking summary:
+┌────────────────────────────┬───────────────┐
+│ Metric                     │         Value │
+├────────────────────────────┼───────────────┤
+│ ── General ──              │               │
+│ Test Duration (s)          │        178.83 │
+│ Concurrency                │             4 │
+│ Request Rate (req/s)       │         -1.00 │
+│ Total / Success / Failed   │ 104 / 104 / 0 │
+│ Req Throughput (req/s)     │          0.58 │
+│ ── Latency ──              │               │
+│ Avg Latency (s)            │          6.86 │
+│ TTFT (ms)                  │       2597.97 │
+│ TPOT (ms)                  │         19.46 │
+│ ITL (ms)                   │        102.67 │
+│ ── Tokens ──               │               │
+│ Avg Input Tokens           │      79776.89 │
+│ Avg Output Tokens          │        220.00 │
+│ Output Throughput (tok/s)  │        127.94 │
+│ Total Throughput (tok/s)   │      46521.97 │
+│ ── Multi-turn ──           │               │
+│ Avg Turns/Request          │          7.00 │
+│ KV Cache Hit Rate (%)      │         91.45 │
+│ ── Speculative Decoding ── │               │
+│ Decoded Tok/Iter           │          5.42 │
+│ Spec. Accept Rate          │          0.82 │
+└────────────────────────────┴───────────────┘
+2026-11-08 22:46:16 - evalscope - INFO: 
+Percentile results:
+┌────────────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
+│ Metric         │       1% │       5% │      10% │      25% │      50% │      75% │      90% │      95% │      99% │
+├────────────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+│ Latency (s)    │     2.23 │     2.57 │     2.75 │     2.84 │     2.92 │     3.30 │    13.45 │    42.33 │    53.94 │
+│ TTFT (ms)      │   524.81 │   543.03 │   547.65 │   565.19 │   608.90 │   873.22 │  1122.79 │ 14173.55 │ 39546.53 │
+│ ITL (ms)       │     1.41 │     6.85 │    27.14 │    37.14 │    40.00 │    40.82 │    47.92 │   392.87 │  1422.32 │
+│ TPOT (ms)      │     7.69 │     8.22 │     8.69 │     9.49 │    10.59 │    12.05 │    16.33 │    70.46 │   176.82 │
+│ Input tokens   │ 74173.00 │ 74173.00 │ 74996.00 │ 76858.00 │ 79796.00 │ 82736.00 │ 84676.00 │ 85477.00 │ 85663.00 │
+│ Output tokens  │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │
+│ Output (tok/s) │     4.08 │     5.20 │    16.36 │    67.07 │    75.40 │    77.56 │    80.09 │    85.66 │    98.55 │
+│ Total (tok/s)  │  1379.15 │  1757.26 │  6377.73 │ 23582.62 │ 27239.83 │ 29134.63 │ 30350.70 │ 31461.27 │ 38438.26 │
+│ Decode (tok/s) │     5.66 │    14.19 │    61.25 │    83.54 │    94.74 │   105.91 │   115.11 │   121.71 │   130.00 │
+└────────────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┘
+2026-11-08 22:46:16 - evalscope - INFO: Save the summary to: /root/results/idle-soak/evalscope/soak_20261108T224313_c4/parallel_4_number_8
+2026-11-08 22:46:16 - evalscope - INFO: Running[perf] 100%| 1/1 [Elapsed: 03:01 < Remaining: 00:00, 181.19s/it]
+2026-11-08 22:46:16 - evalscope - INFO: Performance summary saved to: /root/results/idle-soak/evalscope/soak_20261108T224313_c4/performance_summary.txt
+2026-11-08 22:46:16 - evalscope - INFO: HTML report generated: /root/results/idle-soak/evalscope/soak_20261108T224313_c4/perf_report.html
