@@ -125,3 +125,7 @@
 Running[perf]:   0%|          | 0/1 [03:28<?, ?it/s]
 Processing[parallel_8_number_16]:  25%|██▌       | 4/16 [03:26<08:58, 44.88s/it][A
 Processing[parallel_8_number_16]:  31%|███▏      | 5/16 [03:26<04:54, 26.74s/it][A
+Processing[parallel_8_number_16]:  38%|███▊      | 6/16 [03:40<03:51, 23.11s/it][A                                                    
+                                                                                [A2026-11-08 20:54:31 - evalscope - [32mINFO[0m: Processing[parallel_8_number_16]  38%| 6/16 [Elapsed: 03:40 < Remaining: 03:51, 23.11s/it][0m
+Running[perf]:   0%|          | 0/1 [03:42<?, ?it/s]
+Processing[parallel_8_number_16]:  38%|███▊      | 6/16 [03:40<03:51, 23.11s/it][A
