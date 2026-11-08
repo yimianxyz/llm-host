@@ -1,0 +1,1 @@
++ /root/client-venv/bin/python evals/quality.py toolcalls --out /root/results/s2b-toolcalls-typed/toolcalls.json

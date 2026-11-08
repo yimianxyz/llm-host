@@ -1,0 +1,253 @@
+{
+  "task": "gsm8k",
+  "n": 1319,
+  "accuracy": 0.9674,
+  "gate_pass": true,
+  "effort": "high",
+  "seconds": 184.8,
+  "mean_completion_tokens": 144,
+  "truncated": 0,
+  "failures": [
+    {
+      "ok": false,
+      "gold": 13.0,
+      "pred": 12.0,
+      "tokens": 262,
+      "finish": "stop",
+      "tail": "arned 12 \u00d7 $7.50 = $90, which exactly covers the planting cost.\n\nSo after 12 years he has recouped his investment \u2014 meaning it takes 12 years before he starts earning money on the lemon tree.\n\n#### 12"
+    },
+    {
+      "ok": false,
+      "gold": 95200.0,
+      "pred": 99077.0,
+      "tokens": 562,
+      "finish": "stop",
+      "tail": "0\n- Since their salaries increased simultaneously (by the same 40%), Lylah's new salary: $30,769.23 \u00d7 1.4 = $43,076.92\n\n**Total salary four years later:**\n$56,000 + $43,076.92 = $99,076.92\n\n#### 99077"
+    },
+    {
+      "ok": false,
+      "gold": 50.0,
+      "pred": 54.0,
+      "tokens": 197,
+      "finish": "stop",
+      "tail": "es and one red car = (3 \u00d7 $5) + $4 = $15 + $4 = **$19**\n\n**Calculating the total:**\n- 5 red cars: 5 \u00d7 $4 = $20\n- 3 action figures: 3 \u00d7 $5 = $15\n- 1 doll: $19\n\n**Total:** $20 + $15 + $19 = $54\n\n#### 54"
+    },
+    {
+      "ok": false,
+      "gold": 23.0,
+      "pred": 24.0,
+      "tokens": 361,
+      "finish": "stop",
+      "tail": "n's current age:\n- Half of Jan's age: 30 \u00f7 2 = 15\n- Mark's age two years ago: 15 + 5 = 20\n- Mark's current age: 20 + 2 = 22\n\nSince Jean is two years older than Mark:\n- Jean's age: 22 + 2 = 24\n\n#### 24"
+    },
+    {
+      "ok": false,
+      "gold": 145.0,
+      "pred": 70.0,
+      "tokens": 204,
+      "finish": "stop",
+      "tail": "tes:\n- Twenty dozen = 20 \u00d7 12 = 240 cups\n- Total cost of cups = $18,000 \u2212 $1,200 = **$16,800**\n\n## Step 3: Calculate the cost of each cup\n$$\\text{Cost per cup} = \\frac{\\$16,800}{240} = \\$70$$\n\n#### 70"
+    },
+    {
+      "ok": false,
+      "gold": 91.0,
+      "pred": 71.0,
+      "tokens": 153,
+      "finish": "stop",
+      "tail": " \u00d7 1.40 = 28 minutes.\n\n**Step 3:** Cooking time is 5 minutes less than the total warm-up time (20 + 28 = 48 minutes): 48 \u2212 5 = 43 minutes.\n\n**Step 4:** Total time = 20 + 28 + 43 = 71 minutes.\n\n#### 71"
+    },
+    {
+      "ok": false,
+      "gold": 10.0,
+      "pred": 5.0,
+      "tokens": 196,
+      "finish": "stop",
+      "tail": "ning: 60 \u2212 40 = 20 loaves\n- Half of what is left is sold: 1/2 \u00d7 20 = 10 loaves\n- This 10 is split equally between afternoon and evening: 10 \u00f7 2 = 5 loaves\n\nSo the afternoon sales are 5 loaves.\n\n#### 5"
+    },
+    {
+      "ok": false,
+      "gold": 4.0,
+      "pred": 3.0,
+      "tokens": 239,
+      "finish": "stop",
+      "tail": "alls. Two are caught by people in the crowd (and not returned to him), and one is lost in the dark auditorium. That means all 3 dropped balls are gone from his act.\n\n6 - 3 = 3 balls remaining.\n\n#### 3"
+    },
+    {
+      "ok": false,
+      "gold": 18.0,
+      "pred": 10.0,
+      "tokens": 128,
+      "finish": "stop",
+      "tail": "n now has three times as many points as Sara:\n- Erin now = 3 \u00d7 8 = 24 points\n\n**Finding Erin's previous points:**\n\nSince Erin scored 14 points to reach 24:\n- Erin before = 24 \u2212 14 = 10 points\n\n#### 10"
+    },
+    {
+      "ok": false,
+      "gold": 81.0,
+      "pred": 135.0,
+      "tokens": 132,
+      "finish": "stop",
+      "tail": "\n\n**Step 2:** Energy saved per day by reducing 5 hours:\n900 watts \u00d7 5 hours = 4500 watts = 4.5 kilowatts per day\n\n**Step 3:** Energy saved in 30 days:\n4.5 kilowatts \u00d7 30 days = 135 kilowatts\n\n#### 135"
+    },
+    {
+      "ok": false,
+      "gold": 168000.0,
+      "pred": 42000.0,
+      "tokens": 162,
+      "finish": "stop",
+      "tail": " for May: 40 \u00d7 $600 = $24,000\n\n**June:**\n- Employees remaining: 40 \u2212 (1/4 \u00d7 40) = 40 \u2212 10 = 30\n- Total for June: 30 \u00d7 $600 = $18,000\n\n**Total for both months:**\n$24,000 + $18,000 = $42,000\n\n#### 42000"
+    },
+    {
+      "ok": false,
+      "gold": 40.0,
+      "pred": 20.0,
+      "tokens": 135,
+      "finish": "stop",
+      "tail": "ck's locker is half the size of Timothy's locker, so Timothy's locker = 10 \u00d7 2 = 20 cubic inches\n\n**Checking:** Timothy's locker is 20 \u2192 Zack's is half of 20 = 10 \u2192 Peter's is 1/4 of 10 = 5 \u2713\n\n#### 20"
+    },
+    {
+      "ok": false,
+      "gold": 150.0,
+      "pred": 240.0,
+      "tokens": 82,
+      "finish": "stop",
+      "tail": "e problem:**\n\n- Marin eats 4 apples per day\n- Nancy eats 4 apples per day\n- Together they eat: 4 + 4 = **8 apples per day**\n\n**Calculating for 30 days:**\n\n8 apples/day \u00d7 30 days = 240 apples\n\n#### 240"
+    },
+    {
+      "ok": false,
+      "gold": 450.0,
+      "pred": 900.0,
+      "tokens": 178,
+      "finish": "stop",
+      "tail": "**\n- Commission = 30% \u00d7 $1000 = $300\n\n**Remaining sales (above $1000):**\n- Remaining sales = $2500 \u2212 $1000 = $1500\n- Commission = 40% \u00d7 $1500 = $600\n\n**Total earnings:**\n- $300 + $600 = $900\n\n#### 900"
+    },
+    {
+      "ok": false,
+      "gold": 319.0,
+      "pred": 318.0,
+      "tokens": 108,
+      "finish": "stop",
+      "tail": "ed\n- Each of those 100 people brings 2 friends: 100 \u00d7 2 = 200 people\n- Friends invited by phone: 10 people\n- Spouses coming along: 8 people\n\n**Total seats needed:**\n\n100 + 200 + 10 + 8 = 318\n\n#### 318"
+    },
+    {
+      "ok": false,
+      "gold": 43500.0,
+      "pred": 47250.0,
+      "tokens": 446,
+      "finish": "stop",
+      "tail": "ning boards: $500 less than leather seats = $2,500 \u2212 $500 = $2,000\n- Upgraded exterior light package: $1,500\n\n**Total cost:**\n$30,000 + $7,500 + $3,750 + $2,500 + $2,000 + $1,500 = $47,250\n\n#### 47250"
+    },
+    {
+      "ok": false,
+      "gold": 162000.0,
+      "pred": 160000.0,
+      "tokens": 110,
+      "finish": "stop",
+      "tail": "**Step 1:** Initial likes after 1 week = 2,000\n\n**Step 2:** Three weeks later, likes = 70 \u00d7 2,000 = 140,000\n\n**Step 3:** Adding the 20,000 new likes: 140,000 + 20,000 = 160,000\n\n#### 160000"
+    },
+    {
+      "ok": false,
+      "gold": 75.0,
+      "pred": 105.0,
+      "tokens": 152,
+      "finish": "stop",
+      "tail": " - 1 = 3 hours.\n\nThe first paid hour costs $15.\nThe second paid hour costs twice that: 2 \u00d7 $15 = $30.\nThe third paid hour costs twice that: 2 \u00d7 $30 = $60.\n\nTotal paid: $15 + $30 + $60 = $105\n\n#### 105"
+    },
+    {
+      "ok": false,
+      "gold": 12.0,
+      "pred": 8.0,
+      "tokens": 102,
+      "finish": "stop",
+      "tail": "t: 20 feet = 20 \u00d7 12 = **240 inches**\n\nTarget height: **600 inches**\n\n**Growth needed:**\n600 \u2212 240 = 360 inches\n\n**Days required:**\nSince the bamboo grows 30 inches per day:\n\n360 \u00f7 30 = 8 days\n\n#### 8"
+    },
+    {
+      "ok": false,
+      "gold": 33.0,
+      "pred": 25.0,
+      "tokens": 408,
+      "finish": "stop",
+      "tail": " 16 more dogs arrive, meaning he buys 16 more toys.\n\n**Step 4:** When he comes back again, 3 dogs are gone, so he no longer needed 3 of those toys.\n\n**Total toys needed:**\n4 + 8 + 16 \u2212 3 = 25\n\n#### 25"
+    },
+    {
+      "ok": false,
+      "gold": 3.0,
+      "pred": 6.0,
+      "tokens": 245,
+      "finish": "stop",
+      "tail": " groups: 54 \u00f7 12 = 4.5 \u2014 since the activity requires 12 groups, the groups would no longer be equal in size, but the requirement is simply 12 groups, which is 6 more than the 6 already formed.\n\n#### 6"
+    },
+    {
+      "ok": false,
+      "gold": 240.0,
+      "pred": 300.0,
+      "tokens": 286,
+      "finish": "stop",
+      "tail": "electricity bill is $100 per month, divided equally among 4 roommates.\n\n**Step 2:** Each roommate pays per month:\n$100 \u00f7 4 = **$25**\n\n**Step 3:** Over a year (12 months):\n$25 \u00d7 12 = **$300**\n\n#### 300"
+    },
+    {
+      "ok": false,
+      "gold": 675.0,
+      "pred": 600.0,
+      "tokens": 249,
+      "finish": "stop",
+      "tail": "ing more.**\n\nEzra read 300 books and decided to read 150 more:\n\n300 + 150 = 450 books\n\n**Step 3: Find the total books read altogether.**\n\nEzra's total + Ahmed's total:\n\n450 + 150 = 600 books\n\n#### 600"
+    },
+    {
+      "ok": false,
+      "gold": 54.0,
+      "pred": 27.0,
+      "tokens": 134,
+      "finish": "stop",
+      "tail": "per day for 5 days:\n- 3 \u00d7 5 = 15 rides\n\n**Other days (2 days):**\nThey ride twice the usual amount, so 3 \u00d7 2 = 6 times per day:\n- 6 \u00d7 2 = 12 rides\n\n**Total for the week:**\n- 15 + 12 = 27 rides\n\n#### 27"
+    },
+    {
+      "ok": false,
+      "gold": 11.0,
+      "pred": 68.0,
+      "tokens": 329,
+      "finish": "stop",
+      "tail": " quarters\n- Weaker friend #1: 240 \u00f7 10 = 24 quarters\n- Weaker friend #2: 240 \u00f7 10 = 24 quarters\n- Better friend: 240 \u00f7 30 = 8 quarters\n\n**Total quarters used:**\n12 + 24 + 24 + 8 = 68 quarters\n\n#### 68"
+    },
+    {
+      "ok": false,
+      "gold": 14.0,
+      "pred": 18.0,
+      "tokens": 120,
+      "finish": "stop",
+      "tail": "ts.\n- Julie scored 14 \u2212 4 = 10 points.\n\n**Game 2 (Julie's home court):**\n- Sasha scored 6 fewer points than Julie's first-game score: 10 \u2212 6 = 4 points.\n\n**Sasha's total points:**\n14 + 4 = 18\n\n#### 18"
+    },
+    {
+      "ok": false,
+      "gold": 48.0,
+      "pred": 36.0,
+      "tokens": 202,
+      "finish": "stop",
+      "tail": "s 2 = 36 \\text{ hours}$$\n\n**Step 3:** Each of the four turtles crosses independently at the same speed, so the time is still 36 hours \u2014 the number of turtles doesn't change the crossing time.\n\n#### 36"
+    },
+    {
+      "ok": false,
+      "gold": 144.0,
+      "pred": 96.0,
+      "tokens": 103,
+      "finish": "stop",
+      "tail": " 12 homes\n\n**Year 2:** Three times as many as the first year = 3 \u00d7 12 = 36 homes\n\n**Count after two years:** 12 + 36 = 48 homes\n\n**Year 3:** Double the amount built so far = 2 \u00d7 48 = 96 homes\n\n#### 96"
+    },
+    {
+      "ok": false,
+      "gold": 1.0,
+      "pred": 2.0,
+      "tokens": 210,
+      "finish": "stop",
+      "tail": "vin and his wife eat 2 adult bowls, leaving 2 adult bowls of soup, which equals 4 child-sized bowls.\n\nFor lunch, the 4 child-sized bowls are split between the 2 children: 4 \u00f7 2 = 2 bowls each.\n\n#### 2"
+    },
+    {
+      "ok": false,
+      "gold": 360.0,
+      "pred": 1800.0,
+      "tokens": 131,
+      "finish": "stop",
+      "tail": "0 PM is 15 hours.\n- 15 hours \u00d7 60 minutes = 900 minutes\n\n**Number of 15-minute intervals:**\n- 900 \u00f7 15 = 60 intervals\n\n**Total reports stapled:**\n- 60 intervals \u00d7 30 reports = 1,800 reports\n\n#### 1800"
+    }
+  ],
+  "wall_seconds": 187.0
+}
