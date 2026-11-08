@@ -2,3 +2,15 @@
 + AGENTIC_CONVS=16
 + AGENTIC_TIMEOUT=1500
 + bash evals/bench.sh agentic 16
+evalscope exit=0 c=16 n=16 offset=28
+{
+  "mtp_acceptance_length": 3.701,
+  "mtp_acceptance_rate": 0.892,
+  "prefix_cache_hit_rate": 0.0051,
+  "external_prefix_cache_hit_rate": 0.9125,
+  "preemptions": 0.0,
+  "prompt_tokens": 16575600.0,
+  "generation_tokens": 45980.0,
+  "requests_finished": 209.0,
+  "kv_cache_usage_perc_end": 0.0
+}
