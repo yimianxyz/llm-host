@@ -63,3 +63,27 @@ bench exit=0
   "kv_cache_usage_perc_end": 0.0
 }
 + bash evals/bench.sh agentic 1 4 8
+evalscope exit=0 c=1 n=4 offset=0
+{
+  "mtp_acceptance_length": 5.419,
+  "mtp_acceptance_rate": 0.884,
+  "prefix_cache_hit_rate": 0.9178,
+  "external_prefix_cache_hit_rate": null,
+  "preemptions": 0.0,
+  "prompt_tokens": 4151925.0,
+  "generation_tokens": 11660.0,
+  "requests_finished": 53.0,
+  "kv_cache_usage_perc_end": 0.0
+}
+evalscope exit=0 c=4 n=8 offset=4
+{
+  "mtp_acceptance_length": 5.255,
+  "mtp_acceptance_rate": 0.851,
+  "prefix_cache_hit_rate": 0.9177,
+  "external_prefix_cache_hit_rate": null,
+  "preemptions": 0.0,
+  "prompt_tokens": 8294107.0,
+  "generation_tokens": 23100.0,
+  "requests_finished": 105.0,
+  "kv_cache_usage_perc_end": 0.0
+}
