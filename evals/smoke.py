@@ -47,7 +47,8 @@ def check_reasoning(c: OpenAI) -> dict:
     r = c.chat.completions.create(
         model=MODEL, max_tokens=4096,
         messages=[{"role": "user", "content": "What is 17*23? Reply with just the number."}],
-        extra_body={"chat_template_kwargs": {"reasoning_effort": "low"}},
+        # At "low" GLM-5.3 may answer with an empty think block; "high" reliably exercises the reasoning parser.
+        extra_body={"chat_template_kwargs": {"reasoning_effort": "high"}},
     )
     m = r.choices[0].message
     content, reasoning = m.content or "", reasoning_of(m)

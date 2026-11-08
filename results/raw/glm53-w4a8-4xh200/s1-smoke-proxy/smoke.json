@@ -1,27 +1,70 @@
 {
   "base_url": "https://fbsy2njw0xt5mp-8000.proxy.runpod.net",
-  "ts": "2026-11-08T20:23:35Z",
+  "ts": "2026-11-08T20:33:23Z",
   "auth": {
-    "pass": false,
-    "no_key_status": 502,
-    "key_status": 502,
-    "models": []
+    "pass": true,
+    "no_key_status": 401,
+    "key_status": 200,
+    "models": [
+      "glm-5.3"
+    ]
   },
   "reasoning": {
     "pass": false,
-    "error": "InternalServerError('Error code: 502')"
+    "content": "391",
+    "reasoning_chars": 0,
+    "finish": "stop"
   },
   "tool_call": {
-    "pass": false,
-    "error": "InternalServerError('Error code: 502')"
+    "pass": true,
+    "finish": "tool_calls",
+    "calls": [
+      [
+        "get_weather",
+        "{\"city\": \"Paris\"}"
+      ]
+    ]
   },
   "ttfat": {
-    "pass": false,
-    "error": "InternalServerError('Error code: 502')"
+    "pass": true,
+    "low": {
+      "ttft_s": 0.3003348750062287,
+      "time_to_first_answer_token_s": 0.39126495784148574,
+      "elapsed_s": 0.54,
+      "chunks": 12,
+      "completion_tokens": 36,
+      "finish": "stop",
+      "decode_tok_s": 153.3
+    },
+    "high": {
+      "ttft_s": 1.0546856671571732,
+      "time_to_first_answer_token_s": 1.3610682091675699,
+      "elapsed_s": 1.67,
+      "chunks": 27,
+      "completion_tokens": 71,
+      "finish": "stop",
+      "decode_tok_s": 115.4
+    },
+    "max": {
+      "ttft_s": 0.30748408287763596,
+      "time_to_first_answer_token_s": 4.321275583002716,
+      "elapsed_s": 8.92,
+      "chunks": 50,
+      "completion_tokens": 151,
+      "finish": "stop",
+      "decode_tok_s": 17.5
+    }
   },
   "long_stream": {
-    "pass": false,
-    "error": "InternalServerError('Error code: 502')"
+    "ttft_s": 0.6195476674474776,
+    "time_to_first_answer_token_s": 0.6195476674474776,
+    "elapsed_s": 110.02,
+    "chunks": 3819,
+    "completion_tokens": null,
+    "finish": null,
+    "decode_tok_s": null,
+    "pass": true,
+    "survived_past_100s": true
   },
   "pass": false
 }
