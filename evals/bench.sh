@@ -55,7 +55,8 @@ case $cmd in
 apply)
   cp "$1" /root/serve.args && cp "$1" "$OUT/applied.args"
   b0=$(boot_no); t0=$(date +%s)
-  pkill -TERM -f "vllm serve"
+  # Match only the vLLM process: PID 1 (start.sh) contains the text "vllm serve" and must survive.
+  pkill -TERM -f "bin/vllm serve"
   until [ "$(boot_no)" -gt "$b0" ]; do sleep 2; done
   if secs=$(wait_ready 3600 "$b0"); then
     echo "{\"restart_to_ready_s\": $(( $(date +%s) - t0 ))}" | tee "$OUT/apply.json"
@@ -76,6 +77,7 @@ facts)
 setup-client)
   python3 -c "import pandas" 2> /dev/null || uv pip install -q --system pandas || python3 -m pip install -q pandas  # vllm[bench] extra, needed by speed_bench
   [ -x "$CLIENT/evalscope" ] && { echo "client ready"; exit 0; }
+  rm -rf /root/client-venv  # a half-built venv from an interrupted install
   if command -v uv > /dev/null; then
     uv venv /root/client-venv -q --python 3.12 && VIRTUAL_ENV=/root/client-venv uv pip install -q "evalscope[perf] @ $EVALSCOPE_REF" openai datasets
   else

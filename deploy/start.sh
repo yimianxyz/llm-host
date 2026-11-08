@@ -30,7 +30,9 @@ mkdir -p /root/.ssh /run/sshd && chmod 700 /root/.ssh
 printf '%s\n' "${PUBLIC_KEY:-}" > /root/.ssh/authorized_keys && chmod 600 /root/.ssh/authorized_keys
 # SSH sessions do not inherit PID 1's environment, so snapshot it for jobs and login shells.
 export -p | grep -vE ' (PWD|OLDPWD|SHLVL|_)=' > /root/.pod_env
-grep -q pod_env /root/.bashrc 2>/dev/null || { echo '[ -f /root/.pod_env ] && . /root/.pod_env'; cat /root/.bashrc 2>/dev/null; } > /tmp/.bashrc && mv /tmp/.bashrc /root/.bashrc
+if ! grep -q pod_env /root/.bashrc 2>/dev/null; then
+  { echo '[ -f /root/.pod_env ] && . /root/.pod_env'; cat /root/.bashrc 2>/dev/null; } > /tmp/.bashrc && mv /tmp/.bashrc /root/.bashrc
+fi
 pgrep -x sshd >/dev/null || /usr/sbin/sshd
 log "sshd up"
 
