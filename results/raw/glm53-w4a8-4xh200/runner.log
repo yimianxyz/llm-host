@@ -2,3 +2,5 @@
 2026-11-08T19:58:22Z start s1b-boot-b1
 2026-11-08T20:03:55Z end s1b-boot-b1 exit=0
 2026-11-08T20:03:55Z start s1c-apply-b2
+2026-11-08T20:12:02Z end s1c-apply-b2 exit=0
+2026-11-08T20:12:17Z start s1d-apply-b3

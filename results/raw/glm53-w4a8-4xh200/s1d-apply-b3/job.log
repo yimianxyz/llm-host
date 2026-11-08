@@ -1,0 +1,1 @@
++ bash evals/bench.sh apply deploy/configs/B3-dcp4-bt16k-expseg.args
