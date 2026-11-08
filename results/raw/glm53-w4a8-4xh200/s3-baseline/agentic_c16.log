@@ -94,4 +94,129 @@
 Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 20:56:10 - evalscope - [32mINFO[0m: Test connection successful.[0m
 Running[perf]:   0%|          | 0/1 [00:02<?, ?it/s]                                                    2026-11-08 20:56:10 - evalscope - [32mINFO[0m: Save the data base to: /root/results/s3-baseline/evalscope/agentic_c16/parallel_16_number_32/benchmark_data.db[0m
 Running[perf]:   0%|          | 0/1 [00:02<?, ?it/s]
-Processing[parallel_16_number_32]:   0%|          | 0/32 [00:00<?, ?it/s][A
+Processing[parallel_16_number_32]:   0%|          | 0/32 [00:00<?, ?it/s][A                                                    
+                                                                         [A2026-11-08 21:19:25 - evalscope - [32mINFO[0m: {
+  "Test Duration (s)": 1394.1538,
+  "Concurrency": 16,
+  "Request Rate (req/s)": -1.0,
+  "Total Requests": 100,
+  "Success Requests": 100,
+  "Failed Requests": 0,
+  "Req Throughput (req/s)": 0.0717,
+  "Avg Latency (s)": 206.8832,
+  "Avg Input Tokens": 76547.03,
+  "Output Throughput (tok/s)": 15.7802,
+  "Total Throughput (tok/s)": 5506.3532,
+  "TTFT (ms)": 120988.44,
+  "TPOT (ms)": 392.21,
+  "ITL (ms)": 1400.76,
+  "Avg Output Tokens": 220.0,
+  "Avg Turns/Request": 3.64,
+  "KV Cache Hit Rate (%)": 0.0,
+  "Decoded Tok/Iter": 3.613,
+  "Spec. Accept Rate": 0.7232
+}[0m
+Running[perf]:   0%|          | 0/1 [23:16<?, ?it/s]
+Processing[parallel_16_number_32]:   0%|          | 0/32 [23:14<?, ?it/s][A                                                    
+                                                                         [A2026-11-08 21:19:54 - evalscope - [32mINFO[0m: Got signal SIGTERM: exit[0m
+Running[perf]:   0%|          | 0/1 [23:46<?, ?it/s]
+Processing[parallel_16_number_32]:   0%|          | 0/32 [23:43<?, ?it/s][A                                                    
+                                                                         [A2026-11-08 21:19:54 - evalscope - [32mINFO[0m: Running[perf]   0%| 0/1 [Elapsed: 23:46 < Remaining: ?, ?it/s][0m
+Running[perf]:   0%|          | 0/1 [23:46<?, ?it/s]
+Processing[parallel_16_number_32]:   0%|          | 0/32 [23:43<?, ?it/s][ARunning[perf]:   0%|          | 0/1 [23:46<?, ?it/s]
+Traceback (most recent call last):
+  File "/root/client-venv/bin/evalscope", line 10, in <module>
+    sys.exit(run_cmd())
+             ^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/cli/cli.py", line 31, in run_cmd
+    cmd.execute()
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/cli/start_perf.py", line 39, in execute
+    run_perf_benchmark(self.args)
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/main.py", line 157, in run_perf_benchmark
+    results = run_multi_benchmark(args, output_path=output_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/main.py", line 97, in run_multi_benchmark
+    benchmark_result = run_one_benchmark(args, output_path=cur_output_path)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/main.py", line 53, in run_one_benchmark
+    metrics_result, percentile_result = loop.run_until_complete(run_multi_turn_benchmark(args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 685, in run_until_complete
+    raise RuntimeError('Event loop stopped before Future completed.')
+RuntimeError: Event loop stopped before Future completed.
+2026-11-08 21:19:54 - evalscope - [31mERROR[0m: Exception in async function 'run_multi_turn_benchmark': coroutine ignored GeneratorExit[0m
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/utils/handler.py", line 17, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: coroutine ignored GeneratorExit
+Exception ignored in: <coroutine object run_multi_turn_benchmark at 0x7fd730c93340>
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/utils/handler.py", line 20, in async_wrapper
+SystemExit: 1
+2026-11-08 21:19:54,915 - asyncio - ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-4' coro=<statistic_benchmark_metric() running at /root/client-venv/lib/python3.12/site-packages/evalscope/perf/utils/handler.py:17> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2026-11-08 21:19:54 - evalscope - [32mINFO[0m: Processing[parallel_16_number_32]   0%| 0/32 [Elapsed: 23:44 < Remaining: ?, ?it/s][0m
+Processing[parallel_16_number_32]:   0%|          | 0/32 [23:44<?, ?it/s]
+2026-11-08 21:19:54 - evalscope - [31mERROR[0m: Exception in async function 'statistic_benchmark_metric': Event loop is closed[0m
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/queues.py", line 158, in get
+    await getter
+GeneratorExit
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/utils/handler.py", line 17, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/core/metrics_consumer.py", line 66, in statistic_benchmark_metric
+    benchmark_data = await asyncio.wait_for(benchmark_data_queue.get(), timeout=0.1)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/queues.py", line 160, in get
+    getter.cancel()  # Just in case getter is not done yet.
+    ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 795, in call_soon
+    self._check_closed()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 541, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+Exception ignored in: <coroutine object statistic_benchmark_metric at 0x7fd730c93c40>
+Traceback (most recent call last):
+  File "/root/client-venv/lib/python3.12/site-packages/evalscope/perf/utils/handler.py", line 20, in async_wrapper
+SystemExit: 1
+2026-11-08 21:19:54,924 - asyncio - ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-20' coro=<MultiTurnStrategy._worker() running at /root/client-venv/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py:103> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+2026-11-08 21:19:54,924 - asyncio - ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-19' coro=<MultiTurnStrategy._worker() running at /root/client-venv/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py:103> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+2026-11-08 21:19:54,924 - asyncio - ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-18' coro=<MultiTurnStrategy._worker() running at /root/client-venv/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py:103> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+2026-11-08 21:19:54,924 - asyncio - ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-17' coro=<MultiTurnStrategy._worker() running at /root/client-venv/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py:103> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+2026-11-08 21:19:54,924 - asyncio - ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-16' coro=<MultiTurnStrategy._worker() running at /root/client-venv/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py:103> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+2026-11-08 21:19:54,924 - asyncio - ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-15' coro=<MultiTurnStrategy._worker() running at /root/client-venv/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py:103> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+2026-11-08 21:19:54,925 - asyncio - ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-14' coro=<MultiTurnStrategy._worker() running at /root/client-venv/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py:103> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+2026-11-08 21:19:54,925 - asyncio - ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-13' coro=<MultiTurnStrategy._worker() running at /root/client-venv/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py:103> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+2026-11-08 21:19:54,925 - asyncio - ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-12' coro=<MultiTurnStrategy._worker() running at /root/client-venv/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py:103> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+2026-11-08 21:19:54,925 - asyncio - ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-11' coro=<MultiTurnStrategy._worker() running at /root/client-venv/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py:103> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+2026-11-08 21:19:54,925 - asyncio - ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-10' coro=<MultiTurnStrategy._worker() running at /root/client-venv/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py:103> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+2026-11-08 21:19:54,925 - asyncio - ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-9' coro=<MultiTurnStrategy._worker() running at /root/client-venv/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py:103> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+2026-11-08 21:19:54,925 - asyncio - ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-8' coro=<MultiTurnStrategy._worker() running at /root/client-venv/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py:103> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+2026-11-08 21:19:54,925 - asyncio - ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-7' coro=<MultiTurnStrategy._worker() running at /root/client-venv/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py:103> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+2026-11-08 21:19:54,925 - asyncio - ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-6' coro=<MultiTurnStrategy._worker() running at /root/client-venv/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py:103> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+2026-11-08 21:19:54,925 - asyncio - ERROR: Task was destroyed but it is pending!
+task: <Task pending name='Task-5' coro=<MultiTurnStrategy._worker() running at /root/client-venv/lib/python3.12/site-packages/evalscope/perf/core/strategies/multi_turn.py:103> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
