@@ -3,4 +3,4 @@ set -x
 bash evals/bench.sh apply deploy/configs/L3-mtp-schedule.args || exit 1
 bash evals/bench.sh gate-spot
 bash evals/bench.sh mtp-al
-bash evals/bench.sh agentic 1 8 16 32
+bash evals/bench.sh agentic 1 4 8 16
