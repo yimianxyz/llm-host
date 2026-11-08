@@ -99,3 +99,29 @@
                                                                                  [A2026-11-08 20:53:24 - evalscope - [32mINFO[0m: Processing[parallel_8_number_16]   6%| 1/16 [Elapsed: 02:34 < Remaining: 38:33, 154.20s/it][0m
 Running[perf]:   0%|          | 0/1 [02:36<?, ?it/s]
 Processing[parallel_8_number_16]:   6%|▋         | 1/16 [02:34<38:33, 154.20s/it][A
+Processing[parallel_8_number_16]:  12%|█▎        | 2/16 [02:47<16:38, 71.35s/it] [A
+Processing[parallel_8_number_16]:  19%|█▉        | 3/16 [03:00<09:43, 44.88s/it][A                                                    
+                                                                                [A2026-11-08 20:54:17 - evalscope - [32mINFO[0m: {
+  "Test Duration (s)": 206.5814,
+  "Concurrency": 8,
+  "Request Rate (req/s)": -1.0,
+  "Total Requests": 100,
+  "Success Requests": 100,
+  "Failed Requests": 0,
+  "Req Throughput (req/s)": 0.4841,
+  "Avg Latency (s)": 13.9232,
+  "Avg Input Tokens": 79523.33,
+  "Output Throughput (tok/s)": 106.4955,
+  "Total Throughput (tok/s)": 38601.4047,
+  "TTFT (ms)": 5232.84,
+  "TPOT (ms)": 39.68,
+  "ITL (ms)": 147.85,
+  "Avg Output Tokens": 220.0,
+  "Avg Turns/Request": 6.77,
+  "KV Cache Hit Rate (%)": 91.4505,
+  "Decoded Tok/Iter": 3.7624,
+  "Spec. Accept Rate": 0.7342
+}[0m
+Running[perf]:   0%|          | 0/1 [03:28<?, ?it/s]
+Processing[parallel_8_number_16]:  25%|██▌       | 4/16 [03:26<08:58, 44.88s/it][A
+Processing[parallel_8_number_16]:  31%|███▏      | 5/16 [03:26<04:54, 26.74s/it][A
