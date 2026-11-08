@@ -95,3 +95,38 @@
 Running[perf]:   0%|          | 0/1 [00:02<?, ?it/s]                                                    2026-11-08 23:53:24 - evalscope - [32mINFO[0m: Save the data base to: /root/results/s4e-l5c-l4-ctx1m/evalscope/agentic_c8/parallel_8_number_16/benchmark_data.db[0m
 Running[perf]:   0%|          | 0/1 [00:02<?, ?it/s]
 Processing[parallel_8_number_16]:   0%|          | 0/16 [00:00<?, ?it/s][A
+Processing[parallel_8_number_16]:   6%|▋         | 1/16 [03:07<46:45, 187.02s/it][A                                                    
+                                                                                 [A2026-11-08 23:56:31 - evalscope - [32mINFO[0m: Processing[parallel_8_number_16]   6%| 1/16 [Elapsed: 03:07 < Remaining: 46:45, 187.02s/it][0m
+Running[perf]:   0%|          | 0/1 [03:09<?, ?it/s]
+Processing[parallel_8_number_16]:   6%|▋         | 1/16 [03:07<46:45, 187.02s/it][A
+Processing[parallel_8_number_16]:  19%|█▉        | 3/16 [03:36<12:50, 59.27s/it] [A                                                    
+                                                                                [A2026-11-08 23:57:04 - evalscope - [32mINFO[0m: {
+  "Test Duration (s)": 219.7765,
+  "Concurrency": 8,
+  "Request Rate (req/s)": -1.0,
+  "Total Requests": 100,
+  "Success Requests": 100,
+  "Failed Requests": 0,
+  "Req Throughput (req/s)": 0.455,
+  "Avg Latency (s)": 15.6244,
+  "Avg Input Tokens": 79528.86,
+  "Output Throughput (tok/s)": 100.1017,
+  "Total Throughput (tok/s)": 36286.345,
+  "TTFT (ms)": 7790.71,
+  "TPOT (ms)": 35.77,
+  "ITL (ms)": 134.76,
+  "Avg Output Tokens": 220.0,
+  "Avg Turns/Request": 6.76,
+  "KV Cache Hit Rate (%)": 91.1383,
+  "Decoded Tok/Iter": 3.821,
+  "Spec. Accept Rate": 0.7383
+}[0m
+Running[perf]:   0%|          | 0/1 [03:42<?, ?it/s]
+Processing[parallel_8_number_16]:  19%|█▉        | 3/16 [03:39<12:50, 59.27s/it][A
+Processing[parallel_8_number_16]:  25%|██▌       | 4/16 [03:39<08:00, 40.02s/it][A
+Processing[parallel_8_number_16]:  31%|███▏      | 5/16 [03:41<05:00, 27.33s/it][A
+Processing[parallel_8_number_16]:  38%|███▊      | 6/16 [04:27<05:34, 33.49s/it][A                                                    
+                                                                                [A2026-11-08 23:57:52 - evalscope - [32mINFO[0m: Processing[parallel_8_number_16]  38%| 6/16 [Elapsed: 04:27 < Remaining: 05:34, 33.49s/it][0m
+Running[perf]:   0%|          | 0/1 [04:30<?, ?it/s]
+Processing[parallel_8_number_16]:  38%|███▊      | 6/16 [04:27<05:34, 33.49s/it][A
+Processing[parallel_8_number_16]:  44%|████▍     | 7/16 [04:28<03:27, 23.08s/it][A

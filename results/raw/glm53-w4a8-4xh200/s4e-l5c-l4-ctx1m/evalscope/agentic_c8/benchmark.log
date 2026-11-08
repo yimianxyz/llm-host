@@ -83,3 +83,26 @@
 2026-11-08 23:53:22 - evalscope - INFO: Loaded 16 conversations
 2026-11-08 23:53:24 - evalscope - INFO: Test connection successful.
 2026-11-08 23:53:24 - evalscope - INFO: Save the data base to: /root/results/s4e-l5c-l4-ctx1m/evalscope/agentic_c8/parallel_8_number_16/benchmark_data.db
+2026-11-08 23:56:31 - evalscope - INFO: Processing[parallel_8_number_16]   6%| 1/16 [Elapsed: 03:07 < Remaining: 46:45, 187.02s/it]
+2026-11-08 23:57:04 - evalscope - INFO: {
+  "Test Duration (s)": 219.7765,
+  "Concurrency": 8,
+  "Request Rate (req/s)": -1.0,
+  "Total Requests": 100,
+  "Success Requests": 100,
+  "Failed Requests": 0,
+  "Req Throughput (req/s)": 0.455,
+  "Avg Latency (s)": 15.6244,
+  "Avg Input Tokens": 79528.86,
+  "Output Throughput (tok/s)": 100.1017,
+  "Total Throughput (tok/s)": 36286.345,
+  "TTFT (ms)": 7790.71,
+  "TPOT (ms)": 35.77,
+  "ITL (ms)": 134.76,
+  "Avg Output Tokens": 220.0,
+  "Avg Turns/Request": 6.76,
+  "KV Cache Hit Rate (%)": 91.1383,
+  "Decoded Tok/Iter": 3.821,
+  "Spec. Accept Rate": 0.7383
+}
+2026-11-08 23:57:52 - evalscope - INFO: Processing[parallel_8_number_16]  38%| 6/16 [Elapsed: 04:27 < Remaining: 05:34, 33.49s/it]
