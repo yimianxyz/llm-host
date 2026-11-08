@@ -1,0 +1,29 @@
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:50:29 [default_loader.py:506] Loading weights took 56.28 seconds
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:51:39 [default_loader.py:506] Loading weights took 0.49 seconds
+(Worker_TP3_EP3 pid=8152) INFO 11-08 19:51:40 [model_runner.py:428] Model loading took 111.3 GiB memory and 128.748256 seconds
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:51:41 [model_runner.py:428] Model loading took 111.3 GiB memory and 130.005208 seconds
+(Worker_TP1_EP1 pid=8151) INFO 11-08 19:51:42 [model_runner.py:428] Model loading took 111.3 GiB memory and 130.899747 seconds
+(Worker_TP2_EP2 pid=8150) INFO 11-08 19:51:42 [model_runner.py:428] Model loading took 111.3 GiB memory and 131.094783 seconds
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:55:32 [model_runner.py:1163] Graph capturing finished in 196 secs, took 3.58 GiB
+(Worker_TP3_EP3 pid=8152) INFO 11-08 19:55:32 [model_runner.py:1163] Graph capturing finished in 196 secs, took 3.58 GiB
+(Worker_TP2_EP2 pid=8150) INFO 11-08 19:55:32 [model_runner.py:1163] Graph capturing finished in 196 secs, took 3.58 GiB
+(Worker_TP1_EP1 pid=8151) INFO 11-08 19:55:32 [model_runner.py:1163] Graph capturing finished in 196 secs, took 3.58 GiB
+(Worker_TP0_EP0 pid=8149) INFO 11-08 19:55:32 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8904 without CUDA graph memory profiling. To maintain the same effective KV cache 
+(Worker_TP3_EP3 pid=8152) INFO 11-08 19:55:32 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8904 without CUDA graph memory profiling. To maintain the same effective KV cache 
+(Worker_TP2_EP2 pid=8150) INFO 11-08 19:55:32 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8904 without CUDA graph memory profiling. To maintain the same effective KV cache 
+(Worker_TP1_EP1 pid=8151) INFO 11-08 19:55:32 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8904 without CUDA graph memory profiling. To maintain the same effective KV cache 
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:58:16 [default_loader.py:506] Loading weights took 30.63 seconds
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:22 [default_loader.py:506] Loading weights took 0.50 seconds
+(Worker_TP1_DCP1_EP1 pid=909) INFO 11-08 19:59:24 [model_runner.py:428] Model loading took 111.29 GiB memory and 100.892185 seconds
+(Worker_TP3_DCP3_EP3 pid=908) INFO 11-08 19:59:24 [model_runner.py:428] Model loading took 111.29 GiB memory and 101.036768 seconds
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:24 [model_runner.py:428] Model loading took 111.29 GiB memory and 101.118667 seconds
+(Worker_TP2_DCP2_EP2 pid=907) INFO 11-08 19:59:24 [model_runner.py:428] Model loading took 111.29 GiB memory and 101.665056 seconds
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:57 [model_runner.py:1163] Graph capturing finished in 29 secs, took 3.65 GiB
+(Worker_TP3_DCP3_EP3 pid=908) INFO 11-08 19:59:57 [model_runner.py:1163] Graph capturing finished in 29 secs, took 3.65 GiB
+(Worker_TP2_DCP2_EP2 pid=907) INFO 11-08 19:59:57 [model_runner.py:1163] Graph capturing finished in 29 secs, took 3.65 GiB
+(Worker_TP1_DCP1_EP1 pid=909) INFO 11-08 19:59:57 [model_runner.py:1163] Graph capturing finished in 29 secs, took 3.65 GiB
+(Worker_TP0_DCP0_EP0 pid=905) INFO 11-08 19:59:58 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8895 without CUDA graph memory profiling. To maintain the same effective KV ca
+(Worker_TP3_DCP3_EP3 pid=908) INFO 11-08 19:59:58 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8895 without CUDA graph memory profiling. To maintain the same effective KV ca
+(Worker_TP1_DCP1_EP1 pid=909) INFO 11-08 19:59:58 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8895 without CUDA graph memory profiling. To maintain the same effective KV ca
+(Worker_TP2_DCP2_EP2 pid=907) INFO 11-08 19:59:58 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8895 without CUDA graph memory profiling. To maintain the same effective KV ca
+(EngineCore pid=682) INFO 11-08 19:59:58 [kv_cache_utils.py:1147] GPU KV cache size: 494,080 tokens, Maximum concurrency for 262,144 tokens per request: 1.88x

@@ -1,3 +1,10 @@
 + bash evals/bench.sh setup-client
 client ready
 + bash evals/bench.sh wait 5400
+Terminated
++ bash evals/bench.sh facts
++ nvidia-smi --query-gpu=index,memory.used,memory.total --format=csv
++ cp /root/results/boot.log /root/results/s1b-boot-b1/boot_timeline.txt
++ cp /root/results/download.log /root/results/s1b-boot-b1/
++ grep -E 'Loading weights took|Model loading took|init engine|torch.compile|Graph capturing finished|KV cache size|Maximum concurrency|Starting vLLM API server' /root/vllm.log
++ cut -c1-300
