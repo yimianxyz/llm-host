@@ -20,6 +20,7 @@ Price $21.16/hr, 4 GPUs. SLO: TTFT p50 <= 5 s, interactivity >= 50 tok/s, zero f
 | step | c | n | failed | ttft_p50_ms | ttft_p90_ms | tpot_p50_ms | tpot_p90_ms | interactivity | out_tok_s | total_tok_s_per_gpu | goodput_rps | mtp_al | usd_per_m_out |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | r01-rehearsal | 1 | 8 | 0 | 289 | 328 | 5.17 | 5.19 | 193.3 | 184 | 414 | 0.18 |  | 31.97 |
+| s3b-reference | 1 | 8 | 0 | 1402 | 1412 | 13.86 | 21.04 | 72.1 | 64 | 144 | 0.063 | 1.395 | 91.79 |
 
 ## Quality, MTP acceptance, restarts, KV capacity
 | step | file | result |

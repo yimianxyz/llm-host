@@ -1,0 +1,11 @@
+{
+  "mtp_acceptance_length": 1.361,
+  "mtp_acceptance_rate": 0.12,
+  "prefix_cache_hit_rate": 0.1938,
+  "external_prefix_cache_hit_rate": null,
+  "preemptions": 0.0,
+  "prompt_tokens": 655360.0,
+  "generation_tokens": 81920.0,
+  "requests_finished": 80.0,
+  "kv_cache_usage_perc_end": 0.0
+}
