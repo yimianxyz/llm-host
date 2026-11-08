@@ -44,12 +44,14 @@ metrics_end() {
 
 boot_no() { cut -d' ' -f1 /root/vllm.boot 2> /dev/null || echo 0; }
 
-wait_ready() {  # wait_ready TIMEOUT_S [BOOT_BEFORE]
+wait_ready() {  # wait_ready TIMEOUT_S [BOOT_BEFORE]; APPLY_MAX_BOOTS (default 3) boots before giving up
   local t0 b0; t0=$(date +%s); b0=${2:-$(boot_no)}
   until bash evals/ready.sh > /dev/null 2>&1; do
     sleep 10
     if [ $(( $(date +%s) - t0 )) -gt "$1" ]; then echo "not ready after $1 s"; return 1; fi
-    if [ $(( $(boot_no) - b0 )) -ge 3 ]; then echo "vLLM crashed 3 times; last log lines:"; tail -40 /root/vllm.log; return 1; fi
+    if [ $(( $(boot_no) - b0 )) -ge "${APPLY_MAX_BOOTS:-3}" ]; then
+      echo "vLLM crashed $(( $(boot_no) - b0 - 1 )) times; last log lines:"; tail -40 /root/vllm.log; return 1
+    fi
   done
   echo $(( $(date +%s) - t0 ))
 }

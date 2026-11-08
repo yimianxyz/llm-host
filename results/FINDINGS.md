@@ -317,3 +317,16 @@ The prompt took 4.71 s, which is 5.57K tok/s: three 8K chunks at about 830 ms of
 - **Correction to the prefill-profile note:** DSpark frees no weight memory, so `--dcp-q-replicate` (about 2 GiB per GPU) stays unaffordable.
 
 The best config stays L2 (B4 + L3 + L2).
+
+## Step 4, rung L4 (first attempt): 1M context on L2 at util 0.93 (23:26-23:31Z): DID NOT BOOT
+
+**Config:** `deploy/configs/L4-ctx1m.args`, which is L2 with `--max-model-len 1048576` and util 0.93 instead of 0.92. At 0.92 the GPU KV pool is 965,376 tokens, short of one 1M request, and 0.93 should have added 1.4 GiB per GPU.
+
+**What happened:** `ValueError: To serve at least one request with the model's max seq len (1048576), 13.36 GiB KV cache is needed, which is larger than the available KV cache memory (8.35 GiB) ... the estimated maximum model length is 655104.`
+- **The cause is CUDA-graph memory, which grows with max-model-len.** vLLM counts graph memory inside the util budget ("0.93 is equivalent to 0.8657 without CUDA graph memory profiling"). That is **9.0 GiB per GPU at 1M, against 4.5 GiB at 256K.**
+- **The likely mechanism:** the sparse indexer's decode buffers are sized as captured tokens x max-model-len, and the default captures up to 512 tokens per step.
+- **The activation peak also grew** by about 0.85 GiB.
+- **Raising util is the wrong lever:** one point of util is 1.4 GiB, and the graphs took 4.5 GiB more.
+- **The fallback (960K at 0.92) would have failed the same way,** so I stopped the job instead of letting it crash-loop.
+
+**Next:** L5c removes exactly those buffers. It caps graph capture at 128 tokens per step, which the SLO region never exceeds, and uses 4K prefill chunks. L4 is retried on top of it in the same boot.
