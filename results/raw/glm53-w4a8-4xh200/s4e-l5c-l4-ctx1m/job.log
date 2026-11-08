@@ -1,0 +1,5 @@
++ L=1040000
+++ wc -l
++ n0=20835
++ APPLY_MAX_BOOTS=2
++ bash evals/bench.sh apply deploy/configs/L4c-ctx1m.args
