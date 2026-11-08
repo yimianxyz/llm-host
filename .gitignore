@@ -1,0 +1,9 @@
+.env
+.env.pod
+.venv*/
+__pycache__/
+*.pyc
+.DS_Store
+data/*.json
+results/raw/**/*.db
+results/raw/**/*.sqlite
