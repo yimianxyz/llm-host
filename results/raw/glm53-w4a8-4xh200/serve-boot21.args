@@ -1,0 +1,29 @@
+# L5c: L2 with 4K prefill chunks and CUDA graphs captured only up to 128 tokens per step.
+# - 4K chunks: a step carrying a prefill chunk took about 1.41 s at 8K; at 4K, co-running sessions get twice the decode
+#   steps through another session's cold prefill. L5p showed chunk size barely moves prefill speed. The smaller
+#   activation peak and unprofiled FlashMLA buffer (256 KiB per batched token) also return memory to KV.
+# - Capture cap 128: under the MTP schedule a decode step is at most 64 tokens for 16 sessions and 128 for 64, so
+#   nothing in the measured range runs outside a graph. The default 512 costs about 4.5 GiB of graph memory per GPU
+#   (inside the util budget) and doubles with max-model-len, which is what kept 1M context from fitting.
+--served-model-name glm-5.3
+--host 0.0.0.0
+--port 8000
+--trust-remote-code
+--tensor-parallel-size 4
+--enable-expert-parallel
+--kv-cache-dtype fp8_ds_mla
+--gpu-memory-utilization 0.92
+--max-model-len 262144
+--max-num-batched-tokens 4096
+--max-cudagraph-capture-size 128
+--speculative-config {"method":"mtp","num_speculative_tokens":5,"num_speculative_tokens_per_batch_size":[[1,4,5],[5,16,3],[17,1024,1]]}
+--enable-prefix-caching
+--enable-prompt-tokens-details
+--enable-per-request-metrics
+--enable-auto-tool-choice
+--tool-call-parser glm47
+--reasoning-parser glm45
+--decode-context-parallel-size 4
+--kv-offloading-size 300
+--kv-offloading-backend native
+--profiler-config {"profiler":"torch","torch_profiler_dir":"/root/results/profile","torch_profiler_with_stack":false}

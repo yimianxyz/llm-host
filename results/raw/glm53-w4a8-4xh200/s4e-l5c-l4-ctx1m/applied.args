@@ -1,7 +1,10 @@
-# L4 on L5c: the native 1M context. On the L2 config it did not fit even at util 0.93: graph memory grew from 4.5 to
-# 9.0 GiB per GPU, leaving 8.35 GiB of KV against the 13.36 GiB one 1M request needs (vLLM's estimate: 655,104
-# tokens max). L5c's capture cap and 4K chunks shrink exactly those buffers. Util stays 0.92, because outside-budget
-# headroom is what the unprofiled FlashMLA buffer needs.
+# L5c: L2 with 4K prefill chunks and CUDA graphs captured only up to 128 tokens per step.
+# - 4K chunks: a step carrying a prefill chunk took about 1.41 s at 8K; at 4K, co-running sessions get twice the decode
+#   steps through another session's cold prefill. L5p showed chunk size barely moves prefill speed. The smaller
+#   activation peak and unprofiled FlashMLA buffer (256 KiB per batched token) also return memory to KV.
+# - Capture cap 128: under the MTP schedule a decode step is at most 64 tokens for 16 sessions and 128 for 64, so
+#   nothing in the measured range runs outside a graph. The default 512 costs about 4.5 GiB of graph memory per GPU
+#   (inside the util budget) and doubles with max-model-len, which is what kept 1M context from fitting.
 --served-model-name glm-5.3
 --host 0.0.0.0
 --port 8000
@@ -10,7 +13,7 @@
 --enable-expert-parallel
 --kv-cache-dtype fp8_ds_mla
 --gpu-memory-utilization 0.92
---max-model-len 651264
+--max-model-len 262144
 --max-num-batched-tokens 4096
 --max-cudagraph-capture-size 128
 --speculative-config {"method":"mtp","num_speculative_tokens":5,"num_speculative_tokens_per_batch_size":[[1,4,5],[5,16,3],[17,1024,1]]}
