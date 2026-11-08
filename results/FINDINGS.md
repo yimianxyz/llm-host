@@ -231,3 +231,55 @@ Random token IDs give MTP almost nothing to predict (acceptance length 1.37-1.40
 - **The opposite direction is the one worth a rung:** 4K chunks would roughly halve each stall, return about 1 GiB per GPU to KV, and should cost only a few percent of prefill speed.
 
 **Decision: revert** (the plan's rule: the spot gate failed). The best config stays B4 + L3.
+
+## Step 4, rung L2: CPU KV offload on B4 + L3 (22:12-22:37Z): KEPT
+
+**Config:** `deploy/configs/L2-offload300.args`, which is B4 + L3 + `--kv-offloading-size 300 --kv-offloading-backend native`, plus an inert `--profiler-config`.
+- **GPU KV is unchanged** at 965,376 tokens; the CPU tier uses only host RAM.
+- **Restart to ready takes 357 s**, 60 s more than L3, for pinning 300 GiB of host memory.
+- **The spot gate passed:** tool calls 48/48, the 128K needle, GSM8K-200.
+- **The tier is write-through:** every computed block is copied to host memory, about 3.1 GB per 10 s in about 0.17 s of transfer time.
+
+| | c=8 (fits in GPU KV) | c=16 (1.36M-token working set) |
+|---|---|---|
+| B4 / L3 without offload | 208 turns; prefix hit 91.8% (all GPU) | **collapse:** 0 of the first 16 conversations finished in about 20 min; hit fell from 91.8% to 71% |
+| L2 | 208 turns; prefix hit 91.5% (all GPU) | **16 of 16 conversations (208 turns) in 5.5 min, 0 failures; hit 91.3%, served 91.25% from host memory and 0.5% from GPU** |
+| Overhead vs L3 | median TPOT 17.75 to 20.23 ms; logical throughput 13,131 to 12,560 tok/s per GPU (-4.3%); ITL p50 unchanged (44 ms) | n/a |
+
+**Why GPU hits drop to 0.5% at c=16:**
+- LRU caches fail on a cyclic working set larger than the cache: each waiting session's blocks are evicted just before its next turn.
+- The 300 GiB host tier holds about 5.5M tokens, so every one of those misses becomes a reload over PCIe instead of a recompute. An 85K-token history is about 4.4 GB, so it reloads in a fraction of a second, against about 13 s of prefill.
+- c=16 is still far past the SLO (TTFT p50 3.9 s, mean TPOT 51 ms, 12,648 logical tok/s per GPU, which is prefill-saturated like c=8), but the engine degrades gracefully instead of collapsing.
+
+**Decision: keep.**
+- **The generic keep rule does not apply:** max sessions at SLO is unchanged and c=1 was not re-measured.
+- **The plan's L2 test does:** "prefixes survive concurrency beyond HBM; test it past the cliff". That test is decisive.
+- **Why it matters for long-running hosting:** the KV working set is every recently active session's history, not just the running ones. Without the tier, a returning user costs a 13 s cold prefill that also stalls everyone else.
+- **The cost:** about 4% of throughput where offload is not needed, and 60 s on restart.
+
+## Prefill profile (one cold 26,228-token prompt, B4 + L3 + L2; `s4c-l2-offload/profile/`)
+
+The prompt took 4.71 s, which is 5.57K tok/s: three 8K chunks at about 830 ms of GPU time each, plus a remainder. The CUDA time on each rank is nearly identical:
+
+| Kernel | Share of 4.57 s CUDA time |
+|---|---|
+| `_flashmla_C::sparse_decode_fwd` (FlashMLA **sparse decode**, split-KV, SM90) | **36%** |
+| DCP and TP collectives: `all_gather` 9.4%, `all_reduce` 6.7%, DCP `all_to_all` 6.3%, pack/unpack 3.4% | **about 26%** |
+| `cutlass_w4a8_moe_mm` (all routed experts) | **7.0%** |
+| DeepGEMM FP8 (indexer and projections) | 4.5% |
+| copies, `masked_fill`, elementwise, quantization | about 15% |
+
+**Prefill is not MoE-bound; it is attention-path bound.** vLLM's FlashMLA-sparse backend has two FP8 modes (`flashmla_sparse.py`):
+- **Mixed batch (the one in use):** every token, prefill included, goes through the FP8 *decode* kernel.
+- **Separate:** KV is upconverted to BF16 and run through the sparse *prefill* kernel.
+
+**Why this deployment cannot leave mixed-batch mode:**
+- **TP4 forces it:** each rank has only 16 heads, below `MIN_HEADS_FOR_BF16_PREFILL = 32`, because the prefill kernel pads to 128 heads.
+- **DCP requires it:** DCP is only supported on the mixed-batch path, since the DCP merge needs the LSE for every token. The one exception is PCP+DCP.
+- **PCP does not fit here:** it means TP2 x PCP2, which doubles each GPU's attention and dense weights (about 8 GiB more per GPU) and leaves almost no KV.
+- **HiSparse (plan rung L5) is ruled out the same way:** it disables mixed-batch mode, so it raises `NotImplementedError` with DCP, and without DCP the KV is replicated (B0: about 131K tokens).
+
+**Implications:**
+1. On 4x H200 with W4A8, prefill speed (about 5.6K tok/s) is set by this kernel mismatch and by DCP collectives, so it is structural.
+2. On 8x H200 with FP8 and TP8, each rank has 8 heads, so it is still mixed-batch. The fast prefill path needs 32 or more heads per rank, i.e. TP2 or DP attention.
+3. The cheap lever is `--dcp-q-replicate`: replicate the query projection so each step skips the query all-gather (the largest collective here, 9.4%). It costs about 2 GiB of weights per GPU, which is affordable only if DSpark frees the MTP layer's 12.64 GiB.
