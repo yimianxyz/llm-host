@@ -99,3 +99,125 @@
                                                                               [A2026-11-08 20:49:14 - evalscope - [32mINFO[0m: Processing[parallel_4_number_8]  12%| 1/8 [Elapsed: 01:28 < Remaining: 10:22, 88.86s/it][0m
 Running[perf]:   0%|          | 0/1 [01:30<?, ?it/s]
 Processing[parallel_4_number_8]:  12%|█▎        | 1/8 [01:28<10:22, 88.86s/it][A
+Processing[parallel_4_number_8]:  38%|███▊      | 3/8 [01:55<02:44, 32.86s/it][A                                                    
+                                                                              [A2026-11-08 20:50:43 - evalscope - [32mINFO[0m: {
+  "Test Duration (s)": 177.6808,
+  "Concurrency": 4,
+  "Request Rate (req/s)": -1.0,
+  "Total Requests": 100,
+  "Success Requests": 100,
+  "Failed Requests": 0,
+  "Req Throughput (req/s)": 0.5628,
+  "Avg Latency (s)": 7.0753,
+  "Avg Input Tokens": 79505.65,
+  "Output Throughput (tok/s)": 123.8175,
+  "Total Throughput (tok/s)": 44870.1456,
+  "TTFT (ms)": 2613.93,
+  "TPOT (ms)": 20.37,
+  "ITL (ms)": 75.77,
+  "Avg Output Tokens": 220.0,
+  "Avg Turns/Request": 6.77,
+  "KV Cache Hit Rate (%)": 91.4612,
+  "Decoded Tok/Iter": 3.7523,
+  "Spec. Accept Rate": 0.7335
+}[0m
+Running[perf]:   0%|          | 0/1 [02:59<?, ?it/s]
+Processing[parallel_4_number_8]:  50%|█████     | 4/8 [02:57<02:11, 32.86s/it][A
+Processing[parallel_4_number_8]:  62%|██████▎   | 5/8 [02:57<01:35, 31.98s/it][A                                                    
+                                                                              [A2026-11-08 20:50:43 - evalscope - [32mINFO[0m: Processing[parallel_4_number_8]  62%| 5/8 [Elapsed: 02:57 < Remaining: 01:35, 31.98s/it][0m
+Running[perf]:   0%|          | 0/1 [02:59<?, ?it/s]
+Processing[parallel_4_number_8]:  62%|██████▎   | 5/8 [02:57<01:35, 31.98s/it][A
+Processing[parallel_4_number_8]:  75%|███████▌  | 6/8 [02:58<00:47, 23.67s/it][A
+Processing[parallel_4_number_8]:  88%|████████▊ | 7/8 [02:59<00:17, 17.45s/it][A
+Processing[parallel_4_number_8]: 100%|██████████| 8/8 [03:01<00:00, 12.81s/it][A                                                    
+                                                                              [A2026-11-08 20:50:46 - evalscope - [32mINFO[0m: Processing[parallel_4_number_8] 100%| 8/8 [Elapsed: 03:01 < Remaining: 00:00, 12.81s/it][0m
+Running[perf]:   0%|          | 0/1 [03:03<?, ?it/s]
+Processing[parallel_4_number_8]: 100%|██████████| 8/8 [03:01<00:00, 12.81s/it][AProcessing[parallel_4_number_8]: 100%|██████████| 8/8 [03:01<00:00, 22.64s/it]
+                                                    2026-11-08 20:50:46 - evalscope - [32mINFO[0m: 
+Benchmarking summary:
+┌────────────────────────────┬───────────────┐
+│ Metric                     │         Value │
+├────────────────────────────┼───────────────┤
+│ ── General ──              │               │
+│ Test Duration (s)          │        181.04 │
+│ Concurrency                │             4 │
+│ Request Rate (req/s)       │         -1.00 │
+│ Total / Success / Failed   │ 104 / 104 / 0 │
+│ Req Throughput (req/s)     │          0.57 │
+│ ── Latency ──              │               │
+│ Avg Latency (s)            │          6.89 │
+│ TTFT (ms)                  │       2532.60 │
+│ TPOT (ms)                  │         19.92 │
+│ ITL (ms)                   │         74.24 │
+│ ── Tokens ──               │               │
+│ Avg Input Tokens           │      79722.56 │
+│ Avg Output Tokens          │        220.00 │
+│ Output Throughput (tok/s)  │        126.38 │
+│ Total Throughput (tok/s)   │      45923.27 │
+│ ── Multi-turn ──           │               │
+│ Avg Turns/Request          │          7.00 │
+│ KV Cache Hit Rate (%)      │         91.76 │
+│ ── Speculative Decoding ── │               │
+│ Decoded Tok/Iter           │          3.76 │
+│ Spec. Accept Rate          │          0.73 │
+└────────────────────────────┴───────────────┘[0m
+Running[perf]:   0%|          | 0/1 [03:03<?, ?it/s]                                                    2026-11-08 20:50:46 - evalscope - [32mINFO[0m: 
+Percentile results:
+┌────────────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
+│ Metric         │       1% │       5% │      10% │      25% │      50% │      75% │      90% │      95% │      99% │
+├────────────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+│ Latency (s)    │     2.30 │     2.74 │     2.91 │     2.95 │     3.03 │     3.23 │     3.90 │    52.62 │    53.50 │
+│ TTFT (ms)      │   433.60 │   444.74 │   454.52 │   472.60 │   503.65 │   678.09 │   745.37 │ 14222.50 │ 39379.90 │
+│ ITL (ms)       │     1.38 │     7.65 │    26.08 │    32.51 │    33.68 │    34.29 │    39.37 │   285.70 │  1412.99 │
+│ TPOT (ms)      │     8.10 │    10.33 │    10.40 │    10.80 │    11.40 │    12.27 │    14.55 │   118.59 │   175.68 │
+│ Input tokens   │ 74173.00 │ 74173.00 │ 74930.00 │ 76753.00 │ 79673.00 │ 82799.00 │ 84638.00 │ 85327.00 │ 85710.00 │
+│ Output tokens  │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │
+│ Output (tok/s) │     4.11 │     4.18 │    56.38 │    69.01 │    72.78 │    74.48 │    75.54 │    80.30 │    95.71 │
+│ Total (tok/s)  │  1390.55 │  1413.80 │ 19259.68 │ 24104.53 │ 26632.50 │ 27915.51 │ 28724.94 │ 29116.12 │ 37340.14 │
+│ Decode (tok/s) │     5.69 │     8.43 │    68.75 │    81.80 │    87.71 │    93.48 │    96.12 │    96.84 │   123.44 │
+└────────────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┘[0m
+Running[perf]:   0%|          | 0/1 [03:03<?, ?it/s]                                                    2026-11-08 20:50:46 - evalscope - [32mINFO[0m: Save the summary to: /root/results/s3-baseline/evalscope/agentic_c4/parallel_4_number_8[0m
+Running[perf]:   0%|          | 0/1 [03:03<?, ?it/s]Running[perf]: 100%|██████████| 1/1 [03:03<00:00, 183.26s/it]                                                             2026-11-08 20:50:46 - evalscope - [32mINFO[0m: Running[perf] 100%| 1/1 [Elapsed: 03:03 < Remaining: 00:00, 183.26s/it][0m
+Running[perf]: 100%|██████████| 1/1 [03:03<00:00, 183.26s/it]Running[perf]: 100%|██████████| 1/1 [03:03<00:00, 183.26s/it]
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Performance Test Summary Report                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Basic Information:
+┌───────────────────────┬──────────────────────────────────────────────────────┐
+│ Model                 │ glm-5.3                                              │
+│ Test Dataset          │ swe_smith                                            │
+│ API Type              │ openai                                               │
+│ Total Generated       │ 22,880.0 tokens                                      │
+│ Avg Output Rate       │ 126.38 tokens/sec                                    │
+│ Total Test Time       │ 181.04 seconds                                       │
+│ Output Path           │ /root/results/s3-baseline/evalscope/agentic_c4       │
+└───────────────────────┴──────────────────────────────────────────────────────┘
+
+
+                                         Detailed Performance Metrics                                         
+┏━━━━━━┳━━━━━━┳━━━━━┳━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━┓
+┃      ┃      ┃     ┃      ┃     Avg ┃     P99 ┃      Avg ┃      P99 ┃      Avg ┃      P99 ┃   Gen. ┃ Success┃
+┃Conc. ┃ Rate ┃ Num ┃  RPS ┃ Lat.(s) ┃ Lat.(s) ┃ TTFT(ms) ┃ TTFT(ms) ┃ TPOT(ms) ┃ TPOT(ms) ┃ toks/s ┃    Rate┃
+┡━━━━━━╇━━━━━━╇━━━━━╇━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━┩
+│    4 │  INF │ 104 │ 0.57 │   6.894 │  53.500 │   2532.6 │  39379.9 │     19.9 │    175.7 │ 126.38 │  100.0%│
+└──────┴──────┴─────┴──────┴─────────┴─────────┴──────────┴──────────┴──────────┴──────────┴────────┴────────┘
+
+
+                                                Request Metrics                                                
+┏━━━━━━┳━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━┓
+┃      ┃     ┃  Avg In ┃  P99 In ┃ Avg Out ┃ P99 Out ┃       Avg ┃    Approx ┃ Decode ┃  Decoded ┃       Spec.┃
+┃Conc. ┃ Num ┃    Toks ┃    Toks ┃    Toks ┃    Toks ┃ Turns/Req ┃ Cache Hit ┃ toks/s ┃ Tok/Iter ┃ Accept Rate┃
+┡━━━━━━╇━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━┩
+│    4 │ 104 │ 79722.6 │ 85710.0 │   220.0 │   220.0 │      7.00 │     91.8% │  50.20 │     3.76 │       73.4%│
+└──────┴─────┴─────────┴─────────┴─────────┴─────────┴───────────┴───────────┴────────┴──────────┴────────────┘
+
+
+               Best Performance Configuration               
+ Highest RPS         Concurrency 4 (0.57 req/sec)           
+ Lowest Latency      Concurrency 4 (6.894 seconds)          
+
+Performance Recommendations:
+• The system seems not to have reached its performance bottleneck, try higher concurrency
+2026-11-08 20:50:46 - evalscope - [32mINFO[0m: Performance summary saved to: /root/results/s3-baseline/evalscope/agentic_c4/performance_summary.txt[0m
+2026-11-08 20:50:46 - evalscope - [32mINFO[0m: HTML report generated: /root/results/s3-baseline/evalscope/agentic_c4/perf_report.html[0m
