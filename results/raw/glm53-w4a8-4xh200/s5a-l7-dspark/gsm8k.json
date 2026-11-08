@@ -1,0 +1,37 @@
+{
+  "task": "gsm8k",
+  "n": 200,
+  "accuracy": 0.985,
+  "gate_pass": true,
+  "effort": "high",
+  "seconds": 22.3,
+  "mean_completion_tokens": 125,
+  "truncated": 0,
+  "failures": [
+    {
+      "ok": false,
+      "gold": 150.0,
+      "pred": 240.0,
+      "tokens": 65,
+      "finish": "stop",
+      "tail": "Marin eats 4 apples per day and Nancy eats 4 apples per day.\n\nTogether they eat: 4 + 4 = 8 apples per day.\n\nOver 30 days: 8 \u00d7 30 = 240 apples.\n\n#### 240"
+    },
+    {
+      "ok": false,
+      "gold": 162000.0,
+      "pred": 160000.0,
+      "tokens": 103,
+      "finish": "stop",
+      "tail": "**Step 1:** Initial likes after 1 week = 2,000\n\n**Step 2:** Three weeks later, likes = 70 \u00d7 2,000 = 140,000\n\n**Step 3:** Adding the new likes: 140,000 + 20,000 = 160,000\n\n#### 160000"
+    },
+    {
+      "ok": false,
+      "gold": 10.0,
+      "pred": 5.0,
+      "tokens": 137,
+      "finish": "stop",
+      "tail": "ng loaves = 60 \u2212 40 = 20 loaves.\n\n**Step 3:** Half of the remainder is sold = 20 \u00f7 2 = 10 loaves, split equally between afternoon and evening.\n\n**Step 4:** Afternoon sales = 10 \u00f7 2 = 5 loaves.\n\n#### 5"
+    }
+  ],
+  "wall_seconds": 24.4
+}

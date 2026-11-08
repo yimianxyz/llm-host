@@ -29,3 +29,49 @@
   },
   "wall_seconds": 92.9
 }
+{"length": 131072, "depth": 0.5, "prompt_tokens": 130589, "found": true, "ttft_s": 27.28, "prefill_tok_s": 4787, "decode_tok_s": 284.7, "answer": "reason-state-402"}
+{
+  "task": "niah",
+  "max_model_len": 262144,
+  "words_per_token": 0.916,
+  "gate_pass": true,
+  "wall_seconds": 27.4
+}
+{
+  "task": "gsm8k",
+  "n": 200,
+  "accuracy": 0.985,
+  "gate_pass": true,
+  "effort": "high",
+  "seconds": 22.3,
+  "mean_completion_tokens": 125,
+  "truncated": 0,
+  "wall_seconds": 24.4
+}
++ AL_CONC=8
++ bash evals/bench.sh mtp-al
+bench exit=0
+{
+  "mtp_acceptance_length": 3.918,
+  "mtp_acceptance_rate": 0.365,
+  "prefix_cache_hit_rate": 0.0,
+  "external_prefix_cache_hit_rate": 0.0,
+  "preemptions": 0.0,
+  "prompt_tokens": 15682.0,
+  "generation_tokens": 47014.0,
+  "requests_finished": 64.0,
+  "kv_cache_usage_perc_end": 0.0
+}
++ bash evals/bench.sh agentic 1 4 8
+evalscope exit=0 c=1 n=4 offset=0
+{
+  "mtp_acceptance_length": 5.868,
+  "mtp_acceptance_rate": 0.609,
+  "prefix_cache_hit_rate": 0.9161,
+  "external_prefix_cache_hit_rate": 0.0,
+  "preemptions": 0.0,
+  "prompt_tokens": 4146183.0,
+  "generation_tokens": 11660.0,
+  "requests_finished": 53.0,
+  "kv_cache_usage_perc_end": 0.0
+}
