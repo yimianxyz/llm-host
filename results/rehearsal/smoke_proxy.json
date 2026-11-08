@@ -1,0 +1,68 @@
+{
+  "base_url": "https://0ahvagkjn8k4pw-8000.proxy.runpod.net",
+  "ts": "2026-11-08T19:20:28Z",
+  "auth": {
+    "pass": false,
+    "no_key_status": 403,
+    "key_status": 403,
+    "models": []
+  },
+  "reasoning": {
+    "pass": true,
+    "content": "\n\nTo find the product of 17 and 23, we can use the standard multiplication algorithm:\n\n1. Break 23 into 20 + 3.\n2. Multiply 17 by 20:  \n   $ 17 \\times 20 = 340 $\n3. Multiply 17 by 3:  \n   $ 17 \\times ",
+    "reasoning_chars": 2007,
+    "finish": "stop"
+  },
+  "tool_call": {
+    "pass": true,
+    "finish": "tool_calls",
+    "calls": [
+      [
+        "get_weather",
+        "{\"city\": \"Paris\"}"
+      ]
+    ]
+  },
+  "ttfat": {
+    "pass": true,
+    "low": {
+      "ttft_s": 0.18879600008949637,
+      "time_to_first_answer_token_s": 2.9899887079373,
+      "elapsed_s": 3.19,
+      "chunks": 867,
+      "completion_tokens": 868,
+      "finish": "stop",
+      "decode_tok_s": 289.2
+    },
+    "high": {
+      "ttft_s": 0.5783343343064189,
+      "time_to_first_answer_token_s": 7.160932959057391,
+      "elapsed_s": 7.7,
+      "chunks": 1990,
+      "completion_tokens": 1992,
+      "finish": "stop",
+      "decode_tok_s": 279.7
+    },
+    "max": {
+      "ttft_s": 0.5345117920078337,
+      "time_to_first_answer_token_s": 2.9559203749522567,
+      "elapsed_s": 3.18,
+      "chunks": 762,
+      "completion_tokens": 765,
+      "finish": "stop",
+      "decode_tok_s": 289.5
+    }
+  },
+  "long_stream": {
+    "ttft_s": 0.22782116709277034,
+    "time_to_first_answer_token_s": 2.3572959997691214,
+    "elapsed_s": 110.01,
+    "chunks": 20194,
+    "completion_tokens": null,
+    "finish": null,
+    "decode_tok_s": null,
+    "pass": true,
+    "survived_past_100s": true
+  },
+  "pass": false
+}

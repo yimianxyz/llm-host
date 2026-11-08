@@ -1,0 +1,176 @@
++ export AGENTIC_DATA=/root/data/openhand-rehearsal-16.json AGENTIC_N=16
++ AGENTIC_DATA=/root/data/openhand-rehearsal-16.json
++ AGENTIC_N=16
++ bash evals/bench.sh wait 900
+0
++ bash evals/bench.sh facts
+(EngineCore pid=1166) INFO 11-08 19:19:23 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.9128 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9272. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=1166) INFO 11-08 19:19:23 [kv_cache_utils.py:1147] GPU KV cache size: 362,096 tokens, Maximum concurrency for 32,768 tokens per request: 11.05x
++ bash evals/bench.sh setup-client
+client ready
+
+real	0m23.778s
+user	1m6.171s
+sys	0m22.624s
++ bash evals/bench.sh agentic 1 4
+evalscope exit=0 c=1 n=4 offset=0
+{
+  "mtp_acceptance_length": null,
+  "mtp_acceptance_rate": null,
+  "prefix_cache_hit_rate": 0.6494,
+  "external_prefix_cache_hit_rate": null,
+  "preemptions": 0.0,
+  "prompt_tokens": 77835.0,
+  "generation_tokens": 2860.0,
+  "requests_finished": 13.0,
+  "kv_cache_usage_perc_end": 0.0
+}
+evalscope exit=0 c=4 n=8 offset=4
+{
+  "mtp_acceptance_length": null,
+  "mtp_acceptance_rate": null,
+  "prefix_cache_hit_rate": 0.6496,
+  "external_prefix_cache_hit_rate": null,
+  "preemptions": 0.0,
+  "prompt_tokens": 155734.0,
+  "generation_tokens": 5500.0,
+  "requests_finished": 25.0,
+  "kv_cache_usage_perc_end": 0.0
+}
++ bash evals/bench.sh reference 1
+bench exit=0 c=1 n=8
+{
+  "mtp_acceptance_length": null,
+  "mtp_acceptance_rate": null,
+  "prefix_cache_hit_rate": 0.1996,
+  "external_prefix_cache_hit_rate": null,
+  "preemptions": 0.0,
+  "prompt_tokens": 81920.0,
+  "generation_tokens": 10240.0,
+  "requests_finished": 10.0,
+  "kv_cache_usage_perc_end": 0.0
+}
++ AL_PROMPTS=8
++ bash evals/bench.sh mtp-al
+bench exit=1
+{
+  "mtp_acceptance_length": null,
+  "mtp_acceptance_rate": null,
+  "prefix_cache_hit_rate": null,
+  "external_prefix_cache_hit_rate": null,
+  "preemptions": 0.0,
+  "prompt_tokens": 0.0,
+  "generation_tokens": 0.0,
+  "requests_finished": 0.0,
+  "kv_cache_usage_perc_end": 0.0
+}
++ python3 evals/quality.py toolcalls --out /root/results/r01-rehearsal/toolcalls.json
+{
+  "task": "toolcalls",
+  "gated_cases": 46,
+  "passed": 36,
+  "pass_rate": 0.7826,
+  "gate_pass": false,
+  "flaky_then_passed": 3,
+  "informational": {
+    "info_empty_props_oneof_glm5_169": true,
+    "info_empty_props_oneof_glm5_169/stream": true
+  },
+  "wall_seconds": 39.6
+}
++ python3 evals/quality.py niah --lengths 16384 --depths 0.5 --out /root/results/r01-rehearsal/niah.json
+{"length": 16384, "depth": 0.5, "prompt_tokens": 15834, "found": true, "ttft_s": 0.72, "prefill_tok_s": 21977, "decode_tok_s": 158.7, "answer": "\n\nbook-end-828"}
+{
+  "task": "niah",
+  "max_model_len": 32768,
+  "words_per_token": 0.916,
+  "gate_pass": true,
+  "wall_seconds": 1.8
+}
++ python3 evals/quality.py gsm8k --limit 20 --effort low --out /root/results/r01-rehearsal/gsm8k.json
+Traceback (most recent call last):
+  File "/root/llm-host/evals/quality.py", line 372, in <module>
+    main()
+  File "/root/llm-host/evals/quality.py", line 366, in main
+    res = {"gsm8k": run_gsm8k, "toolcalls": run_toolcalls, "niah": run_niah, "gpqa": run_gpqa}[a.task](c, a)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/llm-host/evals/quality.py", line 60, in run_gsm8k
+    from datasets import load_dataset
+ModuleNotFoundError: No module named 'datasets'
++ python3 evals/smoke.py --long-stream-seconds 20 --out /root/results/r01-rehearsal/smoke_local.json
+auth: PASS
+reasoning: PASS
+tool_call: PASS
+ttfat: PASS
+long_stream: PASS
+{
+  "base_url": "http://127.0.0.1:8000",
+  "ts": "2026-11-08T19:26:23Z",
+  "auth": {
+    "pass": true,
+    "no_key_status": 401,
+    "key_status": 200,
+    "models": [
+      "glm-5.3"
+    ]
+  },
+  "reasoning": {
+    "pass": true,
+    "content": "\n\n17 \u00d7 23 = 391\n\nThe final answer is: $\\boxed{391}$",
+    "reasoning_chars": 2964,
+    "finish": "stop"
+  },
+  "tool_call": {
+    "pass": true,
+    "finish": "tool_calls",
+    "calls": [
+      [
+        "get_weather",
+        "{\"city\": \"Paris\"}"
+      ]
+    ]
+  },
+  "ttfat": {
+    "pass": true,
+    "low": {
+      "ttft_s": 0.03430141304852441,
+      "time_to_first_answer_token_s": 8.984184221015312,
+      "elapsed_s": 9.4,
+      "chunks": 2576,
+      "completion_tokens": 2578,
+      "finish": "stop",
+      "decode_tok_s": 275.2
+    },
+    "high": {
+      "ttft_s": 0.04685180896194652,
+      "time_to_first_answer_token_s": 11.139825035992544,
+      "elapsed_s": 11.93,
+      "chunks": 3195,
+      "completion_tokens": 3196,
+      "finish": "stop",
+      "decode_tok_s": 269.0
+    },
+    "max": {
+      "ttft_s": 0.038256075989920646,
+      "time_to_first_answer_token_s": 1.9200795469805598,
+      "elapsed_s": 2.09,
+      "chunks": 598,
+      "completion_tokens": 599,
+      "finish": "stop",
+      "decode_tok_s": 292.3
+    }
+  },
+  "long_stream": {
+    "ttft_s": 0.033936814055778086,
+    "time_to_first_answer_token_s": 2.930853524012491,
+    "elapsed_s": 20.0,
+    "chunks": 5095,
+    "completion_tokens": null,
+    "finish": null,
+    "decode_tok_s": null,
+    "pass": true,
+    "survived_past_100s": false
+  },
+  "pass": true
+}
++ bash evals/bench.sh probe 60 15

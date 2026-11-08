@@ -1,0 +1,189 @@
+2026-11-08 19:24:01 - evalscope - [32mINFO[0m: Save the result to: /root/results/r01-rehearsal/evalscope/agentic_c4[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 19:24:01 - evalscope - [32mINFO[0m: Starting benchmark with args: [0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 19:24:01 - evalscope - [32mINFO[0m: {
+    "model": "glm-5.3",
+    "model_id": "glm-5.3",
+    "attn_implementation": null,
+    "api": "openai",
+    "tokenizer_path": null,
+    "port": 8877,
+    "url": "http://127.0.0.1:8000/v1/chat/completions",
+    "headers": {
+        "Authorization": "Bearer 3f3f6862a670761a65b591adef5f4195aabb95826c6725f9"
+    },
+    "connect_timeout": null,
+    "read_timeout": null,
+    "total_timeout": 21600,
+    "api_key": "3f3f6862a670761a65b591adef5f4195aabb95826c6725f9",
+    "no_test_connection": false,
+    "number": 8,
+    "parallel": 4,
+    "rate": -1.0,
+    "open_loop": false,
+    "sleep_interval": 5,
+    "sla_auto_tune": false,
+    "sla_variable": "parallel",
+    "sla_params": null,
+    "sla_num_runs": 3,
+    "sla_upper_bound": 65536,
+    "sla_lower_bound": 1,
+    "sla_fixed_parallel": null,
+    "sla_number_multiplier": null,
+    "db_commit_interval": 1000,
+    "queue_size_multiplier": 5,
+    "in_flight_task_multiplier": 2,
+    "log_every_n_query": 100,
+    "debug": false,
+    "enable_progress_tracker": false,
+    "visualizer": null,
+    "wandb_api_key": null,
+    "swanlab_api_key": null,
+    "name": "agentic_c4",
+    "outputs_dir": "/root/results/r01-rehearsal/evalscope/agentic_c4",
+    "no_timestamp": true,
+    "max_prompt_length": 131072,
+    "min_prompt_length": 0,
+    "prefix_length": 0,
+    "prompt": null,
+    "query_template": null,
+    "apply_chat_template": true,
+    "image_width": 224,
+    "image_height": 224,
+    "image_format": "RGB",
+    "image_num": 1,
+    "image_patch_size": 28,
+    "dataset": "swe_smith",
+    "dataset_path": "/root/data/openhand-rehearsal-16.json",
+    "dataset_offset": 4,
+    "frequency_penalty": null,
+    "repetition_penalty": null,
+    "logprobs": null,
+    "max_tokens": 220,
+    "min_tokens": null,
+    "n_choices": null,
+    "seed": null,
+    "stop": null,
+    "stop_token_ids": null,
+    "stream": true,
+    "temperature": 0.0,
+    "top_p": null,
+    "top_k": null,
+    "extra_args": {
+        "ignore_eos": true
+    },
+    "tokenize_prompt": false,
+    "multi_turn": true,
+    "min_turns": 1,
+    "max_turns": null,
+    "multi_turn_args": null
+}[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 19:24:01 - evalscope - [32mINFO[0m: Loading conversations from dataset: swe_smith[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading[conversations]: 0it [00:00, ?it/s][A                                                    
+                                          [A2026-11-08 19:24:01 - evalscope - [32mINFO[0m: Loading pre-built dataset from /root/data/openhand-rehearsal-16.json[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading[conversations]: 0it [00:00, ?it/s][A                                                    
+                                          [A2026-11-08 19:24:01 - evalscope - [32mINFO[0m: Loaded 16 conversations (offset=4)[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading[conversations]: 0it [00:00, ?it/s][A                                                    
+                                          [A2026-11-08 19:24:01 - evalscope - [32mINFO[0m: Loading[conversations]   0%| 8/? [Elapsed: 00:00 < Remaining: 00:00, 5090.95it/s][0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading[conversations]: 8it [00:00, 4469.16it/s][ALoading[conversations]: 8it [00:00, 4289.20it/s]
+                                                    2026-11-08 19:24:01 - evalscope - [32mINFO[0m: Loaded 8 conversations[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 19:24:02 - evalscope - [32mINFO[0m: Test connection successful.[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 19:24:02 - evalscope - [32mINFO[0m: Save the data base to: /root/results/r01-rehearsal/evalscope/agentic_c4/parallel_4_number_8/benchmark_data.db[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]
+Processing[parallel_4_number_8]:   0%|          | 0/8 [00:00<?, ?it/s][A
+Processing[parallel_4_number_8]:  12%|█▎        | 1/8 [00:06<00:45,  6.50s/it][A
+Processing[parallel_4_number_8]:  62%|██████▎   | 5/8 [00:13<00:07,  2.36s/it][A                                                    
+                                                                              [A2026-11-08 19:24:15 - evalscope - [32mINFO[0m: Processing[parallel_4_number_8] 100%| 8/8 [Elapsed: 00:13 < Remaining: 00:00,  2.36s/it][0m
+Running[perf]:   0%|          | 0/1 [00:13<?, ?it/s]
+Processing[parallel_4_number_8]: 100%|██████████| 8/8 [00:13<00:00,  2.36s/it][AProcessing[parallel_4_number_8]: 100%|██████████| 8/8 [00:13<00:00,  1.65s/it]
+                                                    2026-11-08 19:24:15 - evalscope - [32mINFO[0m: 
+Benchmarking summary:
+┌────────────────────────────┬─────────────┐
+│ Metric                     │       Value │
+├────────────────────────────┼─────────────┤
+│ ── General ──              │             │
+│ Test Duration (s)          │       13.06 │
+│ Concurrency                │           4 │
+│ Request Rate (req/s)       │       -1.00 │
+│ Total / Success / Failed   │ 24 / 24 / 0 │
+│ Req Throughput (req/s)     │        1.84 │
+│ ── Latency ──              │             │
+│ Avg Latency (s)            │        2.17 │
+│ TTFT (ms)                  │      265.98 │
+│ TPOT (ms)                  │        8.71 │
+│ ITL (ms)                   │        8.75 │
+│ ── Tokens ──               │             │
+│ Avg Input Tokens           │     6488.54 │
+│ Avg Output Tokens          │      220.00 │
+│ Output Throughput (tok/s)  │      404.32 │
+│ Total Throughput (tok/s)   │    12329.06 │
+│ ── Multi-turn ──           │             │
+│ Avg Turns/Request          │        2.00 │
+│ KV Cache Hit Rate (%)      │       64.97 │
+│ ── Speculative Decoding ── │             │
+│ Decoded Tok/Iter           │        1.01 │
+│ Spec. Accept Rate          │        0.01 │
+└────────────────────────────┴─────────────┘[0m
+Running[perf]:   0%|          | 0/1 [00:13<?, ?it/s]                                                    2026-11-08 19:24:15 - evalscope - [32mINFO[0m: 
+Percentile results:
+┌────────────────┬─────────┬─────────┬─────────┬─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
+│ Metric         │      1% │      5% │     10% │     25% │     50% │     75% │     90% │     95% │     99% │
+├────────────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
+│ Latency (s)    │    1.95 │    1.98 │    1.99 │    2.02 │    2.09 │    2.42 │    2.44 │    2.45 │    2.46 │
+│ TTFT (ms)      │   92.71 │   96.50 │  119.89 │  164.26 │  190.03 │  394.23 │  548.86 │  651.95 │  670.86 │
+│ ITL (ms)       │    3.79 │    7.81 │    8.07 │    8.24 │    8.46 │    8.73 │    9.09 │    9.29 │   17.11 │
+│ TPOT (ms)      │    8.12 │    8.26 │    8.42 │    8.48 │    8.64 │    8.79 │    9.23 │    9.76 │    9.79 │
+│ Input tokens   │ 6138.00 │ 6147.00 │ 6160.00 │ 6204.00 │ 6488.00 │ 6785.00 │ 6823.00 │ 6829.00 │ 6848.00 │
+│ Output tokens  │  220.00 │  220.00 │  220.00 │  220.00 │  220.00 │  220.00 │  220.00 │  220.00 │  220.00 │
+│ Output (tok/s) │   89.43 │   89.79 │   90.09 │   91.39 │  105.70 │  109.15 │  110.58 │  111.33 │  112.87 │
+│ Total (tok/s)  │ 2593.60 │ 2603.61 │ 2608.40 │ 2667.92 │ 3327.68 │ 3382.79 │ 3386.84 │ 3393.01 │ 3434.72 │
+│ Decode (tok/s) │  102.16 │  102.41 │  108.33 │  115.39 │  115.84 │  118.21 │  118.82 │  121.13 │  123.08 │
+└────────────────┴─────────┴─────────┴─────────┴─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘[0m
+Running[perf]:   0%|          | 0/1 [00:13<?, ?it/s]                                                    2026-11-08 19:24:15 - evalscope - [32mINFO[0m: Save the summary to: /root/results/r01-rehearsal/evalscope/agentic_c4/parallel_4_number_8[0m
+Running[perf]:   0%|          | 0/1 [00:13<?, ?it/s]Running[perf]: 100%|██████████| 1/1 [00:13<00:00, 14.00s/it]                                                            2026-11-08 19:24:15 - evalscope - [32mINFO[0m: Running[perf] 100%| 1/1 [Elapsed: 00:13 < Remaining: 00:00, 14.00s/it][0m
+Running[perf]: 100%|██████████| 1/1 [00:14<00:00, 14.00s/it]Running[perf]: 100%|██████████| 1/1 [00:14<00:00, 14.00s/it]
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Performance Test Summary Report                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Basic Information:
+┌───────────────────────┬──────────────────────────────────────────────────────┐
+│ Model                 │ glm-5.3                                              │
+│ Test Dataset          │ swe_smith                                            │
+│ API Type              │ openai                                               │
+│ Total Generated       │ 5,280.0 tokens                                       │
+│ Avg Output Rate       │ 404.32 tokens/sec                                    │
+│ Total Test Time       │ 13.06 seconds                                        │
+│ Output Path           │ /root/results/r01-rehearsal/evalscope/agentic_c4     │
+└───────────────────────┴──────────────────────────────────────────────────────┘
+
+
+                                         Detailed Performance Metrics                                         
+┏━━━━━━┳━━━━━━┳━━━━━┳━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━┓
+┃      ┃      ┃     ┃      ┃     Avg ┃     P99 ┃      Avg ┃      P99 ┃      Avg ┃      P99 ┃   Gen. ┃ Success┃
+┃Conc. ┃ Rate ┃ Num ┃  RPS ┃ Lat.(s) ┃ Lat.(s) ┃ TTFT(ms) ┃ TTFT(ms) ┃ TPOT(ms) ┃ TPOT(ms) ┃ toks/s ┃    Rate┃
+┡━━━━━━╇━━━━━━╇━━━━━╇━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━┩
+│    4 │  INF │  24 │ 1.84 │   2.174 │   2.460 │    266.0 │    670.9 │      8.7 │      9.8 │ 404.32 │  100.0%│
+└──────┴──────┴─────┴──────┴─────────┴─────────┴──────────┴──────────┴──────────┴──────────┴────────┴────────┘
+
+
+                                               Request Metrics                                               
+┏━━━━━━┳━━━━━┳━━━━━━━━┳━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━┓
+┃      ┃     ┃ Avg In ┃ P99 In ┃ Avg Out ┃ P99 Out ┃       Avg ┃    Approx ┃ Decode ┃  Decoded ┃       Spec.┃
+┃Conc. ┃ Num ┃   Toks ┃   Toks ┃    Toks ┃    Toks ┃ Turns/Req ┃ Cache Hit ┃ toks/s ┃ Tok/Iter ┃ Accept Rate┃
+┡━━━━━━╇━━━━━╇━━━━━━━━╇━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━┩
+│    4 │  24 │ 6488.5 │ 6848.0 │   220.0 │   220.0 │      2.00 │     65.0% │ 114.81 │     1.01 │        0.7%│
+└──────┴─────┴────────┴────────┴─────────┴─────────┴───────────┴───────────┴────────┴──────────┴────────────┘
+
+
+               Best Performance Configuration               
+ Highest RPS         Concurrency 4 (1.84 req/sec)           
+ Lowest Latency      Concurrency 4 (2.174 seconds)          
+
+Performance Recommendations:
+• The system seems not to have reached its performance bottleneck, try higher concurrency
+2026-11-08 19:24:15 - evalscope - [32mINFO[0m: Performance summary saved to: /root/results/r01-rehearsal/evalscope/agentic_c4/performance_summary.txt[0m
+2026-11-08 19:24:16 - evalscope - [32mINFO[0m: HTML report generated: /root/results/r01-rehearsal/evalscope/agentic_c4/perf_report.html[0m

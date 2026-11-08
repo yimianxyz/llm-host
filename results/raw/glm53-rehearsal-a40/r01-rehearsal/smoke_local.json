@@ -1,0 +1,70 @@
+{
+  "base_url": "http://127.0.0.1:8000",
+  "ts": "2026-11-08T19:26:23Z",
+  "auth": {
+    "pass": true,
+    "no_key_status": 401,
+    "key_status": 200,
+    "models": [
+      "glm-5.3"
+    ]
+  },
+  "reasoning": {
+    "pass": true,
+    "content": "\n\n17 \u00d7 23 = 391\n\nThe final answer is: $\\boxed{391}$",
+    "reasoning_chars": 2964,
+    "finish": "stop"
+  },
+  "tool_call": {
+    "pass": true,
+    "finish": "tool_calls",
+    "calls": [
+      [
+        "get_weather",
+        "{\"city\": \"Paris\"}"
+      ]
+    ]
+  },
+  "ttfat": {
+    "pass": true,
+    "low": {
+      "ttft_s": 0.03430141304852441,
+      "time_to_first_answer_token_s": 8.984184221015312,
+      "elapsed_s": 9.4,
+      "chunks": 2576,
+      "completion_tokens": 2578,
+      "finish": "stop",
+      "decode_tok_s": 275.2
+    },
+    "high": {
+      "ttft_s": 0.04685180896194652,
+      "time_to_first_answer_token_s": 11.139825035992544,
+      "elapsed_s": 11.93,
+      "chunks": 3195,
+      "completion_tokens": 3196,
+      "finish": "stop",
+      "decode_tok_s": 269.0
+    },
+    "max": {
+      "ttft_s": 0.038256075989920646,
+      "time_to_first_answer_token_s": 1.9200795469805598,
+      "elapsed_s": 2.09,
+      "chunks": 598,
+      "completion_tokens": 599,
+      "finish": "stop",
+      "decode_tok_s": 292.3
+    }
+  },
+  "long_stream": {
+    "ttft_s": 0.033936814055778086,
+    "time_to_first_answer_token_s": 2.930853524012491,
+    "elapsed_s": 20.0,
+    "chunks": 5095,
+    "completion_tokens": null,
+    "finish": null,
+    "decode_tok_s": null,
+    "pass": true,
+    "survived_past_100s": false
+  },
+  "pass": true
+}

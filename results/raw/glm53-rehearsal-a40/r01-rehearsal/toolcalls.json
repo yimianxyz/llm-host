@@ -1,0 +1,1428 @@
+{
+  "task": "toolcalls",
+  "gated_cases": 46,
+  "passed": 36,
+  "pass_rate": 0.7826,
+  "gate_pass": false,
+  "flaky_then_passed": 3,
+  "informational": {
+    "info_empty_props_oneof_glm5_169": true,
+    "info_empty_props_oneof_glm5_169/stream": true
+  },
+  "failures": [
+    {
+      "case": "quotes",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 0.96,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "hello.txt",
+            "content": "He said 'hello' and left"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "quotes",
+        "stream": false,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.67,
+        "calls": [
+          {
+            "name": "create_file",
+            "args": {
+              "path": "a.txt",
+              "content": "He said 'hello' and left"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "quotes",
+      "stream": true,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 0.77,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "hello.txt",
+            "content": "He said 'hello' and left"
+          }
+        }
+      ],
+      "content": "\n\n",
+      "retried": true,
+      "first_attempt": {
+        "case": "quotes",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.15,
+        "calls": [
+          {
+            "name": "create_file",
+            "args": {
+              "path": "create_file.txt",
+              "content": "He said 'hello' and left"
+            }
+          }
+        ],
+        "content": "\n\n"
+      },
+      "informational": false
+    },
+    {
+      "case": "long_argument",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 17.16,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "big.py",
+            "content": "def f0(x):\n    return x * 0 + 0  # step 0\n\ndef f1(x):\n    return x * 1 + 1  # step 1\n\ndef f2(x):\n    return x * 2 + 2  # step 2\n\ndef f3(x):\n    return x * 3 + 3  # step 3\n\ndef f4(x):\n    return x * 4 + 4  # step 4\n\ndef f5(x):\n    return x * 5 + 5  # step 5\n\ndef f6(x):\n    return x * 6 + 6  # step 6\n\ndef f7(x):\n    return x * 7 + 7  # step 7\n\ndef f8(x):\n    return x * 8 + 8  # step 8\n\ndef f9(x):\n    return x * 9 + 9  # step 9\n\ndef f10(x):\n    return x * 10 + 10  # step 10\n\ndef f11(x):\n    return x * 11 + 11  # step 11\n\ndef f12(x):\n    return x * 12 + 12  # step 12\n\ndef f13(x):\n    return x * 13 + 13  # step 13\n\ndef f14(x):\n    return x * 14 + 14  # step 14\n\ndef f15(x):\n    return x * 15 + 15  # step 15\n\ndef f16(x):\n    return x * 16 + 16  # step 16\n\ndef f17(x):\n    return x * 17 + 17  # step 17\n\ndef f18(x):\n    return x * 18 + 18  # step 18\n\ndef f19(x):\n    return x * 19 + 19  # step 19\n\ndef f20(x):\n    return x * 20 + 20  # step 20\n\ndef f21(x):\n    return x * 21 + 21  # step 21\n\ndef f22(x):\n    return x * 22 + 22  # step 22\n\ndef f23(x):\n    return x * 23 + 23  # step 23\n\ndef f24(x):\n    return x * 24 + 24  # step 24\n\ndef f25(x):\n    return x * 25 + 25  # step 25\n\ndef f26(x):\n    return x * 26 + 26  # step 26\n\ndef f27(x):\n    return x * 27 + 27  # step 27\n\ndef f28(x):\n    return x * 28 + 28  # step 28\n\ndef f29(x):\n    return x * 29 + 29  # step 29\n\ndef f30(x):\n    return x * 30 + 30  # step 30\n\ndef f31(x):\n    return x * 31 + 31  # step 31\n\ndef f32(x):\n    return x * 32 + 32  # step 32\n\ndef f33(x):\n    return x * 33 + 33  # step 33\n\ndef f34(x):\n    return x * 34 + 34  # step 34\n\ndef f35(x):\n    return x * 35 + 35  # step 35\n\ndef f36(x):\n    return x * 36 + 36  # step 36\n\ndef f37(x):\n    return x * 37 + 37  # step 37\n\ndef f38(x):\n    return x * 38 + 38  # step 38\n\ndef f39(x):\n    return x * 39 + 39  # step 39\n\ndef f40(x):\n    return x * 40 + 40  # step 40\n\ndef f41(x):\n    return x * 41 + 41  # step 41\n\ndef f42(x):\n    return x * 42 + 42  # step 42\n\ndef f43(x):\n    return x * 43 + 43  # step 43\n\ndef f44(x):\n    return x * 44 + 44  # step 44\n\ndef f45(x):\n    return x * 45 + 45  # step 45\n\ndef f46(x):\n    return x * 46 + 46  # step 46\n\ndef f47(x):\n    return x * 47 + 47  # step 47\n\ndef f48(x):\n    return x * 48 + 48  # step 48\n\ndef f49(x):\n    return x * 49 + 49  # step 49\n\ndef f50(x):\n    return x * 50 + 50  # step 50\n\ndef f51(x):\n    return x * 51 + 51  # step 51\n\ndef f52(x):\n    return x * 52 + 52  # step 52\n\ndef f53(x):\n    return x * 53 + 53  # step 53\n\ndef f54(x):\n    return x * 54 + 54  # step 54\n\ndef f55(x):\n    return x * 55 + 55  # step 55\n\ndef f56(x):\n    return x * 56 + 56  # step 56\n\ndef f57(x):\n    return x * 57 + 57  # step 57\n\ndef f58(x):\n    return x * 58 + 58  # step 58\n\ndef f59(x):\n    return x * 59 + 59  # step 59\n\ndef f60(x):\n    return x * 60 + 60  # step 60\n\ndef f61(x):\n    return x * 61 + 61  # step 61\n\ndef f62(x):\n    return x * 62 + 62  # step 62\n\ndef f63(x):\n    return x * 63 + 63  # step 63\n\ndef f64(x):\n    return x * 64 + 64  # step 64\n\ndef f65(x):\n    return x * 65 + 65  # step 65\n\ndef f66(x):\n    return x * 66 + 66  # step 66\n\ndef f67(x):\n    return x * 67 + 67  # step 67\n\ndef f68(x):\n    return x * 68 + 68  # step 68\n\ndef f69(x):\n    return x * 69 + 69  # step 69\n\ndef f70(x):\n    return x * 70 + 70  # step 70\n\ndef f71(x):\n    return x * 71 + 71  # step 71\n\ndef f72(x):\n    return x * 72 + 72  # step 72\n\ndef f73(x):\n    return x * 73 + 73  # step 73\n\ndef f74(x):\n    return x * 74 + 74  # step 74\n\ndef f75(x):\n    return x * 75 + 75  # step 75\n\ndef f76(x):\n    return x * 76 + 76  # step 76\n\ndef f77(x):\n    return x * 77 + 77  # step 77\n\ndef f78(x):\n    return x * 78 + 78  # step 78\n\ndef f79(x):\n    return x * 79 + 79  # step 79\n\ndef f80(x):\n    return x * 80 + 80  # step 80\n\ndef f81(x):\n    return x * 81 + 81  # step 81\n\ndef f82(x):\n    return x * 82 + 82  # step 82\n\ndef f83(x):\n    return x * 83 + 83  # step 83\n\ndef f84(x):\n    return x * 84 + 84  # step 84\n\ndef f85(x):\n    return x * 85 + 85  # step 85\n\ndef f86(x):\n    return x * 86 + 86  # step 86\n\ndef f87(x):\n    return x * 87 + 87  # step 87\n\ndef f88(x):\n    return x * 88 + 88  # step 88\n\ndef f89(x):\n    return x * 89 + 89  # step 89\n\ndef f90(x):\n    return x * 90 + 90  # step 90\n\ndef f91(x):\n    return x * 91 + 91  # step 91\n\ndef f92(x):\n    return x * 92 + 92  # step 92\n\ndef f93(x):\n    return x * 93 + 93  # step 93\n\ndef f94(x):\n    return x * 94 + 94  # step 94\n\ndef f95(x):\n    return x * 95 + 95  # step 95\n\ndef f96(x):\n    return x * 96 + 96  # step 96\n\ndef f97(x):\n    return x * 97 + 97  # step 97\n\ndef f98(x):\n    return x * 98 + 98  # step 98\n\ndef f99(x):\n    return x * 99 + 99  # step 99\n\ndef f100(x):\n    return x * 100 + 100  # step 100\n\ndef f101(x):\n    return x * 101 + 101  # step 101\n\ndef f102(x):\n    return x * 102 + 102  # step 102\n\ndef f103(x):\n    return x * 103 + 103  # step 103\n\ndef f104(x):\n    return x * 104 + 104  # step 104\n\ndef f105(x):\n    return x * 105 + 105  # step 105\n\ndef f106(x):\n    return x * 106 + 106  # step 106\n\ndef f107(x):\n    return x * 107 + 107  # step 107\n\ndef f108(x):\n    return x * 108 + 108  # step 108\n\ndef f109(x):\n    return x * 109 + 109  # step 109\n\ndef f110(x):\n    return x * 110 + 110  # step 110\n\ndef f111(x):\n    return x * 111 + 111  # step 111\n\ndef f112(x):\n    return x * 112 + 112  # step 112\n\ndef f113(x):\n    return x * 113 + 113  # step 113\n\ndef f114(x):\n    return x * 114 + 114  # step 114\n\ndef f115(x):\n    return x * 115 + 115  # step 115\n\ndef f116(x):\n    return x * 116 + 116  # step 116\n\ndef f117(x):\n    return x * 117 + 117  # step 117"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "long_argument",
+        "stream": false,
+        "ok": false,
+        "finish": "stop",
+        "seconds": 21.89,
+        "calls": [],
+        "content": "\n\n<tool_call>\n{\"name\": \"create_file\", \"arguments\": {\"path\": \"big.py\", \"content\": \"def f0(x):\\n    return x * 0 + 0  # step 0\\n\\ndef f1(x):\\n    return x * 1 + 1  # step 1\\n\\ndef f2(x):\\n    return x * 2 + 2  # step 2\\n\\ndef f3(x):\\n    return x * 3 + 3  # step 3\\n\\ndef f4(x):\\n    return x * 4 + 4  "
+      },
+      "informational": false
+    },
+    {
+      "case": "long_argument",
+      "stream": true,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 17.62,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": null,
+          "raw": "{\"path\": \"big.py\", \"content\": \"def f0(x):\\n    return x * 0 + 0  # step 0\\n\\ndef f1(x):\\n    return x * 1 + 1  # step 1\\n\\ndef f2(x):\\n    return x * 2 + 2  # step 2\\n\\ndef f3(x):\\n    return x * 3 + 3  # step 3\\n\\ndef f4(x):\\n    return x * 4 + 4  # step 4\\n\\ndef f5(x):\\n    return x * 5 + 5  # step 5\\n\\ndef f6(x):\\n    return x * 6 + 6  # step 6\\n\\ndef f7(x):\\n    return x * 7 + 7  # step 7\\n\\ndef f8(x):\\n    return x * 8 + 8  # step 8\\n\\ndef f9(x):\\n    return x * 9 + 9  # step 9\\n\\ndef f10(x"
+        }
+      ],
+      "content": "\n\n",
+      "retried": true,
+      "first_attempt": {
+        "case": "long_argument",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 21.98,
+        "calls": [
+          {
+            "name": "create_file",
+            "args": {
+              "path": "big.py",
+              "content": "def f0(x):\n    return x * 0 + 0  # step 0\n\ndef f1(x):\n    return x * 1 + 1  # step 1\n\ndef f2(x):\n    return x * 2 + 2  # step 2\n\ndef f3(x):\n    return x * 3 + 3  # step 3\n\ndef f4(x):\n    return x * 4 + 4  # step 4\n\ndef f5(x):\n    return x * 5 + 5  # step 5\n\ndef f6(x):\n    return x * 6 + 6  # step 6\n\ndef f7(x):\n    return x * 7 + 7  # step 7\n\ndef f8(x):\n    return x * 8 + 8  # step 8\n\ndef f9(x):\n    return x * 9 + 9  # step 9\n\ndef f10(x):\n    return x * 10 + 10  # step 10\n\ndef f11(x):\n    return x * 11 + 11  # step 11\n\ndef f12(x):\n    return x * 12 + 12  # step 12\n\ndef f13(x):\n    return x * 13 + 13  # step 13\n\ndef f14(x):\n    return x * 14 + 14  # step 14\n\ndef f15(x):\n    return x * 15 + 15  # step 15\n\ndef f16(x):\n    return x * 16 + 16  # step 16\n\ndef f17(x):\n    return x * 17 + 17  # step 17\n\ndef f18(x):\n    return x * 18 + 18  # step 18\n\ndef f19(x):\n    return x * 19 + 19  # step 19\n\ndef f20(x):\n    return x * 20 + 20  # step 20\n\ndef f21(x):\n    return x * 21 + 21  # step 21\n\ndef f22(x):\n    return x * 22 + 22  # step 22\n\ndef f23(x):\n    return x * 23 + 23  # step 23\n\ndef f24(x):\n    return x * 24 + 24  # step 24\n\ndef f25(x):\n    return x * 25 + 25  # step 25\n\ndef f26(x):\n    return x * 26 + 26  # step 26\n\ndef f27(x):\n    return x * 27 + 27  # step 27\n\ndef f28(x):\n    return x * 28 + 28  # step 28\n\ndef f29(x):\n    return x * 29 + 29  # step 29\n\ndef f30(x):\n    return x * 30 + 30  # step 30\n\ndef f31(x):\n    return x * 31 + 31  # step 31\n\ndef f32(x):\n    return x * 32 + 32  # step 32\n\ndef f33(x):\n    return x * 33 + 33  # step 33\n\ndef f34(x):\n    return x * 34 + 34  # step 34\n\ndef f35(x):\n    return x * 35 + 35  # step 35\n\ndef f36(x):\n    return x * 36 + 36  # step 36\n\ndef f37(x):\n    return x * 37 + 37  # step 37\n\ndef f38(x):\n    return x * 38 + 38  # step 38\n\ndef f39(x):\n    return x * 39 + 39  # step 39\n\ndef f40(x):\n    return x * 40 + 40  # step 40\n\ndef f41(x):\n    return x * 41 + 41  # step 41\n\ndef f42(x):\n    return x * 42 + 42  # step 42\n\ndef f43(x):\n    return x * 43 + 43  # step 43\n\ndef f44(x):\n    return x * 44 + 44  # step 44\n\ndef f45(x):\n    return x * 45 + 45  # step 45\n\ndef f46(x):\n    return x * 46 + 46  # step 46\n\ndef f47(x):\n    return x * 47 + 47  # step 47\n\ndef f48(x):\n    return x * 48 + 48  # step 48\n\ndef f49(x):\n    return x * 49 + 49  # step 49\n\ndef f50(x):\n    return x * 50 + 50  # step 50\n\ndef f51(x):\n    return x * 51 + 51  # step 51\n\ndef f52(x):\n    return x * 52 + 52  # step 52\n\ndef f53(x):\n    return x * 53 + 53  # step 53\n\ndef f54(x):\n    return x * 54 + 54  # step 54\n\ndef f55(x):\n    return x * 55 + 55  # step 55\n\ndef f56(x):\n    return x * 56 + 56  # step 56\n\ndef f57(x):\n    return x * 57 + 57  # step 57\n\ndef f58(x):\n    return x * 58 + 58  # step 58\n\ndef f59(x):\n    return x * 59 + 59  # step 59\n\ndef f60(x):\n    return x * 60 + 60  # step 60\n\ndef f61(x):\n    return x * 61 + 61  # step 61\n\ndef f62(x):\n    return x * 62 + 62  # step 62\n\ndef f63(x):\n    return x * 63 + 63  # step 63\n\ndef f64(x):\n    return x * 64 + 64  # step 64\n\ndef f65(x):\n    return x * 65 + 65  # step 65\n\ndef f66(x):\n    return x * 66 + 66  # step 66\n\ndef f67(x):\n    return x * 67 + 67  # step 67\n\ndef f68(x):\n    return x * 68 + 68  # step 68\n\ndef f69(x):\n    return x * 69 + 69  # step 69\n\ndef f70(x):\n    return x * 70 + 70  # step 70\n\ndef f71(x):\n    return x * 71 + 71  # step 71\n\ndef f72(x):\n    return x * 72 + 72  # step 72\n\ndef f73(x):\n    return x * 73 + 73  # step 73\n\ndef f74(x):\n    return x * 74 + 74  # step 74\n\ndef f75(x):\n    return x * 75 + 75  # step 75\n\ndef f76(x):\n    return x * 76 + 76  # step 76\n\ndef f77(x):\n    return x * 77 + 77  # step 77\n\ndef f78(x):\n    return x * 78 + 78  # step 78\n\ndef f79(x):\n    return x * 79 + 79  # step 79\n\ndef f80(x):\n    return x * 80 + 80  # step 80\n\ndef f81(x):\n    return x * 81 + 81  # step 81\n\ndef f82(x):\n    return x * 82 + 82  # step 82\n\ndef f83(x):\n    return x * 83 + 83  # step 83\n\ndef f84(x):\n    return x * 84 + 84  # step 84\n\ndef f85(x):\n    return x * 85 + 85  # step 85\n\ndef f86(x):\n    return x * 86 + 86  # step 86\n\ndef f87(x):\n    return x * 87 + 87  # step 87\n\ndef f88(x):\n    return x * 88 + 88  # step 88\n\ndef f89(x):\n    return x * 89 + 89  # step 89\n\ndef f90(x):\n    return x * 90 + 90  # step 90\n\ndef f91(x):\n    return x * 91 + 91  # step 91\n\ndef f92(x):\n    return x * 92 + 92  # step 92\n\ndef f93(x):\n    return x * 93 + 93  # step 93\n\ndef f94(x):\n    return x * 94 + 94  # step 94\n\ndef f95(x):\n    return x * 95 + 95  # step 95\n\ndef f96(x):\n    return x * 96 + 96  # step 96\n\ndef f97(x):\n    return x * 97 + 97  # step 97\n\ndef f98(x):\n    return x * 98 + 98  # step 98\n\ndef f99(x):\n    return x * 99 + 99  # step 99\n\ndef f100(x):\n    return x * 100 + 100  # step 100\n\ndef f101(x):\n    return x * 101 + 101  # step 101\n\ndef f102(x):\n    return x * 102 + 102  # step 102\n\ndef f103(x):\n    return x * 103 + 103  # step 103\n\ndef f104(x):\n    return x * 104 + 104  # step 104\n\ndef f105(x):\n    return x * 105 + 105  # step 105\n\ndef f106(x):\n    return x * 106 + 106  # step 106\n\ndef f107(x):\n    return x * 107 + 107  # step 107\n\ndef f108(x):\n    return x * 108 + 108  # step 108\n\ndef f109(x):\n    return x * 109 + 109  # step 109\n\ndef f110(x):\n    return x * 110 + 110  # step 110\n\ndef f111(x):\n    return x * 111 + 111  # step 111\n\ndef f112(x):\n    return x * 112 + 112  # step 112\n\ndef f113(x):\n    return x * 113 + 113  # step 113\n\ndef f114(x):\n    return x * 114 + 114  # step 114\n\ndef f115(x):\n    return x * 115 + 115  # step 115\n\ndef f116(x):\n    return x * 116 + 116  # step 116\n\ndef f117(x):\n    return x * 117 + 117  # step 117\n\ndef f118(x):\n    return x * 118 + 118  # step 118"
+            }
+          }
+        ],
+        "content": "\n\n"
+      },
+      "informational": false
+    },
+    {
+      "case": "json_null",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 1.47,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "proxy",
+            "value": {
+              "proxy": null
+            }
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_null",
+        "stream": false,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.02,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "proxy",
+              "value": {}
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_number",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 0.82,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "retries",
+            "value": {}
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_number",
+        "stream": false,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.01,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "retries",
+              "value": {
+                "retries": 3
+              }
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_number",
+      "stream": true,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 0.81,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "retries",
+            "value": {
+              "retries": 3
+            }
+          }
+        }
+      ],
+      "content": "\n\n",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_number",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.14,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "retries",
+              "value": {
+                "retries": 3
+              }
+            }
+          }
+        ],
+        "content": "\n\n"
+      },
+      "informational": false
+    },
+    {
+      "case": "json_bool",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 0.86,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "debug",
+            "value": {
+              "debug": false
+            }
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_bool",
+        "stream": false,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 0.94,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "debug",
+              "value": {}
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "should_not_call",
+      "stream": true,
+      "ok": false,
+      "finish": "stop",
+      "seconds": 1.45,
+      "calls": [],
+      "content": "\n\nThe question is a simple arithmetic operation (2 + 2), but I don't have a function to perform mathematical calculations. Let me know if you'd like me to calculate it!",
+      "retried": true,
+      "first_attempt": {
+        "case": "should_not_call",
+        "stream": true,
+        "ok": false,
+        "finish": "stop",
+        "seconds": 3.08,
+        "calls": [],
+        "content": "\n\nThe question is a simple arithmetic problem (2 + 2). However, none of the provided tools can perform mathematical calculations or directly answer such a question. If you have any other tasks or require assistance with different functions, please let me know!"
+      },
+      "informational": false
+    },
+    {
+      "case": "markers_in_prose",
+      "stream": true,
+      "ok": false,
+      "finish": "stop",
+      "seconds": 1.22,
+      "calls": [],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "markers_in_prose",
+        "stream": true,
+        "ok": false,
+        "finish": "stop",
+        "seconds": 4.35,
+        "calls": [],
+        "content": ""
+      },
+      "informational": false
+    }
+  ],
+  "cases": [
+    {
+      "case": "simple",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 2.2,
+      "calls": [
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Paris",
+            "unit": "c"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "simple",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 0.84,
+      "calls": [
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Paris"
+          }
+        }
+      ],
+      "content": "\n\n",
+      "informational": false
+    },
+    {
+      "case": "enum",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.13,
+      "calls": [
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Tokyo",
+            "unit": "f"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "enum",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.01,
+      "calls": [
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Tokyo",
+            "unit": "f"
+          }
+        }
+      ],
+      "content": "\n\n",
+      "informational": false
+    },
+    {
+      "case": "int_bool",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.24,
+      "calls": [
+        {
+          "name": "search_files",
+          "args": {
+            "pattern": "*.py",
+            "max_results": 5,
+            "include_hidden": true
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "int_bool",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.26,
+      "calls": [
+        {
+          "name": "search_files",
+          "args": {
+            "pattern": "*.py",
+            "max_results": 5,
+            "include_hidden": true
+          }
+        }
+      ],
+      "content": "\n\n",
+      "informational": false
+    },
+    {
+      "case": "quotes",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 0.96,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "hello.txt",
+            "content": "He said 'hello' and left"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "quotes",
+        "stream": false,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.67,
+        "calls": [
+          {
+            "name": "create_file",
+            "args": {
+              "path": "a.txt",
+              "content": "He said 'hello' and left"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "quotes",
+      "stream": true,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 0.77,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "hello.txt",
+            "content": "He said 'hello' and left"
+          }
+        }
+      ],
+      "content": "\n\n",
+      "retried": true,
+      "first_attempt": {
+        "case": "quotes",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.15,
+        "calls": [
+          {
+            "name": "create_file",
+            "args": {
+              "path": "create_file.txt",
+              "content": "He said 'hello' and left"
+            }
+          }
+        ],
+        "content": "\n\n"
+      },
+      "informational": false
+    },
+    {
+      "case": "multiline_code",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.65,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "add.py",
+            "content": "def add(a, b):\n    return a + b"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "multiline_code",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.92,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "add.py",
+            "content": "def add(a, b):\n    return a + b"
+          }
+        }
+      ],
+      "content": "\n\n",
+      "retried": true,
+      "first_attempt": {
+        "case": "multiline_code",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 2.12,
+        "calls": [
+          {
+            "name": "create_file",
+            "args": {
+              "path": "add.py",
+              "content": "def add(a, b): return a + b"
+            }
+          }
+        ],
+        "content": "\n\n"
+      },
+      "informational": false
+    },
+    {
+      "case": "unicode",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.07,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "hi.txt",
+            "content": "Gr\u00fc\u00dfe, \u4f60\u597d, \ud83d\ude80"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "unicode",
+        "stream": false,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.0,
+        "calls": [
+          {
+            "name": "create_file",
+            "args": {
+              "path": "hi.txt",
+              "content": " Gr\u00fc\u00dfe, \u4f60\u597d, \ud83d\ude80"
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "unicode",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.19,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "hi.txt",
+            "content": "Gr\u00fc\u00dfe, \u4f60\u597d, \ud83d\ude80"
+          }
+        }
+      ],
+      "content": "\n\n",
+      "informational": false
+    },
+    {
+      "case": "long_argument",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 17.16,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "big.py",
+            "content": "def f0(x):\n    return x * 0 + 0  # step 0\n\ndef f1(x):\n    return x * 1 + 1  # step 1\n\ndef f2(x):\n    return x * 2 + 2  # step 2\n\ndef f3(x):\n    return x * 3 + 3  # step 3\n\ndef f4(x):\n    return x * 4 + 4  # step 4\n\ndef f5(x):\n    return x * 5 + 5  # step 5\n\ndef f6(x):\n    return x * 6 + 6  # step 6\n\ndef f7(x):\n    return x * 7 + 7  # step 7\n\ndef f8(x):\n    return x * 8 + 8  # step 8\n\ndef f9(x):\n    return x * 9 + 9  # step 9\n\ndef f10(x):\n    return x * 10 + 10  # step 10\n\ndef f11(x):\n    return x * 11 + 11  # step 11\n\ndef f12(x):\n    return x * 12 + 12  # step 12\n\ndef f13(x):\n    return x * 13 + 13  # step 13\n\ndef f14(x):\n    return x * 14 + 14  # step 14\n\ndef f15(x):\n    return x * 15 + 15  # step 15\n\ndef f16(x):\n    return x * 16 + 16  # step 16\n\ndef f17(x):\n    return x * 17 + 17  # step 17\n\ndef f18(x):\n    return x * 18 + 18  # step 18\n\ndef f19(x):\n    return x * 19 + 19  # step 19\n\ndef f20(x):\n    return x * 20 + 20  # step 20\n\ndef f21(x):\n    return x * 21 + 21  # step 21\n\ndef f22(x):\n    return x * 22 + 22  # step 22\n\ndef f23(x):\n    return x * 23 + 23  # step 23\n\ndef f24(x):\n    return x * 24 + 24  # step 24\n\ndef f25(x):\n    return x * 25 + 25  # step 25\n\ndef f26(x):\n    return x * 26 + 26  # step 26\n\ndef f27(x):\n    return x * 27 + 27  # step 27\n\ndef f28(x):\n    return x * 28 + 28  # step 28\n\ndef f29(x):\n    return x * 29 + 29  # step 29\n\ndef f30(x):\n    return x * 30 + 30  # step 30\n\ndef f31(x):\n    return x * 31 + 31  # step 31\n\ndef f32(x):\n    return x * 32 + 32  # step 32\n\ndef f33(x):\n    return x * 33 + 33  # step 33\n\ndef f34(x):\n    return x * 34 + 34  # step 34\n\ndef f35(x):\n    return x * 35 + 35  # step 35\n\ndef f36(x):\n    return x * 36 + 36  # step 36\n\ndef f37(x):\n    return x * 37 + 37  # step 37\n\ndef f38(x):\n    return x * 38 + 38  # step 38\n\ndef f39(x):\n    return x * 39 + 39  # step 39\n\ndef f40(x):\n    return x * 40 + 40  # step 40\n\ndef f41(x):\n    return x * 41 + 41  # step 41\n\ndef f42(x):\n    return x * 42 + 42  # step 42\n\ndef f43(x):\n    return x * 43 + 43  # step 43\n\ndef f44(x):\n    return x * 44 + 44  # step 44\n\ndef f45(x):\n    return x * 45 + 45  # step 45\n\ndef f46(x):\n    return x * 46 + 46  # step 46\n\ndef f47(x):\n    return x * 47 + 47  # step 47\n\ndef f48(x):\n    return x * 48 + 48  # step 48\n\ndef f49(x):\n    return x * 49 + 49  # step 49\n\ndef f50(x):\n    return x * 50 + 50  # step 50\n\ndef f51(x):\n    return x * 51 + 51  # step 51\n\ndef f52(x):\n    return x * 52 + 52  # step 52\n\ndef f53(x):\n    return x * 53 + 53  # step 53\n\ndef f54(x):\n    return x * 54 + 54  # step 54\n\ndef f55(x):\n    return x * 55 + 55  # step 55\n\ndef f56(x):\n    return x * 56 + 56  # step 56\n\ndef f57(x):\n    return x * 57 + 57  # step 57\n\ndef f58(x):\n    return x * 58 + 58  # step 58\n\ndef f59(x):\n    return x * 59 + 59  # step 59\n\ndef f60(x):\n    return x * 60 + 60  # step 60\n\ndef f61(x):\n    return x * 61 + 61  # step 61\n\ndef f62(x):\n    return x * 62 + 62  # step 62\n\ndef f63(x):\n    return x * 63 + 63  # step 63\n\ndef f64(x):\n    return x * 64 + 64  # step 64\n\ndef f65(x):\n    return x * 65 + 65  # step 65\n\ndef f66(x):\n    return x * 66 + 66  # step 66\n\ndef f67(x):\n    return x * 67 + 67  # step 67\n\ndef f68(x):\n    return x * 68 + 68  # step 68\n\ndef f69(x):\n    return x * 69 + 69  # step 69\n\ndef f70(x):\n    return x * 70 + 70  # step 70\n\ndef f71(x):\n    return x * 71 + 71  # step 71\n\ndef f72(x):\n    return x * 72 + 72  # step 72\n\ndef f73(x):\n    return x * 73 + 73  # step 73\n\ndef f74(x):\n    return x * 74 + 74  # step 74\n\ndef f75(x):\n    return x * 75 + 75  # step 75\n\ndef f76(x):\n    return x * 76 + 76  # step 76\n\ndef f77(x):\n    return x * 77 + 77  # step 77\n\ndef f78(x):\n    return x * 78 + 78  # step 78\n\ndef f79(x):\n    return x * 79 + 79  # step 79\n\ndef f80(x):\n    return x * 80 + 80  # step 80\n\ndef f81(x):\n    return x * 81 + 81  # step 81\n\ndef f82(x):\n    return x * 82 + 82  # step 82\n\ndef f83(x):\n    return x * 83 + 83  # step 83\n\ndef f84(x):\n    return x * 84 + 84  # step 84\n\ndef f85(x):\n    return x * 85 + 85  # step 85\n\ndef f86(x):\n    return x * 86 + 86  # step 86\n\ndef f87(x):\n    return x * 87 + 87  # step 87\n\ndef f88(x):\n    return x * 88 + 88  # step 88\n\ndef f89(x):\n    return x * 89 + 89  # step 89\n\ndef f90(x):\n    return x * 90 + 90  # step 90\n\ndef f91(x):\n    return x * 91 + 91  # step 91\n\ndef f92(x):\n    return x * 92 + 92  # step 92\n\ndef f93(x):\n    return x * 93 + 93  # step 93\n\ndef f94(x):\n    return x * 94 + 94  # step 94\n\ndef f95(x):\n    return x * 95 + 95  # step 95\n\ndef f96(x):\n    return x * 96 + 96  # step 96\n\ndef f97(x):\n    return x * 97 + 97  # step 97\n\ndef f98(x):\n    return x * 98 + 98  # step 98\n\ndef f99(x):\n    return x * 99 + 99  # step 99\n\ndef f100(x):\n    return x * 100 + 100  # step 100\n\ndef f101(x):\n    return x * 101 + 101  # step 101\n\ndef f102(x):\n    return x * 102 + 102  # step 102\n\ndef f103(x):\n    return x * 103 + 103  # step 103\n\ndef f104(x):\n    return x * 104 + 104  # step 104\n\ndef f105(x):\n    return x * 105 + 105  # step 105\n\ndef f106(x):\n    return x * 106 + 106  # step 106\n\ndef f107(x):\n    return x * 107 + 107  # step 107\n\ndef f108(x):\n    return x * 108 + 108  # step 108\n\ndef f109(x):\n    return x * 109 + 109  # step 109\n\ndef f110(x):\n    return x * 110 + 110  # step 110\n\ndef f111(x):\n    return x * 111 + 111  # step 111\n\ndef f112(x):\n    return x * 112 + 112  # step 112\n\ndef f113(x):\n    return x * 113 + 113  # step 113\n\ndef f114(x):\n    return x * 114 + 114  # step 114\n\ndef f115(x):\n    return x * 115 + 115  # step 115\n\ndef f116(x):\n    return x * 116 + 116  # step 116\n\ndef f117(x):\n    return x * 117 + 117  # step 117"
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "long_argument",
+        "stream": false,
+        "ok": false,
+        "finish": "stop",
+        "seconds": 21.89,
+        "calls": [],
+        "content": "\n\n<tool_call>\n{\"name\": \"create_file\", \"arguments\": {\"path\": \"big.py\", \"content\": \"def f0(x):\\n    return x * 0 + 0  # step 0\\n\\ndef f1(x):\\n    return x * 1 + 1  # step 1\\n\\ndef f2(x):\\n    return x * 2 + 2  # step 2\\n\\ndef f3(x):\\n    return x * 3 + 3  # step 3\\n\\ndef f4(x):\\n    return x * 4 + 4  "
+      },
+      "informational": false
+    },
+    {
+      "case": "long_argument",
+      "stream": true,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 17.62,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": null,
+          "raw": "{\"path\": \"big.py\", \"content\": \"def f0(x):\\n    return x * 0 + 0  # step 0\\n\\ndef f1(x):\\n    return x * 1 + 1  # step 1\\n\\ndef f2(x):\\n    return x * 2 + 2  # step 2\\n\\ndef f3(x):\\n    return x * 3 + 3  # step 3\\n\\ndef f4(x):\\n    return x * 4 + 4  # step 4\\n\\ndef f5(x):\\n    return x * 5 + 5  # step 5\\n\\ndef f6(x):\\n    return x * 6 + 6  # step 6\\n\\ndef f7(x):\\n    return x * 7 + 7  # step 7\\n\\ndef f8(x):\\n    return x * 8 + 8  # step 8\\n\\ndef f9(x):\\n    return x * 9 + 9  # step 9\\n\\ndef f10(x"
+        }
+      ],
+      "content": "\n\n",
+      "retried": true,
+      "first_attempt": {
+        "case": "long_argument",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 21.98,
+        "calls": [
+          {
+            "name": "create_file",
+            "args": {
+              "path": "big.py",
+              "content": "def f0(x):\n    return x * 0 + 0  # step 0\n\ndef f1(x):\n    return x * 1 + 1  # step 1\n\ndef f2(x):\n    return x * 2 + 2  # step 2\n\ndef f3(x):\n    return x * 3 + 3  # step 3\n\ndef f4(x):\n    return x * 4 + 4  # step 4\n\ndef f5(x):\n    return x * 5 + 5  # step 5\n\ndef f6(x):\n    return x * 6 + 6  # step 6\n\ndef f7(x):\n    return x * 7 + 7  # step 7\n\ndef f8(x):\n    return x * 8 + 8  # step 8\n\ndef f9(x):\n    return x * 9 + 9  # step 9\n\ndef f10(x):\n    return x * 10 + 10  # step 10\n\ndef f11(x):\n    return x * 11 + 11  # step 11\n\ndef f12(x):\n    return x * 12 + 12  # step 12\n\ndef f13(x):\n    return x * 13 + 13  # step 13\n\ndef f14(x):\n    return x * 14 + 14  # step 14\n\ndef f15(x):\n    return x * 15 + 15  # step 15\n\ndef f16(x):\n    return x * 16 + 16  # step 16\n\ndef f17(x):\n    return x * 17 + 17  # step 17\n\ndef f18(x):\n    return x * 18 + 18  # step 18\n\ndef f19(x):\n    return x * 19 + 19  # step 19\n\ndef f20(x):\n    return x * 20 + 20  # step 20\n\ndef f21(x):\n    return x * 21 + 21  # step 21\n\ndef f22(x):\n    return x * 22 + 22  # step 22\n\ndef f23(x):\n    return x * 23 + 23  # step 23\n\ndef f24(x):\n    return x * 24 + 24  # step 24\n\ndef f25(x):\n    return x * 25 + 25  # step 25\n\ndef f26(x):\n    return x * 26 + 26  # step 26\n\ndef f27(x):\n    return x * 27 + 27  # step 27\n\ndef f28(x):\n    return x * 28 + 28  # step 28\n\ndef f29(x):\n    return x * 29 + 29  # step 29\n\ndef f30(x):\n    return x * 30 + 30  # step 30\n\ndef f31(x):\n    return x * 31 + 31  # step 31\n\ndef f32(x):\n    return x * 32 + 32  # step 32\n\ndef f33(x):\n    return x * 33 + 33  # step 33\n\ndef f34(x):\n    return x * 34 + 34  # step 34\n\ndef f35(x):\n    return x * 35 + 35  # step 35\n\ndef f36(x):\n    return x * 36 + 36  # step 36\n\ndef f37(x):\n    return x * 37 + 37  # step 37\n\ndef f38(x):\n    return x * 38 + 38  # step 38\n\ndef f39(x):\n    return x * 39 + 39  # step 39\n\ndef f40(x):\n    return x * 40 + 40  # step 40\n\ndef f41(x):\n    return x * 41 + 41  # step 41\n\ndef f42(x):\n    return x * 42 + 42  # step 42\n\ndef f43(x):\n    return x * 43 + 43  # step 43\n\ndef f44(x):\n    return x * 44 + 44  # step 44\n\ndef f45(x):\n    return x * 45 + 45  # step 45\n\ndef f46(x):\n    return x * 46 + 46  # step 46\n\ndef f47(x):\n    return x * 47 + 47  # step 47\n\ndef f48(x):\n    return x * 48 + 48  # step 48\n\ndef f49(x):\n    return x * 49 + 49  # step 49\n\ndef f50(x):\n    return x * 50 + 50  # step 50\n\ndef f51(x):\n    return x * 51 + 51  # step 51\n\ndef f52(x):\n    return x * 52 + 52  # step 52\n\ndef f53(x):\n    return x * 53 + 53  # step 53\n\ndef f54(x):\n    return x * 54 + 54  # step 54\n\ndef f55(x):\n    return x * 55 + 55  # step 55\n\ndef f56(x):\n    return x * 56 + 56  # step 56\n\ndef f57(x):\n    return x * 57 + 57  # step 57\n\ndef f58(x):\n    return x * 58 + 58  # step 58\n\ndef f59(x):\n    return x * 59 + 59  # step 59\n\ndef f60(x):\n    return x * 60 + 60  # step 60\n\ndef f61(x):\n    return x * 61 + 61  # step 61\n\ndef f62(x):\n    return x * 62 + 62  # step 62\n\ndef f63(x):\n    return x * 63 + 63  # step 63\n\ndef f64(x):\n    return x * 64 + 64  # step 64\n\ndef f65(x):\n    return x * 65 + 65  # step 65\n\ndef f66(x):\n    return x * 66 + 66  # step 66\n\ndef f67(x):\n    return x * 67 + 67  # step 67\n\ndef f68(x):\n    return x * 68 + 68  # step 68\n\ndef f69(x):\n    return x * 69 + 69  # step 69\n\ndef f70(x):\n    return x * 70 + 70  # step 70\n\ndef f71(x):\n    return x * 71 + 71  # step 71\n\ndef f72(x):\n    return x * 72 + 72  # step 72\n\ndef f73(x):\n    return x * 73 + 73  # step 73\n\ndef f74(x):\n    return x * 74 + 74  # step 74\n\ndef f75(x):\n    return x * 75 + 75  # step 75\n\ndef f76(x):\n    return x * 76 + 76  # step 76\n\ndef f77(x):\n    return x * 77 + 77  # step 77\n\ndef f78(x):\n    return x * 78 + 78  # step 78\n\ndef f79(x):\n    return x * 79 + 79  # step 79\n\ndef f80(x):\n    return x * 80 + 80  # step 80\n\ndef f81(x):\n    return x * 81 + 81  # step 81\n\ndef f82(x):\n    return x * 82 + 82  # step 82\n\ndef f83(x):\n    return x * 83 + 83  # step 83\n\ndef f84(x):\n    return x * 84 + 84  # step 84\n\ndef f85(x):\n    return x * 85 + 85  # step 85\n\ndef f86(x):\n    return x * 86 + 86  # step 86\n\ndef f87(x):\n    return x * 87 + 87  # step 87\n\ndef f88(x):\n    return x * 88 + 88  # step 88\n\ndef f89(x):\n    return x * 89 + 89  # step 89\n\ndef f90(x):\n    return x * 90 + 90  # step 90\n\ndef f91(x):\n    return x * 91 + 91  # step 91\n\ndef f92(x):\n    return x * 92 + 92  # step 92\n\ndef f93(x):\n    return x * 93 + 93  # step 93\n\ndef f94(x):\n    return x * 94 + 94  # step 94\n\ndef f95(x):\n    return x * 95 + 95  # step 95\n\ndef f96(x):\n    return x * 96 + 96  # step 96\n\ndef f97(x):\n    return x * 97 + 97  # step 97\n\ndef f98(x):\n    return x * 98 + 98  # step 98\n\ndef f99(x):\n    return x * 99 + 99  # step 99\n\ndef f100(x):\n    return x * 100 + 100  # step 100\n\ndef f101(x):\n    return x * 101 + 101  # step 101\n\ndef f102(x):\n    return x * 102 + 102  # step 102\n\ndef f103(x):\n    return x * 103 + 103  # step 103\n\ndef f104(x):\n    return x * 104 + 104  # step 104\n\ndef f105(x):\n    return x * 105 + 105  # step 105\n\ndef f106(x):\n    return x * 106 + 106  # step 106\n\ndef f107(x):\n    return x * 107 + 107  # step 107\n\ndef f108(x):\n    return x * 108 + 108  # step 108\n\ndef f109(x):\n    return x * 109 + 109  # step 109\n\ndef f110(x):\n    return x * 110 + 110  # step 110\n\ndef f111(x):\n    return x * 111 + 111  # step 111\n\ndef f112(x):\n    return x * 112 + 112  # step 112\n\ndef f113(x):\n    return x * 113 + 113  # step 113\n\ndef f114(x):\n    return x * 114 + 114  # step 114\n\ndef f115(x):\n    return x * 115 + 115  # step 115\n\ndef f116(x):\n    return x * 116 + 116  # step 116\n\ndef f117(x):\n    return x * 117 + 117  # step 117\n\ndef f118(x):\n    return x * 118 + 118  # step 118"
+            }
+          }
+        ],
+        "content": "\n\n"
+      },
+      "informational": false
+    },
+    {
+      "case": "json_null",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 1.47,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "proxy",
+            "value": {
+              "proxy": null
+            }
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_null",
+        "stream": false,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.02,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "proxy",
+              "value": {}
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_null",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 0.97,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "proxy",
+            "value": null
+          }
+        }
+      ],
+      "content": "\n\n",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_null",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.06,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "proxy",
+              "value": {}
+            }
+          }
+        ],
+        "content": "\n\n"
+      },
+      "informational": false
+    },
+    {
+      "case": "json_number",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 0.82,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "retries",
+            "value": {}
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_number",
+        "stream": false,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.01,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "retries",
+              "value": {
+                "retries": 3
+              }
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_number",
+      "stream": true,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 0.81,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "retries",
+            "value": {
+              "retries": 3
+            }
+          }
+        }
+      ],
+      "content": "\n\n",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_number",
+        "stream": true,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 1.14,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "retries",
+              "value": {
+                "retries": 3
+              }
+            }
+          }
+        ],
+        "content": "\n\n"
+      },
+      "informational": false
+    },
+    {
+      "case": "json_bool",
+      "stream": false,
+      "ok": false,
+      "finish": "tool_calls",
+      "seconds": 0.86,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "debug",
+            "value": {
+              "debug": false
+            }
+          }
+        }
+      ],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "json_bool",
+        "stream": false,
+        "ok": false,
+        "finish": "tool_calls",
+        "seconds": 0.94,
+        "calls": [
+          {
+            "name": "set_config",
+            "args": {
+              "key": "debug",
+              "value": {}
+            }
+          }
+        ],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "json_bool",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 0.97,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "debug",
+            "value": false
+          }
+        }
+      ],
+      "content": "\n\n",
+      "informational": false
+    },
+    {
+      "case": "json_nested",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 0.95,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "layout",
+            "value": {
+              "a": {
+                "b": [
+                  1,
+                  2,
+                  {
+                    "c": null
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "json_nested",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 5.21,
+      "calls": [
+        {
+          "name": "set_config",
+          "args": {
+            "key": "layout",
+            "value": {
+              "a": {
+                "b": [
+                  1,
+                  2,
+                  {
+                    "c": null
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "content": "\n\n",
+      "informational": false
+    },
+    {
+      "case": "array_of_objects",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 2.18,
+      "calls": [
+        {
+          "name": "book_meeting",
+          "args": {
+            "attendees": [
+              {
+                "name": "Alice",
+                "email": "alice@x.com"
+              },
+              {
+                "name": "Bob",
+                "email": "bob@x.com"
+              }
+            ],
+            "start": "2026-11-10T15:00",
+            "duration_min": 30
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "array_of_objects",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 5.43,
+      "calls": [
+        {
+          "name": "book_meeting",
+          "args": {
+            "attendees": [
+              {
+                "name": "Alice",
+                "email": "alice@x.com"
+              },
+              {
+                "name": "Bob",
+                "email": "bob@x.com"
+              }
+            ],
+            "start": "2026-11-10T15:00",
+            "duration_min": 30
+          }
+        }
+      ],
+      "content": "\n\n",
+      "informational": false
+    },
+    {
+      "case": "parallel",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 0.96,
+      "calls": [
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Paris",
+            "unit": "c"
+          }
+        },
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Berlin",
+            "unit": "c"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "parallel",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 7.48,
+      "calls": [
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Paris",
+            "unit": "c"
+          }
+        },
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Berlin",
+            "unit": "c"
+          }
+        }
+      ],
+      "content": "\n\n",
+      "informational": false
+    },
+    {
+      "case": "shell_special_chars",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.8,
+      "calls": [
+        {
+          "name": "run_shell",
+          "args": {
+            "command": "grep -rn \"TODO\" src/ | wc -l"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "shell_special_chars",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 2.13,
+      "calls": [
+        {
+          "name": "run_shell",
+          "args": {
+            "command": "grep -rn \"TODO\" src/ | wc -l"
+          }
+        }
+      ],
+      "content": "\n\n",
+      "informational": false
+    },
+    {
+      "case": "windows_path",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 0.78,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "C:\\Users\\me\\my file.txt",
+            "content": "ok"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "windows_path",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.53,
+      "calls": [
+        {
+          "name": "create_file",
+          "args": {
+            "path": "C:\\Users\\me\\my file.txt",
+            "content": "ok"
+          }
+        }
+      ],
+      "content": "\n\n",
+      "informational": false
+    },
+    {
+      "case": "no_arg_tool",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.03,
+      "calls": [
+        {
+          "name": "get_time",
+          "args": {}
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "no_arg_tool",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.08,
+      "calls": [
+        {
+          "name": "get_time",
+          "args": {}
+        }
+      ],
+      "content": "\n\n",
+      "informational": false
+    },
+    {
+      "case": "choice_required",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.58,
+      "calls": [
+        {
+          "name": "get_time",
+          "args": {}
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "choice_required",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.57,
+      "calls": [
+        {
+          "name": "get_time",
+          "args": {}
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "choice_named",
+      "stream": false,
+      "ok": true,
+      "finish": "stop",
+      "seconds": 1.29,
+      "calls": [
+        {
+          "name": "get_time",
+          "args": {}
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "choice_named",
+      "stream": true,
+      "ok": true,
+      "finish": "stop",
+      "seconds": 3.48,
+      "calls": [
+        {
+          "name": "get_time",
+          "args": {}
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "choice_none",
+      "stream": false,
+      "ok": true,
+      "finish": "stop",
+      "seconds": 3.36,
+      "calls": [],
+      "content": "\n\n<tool_call>\n{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Paris\", \"unit\": \"c\"}}\n</tool_call>",
+      "informational": false
+    },
+    {
+      "case": "choice_none",
+      "stream": true,
+      "ok": true,
+      "finish": "stop",
+      "seconds": 0.83,
+      "calls": [],
+      "content": "\n\n<tool_call>\n{\"name\": \"get_weather\", \"arguments\": {\"city\": \"Paris\"}}\n</tool_call>",
+      "informational": false
+    },
+    {
+      "case": "should_not_call",
+      "stream": false,
+      "ok": true,
+      "finish": "stop",
+      "seconds": 3.3,
+      "calls": [],
+      "content": "\n\nThe question is a simple arithmetic calculation. 2 + 2 equals 4.  However, I don't have any function to perform this calculation.",
+      "informational": false
+    },
+    {
+      "case": "should_not_call",
+      "stream": true,
+      "ok": false,
+      "finish": "stop",
+      "seconds": 1.45,
+      "calls": [],
+      "content": "\n\nThe question is a simple arithmetic operation (2 + 2), but I don't have a function to perform mathematical calculations. Let me know if you'd like me to calculate it!",
+      "retried": true,
+      "first_attempt": {
+        "case": "should_not_call",
+        "stream": true,
+        "ok": false,
+        "finish": "stop",
+        "seconds": 3.08,
+        "calls": [],
+        "content": "\n\nThe question is a simple arithmetic problem (2 + 2). However, none of the provided tools can perform mathematical calculations or directly answer such a question. If you have any other tasks or require assistance with different functions, please let me know!"
+      },
+      "informational": false
+    },
+    {
+      "case": "markers_in_prose",
+      "stream": false,
+      "ok": true,
+      "finish": "stop",
+      "seconds": 4.39,
+      "calls": [],
+      "content": "<tool_call>\" means in GLM chat templates. Let me start by recalling what GLM chat templates are. GLM stands for General Language Model, which is a type of chat model used in various applications.\n\nNow, the term \"<tool_call>\" in the context of GLM chat templates... Hmm, I think \"<tool_call>\" is a pla",
+      "informational": false
+    },
+    {
+      "case": "markers_in_prose",
+      "stream": true,
+      "ok": false,
+      "finish": "stop",
+      "seconds": 1.22,
+      "calls": [],
+      "content": "",
+      "retried": true,
+      "first_attempt": {
+        "case": "markers_in_prose",
+        "stream": true,
+        "ok": false,
+        "finish": "stop",
+        "seconds": 4.35,
+        "calls": [],
+        "content": ""
+      },
+      "informational": false
+    },
+    {
+      "case": "first_step_only",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 4.74,
+      "calls": [
+        {
+          "name": "search_files",
+          "args": {
+            "pattern": "*.md",
+            "max_results": 10,
+            "include_hidden": false
+          }
+        },
+        {
+          "name": "create_file",
+          "args": {
+            "path": "SUMMARY.md",
+            "content": "1. *.md files found\n2. *.md files found\n3. *.md files found\n4. *.md files found\n5. *.md files found\n6. *.md files found\n7. *.md files found\n8. *.md files found\n9. *.md files found\n10. *.md files found"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "first_step_only",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 4.65,
+      "calls": [
+        {
+          "name": "search_files",
+          "args": {
+            "pattern": "*.md",
+            "max_results": 100,
+            "include_hidden": false
+          }
+        },
+        {
+          "name": "create_file",
+          "args": {
+            "path": "SUMMARY.md",
+            "content": "Files: [1] [2] ... [n]"
+          }
+        }
+      ],
+      "content": "\n\n",
+      "informational": false
+    },
+    {
+      "case": "long_context_tool",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 3.23,
+      "calls": [
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Oslo",
+            "unit": "c"
+          }
+        }
+      ],
+      "content": "",
+      "informational": false
+    },
+    {
+      "case": "long_context_tool",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 3.62,
+      "calls": [
+        {
+          "name": "get_weather",
+          "args": {
+            "city": "Oslo",
+            "unit": "c"
+          }
+        }
+      ],
+      "content": "\n\n",
+      "informational": false
+    },
+    {
+      "case": "info_empty_props_oneof_glm5_169",
+      "stream": false,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 3.18,
+      "calls": [
+        {
+          "name": "lookup",
+          "args": {
+            "id": 42
+          }
+        }
+      ],
+      "content": "",
+      "informational": true
+    },
+    {
+      "case": "info_empty_props_oneof_glm5_169",
+      "stream": true,
+      "ok": true,
+      "finish": "tool_calls",
+      "seconds": 1.47,
+      "calls": [
+        {
+          "name": "lookup",
+          "args": {
+            "id": 42
+          }
+        }
+      ],
+      "content": "\n\n",
+      "informational": true
+    }
+  ],
+  "wall_seconds": 39.6
+}

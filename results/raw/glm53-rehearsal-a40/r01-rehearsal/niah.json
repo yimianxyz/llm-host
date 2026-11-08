@@ -1,0 +1,19 @@
+{
+  "task": "niah",
+  "max_model_len": 32768,
+  "words_per_token": 0.916,
+  "gate_pass": true,
+  "items": [
+    {
+      "length": 16384,
+      "depth": 0.5,
+      "prompt_tokens": 15834,
+      "found": true,
+      "ttft_s": 0.72,
+      "prefill_tok_s": 21977,
+      "decode_tok_s": 158.7,
+      "answer": "\n\nbook-end-828"
+    }
+  ],
+  "wall_seconds": 1.8
+}

@@ -1,0 +1,4 @@
+[start 2026-11-08T19:18:03Z] deadline 2026-11-08T20:18:03Z
+[start 2026-11-08T19:18:14Z] sshd up
+[start 2026-11-08T19:18:18Z] weights ready in 4s (1.5G)
+[start 2026-11-08T19:18:18Z] vllm boot 1:  --served-model-name glm-5.3 --host 0.0.0.0 --port 8000 --max-model-len 32768 --enable-prefix-caching --enable-prompt-tokens-details --enable-auto-tool-choice --tool-call-parser hermes --reasoning-parser qwen3
