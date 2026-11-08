@@ -1,0 +1,19 @@
+{
+  "task": "niah",
+  "max_model_len": 262144,
+  "words_per_token": 0.916,
+  "gate_pass": true,
+  "items": [
+    {
+      "length": 131072,
+      "depth": 0.5,
+      "prompt_tokens": 130564,
+      "found": true,
+      "ttft_s": 28.8,
+      "prefill_tok_s": 4534,
+      "decode_tok_s": 185.0,
+      "answer": "morning-business-731"
+    }
+  ],
+  "wall_seconds": 29.2
+}
