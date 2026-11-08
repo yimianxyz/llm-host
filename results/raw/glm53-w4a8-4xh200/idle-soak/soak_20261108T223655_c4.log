@@ -1,0 +1,225 @@
+2026-11-08 22:36:56 - evalscope - [32mINFO[0m: Save the result to: /root/results/idle-soak/evalscope/soak_20261108T223655_c4[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 22:36:56 - evalscope - [32mINFO[0m: Starting benchmark with args: [0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 22:36:56 - evalscope - [32mINFO[0m: {
+    "model": "glm-5.3",
+    "model_id": "glm-5.3",
+    "attn_implementation": null,
+    "api": "openai",
+    "tokenizer_path": null,
+    "port": 8877,
+    "url": "http://127.0.0.1:8000/v1/chat/completions",
+    "headers": {
+        "Authorization": "Bearer 3f3f6862a670761a65b591adef5f4195aabb95826c6725f9"
+    },
+    "connect_timeout": null,
+    "read_timeout": null,
+    "total_timeout": 21600,
+    "api_key": "3f3f6862a670761a65b591adef5f4195aabb95826c6725f9",
+    "no_test_connection": false,
+    "number": 8,
+    "parallel": 4,
+    "rate": -1.0,
+    "open_loop": false,
+    "sleep_interval": 5,
+    "sla_auto_tune": false,
+    "sla_variable": "parallel",
+    "sla_params": null,
+    "sla_num_runs": 3,
+    "sla_upper_bound": 65536,
+    "sla_lower_bound": 1,
+    "sla_fixed_parallel": null,
+    "sla_number_multiplier": null,
+    "db_commit_interval": 1000,
+    "queue_size_multiplier": 5,
+    "in_flight_task_multiplier": 2,
+    "log_every_n_query": 100,
+    "debug": false,
+    "enable_progress_tracker": false,
+    "visualizer": null,
+    "wandb_api_key": null,
+    "swanlab_api_key": null,
+    "name": "soak_20261108T223655_c4",
+    "outputs_dir": "/root/results/idle-soak/evalscope/soak_20261108T223655_c4",
+    "no_timestamp": true,
+    "max_prompt_length": 131072,
+    "min_prompt_length": 0,
+    "prefix_length": 0,
+    "prompt": null,
+    "query_template": null,
+    "apply_chat_template": true,
+    "image_width": 224,
+    "image_height": 224,
+    "image_format": "RGB",
+    "image_num": 1,
+    "image_patch_size": 28,
+    "dataset": "swe_smith",
+    "dataset_path": "/root/data/openhand-zai-org-GLM-5.3-256.json",
+    "dataset_offset": 192,
+    "frequency_penalty": null,
+    "repetition_penalty": null,
+    "logprobs": null,
+    "max_tokens": 220,
+    "min_tokens": null,
+    "n_choices": null,
+    "seed": null,
+    "stop": null,
+    "stop_token_ids": null,
+    "stream": true,
+    "temperature": 0.0,
+    "top_p": null,
+    "top_k": null,
+    "extra_args": {
+        "ignore_eos": true
+    },
+    "tokenize_prompt": false,
+    "multi_turn": true,
+    "min_turns": 1,
+    "max_turns": null,
+    "multi_turn_args": null
+}[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 22:36:56 - evalscope - [32mINFO[0m: Loading conversations from dataset: swe_smith[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading[conversations]: 0it [00:00, ?it/s][A                                                    
+                                          [A2026-11-08 22:36:56 - evalscope - [32mINFO[0m: Loading pre-built dataset from /root/data/openhand-zai-org-GLM-5.3-256.json[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading[conversations]: 0it [00:00, ?it/s][A                                                    
+                                          [A2026-11-08 22:36:56 - evalscope - [32mINFO[0m: Loaded 256 conversations (offset=192)[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading[conversations]: 0it [00:00, ?it/s][A
+Loading[conversations]: 1it [00:00,  3.68it/s][A                                                    
+                                              [A2026-11-08 22:36:56 - evalscope - [32mINFO[0m: Loading[conversations]   0%| 8/? [Elapsed: 00:00 < Remaining: 00:00,  3.68it/s][0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]
+Loading[conversations]: 8it [00:00,  3.68it/s][ALoading[conversations]: 8it [00:00, 29.15it/s]
+                                                    2026-11-08 22:36:56 - evalscope - [32mINFO[0m: Loaded 8 conversations[0m
+Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-08 22:36:58 - evalscope - [32mINFO[0m: Test connection successful.[0m
+Running[perf]:   0%|          | 0/1 [00:02<?, ?it/s]                                                    2026-11-08 22:36:58 - evalscope - [32mINFO[0m: Save the data base to: /root/results/idle-soak/evalscope/soak_20261108T223655_c4/parallel_4_number_8/benchmark_data.db[0m
+Running[perf]:   0%|          | 0/1 [00:02<?, ?it/s]
+Processing[parallel_4_number_8]:   0%|          | 0/8 [00:00<?, ?it/s][A
+Processing[parallel_4_number_8]:  12%|█▎        | 1/8 [01:26<10:07, 86.79s/it][A                                                    
+                                                                              [A2026-11-08 22:38:25 - evalscope - [32mINFO[0m: Processing[parallel_4_number_8]  12%| 1/8 [Elapsed: 01:26 < Remaining: 10:07, 86.79s/it][0m
+Running[perf]:   0%|          | 0/1 [01:28<?, ?it/s]
+Processing[parallel_4_number_8]:  12%|█▎        | 1/8 [01:26<10:07, 86.79s/it][A
+Processing[parallel_4_number_8]:  25%|██▌       | 2/8 [01:40<04:21, 43.66s/it][A
+Processing[parallel_4_number_8]:  38%|███▊      | 3/8 [01:55<02:33, 30.72s/it][A
+Processing[parallel_4_number_8]:  50%|█████     | 4/8 [02:10<01:38, 24.54s/it][A
+Processing[parallel_4_number_8]:  62%|██████▎   | 5/8 [02:54<01:34, 31.60s/it][A                                                    
+                                                                              [A2026-11-08 22:39:53 - evalscope - [32mINFO[0m: Processing[parallel_4_number_8]  62%| 5/8 [Elapsed: 02:54 < Remaining: 01:34, 31.60s/it][0m
+Running[perf]:   0%|          | 0/1 [02:56<?, ?it/s]
+Processing[parallel_4_number_8]:  62%|██████▎   | 5/8 [02:54<01:34, 31.60s/it][A                                                    
+                                                                              [A2026-11-08 22:39:55 - evalscope - [32mINFO[0m: {
+  "Test Duration (s)": 176.6316,
+  "Concurrency": 4,
+  "Request Rate (req/s)": -1.0,
+  "Total Requests": 100,
+  "Success Requests": 100,
+  "Failed Requests": 0,
+  "Req Throughput (req/s)": 0.5662,
+  "Avg Latency (s)": 7.0151,
+  "Avg Input Tokens": 79418.38,
+  "Output Throughput (tok/s)": 124.553,
+  "Total Throughput (tok/s)": 45087.2742,
+  "TTFT (ms)": 2804.71,
+  "TPOT (ms)": 19.23,
+  "ITL (ms)": 99.82,
+  "Avg Output Tokens": 220.0,
+  "Avg Turns/Request": 6.78,
+  "KV Cache Hit Rate (%)": 91.1265,
+  "Decoded Tok/Iter": 5.34,
+  "Spec. Accept Rate": 0.8127
+}[0m
+Running[perf]:   0%|          | 0/1 [02:58<?, ?it/s]
+Processing[parallel_4_number_8]:  62%|██████▎   | 5/8 [02:56<01:34, 31.60s/it][A
+Processing[parallel_4_number_8]:  75%|███████▌  | 6/8 [02:56<00:42, 21.49s/it][A
+Processing[parallel_4_number_8]:  88%|████████▊ | 7/8 [02:58<00:15, 15.19s/it][A
+Processing[parallel_4_number_8]: 100%|██████████| 8/8 [02:59<00:00, 10.48s/it][A                                                    
+                                                                              [A2026-11-08 22:39:58 - evalscope - [32mINFO[0m: Processing[parallel_4_number_8] 100%| 8/8 [Elapsed: 02:59 < Remaining: 00:00, 10.48s/it][0m
+Running[perf]:   0%|          | 0/1 [03:01<?, ?it/s]
+Processing[parallel_4_number_8]: 100%|██████████| 8/8 [02:59<00:00, 10.48s/it][AProcessing[parallel_4_number_8]: 100%|██████████| 8/8 [02:59<00:00, 22.42s/it]
+                                                    2026-11-08 22:39:58 - evalscope - [32mINFO[0m: 
+Benchmarking summary:
+┌────────────────────────────┬───────────────┐
+│ Metric                     │         Value │
+├────────────────────────────┼───────────────┤
+│ ── General ──              │               │
+│ Test Duration (s)          │        179.24 │
+│ Concurrency                │             4 │
+│ Request Rate (req/s)       │         -1.00 │
+│ Total / Success / Failed   │ 104 / 104 / 0 │
+│ Req Throughput (req/s)     │          0.58 │
+│ ── Latency ──              │               │
+│ Avg Latency (s)            │          6.82 │
+│ TTFT (ms)                  │       2717.51 │
+│ TPOT (ms)                  │         18.73 │
+│ ITL (ms)                   │         97.69 │
+│ ── Tokens ──               │               │
+│ Avg Input Tokens           │      79633.45 │
+│ Avg Output Tokens          │        220.00 │
+│ Output Throughput (tok/s)  │        127.65 │
+│ Total Throughput (tok/s)   │      46333.73 │
+│ ── Multi-turn ──           │               │
+│ Avg Turns/Request          │          7.00 │
+│ KV Cache Hit Rate (%)      │         91.43 │
+│ ── Speculative Decoding ── │               │
+│ Decoded Tok/Iter           │          5.36 │
+│ Spec. Accept Rate          │          0.81 │
+└────────────────────────────┴───────────────┘[0m
+Running[perf]:   0%|          | 0/1 [03:01<?, ?it/s]                                                    2026-11-08 22:39:58 - evalscope - [32mINFO[0m: 
+Percentile results:
+┌────────────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
+│ Metric         │       1% │       5% │      10% │      25% │      50% │      75% │      90% │      95% │      99% │
+├────────────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+│ Latency (s)    │     1.92 │     2.31 │     2.55 │     2.80 │     2.90 │     3.58 │    15.40 │    28.70 │    53.78 │
+│ TTFT (ms)      │   509.07 │   519.99 │   522.14 │   533.75 │   554.51 │   766.33 │ 13171.22 │ 13489.12 │ 39558.32 │
+│ ITL (ms)       │     1.44 │    14.66 │    26.82 │    36.23 │    39.67 │    40.95 │    47.58 │   371.69 │  1420.95 │
+│ TPOT (ms)      │     6.31 │     7.83 │     7.97 │     9.42 │    10.69 │    12.56 │    64.96 │    68.70 │   119.49 │
+│ Input tokens   │ 74173.00 │ 74173.00 │ 74930.00 │ 76664.00 │ 79597.00 │ 82712.00 │ 84573.00 │ 85250.00 │ 85640.00 │
+│ Output tokens  │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │
+│ Output (tok/s) │     4.09 │     7.66 │    14.29 │    62.88 │    75.82 │    78.84 │    86.41 │    95.19 │   114.67 │
+│ Total (tok/s)  │  1383.18 │  2591.71 │  4938.32 │ 22209.12 │ 27483.60 │ 29791.17 │ 31128.24 │ 35213.07 │ 44604.09 │
+│ Decode (tok/s) │     8.37 │    14.56 │    15.39 │    81.15 │    93.71 │   106.54 │   125.53 │   127.68 │   158.43 │
+└────────────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┘[0m
+Running[perf]:   0%|          | 0/1 [03:01<?, ?it/s]                                                    2026-11-08 22:39:58 - evalscope - [32mINFO[0m: Save the summary to: /root/results/idle-soak/evalscope/soak_20261108T223655_c4/parallel_4_number_8[0m
+Running[perf]:   0%|          | 0/1 [03:01<?, ?it/s]Running[perf]: 100%|██████████| 1/1 [03:01<00:00, 181.57s/it]                                                             2026-11-08 22:39:58 - evalscope - [32mINFO[0m: Running[perf] 100%| 1/1 [Elapsed: 03:01 < Remaining: 00:00, 181.57s/it][0m
+Running[perf]: 100%|██████████| 1/1 [03:01<00:00, 181.57s/it]Running[perf]: 100%|██████████| 1/1 [03:01<00:00, 181.57s/it]
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Performance Test Summary Report                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Basic Information:
+┌───────────────────────┬──────────────────────────────────────────────────────┐
+│ Model                 │ glm-5.3                                              │
+│ Test Dataset          │ swe_smith                                            │
+│ API Type              │ openai                                               │
+│ Total Generated       │ 22,880.0 tokens                                      │
+│ Avg Output Rate       │ 127.65 tokens/sec                                    │
+│ Total Test Time       │ 179.24 seconds                                       │
+│ Output Path           │ /root/results/idle-soak/evalscope/soak_20261108T223… │
+└───────────────────────┴──────────────────────────────────────────────────────┘
+
+
+                                         Detailed Performance Metrics                                         
+┏━━━━━━┳━━━━━━┳━━━━━┳━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━┓
+┃      ┃      ┃     ┃      ┃     Avg ┃     P99 ┃      Avg ┃      P99 ┃      Avg ┃      P99 ┃   Gen. ┃ Success┃
+┃Conc. ┃ Rate ┃ Num ┃  RPS ┃ Lat.(s) ┃ Lat.(s) ┃ TTFT(ms) ┃ TTFT(ms) ┃ TPOT(ms) ┃ TPOT(ms) ┃ toks/s ┃    Rate┃
+┡━━━━━━╇━━━━━━╇━━━━━╇━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━┩
+│    4 │  INF │ 104 │ 0.58 │   6.818 │  53.780 │   2717.5 │  39558.3 │     18.7 │    119.5 │ 127.65 │  100.0%│
+└──────┴──────┴─────┴──────┴─────────┴─────────┴──────────┴──────────┴──────────┴──────────┴────────┴────────┘
+
+
+                                                Request Metrics                                                
+┏━━━━━━┳━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━┓
+┃      ┃     ┃  Avg In ┃  P99 In ┃ Avg Out ┃ P99 Out ┃       Avg ┃    Approx ┃ Decode ┃  Decoded ┃       Spec.┃
+┃Conc. ┃ Num ┃    Toks ┃    Toks ┃    Toks ┃    Toks ┃ Turns/Req ┃ Cache Hit ┃ toks/s ┃ Tok/Iter ┃ Accept Rate┃
+┡━━━━━━╇━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━┩
+│    4 │ 104 │ 79633.5 │ 85640.0 │   220.0 │   220.0 │      7.00 │     91.4% │  53.39 │     5.36 │       81.3%│
+└──────┴─────┴─────────┴─────────┴─────────┴─────────┴───────────┴───────────┴────────┴──────────┴────────────┘
+
+
+               Best Performance Configuration               
+ Highest RPS         Concurrency 4 (0.58 req/sec)           
+ Lowest Latency      Concurrency 4 (6.818 seconds)          
+
+Performance Recommendations:
+• The system seems not to have reached its performance bottleneck, try higher concurrency
+2026-11-08 22:39:58 - evalscope - [32mINFO[0m: Performance summary saved to: /root/results/idle-soak/evalscope/soak_20261108T223655_c4/performance_summary.txt[0m
+2026-11-08 22:39:58 - evalscope - [32mINFO[0m: HTML report generated: /root/results/idle-soak/evalscope/soak_20261108T223655_c4/perf_report.html[0m
