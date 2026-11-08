@@ -137,7 +137,7 @@ Created through the RunPod MCP `create-pod` tool, which is generated from REST v
 - **`entrypoint`:** `["bash","-c"]`, with `cmd` holding the text of [`deploy/start.sh`](../deploy/start.sh). This overrides the image's `vllm serve` entrypoint.
 - **`env`:**
   - `MODEL` and `MODEL_REV`, pinning the HF commit.
-  - `VLLM_ARGS`, which seeds `serve.args`.
+  - `SERVE_ARGS`, which seeds `serve.args`.
   - `MAX_HOURS`, the deadline.
   - `HF_XET_HIGH_PERFORMANCE=1`.
   - Secrets as `{{ RUNPOD_SECRET_vllm_api_key }}` and `{{ RUNPOD_SECRET_hf_token }}`.

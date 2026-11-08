@@ -55,7 +55,7 @@ def call(method: str, path: str, body=None, query=None):
 def render(a) -> dict:
     env = {
         "MODEL": a.model, "MODEL_REV": a.model_rev, "MAX_HOURS": str(a.max_hours),
-        "VLLM_ARGS": pathlib.Path(a.config).read_text(),
+        "SERVE_ARGS": pathlib.Path(a.config).read_text(),
         "HF_XET_HIGH_PERFORMANCE": "1", "HF_HUB_DISABLE_PROGRESS_BARS": "1",
     }
     env.update({var: "{{ RUNPOD_SECRET_%s }}" % name for name, var in SECRETS.items()})

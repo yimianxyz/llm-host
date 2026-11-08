@@ -5,7 +5,7 @@
 # Safe to run anytime: when the pod is gone the rsync fails, and whatever was already pulled stays committed.
 set -u
 cd "$(dirname "$0")/.."
-. ./.env.pod
+. "./${POD_ENV:-.env.pod}"
 SSH="ssh -p $SSH_PORT -i $HOME/.ssh/id_ed25519_runpod -o StrictHostKeyChecking=accept-new -o ConnectTimeout=15 -o ServerAliveInterval=15"
 DEST="results/raw/$POD_NAME"
 

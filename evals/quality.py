@@ -265,7 +265,7 @@ def count_tokens(base: str, text: str) -> int:
     import urllib.request
 
     req = urllib.request.Request(f"{base}/tokenize", data=json.dumps({"model": MODEL, "prompt": text}).encode(),
-                                 headers={"Content-Type": "application/json",
+                                 headers={"Content-Type": "application/json", "User-Agent": "llm-host-quality/1.0",
                                           "Authorization": f"Bearer {os.environ.get('VLLM_API_KEY', '')}"})
     with urllib.request.urlopen(req, timeout=120) as r:
         return json.loads(r.read())["count"]

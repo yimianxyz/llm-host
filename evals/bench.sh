@@ -19,8 +19,8 @@ mkdir -p "$OUT"
 BASE=http://127.0.0.1:8000
 export OPENAI_API_KEY=${VLLM_API_KEY:-}
 CLIENT=/root/client-venv/bin
-DATA=/root/data/openhand-zai-org-GLM-5.3-256.json
-DATA_N=256
+DATA=${AGENTIC_DATA:-/root/data/openhand-zai-org-GLM-5.3-256.json}
+DATA_N=${AGENTIC_N:-256}
 EVALSCOPE_REF="https://github.com/modelscope/evalscope/archive/acd09b44384d53174768bb1063f675420f76fae9.zip"
 
 tokenizer_dir() {
@@ -74,11 +74,12 @@ facts)
   grep -E "KV cache size|Maximum concurrency" "$OUT/boot_facts.txt" ;;
 
 setup-client)
+  python3 -c "import pandas" 2> /dev/null || uv pip install -q --system pandas || python3 -m pip install -q pandas  # vllm[bench] extra, needed by speed_bench
   [ -x "$CLIENT/evalscope" ] && { echo "client ready"; exit 0; }
   if command -v uv > /dev/null; then
-    uv venv /root/client-venv -q --python 3.12 && VIRTUAL_ENV=/root/client-venv uv pip install -q "evalscope[perf] @ $EVALSCOPE_REF"
+    uv venv /root/client-venv -q --python 3.12 && VIRTUAL_ENV=/root/client-venv uv pip install -q "evalscope[perf] @ $EVALSCOPE_REF" openai datasets
   else
-    python3 -m venv /root/client-venv && "$CLIENT/pip" install -q "evalscope[perf] @ $EVALSCOPE_REF"
+    python3 -m venv /root/client-venv && "$CLIENT/pip" install -q "evalscope[perf] @ $EVALSCOPE_REF" openai datasets
   fi
   "$CLIENT/evalscope" --help > /dev/null && echo "client ready" ;;
 
@@ -122,22 +123,23 @@ mtp-al)
   metrics_start mtp_al
   vllm bench serve --backend openai-chat --base-url "$BASE" --endpoint /v1/chat/completions \
     --model "$MODEL" --served-model-name glm-5.3 --tokenizer "$TOK" --trust-remote-code \
-    --dataset-name "${AL_DATASET:-speed_bench}" ${AL_EXTRA:-} --num-prompts "${AL_PROMPTS:-64}" --max-concurrency 8 \
+    --dataset-name speed_bench --dataset-path /root/data/speed-bench --speed-bench-category "${AL_CATEGORY:-coding}" \
+    --speed-bench-output-len 2048 --num-prompts "${AL_PROMPTS:-64}" --max-concurrency 8 \
     --temperature 1.0 --top-p 0.95 --chat-template-kwargs '{"reasoning_effort":"high"}' --seed "$RANDOM" \
     --save-result --result-dir "$OUT" --result-filename mtp_al.json > "$OUT/mtp_al.log" 2>&1
   echo "bench exit=$?"
   metrics_end mtp_al ;;
 
 gate-full)
-  python3 evals/quality.py toolcalls --out "$OUT/toolcalls.json"
-  python3 evals/quality.py niah --lengths 131072 204800 --out "$OUT/niah.json"
-  python3 evals/quality.py gsm8k --out "$OUT/gsm8k.json"
+  "$CLIENT/python" evals/quality.py toolcalls --out "$OUT/toolcalls.json"
+  "$CLIENT/python" evals/quality.py niah --lengths 131072 204800 --out "$OUT/niah.json"
+  "$CLIENT/python" evals/quality.py gsm8k --out "$OUT/gsm8k.json"
   bash evals/bench.sh mtp-al ;;
 
 gate-spot)
-  python3 evals/quality.py toolcalls --out "$OUT/toolcalls.json"
-  python3 evals/quality.py niah --lengths 131072 --depths 0.5 --out "$OUT/niah.json"
-  python3 evals/quality.py gsm8k --limit 200 --out "$OUT/gsm8k.json" ;;
+  "$CLIENT/python" evals/quality.py toolcalls --out "$OUT/toolcalls.json"
+  "$CLIENT/python" evals/quality.py niah --lengths 131072 --depths 0.5 --out "$OUT/niah.json"
+  "$CLIENT/python" evals/quality.py gsm8k --limit 200 --out "$OUT/gsm8k.json" ;;
 
 soak-block)
   c=$1; minutes=${2:-15}

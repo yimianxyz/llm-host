@@ -1,5 +1,5 @@
 .env
-.env.pod
+.env.pod*
 .venv*/
 __pycache__/
 *.pyc

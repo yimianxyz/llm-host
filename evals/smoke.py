@@ -29,7 +29,8 @@ def reasoning_of(obj) -> str:
 
 def check_auth(base: str, key: str) -> dict:
     def status(headers):
-        req = urllib.request.Request(f"{base}/v1/models", headers=headers)
+        # Cloudflare (in front of the RunPod proxy) answers 403 to urllib's default User-Agent.
+        req = urllib.request.Request(f"{base}/v1/models", headers={"User-Agent": "llm-host-smoke/1.0", **headers})
         try:
             with urllib.request.urlopen(req, timeout=30) as r:
                 return r.status, json.loads(r.read())

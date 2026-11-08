@@ -50,9 +50,9 @@ until hf download "$MODEL" --revision "$MODEL_REV" >> "$R/download.log" 2>&1; do
 done
 log "weights ready in $(( $(date +%s) - t0 ))s ($(du -sh "${HF_HOME:-/root/.cache/huggingface}" | cut -f1))"
 
-# 5) vLLM supervisor. /root/serve.args is seeded from $VLLM_ARGS once. Experiments rewrite it and
+# 5) vLLM supervisor. /root/serve.args is seeded from $SERVE_ARGS once. Experiments rewrite it and
 #    kill vLLM; this loop restarts it with the new flags and the weights already on disk.
-[ -s /root/serve.args ] || printf '%s\n' "$VLLM_ARGS" > /root/serve.args
+[ -s /root/serve.args ] || printf '%s\n' "$SERVE_ARGS" > /root/serve.args
 n=0
 while true; do
   n=$((n + 1)); args=(); envs=()

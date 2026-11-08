@@ -4,6 +4,7 @@
 # current config, so time spent waiting on the operator still produces stability data.
 # Start it detached: setsid bash /root/llm-host/deploy/runner.sh > /dev/null 2>&1 < /dev/null &
 set -u
+echo $$ > /root/runner.pid
 . /root/.pod_env
 R=/root/results
 cd /root/llm-host
