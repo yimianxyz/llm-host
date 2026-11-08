@@ -1,1 +1,17 @@
 + bash evals/bench.sh apply deploy/configs/B4-dcp4-bt8k.args
+{"restart_to_ready_s": 277}
+(Worker_TP2_DCP2_EP2 pid=19100) INFO 11-08 20:29:09 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8895 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9505. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(Worker_TP1_DCP1_EP1 pid=19099) INFO 11-08 20:29:09 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8895 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9505. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(Worker_TP3_DCP3_EP3 pid=19102) INFO 11-08 20:29:09 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8895 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9505. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(Worker_TP0_DCP0_EP0 pid=19098) INFO 11-08 20:29:09 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.8895 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9505. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=18869) INFO 11-08 20:29:09 [kv_cache_utils.py:1147] GPU KV cache size: 1,042,944 tokens, Maximum concurrency for 262,144 tokens per request: 3.98x
++ /root/client-venv/bin/python evals/quality.py niah --lengths 131072 --depths 0.5 --out /root/results/s1f-apply-b4/niah_probe.json
+{"length": 131072, "depth": 0.5, "prompt_tokens": 130576, "found": true, "ttft_s": 23.43, "prefill_tok_s": 5573, "decode_tok_s": 141.3, "answer": "house-country-355"}
+{
+  "task": "niah",
+  "max_model_len": 262144,
+  "words_per_token": 0.916,
+  "gate_pass": true,
+  "wall_seconds": 24.1
+}
++ nvidia-smi --query-gpu=index,memory.used,memory.total --format=csv
