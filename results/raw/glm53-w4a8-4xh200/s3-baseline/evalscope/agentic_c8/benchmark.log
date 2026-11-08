@@ -106,3 +106,73 @@
   "Spec. Accept Rate": 0.7342
 }
 2026-11-08 20:54:31 - evalscope - INFO: Processing[parallel_8_number_16]  38%| 6/16 [Elapsed: 03:40 < Remaining: 03:51, 23.11s/it]
+2026-11-08 20:56:02 - evalscope - INFO: Processing[parallel_8_number_16]  56%| 9/16 [Elapsed: 05:11 < Remaining: 03:45, 32.16s/it]
+2026-11-08 20:56:02 - evalscope - INFO: {
+  "Test Duration (s)": 312.1255,
+  "Concurrency": 8,
+  "Request Rate (req/s)": -1.0,
+  "Total Requests": 200,
+  "Success Requests": 200,
+  "Failed Requests": 0,
+  "Req Throughput (req/s)": 0.6408,
+  "Avg Latency (s)": 12.4191,
+  "Avg Input Tokens": 79514.635,
+  "Output Throughput (tok/s)": 140.9689,
+  "Total Throughput (tok/s)": 51091.3979,
+  "TTFT (ms)": 3737.75,
+  "TPOT (ms)": 39.64,
+  "ITL (ms)": 148.93,
+  "Avg Output Tokens": 220.0,
+  "Avg Turns/Request": 6.77,
+  "KV Cache Hit Rate (%)": 91.4476,
+  "Decoded Tok/Iter": 3.8444,
+  "Spec. Accept Rate": 0.7399
+}
+2026-11-08 20:56:06 - evalscope - INFO: Processing[parallel_8_number_16] 100%| 16/16 [Elapsed: 05:15 < Remaining: 00:00,  5.10s/it]
+2026-11-08 20:56:06 - evalscope - INFO: 
+Benchmarking summary:
+┌────────────────────────────┬───────────────┐
+│ Metric                     │         Value │
+├────────────────────────────┼───────────────┤
+│ ── General ──              │               │
+│ Test Duration (s)          │        315.79 │
+│ Concurrency                │             8 │
+│ Request Rate (req/s)       │         -1.00 │
+│ Total / Success / Failed   │ 208 / 208 / 0 │
+│ Req Throughput (req/s)     │          0.66 │
+│ ── Latency ──              │               │
+│ Avg Latency (s)            │         12.06 │
+│ TTFT (ms)                  │       3616.72 │
+│ TPOT (ms)                  │         38.57 │
+│ ITL (ms)                   │        145.20 │
+│ ── Tokens ──               │               │
+│ Avg Input Tokens           │      79734.89 │
+│ Avg Output Tokens          │        220.00 │
+│ Output Throughput (tok/s)  │        144.91 │
+│ Total Throughput (tok/s)   │      52663.95 │
+│ ── Multi-turn ──           │               │
+│ Avg Turns/Request          │          7.00 │
+│ KV Cache Hit Rate (%)      │         91.76 │
+│ ── Speculative Decoding ── │               │
+│ Decoded Tok/Iter           │          3.85 │
+│ Spec. Accept Rate          │          0.74 │
+└────────────────────────────┴───────────────┘
+2026-11-08 20:56:06 - evalscope - INFO: 
+Percentile results:
+┌────────────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
+│ Metric         │       1% │       5% │      10% │      25% │      50% │      75% │      90% │      95% │      99% │
+├────────────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+│ Latency (s)    │     2.87 │     3.99 │     4.18 │     4.32 │     4.43 │     4.81 │    33.62 │    66.47 │   105.39 │
+│ TTFT (ms)      │   452.82 │   473.20 │   479.41 │   494.86 │   576.89 │   876.79 │  1108.00 │ 14416.30 │ 77281.53 │
+│ ITL (ms)       │     2.14 │    15.43 │    22.99 │    39.44 │    43.21 │    45.67 │   291.21 │  1382.58 │  1421.22 │
+│ TPOT (ms)      │    10.92 │    15.35 │    15.62 │    16.53 │    17.51 │    19.15 │   126.22 │   187.85 │   293.19 │
+│ Input tokens   │ 74173.00 │ 74173.00 │ 74975.00 │ 76754.00 │ 79714.00 │ 82694.00 │ 84620.00 │ 85455.00 │ 85646.00 │
+│ Output tokens  │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │
+│ Output (tok/s) │     2.09 │     3.31 │     6.54 │    45.75 │    49.72 │    51.00 │    52.66 │    55.10 │    76.63 │
+│ Total (tok/s)  │   705.89 │  1119.17 │  2212.47 │ 16104.44 │ 18024.65 │ 19065.58 │ 19626.17 │ 20460.46 │ 29922.08 │
+│ Decode (tok/s) │     3.41 │     5.32 │     7.92 │    52.31 │    57.14 │    60.70 │    64.03 │    65.14 │    91.57 │
+└────────────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┘
+2026-11-08 20:56:06 - evalscope - INFO: Save the summary to: /root/results/s3-baseline/evalscope/agentic_c8/parallel_8_number_16
+2026-11-08 20:56:06 - evalscope - INFO: Running[perf] 100%| 1/1 [Elapsed: 05:18 < Remaining: 00:00, 318.05s/it]
+2026-11-08 20:56:06 - evalscope - INFO: Performance summary saved to: /root/results/s3-baseline/evalscope/agentic_c8/performance_summary.txt
+2026-11-08 20:56:07 - evalscope - INFO: HTML report generated: /root/results/s3-baseline/evalscope/agentic_c8/perf_report.html
