@@ -1,0 +1,4 @@
++ AGENTIC_OFFSET=28
++ AGENTIC_CONVS=16
++ AGENTIC_TIMEOUT=1500
++ bash evals/bench.sh agentic 16
