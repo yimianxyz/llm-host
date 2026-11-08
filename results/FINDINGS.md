@@ -83,3 +83,22 @@ This log is append-only, with one entry per step. Each entry records the config,
   - Time to first answer token under concurrent quality-gate load: 0.39 s (low effort), 1.36 s (high), 4.3 s (max).
 - **The 128K needle was retrieved** in 24 s wall, on the request shape that crashed B2.
 - **Spend:** balance $173.226279286 at 20:36Z.
+
+## Step 2: quality gate on B4 (20:33-20:47Z): PASS
+
+| Check | Result | Reference / gate |
+|---|---|---|
+| GSM8K (1,319, zero-shot, high effort) | **96.74%**, 144 mean completion tokens, 0 truncated, 185 s at c=64 | gate 95% or more; FP8 reference 97.1-97.4% (SGLang cookbook, sgl-eval 1-shot) |
+| MTP acceptance on SPEED-Bench coding (64 prompts, c=8, T=1.0) | **AL 2.95**, acceptance rate 65%, TPOT p50 14.2 ms (about 70 tok/s per user) | InferenceX golden AL at 3 drafts: 2.94 (within 0.3%) |
+| Needle-in-a-haystack, 128K x 3 depths | 3/3 found; TTFT 23.3 s (5,600 tok/s prefill); decode 120-157 tok/s | exact retrieval |
+| Needle-in-a-haystack, 200K x 3 depths | 3/3 found; TTFT 37.3 s (5,480 tok/s); decode 130-138 tok/s | exact retrieval |
+| Tool calls, typed schemas (24 cases x stream/non-stream) | **48/48**, no retries needed | all must pass |
+
+**Tool-call findings, informational (`glm47` parser on vLLM v0.33.0):**
+- **Untyped parameters (`"value": {}`) always come back as strings.** That gives `"null"`, `"3"`, `"false"`, and stringified JSON objects. GLM-5.3 emits XML-style `<arg_key>/<arg_value>` pairs, so only the declared JSON-schema type lets the parser restore numbers, booleans, null and objects. **Agent tool schemas must declare a type for every parameter.**
+- **Empty `properties` combined with `oneOf`** gives the same string coercion (`{"id": "42"}`), which reproduces zai-org/GLM-5 #169.
+- **Literal `<tool_call>` text in prose** is sometimes parsed as a call. It failed in the first run while streaming and in the second run while not streaming, a flaky reproduction of vLLM #64326.
+
+**Single-stream speed at long context (no other load):** decode stays at 120-157 tok/s at 128K-200K context. That is about 2x Z.ai's own API at 66 tok/s, because sparse attention keeps attention cost flat and MTP3 contributes about 2.95 tokens per step. Cold prefill runs at about 5.5K tok/s, so a 74K-token cold first turn costs about 13 s.
+
+**Gate A, quality half: W4A8 + FP8 sparse KV + DCP4 + MTP3 preserves quality.** No fallback to FP8 or 8x H200 is needed.
