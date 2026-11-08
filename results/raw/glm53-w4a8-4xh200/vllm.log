@@ -24186,3 +24186,112 @@ INFO:     127.0.0.1:51850 - "POST /v1/chat/completions HTTP/1.1" 200 OK
 (APIServer pid=80411) INFO 11-08 23:51:46 [loggers.py:335] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 13.4 tokens/s, Running: 2 reqs, Waiting: 2 reqs, GPU KV cache usage: 10.7%, Prefix cache hit rate: 88.5%, External prefix cache hit rate: 0.0%
 (APIServer pid=80411) INFO 11-08 23:51:46 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 5.91, Accepted throughput: 11.30 tokens/s, Drafted throughput: 11.50 tokens/s, Accepted: 113 tokens, Drafted: 115 tokens, Per-position acceptance rate: 1.000, 1.000, 1.000, 0.957, 0.957, Avg Draft acceptance rate: 98.3%
 (APIServer pid=80411) INFO 11-08 23:51:46 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_store_bytes=2451814400, vllm:kv_offload_store_time=0.1278494074344635, vllm:kv_offload_store_size_count=44, vllm:kv_offload_store_size_sum=2451814400, vllm:kv_offload_cpu_cache_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_allocation_size_count=11, vllm:kv_offload_cpu_allocation_size_sum=176, vllm:kv_offload_cpu_cache_write_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_cache_read_usage_perc=0.0
+INFO:     127.0.0.1:36572 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51874 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=80411) INFO 11-08 23:51:56 [loggers.py:335] Engine 000: Avg prompt throughput: 7636.6 tokens/s, Avg generation throughput: 39.3 tokens/s, Running: 4 reqs, Waiting: 0 reqs, GPU KV cache usage: 20.6%, Prefix cache hit rate: 88.0%, External prefix cache hit rate: 0.0%
+(APIServer pid=80411) INFO 11-08 23:51:56 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 5.04, Accepted throughput: 31.50 tokens/s, Drafted throughput: 39.00 tokens/s, Accepted: 315 tokens, Drafted: 390 tokens, Per-position acceptance rate: 0.974, 0.846, 0.782, 0.756, 0.679, Avg Draft acceptance rate: 80.8%
+(APIServer pid=80411) INFO 11-08 23:51:56 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_store_bytes=2367752192, vllm:kv_offload_store_time=0.12100649650394918, vllm:kv_offload_store_size_count=52, vllm:kv_offload_store_size_sum=2367752192, vllm:kv_offload_cpu_cache_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_allocation_size_count=13, vllm:kv_offload_cpu_allocation_size_sum=169, vllm:kv_offload_cpu_cache_write_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_cache_read_usage_perc=0.0, vllm:kv_offload_lookup_sync_delay_seconds_count=3, vllm:kv_offload_lookup_sync_delay_seconds_sum=2.6087043806910515e-05
+(APIServer pid=80411) INFO 11-08 23:52:06 [loggers.py:335] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 14.5 tokens/s, Running: 4 reqs, Waiting: 0 reqs, GPU KV cache usage: 24.1%, Prefix cache hit rate: 88.0%, External prefix cache hit rate: 0.0%
+(APIServer pid=80411) INFO 11-08 23:52:06 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 4.39, Accepted throughput: 11.20 tokens/s, Drafted throughput: 16.50 tokens/s, Accepted: 112 tokens, Drafted: 165 tokens, Per-position acceptance rate: 0.909, 0.818, 0.697, 0.545, 0.424, Avg Draft acceptance rate: 67.9%
+(APIServer pid=80411) INFO 11-08 23:52:06 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_store_bytes=2465824768, vllm:kv_offload_store_time=0.12931833624839784, vllm:kv_offload_store_size_count=44, vllm:kv_offload_store_size_sum=2465824768, vllm:kv_offload_cpu_cache_usage_perc=0.0013485296676526883, vllm:kv_offload_cpu_allocation_size_count=11, vllm:kv_offload_cpu_allocation_size_sum=175, vllm:kv_offload_cpu_cache_write_usage_perc=0.0013485296676526883, vllm:kv_offload_cpu_cache_read_usage_perc=0.0
+INFO:     127.0.0.1:40800 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=80411) INFO 11-08 23:52:16 [loggers.py:335] Engine 000: Avg prompt throughput: 7416.8 tokens/s, Avg generation throughput: 22.6 tokens/s, Running: 4 reqs, Waiting: 0 reqs, GPU KV cache usage: 21.0%, Prefix cache hit rate: 87.2%, External prefix cache hit rate: 0.0%
+(APIServer pid=80411) INFO 11-08 23:52:16 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 3.83, Accepted throughput: 16.70 tokens/s, Drafted throughput: 29.50 tokens/s, Accepted: 167 tokens, Drafted: 295 tokens, Per-position acceptance rate: 0.881, 0.729, 0.542, 0.373, 0.305, Avg Draft acceptance rate: 56.6%
+(APIServer pid=80411) INFO 11-08 23:52:16 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_store_bytes=2479835136, vllm:kv_offload_store_time=0.12876998445391655, vllm:kv_offload_store_size_count=48, vllm:kv_offload_store_size_sum=2479835136, vllm:kv_offload_cpu_cache_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_allocation_size_count=12, vllm:kv_offload_cpu_allocation_size_sum=178, vllm:kv_offload_cpu_cache_write_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_cache_read_usage_perc=0.0, vllm:kv_offload_lookup_sync_delay_seconds_count=1, vllm:kv_offload_lookup_sync_delay_seconds_sum=1.4686957001686096e-05
+INFO:     127.0.0.1:52040 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51866 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51850 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=80411) INFO 11-08 23:52:26 [loggers.py:335] Engine 000: Avg prompt throughput: 7546.2 tokens/s, Avg generation throughput: 10.4 tokens/s, Running: 4 reqs, Waiting: 0 reqs, GPU KV cache usage: 17.9%, Prefix cache hit rate: 86.6%, External prefix cache hit rate: 0.0%
+(APIServer pid=80411) INFO 11-08 23:52:26 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 3.48, Accepted throughput: 7.70 tokens/s, Drafted throughput: 15.50 tokens/s, Accepted: 77 tokens, Drafted: 155 tokens, Per-position acceptance rate: 0.774, 0.613, 0.516, 0.323, 0.258, Avg Draft acceptance rate: 49.7%
+(APIServer pid=80411) INFO 11-08 23:52:26 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_store_bytes=2493845504, vllm:kv_offload_store_time=0.12619907158613206, vllm:kv_offload_store_size_count=48, vllm:kv_offload_store_size_sum=2493845504, vllm:kv_offload_cpu_cache_usage_perc=0.0013050287106316338, vllm:kv_offload_cpu_allocation_size_count=13, vllm:kv_offload_cpu_allocation_size_sum=176, vllm:kv_offload_cpu_cache_write_usage_perc=0.0013050287106316338, vllm:kv_offload_cpu_cache_read_usage_perc=0.0, vllm:kv_offload_lookup_sync_delay_seconds_count=2, vllm:kv_offload_lookup_sync_delay_seconds_sum=1.846509985625744e-05
+(APIServer pid=80411) INFO 11-08 23:52:36 [loggers.py:335] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 12.7 tokens/s, Running: 4 reqs, Waiting: 0 reqs, GPU KV cache usage: 21.7%, Prefix cache hit rate: 86.6%, External prefix cache hit rate: 0.0%
+(APIServer pid=80411) INFO 11-08 23:52:36 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 3.53, Accepted throughput: 9.10 tokens/s, Drafted throughput: 18.00 tokens/s, Accepted: 91 tokens, Drafted: 180 tokens, Per-position acceptance rate: 0.861, 0.639, 0.472, 0.306, 0.250, Avg Draft acceptance rate: 50.6%
+(APIServer pid=80411) INFO 11-08 23:52:36 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_store_bytes=2661969920, vllm:kv_offload_store_time=0.13878035235404967, vllm:kv_offload_store_size_count=52, vllm:kv_offload_store_size_sum=2661969920, vllm:kv_offload_cpu_cache_usage_perc=0.0013485296676526883, vllm:kv_offload_cpu_allocation_size_count=12, vllm:kv_offload_cpu_allocation_size_sum=191, vllm:kv_offload_cpu_cache_write_usage_perc=0.0013485296676526883, vllm:kv_offload_cpu_cache_read_usage_perc=0.0
+INFO:     127.0.0.1:40124 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51874 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51866 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51850 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51874 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=80411) INFO 11-08 23:52:46 [loggers.py:335] Engine 000: Avg prompt throughput: 8037.0 tokens/s, Avg generation throughput: 136.1 tokens/s, Running: 4 reqs, Waiting: 0 reqs, GPU KV cache usage: 23.5%, Prefix cache hit rate: 87.2%, External prefix cache hit rate: 0.0%
+(APIServer pid=80411) INFO 11-08 23:52:46 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 4.16, Accepted throughput: 103.69 tokens/s, Drafted throughput: 163.99 tokens/s, Accepted: 1037 tokens, Drafted: 1640 tokens, Per-position acceptance rate: 0.857, 0.716, 0.604, 0.524, 0.460, Avg Draft acceptance rate: 63.2%
+(APIServer pid=80411) INFO 11-08 23:52:46 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_store_bytes=1639213056, vllm:kv_offload_store_time=0.07994659215211866, vllm:kv_offload_store_size_count=44, vllm:kv_offload_store_size_sum=1639213056, vllm:kv_offload_cpu_cache_usage_perc=0.0002610057421263268, vllm:kv_offload_cpu_allocation_size_count=11, vllm:kv_offload_cpu_allocation_size_sum=92, vllm:kv_offload_cpu_cache_write_usage_perc=0.0002610057421263268, vllm:kv_offload_cpu_cache_read_usage_perc=0.0, vllm:kv_offload_lookup_sync_delay_seconds_count=6, vllm:kv_offload_lookup_sync_delay_seconds_sum=8.666934445500374e-05
+INFO:     127.0.0.1:51866 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51850 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51874 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51866 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51850 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60318 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51874 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51866 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51850 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51874 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51866 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=80411) INFO 11-08 23:52:56 [loggers.py:335] Engine 000: Avg prompt throughput: 1758.8 tokens/s, Avg generation throughput: 287.4 tokens/s, Running: 4 reqs, Waiting: 0 reqs, GPU KV cache usage: 24.4%, Prefix cache hit rate: 88.2%, External prefix cache hit rate: 0.0%
+(APIServer pid=80411) INFO 11-08 23:52:56 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 5.40, Accepted throughput: 235.70 tokens/s, Drafted throughput: 268.00 tokens/s, Accepted: 2357 tokens, Drafted: 2680 tokens, Per-position acceptance rate: 0.963, 0.914, 0.875, 0.841, 0.804, Avg Draft acceptance rate: 87.9%
+(APIServer pid=80411) INFO 11-08 23:52:56 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_store_bytes=700518400, vllm:kv_offload_store_time=0.027883615761995315, vllm:kv_offload_store_size_count=56, vllm:kv_offload_store_size_sum=700518400, vllm:kv_offload_cpu_cache_usage_perc=0.00017400382808421786, vllm:kv_offload_cpu_cache_write_usage_perc=0.00017400382808421786, vllm:kv_offload_cpu_cache_read_usage_perc=0.0, vllm:kv_offload_lookup_sync_delay_seconds_count=13, vllm:kv_offload_lookup_sync_delay_seconds_sum=0.000183584401383996, vllm:kv_offload_cpu_allocation_size_count=13, vllm:kv_offload_cpu_allocation_size_sum=48
+INFO:     127.0.0.1:51862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51850 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51866 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51874 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51850 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51866 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51874 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51850 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51866 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51850 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=80411) INFO 11-08 23:53:06 [loggers.py:335] Engine 000: Avg prompt throughput: 1412.5 tokens/s, Avg generation throughput: 298.0 tokens/s, Running: 4 reqs, Waiting: 0 reqs, GPU KV cache usage: 25.4%, Prefix cache hit rate: 89.2%, External prefix cache hit rate: 0.0%
+(APIServer pid=80411) INFO 11-08 23:53:06 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 5.30, Accepted throughput: 242.76 tokens/s, Drafted throughput: 281.95 tokens/s, Accepted: 2428 tokens, Drafted: 2820 tokens, Per-position acceptance rate: 0.954, 0.894, 0.853, 0.817, 0.787, Avg Draft acceptance rate: 86.1%
+(APIServer pid=80411) INFO 11-08 23:53:06 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_cpu_cache_usage_perc=0.00017400382808421786, vllm:kv_offload_cpu_cache_write_usage_perc=0.00017400382808421786, vllm:kv_offload_cpu_cache_read_usage_perc=0.0, vllm:kv_offload_store_bytes=686508032, vllm:kv_offload_store_time=0.02761081609129906, vllm:kv_offload_store_size_count=52, vllm:kv_offload_store_size_sum=686508032, vllm:kv_offload_lookup_sync_delay_seconds_count=13, vllm:kv_offload_lookup_sync_delay_seconds_sum=0.0001808644738048315, vllm:kv_offload_cpu_allocation_size_count=13, vllm:kv_offload_cpu_allocation_size_sum=49
+INFO:     127.0.0.1:44606 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51866 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51874 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51850 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51866 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51874 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51850 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51866 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51874 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51850 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=80411) INFO 11-08 23:53:16 [loggers.py:335] Engine 000: Avg prompt throughput: 1543.3 tokens/s, Avg generation throughput: 298.3 tokens/s, Running: 3 reqs, Waiting: 0 reqs, GPU KV cache usage: 19.7%, Prefix cache hit rate: 90.0%, External prefix cache hit rate: 0.0%
+(APIServer pid=80411) INFO 11-08 23:53:16 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 5.62, Accepted throughput: 245.58 tokens/s, Drafted throughput: 265.98 tokens/s, Accepted: 2456 tokens, Drafted: 2660 tokens, Per-position acceptance rate: 0.976, 0.947, 0.927, 0.893, 0.874, Avg Draft acceptance rate: 92.3%
+(APIServer pid=80411) INFO 11-08 23:53:16 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_cpu_cache_usage_perc=0.0, vllm:kv_offload_cpu_cache_write_usage_perc=0.0, vllm:kv_offload_cpu_cache_read_usage_perc=0.0, vllm:kv_offload_store_bytes=686508032, vllm:kv_offload_store_time=0.02770793604850769, vllm:kv_offload_store_size_count=52, vllm:kv_offload_store_size_sum=686508032, vllm:kv_offload_lookup_sync_delay_seconds_count=12, vllm:kv_offload_lookup_sync_delay_seconds_sum=0.00014983746223151684, vllm:kv_offload_cpu_allocation_size_count=12, vllm:kv_offload_cpu_allocation_size_sum=45
+INFO:     127.0.0.1:51866 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51874 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60450 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60452 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60456 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60458 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60460 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60470 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60482 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60488 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60500 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60514 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60522 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60528 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=80411) INFO 11-08 23:53:26 [loggers.py:335] Engine 000: Avg prompt throughput: 397.3 tokens/s, Avg generation throughput: 101.1 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.7%, Prefix cache hit rate: 89.6%, External prefix cache hit rate: 0.0%
+(APIServer pid=80411) INFO 11-08 23:53:26 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 4.59, Accepted throughput: 80.00 tokens/s, Drafted throughput: 111.49 tokens/s, Accepted: 800 tokens, Drafted: 1115 tokens, Per-position acceptance rate: 0.937, 0.776, 0.686, 0.605, 0.583, Avg Draft acceptance rate: 71.7%
+(APIServer pid=80411) INFO 11-08 23:53:26 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_cpu_cache_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_cache_write_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_cache_read_usage_perc=0.0, vllm:kv_offload_lookup_sync_delay_seconds_count=5, vllm:kv_offload_lookup_sync_delay_seconds_sum=5.8860285207629204e-05, vllm:kv_offload_cpu_allocation_size_count=5, vllm:kv_offload_cpu_allocation_size_sum=43, vllm:kv_offload_store_bytes=154114048, vllm:kv_offload_store_time=0.00610928001999855, vllm:kv_offload_store_size_count=12, vllm:kv_offload_store_size_sum=154114048
+(APIServer pid=80411) INFO 11-08 23:53:36 [loggers.py:335] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 1 reqs, Waiting: 7 reqs, GPU KV cache usage: 4.1%, Prefix cache hit rate: 89.6%, External prefix cache hit rate: 0.0%
+(APIServer pid=80411) INFO 11-08 23:53:36 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_store_bytes=2465824768, vllm:kv_offload_store_time=0.12511104011535643, vllm:kv_offload_store_size_count=44, vllm:kv_offload_store_size_sum=2465824768, vllm:kv_offload_cpu_cache_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_allocation_size_count=11, vllm:kv_offload_cpu_allocation_size_sum=176, vllm:kv_offload_cpu_cache_write_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_cache_read_usage_perc=0.0
+INFO:     127.0.0.1:34690 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=80411) INFO 11-08 23:53:46 [loggers.py:335] Engine 000: Avg prompt throughput: 7417.4 tokens/s, Avg generation throughput: 1.8 tokens/s, Running: 2 reqs, Waiting: 6 reqs, GPU KV cache usage: 7.9%, Prefix cache hit rate: 89.1%, External prefix cache hit rate: 0.0%
+(APIServer pid=80411) INFO 11-08 23:53:46 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 3.40, Accepted throughput: 0.60 tokens/s, Drafted throughput: 1.25 tokens/s, Accepted: 12 tokens, Drafted: 25 tokens, Per-position acceptance rate: 0.600, 0.600, 0.600, 0.400, 0.200, Avg Draft acceptance rate: 48.0%
+(APIServer pid=80411) INFO 11-08 23:53:46 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_store_bytes=2675980288, vllm:kv_offload_store_time=0.13863651226460935, vllm:kv_offload_store_size_count=52, vllm:kv_offload_store_size_sum=2675980288, vllm:kv_offload_cpu_cache_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_allocation_size_count=13, vllm:kv_offload_cpu_allocation_size_sum=191, vllm:kv_offload_cpu_cache_write_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_cache_read_usage_perc=0.0, vllm:kv_offload_lookup_sync_delay_seconds_count=1, vllm:kv_offload_lookup_sync_delay_seconds_sum=1.0199146345257759e-05
+INFO:     127.0.0.1:49554 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=80411) INFO 11-08 23:53:56 [loggers.py:335] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 4.3 tokens/s, Running: 2 reqs, Waiting: 6 reqs, GPU KV cache usage: 11.4%, Prefix cache hit rate: 89.1%, External prefix cache hit rate: 0.0%
+(APIServer pid=80411) INFO 11-08 23:53:56 [metrics.py:120] SpecDecoding metrics: Mean acceptance length: 3.91, Accepted throughput: 3.20 tokens/s, Drafted throughput: 5.50 tokens/s, Accepted: 32 tokens, Drafted: 55 tokens, Per-position acceptance rate: 1.000, 0.818, 0.364, 0.364, 0.364, Avg Draft acceptance rate: 58.2%
+(APIServer pid=80411) INFO 11-08 23:53:56 [metrics.py:108] KV Transfer metrics: vllm:kv_offload_store_bytes=2451814400, vllm:kv_offload_store_time=0.12850064039230347, vllm:kv_offload_store_size_count=44, vllm:kv_offload_store_size_sum=2451814400, vllm:kv_offload_cpu_cache_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_allocation_size_count=11, vllm:kv_offload_cpu_allocation_size_sum=175, vllm:kv_offload_cpu_cache_write_usage_perc=0.001392030624673743, vllm:kv_offload_cpu_cache_read_usage_perc=0.0

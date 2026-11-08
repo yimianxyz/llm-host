@@ -20,6 +20,7 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s4b-l5p-prefill16k | 1 | 52 | 0 | 421.95 | 500.39 | 12604.71 | 6.1 | 6.72 | 23.94 | 24.93 | 163.9 | 21.4 | 2.95 | 138.0 | 125.3 | 77.4986 | 7042 | 0.9174 | 3.503 | 0.0 | True | 21.16 | 75.84 |
 | s4c-l2-offload | 8 | 208 | 0 | 613.52 | 1378.03 | 77700.76 | 20.23 | 39.52 | 44.06 | 1429.1 | 49.4 | 76.9 | 2.95 | 38.4 | 19.6 | 138.1952 | 12560 | 0.9146 | 3.799 | 0.0 | False |  | 42.53 |
 | s4c2-l2-c16 | 16 | 208 | 0 | 3949.56 | 26910.17 | 180351.55 | 28.3 | 51.42 | 51.95 | 1427.84 | 35.3 | 104.7 | 2.95 | 28.2 | 15.5 | 139.2877 | 12648 | 0.0051 | 3.701 | 0.0 | False |  | 42.2 |
+| s4e-l5c-l4-ctx1m | 1 | 52 | 0 | 486.98 | 549.38 | 16112.09 | 4.52 | 4.97 | 26.89 | 28.16 | 221.2 | 23.7 | 3.54 | 149.5 | 135.9 | 79.0724 | 7188 | 0.9145 | 5.243 | 0.0 | True | 21.16 | 74.33 |
 | s5a-l7-dspark | 1 | 52 | 0 | 457.37 | 524.97 | 15240.92 | 3.61 | 4.27 | 25.75 | 27.35 | 277.0 | 21.2 | 3.92 | 185.0 | 156.4 | 87.0677 | 7911 | 0.9161 | 5.868 | 0.0 | True | 21.16 | 67.51 |
 | s5a-l7-dspark | 4 | 104 | 0 | 545.38 | 971.07 | 46397.86 | 8.41 | 20.4 | 41.95 | 1666.7 | 118.9 | 48.9 | 3.92 | 80.2 | 33.0 | 117.233 | 10650 | 0.916 | 5.812 | 0.0 | True | 5.29 | 50.14 |
 
@@ -31,6 +32,7 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s3-baseline | 4 | 5.29 |
 | s4a-l3-mtp-schedule | 4 | 5.29 |
 | s4b-l5p-prefill16k | 1 | 21.16 |
+| s4e-l5c-l4-ctx1m | 1 | 21.16 |
 | s5a-l7-dspark | 4 | 5.29 |
 
 ## Reference shape (random 8192/1024, vllm bench serve)
@@ -65,6 +67,10 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s4c-l2-offload | gsm8k.json | acc 0.985 n=200 gate=True tokens=129 |
 | s4c-l2-offload | niah.json | 130538 tok d=0.5 found=True ttft=23.44s prefill=5568 tok/s decode=1991.1 tok/s |
 | s4c-l2-offload | toolcalls.json | 48/48 gate=True info={'info_untyped_json_null': False, 'info_untyped_json_null/stream': False, 'info_untyped_json_number': False, 'info_untyped_json_number/stream': False, 'info_untyped_json_bool': False, 'info_untyped_json_bool/stream': False, 'info_untyped_json_nested': False, 'info_untyped_json_nested/stream': False, 'info_markers_in_prose_vllm_64326': False, 'info_markers_in_prose_vllm_64326/stream': True, 'info_empty_props_oneof_glm5_169': False, 'info_empty_props_oneof_glm5_169/stream': False} |
+| s4e-l5c-l4-ctx1m | apply.json | restart to ready 257 s |
+| s4e-l5c-l4-ctx1m | gsm8k.json | acc 0.985 n=200 gate=True tokens=133 |
+| s4e-l5c-l4-ctx1m | niah.json | 130564 tok d=0.5 found=True ttft=28.8s prefill=4534 tok/s decode=185.0 tok/s |
+| s4e-l5c-l4-ctx1m | toolcalls.json | 48/48 gate=True info={'info_untyped_json_null': False, 'info_untyped_json_null/stream': False, 'info_untyped_json_number': False, 'info_untyped_json_number/stream': False, 'info_untyped_json_bool': False, 'info_untyped_json_bool/stream': False, 'info_untyped_json_nested': False, 'info_untyped_json_nested/stream': False, 'info_markers_in_prose_vllm_64326': False, 'info_markers_in_prose_vllm_64326/stream': False, 'info_empty_props_oneof_glm5_169': False, 'info_empty_props_oneof_glm5_169/stream': False} |
 | s5a-l7-dspark | apply.json | restart to ready 316 s |
 | s5a-l7-dspark | gsm8k.json | acc 0.985 n=200 gate=True tokens=125 |
 | s5a-l7-dspark | mtp_al.json | AL 3.918090159153404 rate 36.47612698941755 tpot 13.07 ms |
@@ -76,6 +82,7 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s4a-l3-mtp-schedule | boot_facts | GPU KV cache size: 965,376 tokens, Maximum concurrency for 262,144 tokens per request: 3.68x |
 | s4b-l5p-prefill16k | boot_facts | GPU KV cache size: 785,664 tokens, Maximum concurrency for 262,144 tokens per request: 3.00x |
 | s4c-l2-offload | boot_facts | GPU KV cache size: 965,376 tokens, Maximum concurrency for 262,144 tokens per request: 3.68x |
+| s4e-l5c-l4-ctx1m | boot_facts | GPU KV cache size: 1,292,032 tokens, Maximum concurrency for 262,144 tokens per request: 4.93x |
 | s5a-l7-dspark | boot_facts | GPU KV cache size: 484,557 tokens, Maximum concurrency for 262,144 tokens per request: 1.85x |
 
 ![pareto](pareto.png)
