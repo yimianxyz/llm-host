@@ -12,6 +12,9 @@
 #                              concurrency, which picks the draft count under a per-batch-size MTP schedule
 #   gate-full | gate-spot      quality gate (evals/quality.py)
 #   niah L1 [L2 ...]           single-stream needle at each prompt length, depth 0.5 (context ceiling)
+#   smoke                      evals/smoke.py on localhost: time to first answer token at low/high/max effort
+#   gpqa                       GPQA-Diamond at max effort (198 long-reasoning requests at c=32)
+#   drill                      unplanned crash: SIGKILL the engine, time until the supervisor's restart serves again
 #   soak-block C MINUTES       agentic load for a fixed time, used by the soak and the idle runner
 #   profile                    torch profile of one cold prefill (needs --profiler-config in serve.args)
 #   probe SECONDS [INTERVAL]   liveness via a real generation; CSV of ts,http_code,seconds
@@ -156,6 +159,24 @@ gate-spot)
 
 niah)
   "$CLIENT/python" evals/quality.py niah --lengths "$@" --depths 0.5 --out "$OUT/niah_long.json" ;;
+
+smoke)
+  "$CLIENT/python" evals/smoke.py --long-stream-seconds 20 --out "$OUT/smoke.json" ;;
+
+gpqa)
+  metrics_start gpqa
+  "$CLIENT/python" evals/quality.py gpqa --out "$OUT/gpqa.json"
+  metrics_end gpqa ;;
+
+drill)
+  b0=$(boot_no); t0=$(date +%s)
+  pkill -KILL -f "bin/vllm serve"; pkill -KILL -f "VLLM::"
+  until [ "$(boot_no)" -gt "$b0" ]; do sleep 2; done
+  if secs=$(wait_ready 3600 "$b0"); then
+    echo "{\"kill_to_ready_s\": $(( $(date +%s) - t0 ))}" | tee "$OUT/drill.json"
+  else
+    echo "$secs" | tee "$OUT/drill-failed.txt"; exit 1
+  fi ;;
 
 soak-block)
   c=$1; minutes=${2:-15}

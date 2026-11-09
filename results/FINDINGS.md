@@ -330,3 +330,35 @@ The best config stays L2 (B4 + L3 + L2).
 - **The fallback (960K at 0.92) would have failed the same way,** so I stopped the job instead of letting it crash-loop.
 
 **Next:** L5c removes exactly those buffers. It caps graph capture at 128 tokens per step, which the SLO region never exceeds, and uses 4K prefill chunks. L4 is retried on top of it in the same boot.
+
+## Step 4, rung L5c: 4K prefill chunks + CUDA graphs captured up to 128 tokens (23:41-23:58Z): 4K chunks REVERTED, capture cap KEPT (as L5d)
+
+**Config:** `deploy/configs/L5c-bt4k-cg128.args`, which is L2 with `--max-num-batched-tokens 4096 --max-cudagraph-capture-size 128`, at 256K. The 1M variant on top of it failed (next entry), so the job fell back to 256K.
+
+**Boot:** the capture cap is a clear win.
+- **Graph memory:** 1.9 GiB per GPU, against 4.5 GiB.
+- **Capture time:** 14 + 42 s, against 32 + 114 s, so **restart to ready takes 257 s, against 357 s**.
+- **KV:** available memory is 16.46 GiB per GPU, against 12.3, so the pool is **1,292,032 tokens (+34%)**. Part of that gain comes from the smaller activation peak at 4K.
+- **The spot gate passed:** tool calls 48/48, GSM8K-200 98.5%, 128K needle found.
+
+**4K chunks are a loss:**
+
+| | c=1: L3 to L5c | c=4: L3 to L5c |
+|---|---|---|
+| Per-user tok/s at real AL, median | 145.9 to 149.5 (+2.5%) | 71.6 to **63.5 (-11%)** |
+| Per-user tok/s, mean | 139.1 to 135.9 | 39.5 to **31.5 (-20%)** |
+| Prefill-chunk step, ITL p99 | | 1.42 to 0.89 s |
+| TTFT p50 / p90 / p99 | 0.40 / 0.47 / 13.0 to 0.49 / 0.55 / 16.1 s | 0.57 / 1.16 / 39.5 to 0.57 / 2.04 / 48.4 s |
+| Logical tok/s per GPU | 8,342 to 7,188 | 12,156 to **10,110 (-17%)** |
+
+- **The cause:** the 128K needle prefilled at **4,534 tok/s against 5,589 (-19%)**. Each stall is shorter, but there are more than twice as many, so co-running sessions lose more time overall.
+- **The arithmetic:** a prefill step has a large fixed part, about 0.34 s at 128K context, given an 8K chunk at 1.47 s and a 4K chunk at 0.90 s.
+- **Combined with L5p,** 16K chunks gained only 2.8% on cold turns, so 8K is close to the optimum on this stack.
+- **Better prefill speed must come from fewer fixed costs per step,** such as collectives and the decode-kernel path. Chunk size is not the lever.
+
+**c=8 was skipped:** c=1 and c=4 already decide the rung.
+
+**Decision:**
+- **Revert the 4K chunks:** c=4 drops 11% and c=1 rises less than 5%.
+- **Keep the capture cap:** under the MTP schedule no step at 16 or fewer sessions exceeds 64 decode tokens, so it should be runtime-neutral, and it gives back 2.6 GiB per GPU and 100 s per restart.
+- **The combination is L5d** (`deploy/configs/L5d-cg128.args`, L2 + cap 128 at 8K chunks). Step 6 characterizes it, and its c=1/4/8 points are the rung test against L3/L2.

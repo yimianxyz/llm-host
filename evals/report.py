@@ -39,16 +39,40 @@ def pct(rows, key, p):
     return None
 
 
+B4_SPEC = {"method": "mtp", "num_speculative_tokens": 3}  # steps run without `apply` (s2-quality, idle soak)
+
+
+def spec_of(pod, step):
+    try:
+        for line in open(os.path.join(RAW, pod, step, "applied.args")):
+            if line.startswith("--speculative-config "):
+                return json.loads(line.split(" ", 1)[1])
+    except OSError:
+        pass
+    return B4_SPEC
+
+
+def drafts(spec, c):
+    for lo, hi, k in spec.get("num_speculative_tokens_per_batch_size") or []:
+        if lo <= c <= hi:
+            return k
+    return spec["num_speculative_tokens"]
+
+
 def al_ref(pod, step, c):
     """Acceptance length on real coding prompts (speed_bench) for an agentic point. The OpenHands workload forces
     ignore_eos at temperature 0, so outputs past the natural end degenerate into repetition that MTP predicts almost
-    perfectly; its own acceptance is not representative. Use the step's own measurement when it covered concurrency
-    c (a per-batch-size schedule picks the draft count by batch), else the B4 baseline's (3 drafts)."""
-    own = load(os.path.join(RAW, pod, step, "mtp_al.json"))
-    if own and c <= (own.get("max_concurrency") or 0):
-        return own.get("spec_decode_acceptance_length")
-    base = [load(p) for p in live(sorted(glob.glob(f"{RAW}/*/s2-quality/mtp_al.json")))]
-    return base[-1].get("spec_decode_acceptance_length") if base and base[-1] else None
+    perfectly; its own acceptance is not representative. Use the latest speed_bench measurement with the same drafter
+    and the same draft count at concurrency c (a per-batch-size schedule picks the draft count by batch)."""
+    spec = spec_of(pod, step)
+    want = (spec["method"], drafts(spec, c))
+    best = None
+    for p in live(sorted(glob.glob(f"{RAW}/*/*/mtp_al.json"), key=os.path.getmtime)):
+        q_pod, q_step = p.split(os.sep)[-3:-1]
+        m, q = load(p), spec_of(q_pod, q_step)
+        if m and (q["method"], drafts(q, m.get("max_concurrency") or 8)) == want:
+            best = m.get("spec_decode_acceptance_length")
+    return best
 
 
 def agentic_rows(price, gpus):
