@@ -362,3 +362,33 @@ The best config stays L2 (B4 + L3 + L2).
 - **Revert the 4K chunks:** c=4 drops 11% and c=1 rises less than 5%.
 - **Keep the capture cap:** under the MTP schedule no step at 16 or fewer sessions exceeds 64 decode tokens, so it should be runtime-neutral, and it gives back 2.6 GiB per GPU and 100 s per restart.
 - **The combination is L5d** (`deploy/configs/L5d-cg128.args`, L2 + cap 128 at 8K chunks). Step 6 characterizes it, and its c=1/4/8 points are the rung test against L3/L2.
+
+## Step 4, rung L4 (second and third attempts): 1M context WORKS at 2K prefill chunks (23:33-00:17Z), as a separate long-context profile
+
+**Second attempt, 1M on L5c (4K chunks):** `deploy/configs/L4c-ctx1m.args`.
+- **KV now fits:** the capture cap cut graph memory at 1M to 3.0 GiB, so the pool is 1,136,896 tokens.
+- **The first real request OOMed:** `Tried to allocate 16.00 GiB ... 11.77 GiB is free`. That is exactly 4,096 batched tokens x 1,048,576 positions x 4 B, a workspace in sparse attention that is sized by chunk x max-model-len and is not covered by the memory profile.
+- **The job's automatic retry at 651,264** (a stale estimate from the previous boot) died at init with `CUDA error: an illegal memory access`, with a pool of 1,248,512 tokens. That length is not a power of two, so treat such lengths as unsafe; the cause was not investigated.
+
+**Third attempt, 1M at 2K chunks:** `deploy/configs/L4d-ctx1m-bt2k.args`, which is L5c with `--max-num-batched-tokens 2048 --max-model-len 1048576`.
+- **Boot:** restart to ready in 269 s. **The GPU KV pool is 1,230,848 tokens** (1.17 requests of 1M). Every GPU shows 139.6 of 143.8 GB in use during a 1M prefill.
+
+| Prompt (single stream, no other load) | Found | TTFT | Prefill tok/s |
+|---|---|---|---|
+| 130,542 tokens (needle) | yes | 30.8 s | 4,235 (8K chunks: 5,589) |
+| 523,973 tokens (needle) | yes | 135.9 s | 3,857 |
+| **1,039,828 tokens (needle)** | **yes** | **330.5 s** | **3,146** |
+| 1,040,000 random tokens, 256 out (`vllm bench`) | | 335.3 s | 3,101; decode step (ITL p50 / p99) **23.9 / 25.2 ms** |
+
+**What 1M costs:**
+- **Decode does not slow down with context.** A step at 1M context takes 23.9 ms, the same as at about 80K (26.3 ms on L3 at c=1), because sparse attention reads only the indexer's top 2,048 tokens. Random tokens give MTP nothing to accept (AL 1.02). At real coding acceptance (3.54) this is **about 148 tok/s per user at 1M context**.
+- **Prefill slows with context:** 4.2K tok/s at 128K falls to 3.1K at 1M, as the indexer's all-pairs scoring grows, so a 1M prompt costs 5.5 min.
+- **One 1M request occupies 85% of the GPU pool and the engine** for those 5.5 minutes. Other sessions are evicted to the CPU tier and stall behind 2K-chunk steps.
+- **2K chunks cost the agentic workload:** prefill at 128K is 24% slower than with 8K chunks, and L5c showed that 4K chunks alone cost 11% at c=4.
+- **The RunPod HTTPS proxy cannot carry it.** Cloudflare returns 524 when the first byte takes more than 100 s, which means prompts above about 400K tokens. Long-context clients must use the pod's direct TCP port. The same limit bites agent traffic past the SLO: cold-turn TTFT p99 is 77 s at c=8 and 180 s at c=16.
+
+**Decision:**
+- **The agentic config stays at 256K with 8K chunks (L5d).**
+- **1M is a separate long-context profile** of the same image and weights (`L4d-ctx1m-bt2k.args`, a 269 s restart away), or a separate pod behind a router that sends prompts over 256K to it.
+- **At 8K chunks the ceiling is about 256K:** the same workspace would be 8 GiB at 256K and 16 GiB at 512K, against about 11.8 GiB of headroom.
+- **Answer to design question 5:** 1M is possible on 4x H200, but only with 2K chunks and a dedicated profile. For agentic coding the ceiling is 256K.
