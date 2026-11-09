@@ -22,3 +22,15 @@
 + REF_N=1
 + REF_WARMUPS=0
 + bash evals/bench.sh reference 1
+bench exit=0 c=1 n=1
+{
+  "mtp_acceptance_length": 1.016,
+  "mtp_acceptance_rate": 0.003,
+  "prefix_cache_hit_rate": 0.0,
+  "external_prefix_cache_hit_rate": 0.0,
+  "preemptions": 0.0,
+  "prompt_tokens": 1040000.0,
+  "generation_tokens": 256.0,
+  "requests_finished": 1.0,
+  "kv_cache_usage_perc_end": 0.0
+}

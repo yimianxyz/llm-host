@@ -12,4 +12,55 @@ Starting main benchmark run...
 Traffic request rate: inf
 Burstiness factor: 1.0 (Poisson process)
 Maximum request concurrency: 1
-  0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [05:40<00:00, 340.94s/it]100%|██████████| 1/1 [05:40<00:00, 340.94s/it]
+tip: install termplotlib and gnuplot to plot the metrics
+============ Serving Benchmark Result ============
+Successful requests:                     1         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  340.94    
+Total input tokens:                      1040000   
+Total generated tokens:                  256       
+Request throughput (req/s):              0.00      
+Request goodput (req/s):                 0.00      
+Output token throughput (tok/s):         0.75      
+Peak output token throughput (tok/s):    42.00     
+Peak concurrent requests:                1.00      
+Total token throughput (tok/s):          3051.12   
+---------------Time to First Token----------------
+Mean TTFT (ms):                          335349.43 
+Median TTFT (ms):                        335349.43 
+P50 TTFT (ms):                           335349.43 
+P90 TTFT (ms):                           335349.43 
+P99 TTFT (ms):                           335349.43 
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          21.86     
+Median TPOT (ms):                        21.86     
+P50 TPOT (ms):                           21.86     
+P90 TPOT (ms):                           21.86     
+P99 TPOT (ms):                           21.86     
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           23.82     
+Median ITL (ms):                         23.88     
+P50 ITL (ms):                            23.88     
+P90 ITL (ms):                            24.84     
+P99 ITL (ms):                            25.21     
+----------------End-to-end Latency----------------
+Mean E2EL (ms):                          340923.36 
+Median E2EL (ms):                        340923.36 
+P50 E2EL (ms):                           340923.36 
+P90 E2EL (ms):                           340923.36 
+P99 E2EL (ms):                           340923.36 
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     0.32      
+Acceptance length:                       1.02      
+Drafts:                                  251       
+Draft tokens:                            1255      
+Accepted tokens:                         4         
+Per-position acceptance (%):
+  Position 0:                            1.59      
+  Position 1:                            0.00      
+  Position 2:                            0.00      
+  Position 3:                            0.00      
+  Position 4:                            0.00      
+==================================================
