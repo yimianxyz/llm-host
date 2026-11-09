@@ -433,7 +433,7 @@ same without the `--profiler-config` line, which would expose `/start_profile`.
 | 8 | 0.60 / 8.39 / 77.4 s | 74.7 ms | 39.5 (19.7) | 12,683 | 2,283 | 0.0093 | 91.5% | fail |
 | 16 | 2.38 / 23.5 / 153 s | | 24.2 (12.3) | 12,986 | 2,340 | 0.0090 | 12% on GPU; the rest from the host tier | fail |
 
-All 1,092 turns completed, with 0 failures and 0 preemptions, at c=16 too.
+All 988 turns completed, with 0 failures and 0 preemptions, at c=16 too.
 
 **Max sessions at SLO: 4 with margin, 6 at the edge.** The soak's repeated blocks at c=5 and c=6 settle the boundary.
 
