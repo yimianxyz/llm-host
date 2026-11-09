@@ -30,6 +30,9 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s6-final | 4 | 104 | 0 | 714.32 | 10971.42 | 39907.73 | 9.52 | 16.97 | 40.53 | 1421.68 | 105.0 | 46.0 | 3.5 | 76.2 | 42.7 | 122.4186 | 11116 | 0.9145 | 4.827 | 0.0 | True | 5.29 | 48.01 | 2003 | 0.0106 |
 | s6-final | 6 | 156 | 0 | 762.2 | 1342.91 | 64820.55 | 15.26 | 28.55 | 39.47 | 1421.17 | 65.5 | 59.0 | 2.95 | 50.0 | 26.7 | 133.3715 | 12121 | 0.9147 | 3.868 | 0.0 | False |  | 44.07 | 2182 | 0.0097 |
 | s6-final | 8 | 208 | 0 | 604.77 | 8385.82 | 77438.4 | 19.69 | 39.45 | 43.6 | 1423.73 | 50.8 | 74.7 | 2.95 | 39.5 | 19.7 | 139.5031 | 12683 | 0.9146 | 3.795 | 0.0 | False |  | 42.13 | 2283 | 0.0093 |
+| s7-soak | 2 | 52 | 0 | 518.06 | 807.91 | 25955.37 | 6.69 | 8.93 | 31.73 | 380.34 | 149.5 | 34.5 | 3.5 | 101.4 | 75.9 | 109.3406 | 9943 | 0.9145 | 5.163 | 0.0 | True | 10.58 | 53.76 | 1789 | 0.0118 |
+| s7-soak | 4 | 104 | 0 | 571.87 | 1101.64 | 39659.33 | 10.19 | 19.55 | 39.87 | 1426.76 | 98.1 | 52.1 | 3.5 | 67.2 | 35.0 | 127.4603 | 11572 | 0.9144 | 5.111 | 0.0 | True | 5.29 | 46.11 | 2086 | 0.0101 |
+| s7-soak | 5 | 130 | 0 | 562.32 | 954.67 | 52408.09 | 14.11 | 25.95 | 39.9 | 1426.43 | 70.9 | 59.0 | 2.95 | 50.0 | 27.2 | 129.065 | 11724 | 0.9146 | 4.18 | 0.0 | True | 4.23 | 45.54 | 2112 | 0.01 |
 
 ## Max sessions at SLO per step
 | step | max_sessions_at_slo | usd_per_session_hr |
@@ -42,6 +45,7 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s4e-l5c-l4-ctx1m | 4 | 5.29 |
 | s5a-l7-dspark | 4 | 5.29 |
 | s6-final | 4 | 5.29 |
+| s7-soak | 5 | 4.23 |
 
 ## Reference shape (random 8192/1024, vllm bench serve)
 | step | c | n | in | failed | ttft_p50_ms | ttft_p90_ms | tpot_p50_ms | tpot_p90_ms | itl_p50_ms | interactivity | out_tok_s | total_tok_s_per_gpu | goodput_rps | mtp_al | usd_per_m_out |
@@ -110,6 +114,6 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | step | hours | probes | availability_pct | probe_s_p50 | probe_s_max | outages | gpu_mib_first_last | rss_mib_first_last | drill_kill_to_ready_s | blocks |
 |---|---|---|---|---|---|---|---|---|---|---|
 | r01-rehearsal | 0.01 | 4 | 100.0 | 0.105 | 0.11 | none |  |  |  | none |
-| s7-soak | 0.9 | 108 | 91.67 | 0.242 | 5.48 | 9 probes from 1794190168 (~270 s) | 140287 -> 140225 | 336649 -> 336283 (-406/h) | 257 | none |
+| s7-soak | 1.03 | 120 | 92.5 | 0.246 | 43.04 | 9 probes from 1794190168 (~270 s) | 140287 -> 140227 | 336649 -> 336441 (-201/h) | 257 | c=2: 1/1 pass, median tok/s 101.4-101.4 (median 101.4), TTFT p50 median 518 ms, failed 0; c=4: 1/1 pass, median tok/s 67.2-67.2 (median 67.2), TTFT p50 median 572 ms, failed 0; c=5: 1/1 pass, median tok/s 50.0-50.0 (median 50.0), TTFT p50 median 562 ms, failed 0 |
 
 ![pareto](pareto.png)

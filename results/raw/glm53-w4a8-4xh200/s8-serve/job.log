@@ -1,2 +1,13 @@
 + rm -f /root/idle_soak
 + bash evals/bench.sh apply deploy/configs/recommended.args
+{"restart_to_ready_s": 257}
+(Worker_TP3_DCP3_EP3 pid=95095) INFO 11-09 02:25:34 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.9066 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9334. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(Worker_TP1_DCP1_EP1 pid=95092) INFO 11-09 02:25:34 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.9066 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9334. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(Worker_TP2_DCP2_EP2 pid=95094) INFO 11-09 02:25:34 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.9066 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9334. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(Worker_TP0_DCP0_EP0 pid=95091) INFO 11-09 02:25:35 [gpu_worker.py:787] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9200 is equivalent to --gpu-memory-utilization=0.9066 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9334. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=94868) INFO 11-09 02:25:35 [kv_cache_utils.py:1147] GPU KV cache size: 1,169,664 tokens, Maximum concurrency for 262,144 tokens per request: 4.46x
++ bash evals/bench.sh smoke
+auth: PASS
+reasoning: PASS
+tool_call: PASS
+ttfat: PASS
