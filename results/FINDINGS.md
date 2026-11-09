@@ -486,3 +486,36 @@ slice-to-slice variance; the soak measures that variance directly.
   - GPQA-Diamond at c=32;
   - one SIGKILL drill;
   - then agentic blocks cycling c = 2, 4, 5, 6 until the pod is deleted.
+
+## Step 7 (part 1): GPQA-Diamond and the crash drill on L5d (01:23-02:14Z)
+
+**GPQA-Diamond: 80.3% raw, which is a token-budget artifact; the true score lies between 80.3% and 97.5%.**
+- **The run:** all 198 questions, one pass, max effort, `max_tokens` 32,768, c=32, `generation_config` sampling.
+- **Truncation:** 159 correct. 34 answers (17%) hit the 32K cap mid-reasoning and gave no answer.
+- **The finished answers:** 159 of 164 correct, **97.0%**.
+- **The bounds:** the score is 80.3% if every truncated answer would have been wrong and 97.5% if every one right. The
+  card's 90.28% (W4A8) and 89.65% (FP8) lie inside that range. The card does not state its token budget, which was
+  evidently above 32K.
+- **Length:** mean completion is 13,714 tokens. **Max-effort reasoning on hard questions needs a budget above 32K for
+  about 1 in 6 questions.** That matters for agents that use `reasoning_effort=max` with a fixed `max_tokens`.
+
+**GPQA as a load test (decode-heavy reasoning, c=32):**
+- 2.72M tokens generated in 2,952 s, an average of **920 output tok/s**; 1,100-1,220 tok/s while all 32 slots were busy.
+  That is about 35 tok/s per stream, or $5.3-6.4 per 1M output tokens.
+- **MTP acceptance at 1 draft (the schedule's tier for 17 or more running requests) is 1.74.**
+- 0 preemptions and 0 errors.
+- The liveness probe stayed at 200, with latency up to 5.5 s while it shared the batch.
+- **An untested idea:** at 32 running requests a step verifies only 64 tokens, so 3 drafts might be faster for
+  decode-heavy work. The 1-draft tier came from vLLM #65312's high-concurrency result and was not tuned here.
+
+**Crash drill: an unplanned SIGKILL recovers in 257 s, the same as a planned restart.**
+- **The kill:** at 02:09:17Z, `pkill -KILL` hit `bin/vllm serve` and every `VLLM::` worker. Boot 23 exited with 137 after
+  1 h 52 min of service: Step 6 plus GPQA, with no fault.
+- **The restart:** the supervisor started boot 24 5 s later, and it served a real generation at 02:13:34Z, **257 s
+  after the kill** (`drill.json`).
+- **What a client sees:** 9 consecutive liveness probes failed with connection refused, about 270 s of outage. Every
+  probe outside the drill passed (99/99).
+- **Memory across the restart:** GPU memory came back to the same 140.2 GB per GPU, and container RSS to 336 GB, which
+  includes the pinned 300 GiB host tier.
+
+Soak blocks cycling c = 2, 4, 5, 6 started at 02:13Z.

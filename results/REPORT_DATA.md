@@ -94,6 +94,7 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s6-final | mtp_al.json | AL 3.501467782181124 rate 50.02935564362249 tpot 10.36 ms |
 | s6-final | niah.json | 130549 tok d=0.1 found=True ttft=23.41s prefill=5576 tok/s decode=5088.8 tok/s; 130562 tok d=0.5 found=True ttft=23.36s prefill=5589 tok/s decode=6003.4 tok/s; 130552 tok d=0.9 found=True ttft=23.37s prefill=5587 tok/s decode=268.0 tok/s; 204310 tok d=0.1 found=True ttft=37.33s prefill=5473 tok/s decode=980.1 tok/s; 204318 tok d=0.5 found=True ttft=37.39s prefill=5464 tok/s decode=188.4 tok/s; 204328 tok d=0.9 found=True ttft=37.37s prefill=5468 tok/s decode=1090.7 tok/s |
 | s6-final | toolcalls.json | 48/48 gate=True info={'info_untyped_json_null': False, 'info_untyped_json_null/stream': False, 'info_untyped_json_number': False, 'info_untyped_json_number/stream': False, 'info_untyped_json_bool': False, 'info_untyped_json_bool/stream': False, 'info_untyped_json_nested': False, 'info_untyped_json_nested/stream': False, 'info_markers_in_prose_vllm_64326': True, 'info_markers_in_prose_vllm_64326/stream': True, 'info_empty_props_oneof_glm5_169': False, 'info_empty_props_oneof_glm5_169/stream': False} |
+| s7-soak | gpqa.json | acc 0.803 n=198 (card: W4A8 0.9028, FP8 0.8965) |
 | r01-rehearsal | boot_facts | GPU KV cache size: 362,096 tokens, Maximum concurrency for 32,768 tokens per request: 11.05x |
 | s1e-apply-b2 | boot_facts | GPU KV cache size: 895,232 tokens, Maximum concurrency for 262,144 tokens per request: 3.42x |
 | s1f-apply-b4 | boot_facts | GPU KV cache size: 1,042,944 tokens, Maximum concurrency for 262,144 tokens per request: 3.98x |
@@ -109,6 +110,6 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | step | hours | probes | availability_pct | probe_s_p50 | probe_s_max | outages | gpu_mib_first_last | rss_mib_first_last | drill_kill_to_ready_s | blocks |
 |---|---|---|---|---|---|---|---|---|---|---|
 | r01-rehearsal | 0.01 | 4 | 100.0 | 0.105 | 0.11 | none |  |  |  | none |
-| s7-soak | 0.09 | 12 | 100.0 | 0.234 | 0.3 | none | 140287 -> 140287 | 336649 -> 336843 (+2320/h) |  | none |
+| s7-soak | 0.9 | 108 | 91.67 | 0.242 | 5.48 | 9 probes from 1794190168 (~270 s) | 140287 -> 140225 | 336649 -> 336283 (-406/h) | 257 | none |
 
 ![pareto](pareto.png)
