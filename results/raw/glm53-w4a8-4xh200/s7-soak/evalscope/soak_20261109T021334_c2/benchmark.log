@@ -83,3 +83,52 @@
 2026-11-09 02:13:35 - evalscope - INFO: Loaded 4 conversations
 2026-11-09 02:13:37 - evalscope - INFO: Test connection successful.
 2026-11-09 02:13:37 - evalscope - INFO: Save the data base to: /root/results/s7-soak/evalscope/soak_20261109T021334_c2/parallel_2_number_4/benchmark_data.db
+2026-11-09 02:15:22 - evalscope - INFO: Processing[parallel_2_number_4]  75%| 3/4 [Elapsed: 01:44 < Remaining: 00:32, 32.89s/it]
+2026-11-09 02:15:22 - evalscope - INFO: Processing[parallel_2_number_4] 100%| 4/4 [Elapsed: 01:44 < Remaining: 00:00, 21.61s/it]
+2026-11-09 02:15:22 - evalscope - INFO: 
+Benchmarking summary:
+┌────────────────────────────┬─────────────┐
+│ Metric                     │       Value │
+├────────────────────────────┼─────────────┤
+│ ── General ──              │             │
+│ Test Duration (s)          │      104.63 │
+│ Concurrency                │           2 │
+│ Request Rate (req/s)       │       -1.00 │
+│ Total / Success / Failed   │ 52 / 52 / 0 │
+│ Req Throughput (req/s)     │        0.50 │
+│ ── Latency ──              │             │
+│ Avg Latency (s)            │        4.02 │
+│ TTFT (ms)                  │     2059.72 │
+│ TPOT (ms)                  │        8.93 │
+│ ITL (ms)                   │       46.15 │
+│ ── Tokens ──               │             │
+│ Avg Input Tokens           │    79805.90 │
+│ Avg Output Tokens          │      220.00 │
+│ Output Throughput (tok/s)  │      109.34 │
+│ Total Throughput (tok/s)   │    39773.08 │
+│ ── Multi-turn ──           │             │
+│ Avg Turns/Request          │        7.00 │
+│ KV Cache Hit Rate (%)      │       91.45 │
+│ ── Speculative Decoding ── │             │
+│ Decoded Tok/Iter           │        5.31 │
+│ Spec. Accept Rate          │        0.81 │
+└────────────────────────────┴─────────────┘
+2026-11-09 02:15:22 - evalscope - INFO: 
+Percentile results:
+┌────────────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
+│ Metric         │       1% │       5% │      10% │      25% │      50% │      75% │      90% │      95% │      99% │
+├────────────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+│ Latency (s)    │     1.60 │     1.67 │     1.89 │     1.94 │     2.00 │     2.18 │     2.83 │    27.48 │    27.90 │
+│ TTFT (ms)      │   443.88 │   461.11 │   472.44 │   500.59 │   518.06 │   744.54 │   807.91 │ 14271.61 │ 25955.37 │
+│ ITL (ms)       │     1.28 │    19.53 │    26.09 │    30.77 │    31.73 │    32.65 │    33.26 │    34.38 │   380.34 │
+│ TPOT (ms)      │     4.93 │     5.36 │     5.39 │     6.20 │     6.69 │     7.62 │     9.14 │    11.06 │    60.66 │
+│ Input tokens   │ 74173.00 │ 74173.00 │ 74930.00 │ 76828.00 │ 79872.00 │ 82799.00 │ 84579.00 │ 85545.00 │ 85724.00 │
+│ Output tokens  │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │
+│ Output (tok/s) │     7.89 │     8.01 │    77.82 │   102.11 │   110.87 │   113.83 │   116.28 │   131.37 │   137.17 │
+│ Total (tok/s)  │  2666.68 │  2707.01 │ 28683.57 │ 34998.72 │ 39883.03 │ 43034.75 │ 44586.51 │ 46597.20 │ 53587.50 │
+│ Decode (tok/s) │    16.49 │    90.41 │   109.42 │   138.90 │   149.49 │   162.00 │   185.49 │   186.73 │   202.87 │
+└────────────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┘
+2026-11-09 02:15:22 - evalscope - INFO: Save the summary to: /root/results/s7-soak/evalscope/soak_20261109T021334_c2/parallel_2_number_4
+2026-11-09 02:15:22 - evalscope - INFO: Running[perf] 100%| 1/1 [Elapsed: 01:46 < Remaining: 00:00, 107.00s/it]
+2026-11-09 02:15:22 - evalscope - INFO: Performance summary saved to: /root/results/s7-soak/evalscope/soak_20261109T021334_c2/performance_summary.txt
+2026-11-09 02:15:22 - evalscope - INFO: HTML report generated: /root/results/s7-soak/evalscope/soak_20261109T021334_c2/perf_report.html
