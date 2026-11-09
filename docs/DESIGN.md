@@ -227,7 +227,7 @@ Each rung changed one variable from the current best config. The keep rule:
 | L7 | DSpark drafter (8 drafts in one pass) | **Reverted**: c=1 +27%, but the KV pool halves to 484K, the host tier barely hits (6%), and c=8 collapses. |
 | L4 | 1M context | **Separate profile**: needs 2K chunks (330 s TTFT at 1M, decode step 23.9 ms). The agentic config stays at 256K. |
 | L5c | 4K chunks + graph cap 128 | **4K reverted** (-19% prefill, -11% at c=4); **cap kept** as L5d. |
-| L5d | B4 + L3 + L2 + graph cap 128 | **Final**, fully characterized in Step 6 (`results/REPORT.md`). |
+| L5d | B4 + L3 + L2 + graph cap 128 | **Final** (Step 6): 4 sessions at SLO with margin (77 tok/s median), 6 at the edge (50.0); 148 tok/s for one user; 0 errors through 16 sessions; GSM8K 96.9%, 48/48 tools; 257 s restart. |
 
 ## 9. Sources
 

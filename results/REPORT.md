@@ -64,13 +64,13 @@ is in [`FINDINGS.md`](FINDINGS.md), and every table regenerates from raw data wi
 **Checkpoint.** W4A8 (INT4 experts, FP8 elsewhere) is what makes 4 GPUs possible; FP8 would need 176 GiB per GPU. The
 quality evidence:
 
-| Check | W4A8 here | Reference |
+| Check | W4A8 here (first working config B4 / final config L5d) | Reference |
 |---|---|---|
-| GSM8K, all 1,319, zero-shot | 96.74% | FP8 97.1-97.4% (SGLang cookbook, 1-shot) |
-| Tool calls, 24 typed cases x stream/non-stream | 48/48 | all must pass |
-| Needles at 128K, 200K, 512K, 1M | all found | exact retrieval |
-| MTP acceptance on real coding prompts, 3 drafts | 2.95 tokens per step | InferenceX golden value for GLM-5.3: 2.94 |
-| GPQA-Diamond | PENDING (Step 7) | card: W4A8 90.28%, FP8 89.65% |
+| GSM8K, all 1,319, zero-shot | 96.74% / 96.89% | FP8 97.1-97.4% (SGLang cookbook, 1-shot) |
+| Tool calls, 24 typed cases x stream/non-stream | 48/48 / 48/48 | all must pass |
+| Needles at 128K and 200K (both configs); 512K and 1M (1M profile) | all found | exact retrieval |
+| MTP acceptance on real coding prompts | 2.95 tokens per step at 3 drafts / 3.50 at 5 drafts | InferenceX golden value for GLM-5.3 at 3 drafts: 2.94 |
+| GPQA-Diamond, one pass over 198 questions, max effort | PENDING (Step 7) | card: W4A8 90.28%, FP8 89.65% |
 
 The MTP result is a weak quality signal as well as a speed one. Acceptance this close to the golden value is consistent
 with W4A8's output distribution staying close to the reference model's on coding prompts.
@@ -180,6 +180,11 @@ FP8) at about 263 tok/s.
 
 **Long context:** the decode step is 23.9 ms at 1M tokens of context, the same as at 80K. Sparse attention reads only
 the indexer's top 2,048 tokens, so a single user decodes at about 148 tok/s at any context length.
+
+**Unpredictable output is the exception.** All these speeds assume coding-like text, where MTP accepts 3.5 tokens per
+step. On random-token prompts acceptance falls to 1.18, and a single user gets 48 tok/s, against 72 tok/s on the
+3-draft baseline. Five drafts cost more to verify than they return there. Output dominated by hashes, base64 or
+random IDs would see the same slowdown.
 
 **What users feel most:** other people's cold starts. A new session, or a returning session whose history has to be
 recomputed, costs everyone else about 13 s of stall. Keeping histories warm (the host tier, session affinity) matters
@@ -347,7 +352,7 @@ second pod before them, not after: a cold start takes 35 minutes.
 | Step 4: MTP schedule, 16K chunks, host tier | $137.83 | $15.93 |
 | Step 5 and L4: DSpark, 1M attempts | $111.30 | $26.53 |
 | L5c, L4d (1M at 2K chunks), Gate B | $93.58 | $17.72 |
-| Step 6: final characterization | PENDING | |
+| Step 6: final characterization | $70.54 | $23.04 |
 | Step 7: soak | PENDING | |
 
 ## Limits of this study and what to try next
