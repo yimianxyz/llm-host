@@ -12,3 +12,4 @@
 | 2026-11-09T00:19Z | Gate B: L5d best; Step 6 running | $93.5767632972 (runpodctl user) | ~5.0 | deadline ~04:26Z |
 | 2026-11-09T01:24Z | Gate C: Step 6 done (L5d confirmed); Step 7 soak running | $70.5391238305 (runpodctl user) | ~6.1 | runs out ~04:44Z; self-delete deadline ~04:26Z leaves ~$6 |
 | 2026-11-09T02:28Z | Soak stopped early; pod handed over for interactive use on recommended.args | $49.2926400083 (runpodctl user) | ~7.2 | deadline moved 04:26:26Z to 04:33:00Z so the balance ends near $5 |
+| 2026-11-09T03:55Z | Pod fbsy2njw0xt5mp deleted at the user's request (get-pod 404; list-pods and list-network-volumes empty) | $17.4427106304 (runpodctl user) | ~8.6 | total spent $182.56; nothing left billing |

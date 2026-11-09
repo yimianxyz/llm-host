@@ -387,7 +387,8 @@ second pod before them, not after: a cold start takes 35 minutes.
 | L5c, L4d (1M at 2K chunks), Gate B | $93.58 | $17.72 |
 | Step 6: final characterization | $70.54 | $23.04 |
 | Step 7: GPQA, crash drill, soak blocks; hand-over to interactive use | $49.29 at 02:28Z | $21.25 |
-| Interactive use until the pod self-deletes at 04:33Z | about $5 expected | about $44 |
+| Interactive use with OpenCode; pod deleted at 03:55Z (404 confirmed, no pods or volumes left) | **$17.44** | $31.85 |
+| **Total** | | **$182.56** |
 
 ## Limits of this study and what to try next
 

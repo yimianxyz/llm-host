@@ -562,3 +562,13 @@ so a new request waits for the queued prefill chunks. During decode-heavy GPQA t
 
 **Deadline:** moved from 04:26:26Z to **04:33:00Z**, so the balance ends near the plan's $5 floor; it read
 $49.2926400083 at 02:28Z.
+
+## End of study (03:55Z): pod deleted, nothing left billing
+
+- **Shutdown:** after about 1.5 h of interactive OpenCode use, pod `fbsy2njw0xt5mp` was deleted through the RunPod MCP
+  at the user's request, 38 minutes before its self-delete deadline.
+- **Confirmation:** `get-pod` returns 404, and `list-pods` and `list-network-volumes` are both empty.
+- **Spend:** the final balance is $17.4427106304, so the study spent **$182.56 of $200**.
+- **Local cleanup:** the OpenCode key file `~/.config/opencode/glm53.key` was removed; that key only worked for the
+  deleted pod. `clients/opencode.jsonc` stays in the repo for the next deployment, which needs its `baseURL` updated to
+  the new pod id.
