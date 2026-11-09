@@ -10,7 +10,8 @@ is in [`FINDINGS.md`](FINDINGS.md), and every table regenerates from raw data wi
 
 - **It works, and quality holds.** One 4x H200 pod running the `gpustack/GLM-5.3-W4A8` checkpoint on stock vLLM v0.33.0
   scores 96.7% on GSM8K (the FP8 reference is 97.1-97.4%) and passes 48/48 tool-call cases. It found every
-  needle from 128K to 1M tokens. GPQA-Diamond: PENDING (Step 7).
+  needle from 128K to 1M tokens. GPQA-Diamond is consistent with the card's 90.3% (97.0% of the answers that fit a
+  32K-token budget, 80.3% counting the 17% that did not).
 - **Capacity: 4 concurrent agent sessions at the SLO with margin, 6 at the edge.** At 4 sessions each user gets 77 tok/s
   (median request) with a 0.7 s median time to first token. At 6 the median request is at 50.0 tok/s, exactly on the
   line.
@@ -47,6 +48,8 @@ is in [`FINDINGS.md`](FINDINGS.md), and every table regenerates from raw data wi
   - Send a real User-Agent.
   - Declare a JSON-schema type for every tool parameter.
   - Keep `clear_thinking=false`, so the history stays byte-stable and the prefix cache keeps hitting.
+  - Give `reasoning_effort=max` a token budget well above 32K, or use `high`. Treat `finish_reason=length` as a retry
+    signal.
   - Pin each session to one pod.
 
 ## The eight questions
@@ -70,7 +73,12 @@ quality evidence:
 | Tool calls, 24 typed cases x stream/non-stream | 48/48 / 48/48 | all must pass |
 | Needles at 128K and 200K (both configs); 512K and 1M (1M profile) | all found | exact retrieval |
 | MTP acceptance on real coding prompts | 2.95 tokens per step at 3 drafts / 3.50 at 5 drafts | InferenceX golden value for GLM-5.3 at 3 drafts: 2.94 |
-| GPQA-Diamond, one pass over 198 questions, max effort | PENDING (Step 7) | card: W4A8 90.28%, FP8 89.65% |
+| GPQA-Diamond, one pass over 198 questions, max effort, 32K token budget | 80.3% raw; 97.0% of the 164 that finished; 34 hit the budget | card: W4A8 90.28%, FP8 89.65% |
+
+**GPQA needs reading carefully.** The raw 80.3% is a token-budget artifact: 17% of the answers were still reasoning at
+32,768 tokens and produced no answer. The true score lies between 80.3% (every truncated answer wrong) and 97.5% (every
+one right), and the card's figures are inside that range. The practical lesson is for clients: max-effort reasoning
+on hard problems averages 13.7K tokens and often needs more than 32K.
 
 The MTP result is a weak quality signal as well as a speed one. Acceptance this close to the golden value is consistent
 with W4A8's output distribution staying close to the reference model's on coding prompts.
@@ -142,6 +150,8 @@ throughput and stretches every user's latency.
 - **Per logical token:** $0.13 per 1M, counting cached prompt tokens; about 8% of them are computed.
 - **Per output token:** $48 per 1M. This is misleading for agents, because each turn emits only 220 tokens against
   80K tokens of context.
+- **Decode-heavy reasoning, for contrast:** GPQA at 32 concurrent max-effort requests averaged 920 output tok/s (about
+  35 tok/s per stream), which is **$6.4 per 1M output tokens**.
 
 **Utilization decides the real price.** A pod billed 24/7 costs $508 per day. Serving 4 sessions for 8 working hours a
 day, the effective price is $15.87 per session-hour, three times the full-load figure. Section 7 covers deleting the pod
@@ -253,7 +263,7 @@ about 4.5 minutes. Keep agent sessions under 256K with context compaction, which
 | First vLLM boot | about 5-6 min | 56 s to read weights, plus compile and CUDA-graph capture, plus pinning 300 GiB of host memory |
 | **Cold start total** | **about 35 min, about $12** | |
 | **Warm restart** (config change or crash; weights and compile cache on disk) | **257 s** to the first real generation | 357 s before the capture cap |
-| Unplanned crash to ready (drill) | PENDING (Step 7) | |
+| Unplanned crash to ready (SIGKILL drill) | **257 s**; clients saw about 270 s of refused connections | The supervisor restarted vLLM 5 s after the kill |
 
 **No network volume.**
 - **It would not be faster.** A standard RunPod network volume reads at about 200-400 MB/s. Hugging Face delivered
@@ -370,5 +380,8 @@ second pod before them, not after: a cold start takes 35 minutes.
 1. **DSpark with an FP8 drafter KV cache**, so it stops halving the KV pool. It gave +27% single-user speed.
 2. **The prefill path.** A BF16 sparse-prefill kernel that works at 16 heads per GPU with DCP would lift the binding
    constraint. Watch vLLM upstream.
-3. **A real agent trace** (your own sessions) to replace the synthetic one in the capacity numbers.
-4. **The high-performance network-volume tier**, if cold starts become frequent.
+3. **The MTP schedule above 16 running requests.** It drops to 1 draft there (acceptance 1.74 on GPQA at c=32). A
+   step at that load verifies only 64 tokens, so 3 drafts may be faster for decode-heavy batch work. This is cheap to
+   test.
+4. **A real agent trace** (your own sessions) to replace the synthetic one in the capacity numbers.
+5. **The high-performance network-volume tier**, if cold starts become frequent.
