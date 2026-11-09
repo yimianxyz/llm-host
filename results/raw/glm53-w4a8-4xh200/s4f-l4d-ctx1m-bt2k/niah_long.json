@@ -1,0 +1,39 @@
+{
+  "task": "niah",
+  "max_model_len": 1048576,
+  "words_per_token": 0.916,
+  "gate_pass": true,
+  "items": [
+    {
+      "length": 131072,
+      "depth": 0.5,
+      "prompt_tokens": 130542,
+      "found": true,
+      "ttft_s": 30.83,
+      "prefill_tok_s": 4235,
+      "decode_tok_s": 11180.9,
+      "answer": "information-team-481"
+    },
+    {
+      "length": 524288,
+      "depth": 0.5,
+      "prompt_tokens": 523973,
+      "found": true,
+      "ttft_s": 135.86,
+      "prefill_tok_s": 3857,
+      "decode_tok_s": 247.6,
+      "answer": "study-life-704"
+    },
+    {
+      "length": 1040000,
+      "depth": 0.5,
+      "prompt_tokens": 1039828,
+      "found": true,
+      "ttft_s": 330.53,
+      "prefill_tok_s": 3146,
+      "decode_tok_s": 1368.4,
+      "answer": "room-house-706"
+    }
+  ],
+  "wall_seconds": 498.3
+}
