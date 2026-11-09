@@ -83,3 +83,25 @@
 2026-11-09 00:39:17 - evalscope - INFO: Loaded 32 conversations
 2026-11-09 00:39:19 - evalscope - INFO: Test connection successful.
 2026-11-09 00:39:19 - evalscope - INFO: Save the data base to: /root/results/s6-final/evalscope/agentic_c16/parallel_16_number_32/benchmark_data.db
+2026-11-09 00:43:39 - evalscope - INFO: {
+  "Test Duration (s)": 259.7913,
+  "Concurrency": 16,
+  "Request Rate (req/s)": -1.0,
+  "Total Requests": 100,
+  "Success Requests": 100,
+  "Failed Requests": 0,
+  "Req Throughput (req/s)": 0.3849,
+  "Avg Latency (s)": 40.7158,
+  "Avg Input Tokens": 76554.41,
+  "Output Throughput (tok/s)": 84.6834,
+  "Total Throughput (tok/s)": 29552.344,
+  "TTFT (ms)": 23301.82,
+  "TPOT (ms)": 79.52,
+  "ITL (ms)": 286.65,
+  "Avg Output Tokens": 220.0,
+  "Avg Turns/Request": 3.67,
+  "KV Cache Hit Rate (%)": 83.069,
+  "Decoded Tok/Iter": 3.6435,
+  "Spec. Accept Rate": 0.7255
+}
+2026-11-09 00:44:27 - evalscope - INFO: Processing[parallel_16_number_32]   3%| 1/32 [Elapsed: 05:08 < Remaining: 2:39:16, 308.27s/it]

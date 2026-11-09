@@ -94,4 +94,33 @@
 Running[perf]:   0%|          | 0/1 [00:00<?, ?it/s]                                                    2026-11-09 00:39:19 - evalscope - [32mINFO[0m: Test connection successful.[0m
 Running[perf]:   0%|          | 0/1 [00:02<?, ?it/s]                                                    2026-11-09 00:39:19 - evalscope - [32mINFO[0m: Save the data base to: /root/results/s6-final/evalscope/agentic_c16/parallel_16_number_32/benchmark_data.db[0m
 Running[perf]:   0%|          | 0/1 [00:02<?, ?it/s]
-Processing[parallel_16_number_32]:   0%|          | 0/32 [00:00<?, ?it/s][A
+Processing[parallel_16_number_32]:   0%|          | 0/32 [00:00<?, ?it/s][A                                                    
+                                                                         [A2026-11-09 00:43:39 - evalscope - [32mINFO[0m: {
+  "Test Duration (s)": 259.7913,
+  "Concurrency": 16,
+  "Request Rate (req/s)": -1.0,
+  "Total Requests": 100,
+  "Success Requests": 100,
+  "Failed Requests": 0,
+  "Req Throughput (req/s)": 0.3849,
+  "Avg Latency (s)": 40.7158,
+  "Avg Input Tokens": 76554.41,
+  "Output Throughput (tok/s)": 84.6834,
+  "Total Throughput (tok/s)": 29552.344,
+  "TTFT (ms)": 23301.82,
+  "TPOT (ms)": 79.52,
+  "ITL (ms)": 286.65,
+  "Avg Output Tokens": 220.0,
+  "Avg Turns/Request": 3.67,
+  "KV Cache Hit Rate (%)": 83.069,
+  "Decoded Tok/Iter": 3.6435,
+  "Spec. Accept Rate": 0.7255
+}[0m
+Running[perf]:   0%|          | 0/1 [04:22<?, ?it/s]
+Processing[parallel_16_number_32]:   0%|          | 0/32 [04:19<?, ?it/s][A
+Processing[parallel_16_number_32]:   3%|▎         | 1/32 [05:08<2:39:16, 308.27s/it][A                                                    
+                                                                                    [A2026-11-09 00:44:27 - evalscope - [32mINFO[0m: Processing[parallel_16_number_32]   3%| 1/32 [Elapsed: 05:08 < Remaining: 2:39:16, 308.27s/it][0m
+Running[perf]:   0%|          | 0/1 [05:10<?, ?it/s]
+Processing[parallel_16_number_32]:   3%|▎         | 1/32 [05:08<2:39:16, 308.27s/it][A
+Processing[parallel_16_number_32]:   6%|▋         | 2/32 [05:09<1:03:52, 127.76s/it][A
+Processing[parallel_16_number_32]:   9%|▉         | 3/32 [05:14<34:31, 71.43s/it]   [A
