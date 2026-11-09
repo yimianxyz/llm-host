@@ -127,3 +127,95 @@
   "Decoded Tok/Iter": 3.7453,
   "Spec. Accept Rate": 0.733
 }
+2026-11-09 00:47:21 - evalscope - INFO: Processing[parallel_16_number_32]  44%| 14/32 [Elapsed: 08:02 < Remaining: 08:29, 28.31s/it]
+2026-11-09 00:48:50 - evalscope - INFO: {
+  "Test Duration (s)": 570.6866,
+  "Concurrency": 16,
+  "Request Rate (req/s)": -1.0,
+  "Total Requests": 300,
+  "Success Requests": 300,
+  "Failed Requests": 0,
+  "Req Throughput (req/s)": 0.5257,
+  "Avg Latency (s)": 30.2111,
+  "Avg Input Tokens": 78708.4833,
+  "Output Throughput (tok/s)": 115.6502,
+  "Total Throughput (tok/s)": 41491.3316,
+  "TTFT (ms)": 13167.44,
+  "TPOT (ms)": 77.82,
+  "ITL (ms)": 285.2,
+  "Avg Output Tokens": 220.0,
+  "Avg Turns/Request": 5.9433,
+  "KV Cache Hit Rate (%)": 88.4487,
+  "Decoded Tok/Iter": 3.7753,
+  "Spec. Accept Rate": 0.7351
+}
+2026-11-09 00:49:44 - evalscope - INFO: Processing[parallel_16_number_32]  53%| 17/32 [Elapsed: 10:25 < Remaining: 11:35, 46.34s/it]
+2026-11-09 00:49:49 - evalscope - INFO: {
+  "Test Duration (s)": 629.8885,
+  "Concurrency": 16,
+  "Request Rate (req/s)": -1.0,
+  "Total Requests": 400,
+  "Success Requests": 400,
+  "Failed Requests": 0,
+  "Req Throughput (req/s)": 0.635,
+  "Avg Latency (s)": 25.0401,
+  "Avg Input Tokens": 79526.47,
+  "Output Throughput (tok/s)": 139.7073,
+  "Total Throughput (tok/s)": 50641.6453,
+  "TTFT (ms)": 10492.58,
+  "TPOT (ms)": 66.43,
+  "ITL (ms)": 246.71,
+  "Avg Output Tokens": 220.0,
+  "Avg Turns/Request": 6.805,
+  "KV Cache Hit Rate (%)": 91.0027,
+  "Decoded Tok/Iter": 3.8016,
+  "Spec. Accept Rate": 0.737
+}
+2026-11-09 00:49:59 - evalscope - INFO: Processing[parallel_16_number_32] 100%| 32/32 [Elapsed: 10:40 < Remaining: 00:00,  2.47s/it]
+2026-11-09 00:49:59 - evalscope - INFO: 
+Benchmarking summary:
+┌────────────────────────────┬───────────────┐
+│ Metric                     │         Value │
+├────────────────────────────┼───────────────┤
+│ ── General ──              │               │
+│ Test Duration (s)          │        639.99 │
+│ Concurrency                │            16 │
+│ Request Rate (req/s)       │         -1.00 │
+│ Total / Success / Failed   │ 416 / 416 / 0 │
+│ Req Throughput (req/s)     │          0.65 │
+│ ── Latency ──              │               │
+│ Avg Latency (s)            │         24.24 │
+│ TTFT (ms)                  │      10139.18 │
+│ TPOT (ms)                  │         64.39 │
+│ ITL (ms)                   │        240.72 │
+│ ── Tokens ──               │               │
+│ Avg Input Tokens           │      79692.79 │
+│ Avg Output Tokens          │        220.00 │
+│ Output Throughput (tok/s)  │        143.00 │
+│ Total Throughput (tok/s)   │      51943.90 │
+│ ── Multi-turn ──           │               │
+│ Avg Turns/Request          │          7.00 │
+│ KV Cache Hit Rate (%)      │         91.31 │
+│ ── Speculative Decoding ── │               │
+│ Decoded Tok/Iter           │          3.83 │
+│ Spec. Accept Rate          │          0.74 │
+└────────────────────────────┴───────────────┘
+2026-11-09 00:49:59 - evalscope - INFO: 
+Percentile results:
+┌────────────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬───────────┐
+│ Metric         │       1% │       5% │      10% │      25% │      50% │      75% │      90% │      95% │       99% │
+├────────────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼───────────┤
+│ Latency (s)    │     2.08 │     7.90 │     8.29 │     8.77 │     9.70 │    11.53 │    75.38 │   124.55 │    208.41 │
+│ TTFT (ms)      │   538.86 │  1193.74 │  1499.49 │  1893.85 │  2377.46 │  3092.82 │ 23475.70 │ 63341.84 │ 153317.92 │
+│ ITL (ms)       │     5.21 │    26.01 │    32.82 │    51.22 │    57.50 │   349.70 │   453.23 │  1405.43 │   1427.52 │
+│ TPOT (ms)      │     7.19 │    23.71 │    27.72 │    30.34 │    32.68 │    37.13 │   137.25 │   309.07 │    443.02 │
+│ Input tokens   │ 74173.00 │ 74173.00 │ 74940.00 │ 76661.00 │ 79748.00 │ 82727.00 │ 84662.00 │ 85453.00 │  85701.00 │
+│ Output tokens  │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │    220.00 │
+│ Output (tok/s) │     1.06 │     1.77 │     2.92 │    19.10 │    22.69 │    25.10 │    26.53 │    27.84 │    105.68 │
+│ Total (tok/s)  │   356.96 │   608.61 │  1104.14 │  6926.19 │  8276.70 │  9121.94 │  9730.84 │ 10246.54 │  39006.09 │
+│ Decode (tok/s) │     2.26 │     3.24 │     7.29 │    27.03 │    30.60 │    33.00 │    36.08 │    42.17 │    139.08 │
+└────────────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴───────────┘
+2026-11-09 00:49:59 - evalscope - INFO: Save the summary to: /root/results/s6-final/evalscope/agentic_c16/parallel_16_number_32
+2026-11-09 00:49:59 - evalscope - INFO: Running[perf] 100%| 1/1 [Elapsed: 10:42 < Remaining: 00:00, 642.39s/it]
+2026-11-09 00:49:59 - evalscope - INFO: Performance summary saved to: /root/results/s6-final/evalscope/agentic_c16/performance_summary.txt
+2026-11-09 00:50:00 - evalscope - INFO: HTML report generated: /root/results/s6-final/evalscope/agentic_c16/perf_report.html
