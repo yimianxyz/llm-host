@@ -1,0 +1,40 @@
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Performance Test Summary Report                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Basic Information:
+┌───────────────────────┬──────────────────────────────────────────────────────┐
+│ Model                 │ glm-5.3                                              │
+│ Test Dataset          │ swe_smith                                            │
+│ API Type              │ openai                                               │
+│ Total Generated       │ 11,440.0 tokens                                      │
+│ Avg Output Rate       │ 85.29 tokens/sec                                     │
+│ Total Test Time       │ 134.13 seconds                                       │
+│ Output Path           │ /root/results/s6-final/evalscope/agentic_c1          │
+└───────────────────────┴──────────────────────────────────────────────────────┘
+
+
+                                         Detailed Performance Metrics                                         
+┏━━━━━━┳━━━━━━┳━━━━━┳━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━┓
+┃      ┃      ┃     ┃      ┃     Avg ┃     P99 ┃      Avg ┃      P99 ┃      Avg ┃      P99 ┃   Gen. ┃ Success┃
+┃Conc. ┃ Rate ┃ Num ┃  RPS ┃ Lat.(s) ┃ Lat.(s) ┃ TTFT(ms) ┃ TTFT(ms) ┃ TPOT(ms) ┃ TPOT(ms) ┃ toks/s ┃    Rate┃
+┡━━━━━━╇━━━━━━╇━━━━━╇━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━┩
+│    1 │  INF │  52 │ 0.39 │   2.576 │  14.530 │   1451.5 │  13166.7 │      5.1 │      8.0 │  85.29 │  100.0%│
+└──────┴──────┴─────┴──────┴─────────┴─────────┴──────────┴──────────┴──────────┴──────────┴────────┴────────┘
+
+
+                                                Request Metrics                                                
+┏━━━━━━┳━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━┓
+┃      ┃     ┃  Avg In ┃  P99 In ┃ Avg Out ┃ P99 Out ┃       Avg ┃    Approx ┃ Decode ┃  Decoded ┃       Spec.┃
+┃Conc. ┃ Num ┃    Toks ┃    Toks ┃    Toks ┃    Toks ┃ Turns/Req ┃ Cache Hit ┃ toks/s ┃ Tok/Iter ┃ Accept Rate┃
+┡━━━━━━╇━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━┩
+│    1 │  52 │ 79697.9 │ 85714.0 │   220.0 │   220.0 │      7.00 │     91.5% │ 194.55 │     5.16 │       80.6%│
+└──────┴─────┴─────────┴─────────┴─────────┴─────────┴───────────┴───────────┴────────┴──────────┴────────────┘
+
+
+               Best Performance Configuration               
+ Highest RPS         Concurrency 1 (0.39 req/sec)           
+ Lowest Latency      Concurrency 1 (2.576 seconds)          
+
+Performance Recommendations:
+• The system seems not to have reached its performance bottleneck, try higher concurrency

@@ -84,3 +84,15 @@ long_stream: PASS
 + AGENTIC_OFFSET=100
 + AGENTIC_TIMEOUT=1800
 + bash evals/bench.sh agentic 1 2 4 6 8 16
+evalscope exit=0 c=1 n=4 offset=100
+{
+  "mtp_acceptance_length": 5.016,
+  "mtp_acceptance_rate": 0.803,
+  "prefix_cache_hit_rate": 0.9146,
+  "external_prefix_cache_hit_rate": 0.0,
+  "preemptions": 0.0,
+  "prompt_tokens": 4144303.0,
+  "generation_tokens": 11660.0,
+  "requests_finished": 53.0,
+  "kv_cache_usage_perc_end": 0.0
+}
