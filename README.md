@@ -4,18 +4,20 @@ GLM-5.3 (753B MoE) served for agentic coding on **one RunPod pod with 4x H200 SX
 
 - **Checkpoint:** `gpustack/GLM-5.3-W4A8`
 - **Engine:** vLLM v0.33.0
-- **Parallelism:** TP4 + EP
-- **KV cache:** FP8 sparse-MLA
-- **Speculative decoding:** MTP
+- **Parallelism:** TP4 + EP + decode context parallel 4
+- **KV cache:** FP8 sparse-MLA, plus a 300 GiB host-memory tier
+- **Speculative decoding:** MTP with a per-batch-size draft schedule
 
-It runs at $21.16/hr and is measured with an evidence-driven eval suite. Why each choice was made: [docs/DESIGN.md](docs/DESIGN.md).
-What was measured: [results/FINDINGS.md](results/FINDINGS.md).
+It runs at $21.16/hr. The config is [`deploy/configs/recommended.args`](deploy/configs/recommended.args).
+- **Results** and the answers to the eight design questions: [results/REPORT.md](results/REPORT.md).
+- **Why each choice was made:** [docs/DESIGN.md](docs/DESIGN.md).
+- **The step-by-step measurement log:** [results/FINDINGS.md](results/FINDINGS.md).
 
 ## Layout
 
 | Path | What |
 |---|---|
-| `deploy/configs/*.args` | vLLM flags, one per line. `B0.args` is the baseline; every experiment is a new file |
+| `deploy/configs/*.args` | vLLM flags, one per line. `recommended.args` is the result; `B0.args` the starting point; every experiment is a new file |
 | `deploy/start.sh` | Pod PID 1: deadline watchdog, sshd, weights download, vLLM restart loop |
 | `deploy/pod.py` | Renders and creates the pod over RunPod REST v2 (same API as the RunPod MCP) |
 | `deploy/push.sh`, `deploy/runner.sh` | Ship code and jobs to the pod; the on-pod job queue (idle = soak) |
@@ -31,7 +33,7 @@ What was measured: [results/FINDINGS.md](results/FINDINGS.md).
 1. **Credentials.** Copy `.env.example` to `.env` and fill in `RUNPOD_API_KEY` and `HF_TOKEN`. `VLLM_API_KEY` is generated.
 2. **One-time account setup.** Run `python3 deploy/pod.py ensure-ssh-key && python3 deploy/pod.py ensure-secrets`.
 3. **Check stock.** Run `python3 deploy/pod.py stock --gpu-id "NVIDIA H200" --count 4`.
-4. **Create the pod.** Run `python3 deploy/pod.py create --config deploy/configs/B0.args`. Or use the RunPod MCP `create-pod` with the body from `pod.py render`.
+4. **Create the pod.** Run `python3 deploy/pod.py create --config deploy/configs/recommended.args`. Or use the RunPod MCP `create-pod` with the body from `pod.py render`.
 5. **Start the session.**
    - Wait for SSH: `python3 deploy/pod.py ssh $POD_ID`, which writes `.env.pod`.
    - Then run `deploy/push.sh` and `deploy/sync.sh --loop &`.
