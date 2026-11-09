@@ -231,3 +231,26 @@ bench exit=0 c=64 n=128
   "gate_pass": true,
   "wall_seconds": 183.2
 }
+{
+  "task": "gsm8k",
+  "n": 1319,
+  "accuracy": 0.9689,
+  "gate_pass": true,
+  "effort": "high",
+  "seconds": 483.9,
+  "mean_completion_tokens": 164,
+  "truncated": 2,
+  "wall_seconds": 486.1
+}
+bench exit=0
+{
+  "mtp_acceptance_length": 3.501,
+  "mtp_acceptance_rate": 0.5,
+  "prefix_cache_hit_rate": 0.0,
+  "external_prefix_cache_hit_rate": 0.0,
+  "preemptions": 0.0,
+  "prompt_tokens": 15682.0,
+  "generation_tokens": 47710.0,
+  "requests_finished": 64.0,
+  "kv_cache_usage_perc_end": 0.0
+}

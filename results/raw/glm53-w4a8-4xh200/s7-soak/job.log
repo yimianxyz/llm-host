@@ -1,0 +1,7 @@
++ cp /root/serve.args /root/results/s7-soak/applied.args
++ setsid bash evals/bench.sh probe 21600 30
++ bash evals/bench.sh gpqa
++ setsid bash -c 'while true; do
+  echo "$(date +%s),$(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits | paste -sd,),$(ps -eo rss= | awk "{s+=\$1} END {print int(s/1024)}")" >> "$0/mem.csv"
+  sleep 60; done' /root/results/s7-soak
+Generating train split:   0%|          | 0/198 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 198/198 [00:00<00:00, 11946.49 examples/s]
