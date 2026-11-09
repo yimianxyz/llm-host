@@ -24,6 +24,7 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s4e-l5c-l4-ctx1m | 4 | 104 | 0 | 571.09 | 2038.48 | 48386.3 | 10.95 | 22.09 | 40.69 | 889.93 | 91.3 | 55.8 | 3.54 | 63.5 | 31.5 | 111.32 | 10110 | 0.9145 | 5.093 | 0.0 | True | 5.29 | 52.8 |
 | s5a-l7-dspark | 1 | 52 | 0 | 457.37 | 524.97 | 15240.92 | 3.61 | 4.27 | 25.75 | 27.35 | 277.0 | 21.2 | 3.92 | 185.0 | 156.4 | 87.0677 | 7911 | 0.9161 | 5.868 | 0.0 | True | 21.16 | 67.51 |
 | s5a-l7-dspark | 4 | 104 | 0 | 545.38 | 971.07 | 46397.86 | 8.41 | 20.4 | 41.95 | 1666.7 | 118.9 | 48.9 | 3.92 | 80.2 | 33.0 | 117.233 | 10650 | 0.916 | 5.812 | 0.0 | True | 5.29 | 50.14 |
+| s6-final | 1 | 52 | 0 | 479.74 | 532.3 | 13166.7 | 4.78 | 5.14 | 26.55 | 27.77 | 209.2 | 24.0 | 3.54 | 147.7 | 137.4 | 85.2919 | 7746 | 0.9146 | 5.016 | 0.0 | True | 21.16 | 68.91 |
 
 ## Max sessions at SLO per step
 | step | max_sessions_at_slo | usd_per_session_hr |
@@ -35,6 +36,7 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s4b-l5p-prefill16k | 1 | 21.16 |
 | s4e-l5c-l4-ctx1m | 4 | 5.29 |
 | s5a-l7-dspark | 4 | 5.29 |
+| s6-final | 1 | 21.16 |
 
 ## Reference shape (random 8192/1024, vllm bench serve)
 | step | c | n | in | failed | ttft_p50_ms | ttft_p90_ms | tpot_p50_ms | tpot_p90_ms | itl_p50_ms | interactivity | out_tok_s | total_tok_s_per_gpu | goodput_rps | mtp_al | usd_per_m_out |
@@ -43,6 +45,7 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s3b-reference | 1 | 8 | 8192 | 0 | 1402 | 1412 | 13.86 | 21.04 | 22.17 | 72.1 | 64 | 144 | 0.063 | 1.395 | 91.79 |
 | s3b-reference | 16 | 64 | 8192 | 0 | 1575 | 13616 | 51.22 | 78.9 | 51.54 | 19.5 | 257 | 579 | 0.157 | 1.361 | 22.84 |
 | s3b-reference | 64 | 128 | 8192 | 0 | 5178 | 71439 | 109.5 | 214.61 | 91.43 | 9.1 | 390 | 877 | 0.024 | 1.371 | 15.08 |
+| s4f-l4d-ctx1m-bt2k | 1 | 1 | 1040000 | 0 | 335349 | 335349 | 21.86 | 21.86 | 23.88 | 45.7 | 1 | 763 | 0 | 1.016 | 7828.07 |
 
 ## Quality, MTP acceptance, restarts, KV capacity
 | step | file | result |
@@ -72,11 +75,13 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s4e-l5c-l4-ctx1m | gsm8k.json | acc 0.985 n=200 gate=True tokens=133 |
 | s4e-l5c-l4-ctx1m | niah.json | 130564 tok d=0.5 found=True ttft=28.8s prefill=4534 tok/s decode=185.0 tok/s |
 | s4e-l5c-l4-ctx1m | toolcalls.json | 48/48 gate=True info={'info_untyped_json_null': False, 'info_untyped_json_null/stream': False, 'info_untyped_json_number': False, 'info_untyped_json_number/stream': False, 'info_untyped_json_bool': False, 'info_untyped_json_bool/stream': False, 'info_untyped_json_nested': False, 'info_untyped_json_nested/stream': False, 'info_markers_in_prose_vllm_64326': False, 'info_markers_in_prose_vllm_64326/stream': False, 'info_empty_props_oneof_glm5_169': False, 'info_empty_props_oneof_glm5_169/stream': False} |
+| s4f-l4d-ctx1m-bt2k | apply.json | restart to ready 269 s |
 | s5a-l7-dspark | apply.json | restart to ready 316 s |
 | s5a-l7-dspark | gsm8k.json | acc 0.985 n=200 gate=True tokens=125 |
 | s5a-l7-dspark | mtp_al.json | AL 3.918090159153404 rate 36.47612698941755 tpot 13.07 ms |
 | s5a-l7-dspark | niah.json | 130589 tok d=0.5 found=True ttft=27.28s prefill=4787 tok/s decode=284.7 tok/s |
 | s5a-l7-dspark | toolcalls.json | 48/48 gate=True info={'info_untyped_json_null': False, 'info_untyped_json_null/stream': False, 'info_untyped_json_number': False, 'info_untyped_json_number/stream': False, 'info_untyped_json_bool': False, 'info_untyped_json_bool/stream': False, 'info_untyped_json_nested': False, 'info_untyped_json_nested/stream': False, 'info_markers_in_prose_vllm_64326': False, 'info_markers_in_prose_vllm_64326/stream': False, 'info_empty_props_oneof_glm5_169': False, 'info_empty_props_oneof_glm5_169/stream': False} |
+| s6-final | apply.json | restart to ready 257 s |
 | r01-rehearsal | boot_facts | GPU KV cache size: 362,096 tokens, Maximum concurrency for 32,768 tokens per request: 11.05x |
 | s1e-apply-b2 | boot_facts | GPU KV cache size: 895,232 tokens, Maximum concurrency for 262,144 tokens per request: 3.42x |
 | s1f-apply-b4 | boot_facts | GPU KV cache size: 1,042,944 tokens, Maximum concurrency for 262,144 tokens per request: 3.98x |
@@ -84,6 +89,8 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s4b-l5p-prefill16k | boot_facts | GPU KV cache size: 785,664 tokens, Maximum concurrency for 262,144 tokens per request: 3.00x |
 | s4c-l2-offload | boot_facts | GPU KV cache size: 965,376 tokens, Maximum concurrency for 262,144 tokens per request: 3.68x |
 | s4e-l5c-l4-ctx1m | boot_facts | GPU KV cache size: 1,292,032 tokens, Maximum concurrency for 262,144 tokens per request: 4.93x |
+| s4f-l4d-ctx1m-bt2k | boot_facts | GPU KV cache size: 1,230,848 tokens, Maximum concurrency for 1,048,576 tokens per request: 1.17x |
 | s5a-l7-dspark | boot_facts | GPU KV cache size: 484,557 tokens, Maximum concurrency for 262,144 tokens per request: 1.85x |
+| s6-final | boot_facts | GPU KV cache size: 1,169,664 tokens, Maximum concurrency for 262,144 tokens per request: 4.46x |
 
 ![pareto](pareto.png)
