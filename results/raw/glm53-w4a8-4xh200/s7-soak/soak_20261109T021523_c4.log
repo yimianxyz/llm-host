@@ -100,3 +100,125 @@
 Running[perf]:   0%|          | 0/1 [01:29<?, ?it/s]
 Processing[parallel_4_number_8]:  12%|█▎        | 1/8 [01:27<10:10, 87.16s/it][A
 Processing[parallel_4_number_8]:  25%|██▌       | 2/8 [01:41<04:24, 44.13s/it][A
+Processing[parallel_4_number_8]:  38%|███▊      | 3/8 [01:54<02:30, 30.04s/it][A
+Processing[parallel_4_number_8]:  50%|█████     | 4/8 [02:05<01:30, 22.70s/it][A
+Processing[parallel_4_number_8]:  62%|██████▎   | 5/8 [02:56<01:37, 32.66s/it][A                                                    
+                                                                              [A2026-11-09 02:18:22 - evalscope - [32mINFO[0m: Processing[parallel_4_number_8]  62%| 5/8 [Elapsed: 02:56 < Remaining: 01:37, 32.66s/it][0m
+Running[perf]:   0%|          | 0/1 [02:58<?, ?it/s]
+Processing[parallel_4_number_8]:  62%|██████▎   | 5/8 [02:56<01:37, 32.66s/it][A                                                    
+                                                                              [A2026-11-09 02:18:22 - evalscope - [32mINFO[0m: {
+  "Test Duration (s)": 176.1942,
+  "Concurrency": 4,
+  "Request Rate (req/s)": -1.0,
+  "Total Requests": 100,
+  "Success Requests": 100,
+  "Failed Requests": 0,
+  "Req Throughput (req/s)": 0.5676,
+  "Avg Latency (s)": 7.0278,
+  "Avg Input Tokens": 79474.55,
+  "Output Throughput (tok/s)": 124.8623,
+  "Total Throughput (tok/s)": 45231.0977,
+  "TTFT (ms)": 2629.95,
+  "TPOT (ms)": 20.08,
+  "ITL (ms)": 101.1,
+  "Avg Output Tokens": 220.0,
+  "Avg Turns/Request": 6.78,
+  "KV Cache Hit Rate (%)": 91.1362,
+  "Decoded Tok/Iter": 5.2479,
+  "Spec. Accept Rate": 0.8094
+}[0m
+Running[perf]:   0%|          | 0/1 [02:58<?, ?it/s]
+Processing[parallel_4_number_8]:  62%|██████▎   | 5/8 [02:56<01:37, 32.66s/it][A
+Processing[parallel_4_number_8]:  88%|████████▊ | 7/8 [02:58<00:16, 16.74s/it][A
+Processing[parallel_4_number_8]: 100%|██████████| 8/8 [02:59<00:00, 12.48s/it][A                                                    
+                                                                              [A2026-11-09 02:18:26 - evalscope - [32mINFO[0m: Processing[parallel_4_number_8] 100%| 8/8 [Elapsed: 02:59 < Remaining: 00:00, 12.48s/it][0m
+Running[perf]:   0%|          | 0/1 [03:01<?, ?it/s]
+Processing[parallel_4_number_8]: 100%|██████████| 8/8 [02:59<00:00, 12.48s/it][AProcessing[parallel_4_number_8]: 100%|██████████| 8/8 [02:59<00:00, 22.45s/it]
+                                                    2026-11-09 02:18:26 - evalscope - [32mINFO[0m: 
+Benchmarking summary:
+┌────────────────────────────┬───────────────┐
+│ Metric                     │         Value │
+├────────────────────────────┼───────────────┤
+│ ── General ──              │               │
+│ Test Duration (s)          │        179.51 │
+│ Concurrency                │             4 │
+│ Request Rate (req/s)       │         -1.00 │
+│ Total / Success / Failed   │ 104 / 104 / 0 │
+│ Req Throughput (req/s)     │          0.58 │
+│ ── Latency ──              │               │
+│ Avg Latency (s)            │          6.83 │
+│ TTFT (ms)                  │       2548.48 │
+│ TPOT (ms)                  │         19.55 │
+│ ITL (ms)                   │         98.95 │
+│ ── Tokens ──               │               │
+│ Avg Input Tokens           │      79674.71 │
+│ Avg Output Tokens          │        220.00 │
+│ Output Throughput (tok/s)  │        127.46 │
+│ Total Throughput (tok/s)   │      46288.19 │
+│ ── Multi-turn ──           │               │
+│ Avg Turns/Request          │          7.00 │
+│ KV Cache Hit Rate (%)      │         91.45 │
+│ ── Speculative Decoding ── │               │
+│ Decoded Tok/Iter           │          5.27 │
+│ Spec. Accept Rate          │          0.81 │
+└────────────────────────────┴───────────────┘[0m
+Running[perf]:   0%|          | 0/1 [03:01<?, ?it/s]                                                    2026-11-09 02:18:26 - evalscope - [32mINFO[0m: 
+Percentile results:
+┌────────────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
+│ Metric         │       1% │       5% │      10% │      25% │      50% │      75% │      90% │      95% │      99% │
+├────────────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+│ Latency (s)    │     1.89 │     2.30 │     2.52 │     2.74 │     2.85 │     3.29 │    15.01 │    40.94 │    54.00 │
+│ TTFT (ms)      │   480.84 │   501.05 │   510.66 │   541.68 │   571.87 │   977.26 │  1101.64 │ 13663.25 │ 39659.33 │
+│ ITL (ms)       │     1.26 │    10.87 │    27.20 │    37.60 │    39.87 │    40.57 │    46.39 │   383.82 │  1426.76 │
+│ TPOT (ms)      │     6.26 │     7.68 │     7.87 │     8.24 │    10.19 │    12.16 │    20.70 │   114.43 │   174.09 │
+│ Input tokens   │ 74173.00 │ 74173.00 │ 74930.00 │ 76726.00 │ 79656.00 │ 82629.00 │ 84551.00 │ 85405.00 │ 85557.00 │
+│ Output tokens  │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │
+│ Output (tok/s) │     4.07 │     5.37 │    14.65 │    68.24 │    77.92 │    80.27 │    87.42 │    95.50 │   116.66 │
+│ Total (tok/s)  │  1377.76 │  1817.17 │  5699.30 │ 23903.50 │ 28069.37 │ 30188.57 │ 31739.12 │ 35702.28 │ 45069.49 │
+│ Decode (tok/s) │     5.74 │     8.74 │    48.32 │    87.21 │    98.37 │   122.29 │   127.07 │   130.17 │   159.66 │
+└────────────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┘[0m
+Running[perf]:   0%|          | 0/1 [03:01<?, ?it/s]                                                    2026-11-09 02:18:26 - evalscope - [32mINFO[0m: Save the summary to: /root/results/s7-soak/evalscope/soak_20261109T021523_c4/parallel_4_number_8[0m
+Running[perf]:   0%|          | 0/1 [03:01<?, ?it/s]Running[perf]: 100%|██████████| 1/1 [03:01<00:00, 181.86s/it]                                                             2026-11-09 02:18:26 - evalscope - [32mINFO[0m: Running[perf] 100%| 1/1 [Elapsed: 03:01 < Remaining: 00:00, 181.86s/it][0m
+Running[perf]: 100%|██████████| 1/1 [03:01<00:00, 181.86s/it]Running[perf]: 100%|██████████| 1/1 [03:01<00:00, 181.86s/it]
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Performance Test Summary Report                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Basic Information:
+┌───────────────────────┬──────────────────────────────────────────────────────┐
+│ Model                 │ glm-5.3                                              │
+│ Test Dataset          │ swe_smith                                            │
+│ API Type              │ openai                                               │
+│ Total Generated       │ 22,880.0 tokens                                      │
+│ Avg Output Rate       │ 127.46 tokens/sec                                    │
+│ Total Test Time       │ 179.51 seconds                                       │
+│ Output Path           │ /root/results/s7-soak/evalscope/soak_20261109T02152… │
+└───────────────────────┴──────────────────────────────────────────────────────┘
+
+
+                                         Detailed Performance Metrics                                         
+┏━━━━━━┳━━━━━━┳━━━━━┳━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━┓
+┃      ┃      ┃     ┃      ┃     Avg ┃     P99 ┃      Avg ┃      P99 ┃      Avg ┃      P99 ┃   Gen. ┃ Success┃
+┃Conc. ┃ Rate ┃ Num ┃  RPS ┃ Lat.(s) ┃ Lat.(s) ┃ TTFT(ms) ┃ TTFT(ms) ┃ TPOT(ms) ┃ TPOT(ms) ┃ toks/s ┃    Rate┃
+┡━━━━━━╇━━━━━━╇━━━━━╇━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━┩
+│    4 │  INF │ 104 │ 0.58 │   6.830 │  54.000 │   2548.5 │  39659.3 │     19.6 │    174.1 │ 127.46 │  100.0%│
+└──────┴──────┴─────┴──────┴─────────┴─────────┴──────────┴──────────┴──────────┴──────────┴────────┴────────┘
+
+
+                                                Request Metrics                                                
+┏━━━━━━┳━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━┓
+┃      ┃     ┃  Avg In ┃  P99 In ┃ Avg Out ┃ P99 Out ┃       Avg ┃    Approx ┃ Decode ┃  Decoded ┃       Spec.┃
+┃Conc. ┃ Num ┃    Toks ┃    Toks ┃    Toks ┃    Toks ┃ Turns/Req ┃ Cache Hit ┃ toks/s ┃ Tok/Iter ┃ Accept Rate┃
+┡━━━━━━╇━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━┩
+│    4 │ 104 │ 79674.7 │ 85557.0 │   220.0 │   220.0 │      7.00 │     91.4% │  51.15 │     5.27 │       81.0%│
+└──────┴─────┴─────────┴─────────┴─────────┴─────────┴───────────┴───────────┴────────┴──────────┴────────────┘
+
+
+               Best Performance Configuration               
+ Highest RPS         Concurrency 4 (0.58 req/sec)           
+ Lowest Latency      Concurrency 4 (6.830 seconds)          
+
+Performance Recommendations:
+• The system seems not to have reached its performance bottleneck, try higher concurrency
+2026-11-09 02:18:26 - evalscope - [32mINFO[0m: Performance summary saved to: /root/results/s7-soak/evalscope/soak_20261109T021523_c4/performance_summary.txt[0m
+2026-11-09 02:18:26 - evalscope - [32mINFO[0m: HTML report generated: /root/results/s7-soak/evalscope/soak_20261109T021523_c4/perf_report.html[0m

@@ -50,3 +50,31 @@ soak exit=0 c=2 minutes=15
 }
 + for c in ${SOAK_LEVELS:-2 4 5 6}
 + bash evals/bench.sh soak-block 4 15
+soak exit=0 c=4 minutes=15
+{
+  "mtp_acceptance_length": 5.111,
+  "mtp_acceptance_rate": 0.827,
+  "prefix_cache_hit_rate": 0.9144,
+  "external_prefix_cache_hit_rate": 0.0,
+  "preemptions": 0.0,
+  "prompt_tokens": 8286279.0,
+  "generation_tokens": 23125.0,
+  "requests_finished": 111.0,
+  "kv_cache_usage_perc_end": 0.0
+}
++ for c in ${SOAK_LEVELS:-2 4 5 6}
++ bash evals/bench.sh soak-block 5 15
+soak exit=0 c=5 minutes=15
+{
+  "mtp_acceptance_length": 4.18,
+  "mtp_acceptance_rate": 0.898,
+  "prefix_cache_hit_rate": 0.9146,
+  "external_prefix_cache_hit_rate": 0.0,
+  "preemptions": 0.0,
+  "prompt_tokens": 10362930.0,
+  "generation_tokens": 28838.0,
+  "requests_finished": 136.0,
+  "kv_cache_usage_perc_end": 0.0
+}
++ for c in ${SOAK_LEVELS:-2 4 5 6}
++ bash evals/bench.sh soak-block 6 15

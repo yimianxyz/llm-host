@@ -1,0 +1,156 @@
+2026-11-09 02:18:28 - evalscope - INFO: Starting benchmark with args: 
+2026-11-09 02:18:28 - evalscope - INFO: {
+    "model": "glm-5.3",
+    "model_id": "glm-5.3",
+    "attn_implementation": null,
+    "api": "openai",
+    "tokenizer_path": null,
+    "port": 8877,
+    "url": "http://127.0.0.1:8000/v1/chat/completions",
+    "headers": {
+        "Authorization": "Bearer 3f3f6862a670761a65b591adef5f4195aabb95826c6725f9"
+    },
+    "connect_timeout": null,
+    "read_timeout": null,
+    "total_timeout": 21600,
+    "api_key": "3f3f6862a670761a65b591adef5f4195aabb95826c6725f9",
+    "no_test_connection": false,
+    "number": 10,
+    "parallel": 5,
+    "rate": -1.0,
+    "open_loop": false,
+    "sleep_interval": 5,
+    "sla_auto_tune": false,
+    "sla_variable": "parallel",
+    "sla_params": null,
+    "sla_num_runs": 3,
+    "sla_upper_bound": 65536,
+    "sla_lower_bound": 1,
+    "sla_fixed_parallel": null,
+    "sla_number_multiplier": null,
+    "db_commit_interval": 1000,
+    "queue_size_multiplier": 5,
+    "in_flight_task_multiplier": 2,
+    "log_every_n_query": 100,
+    "debug": false,
+    "enable_progress_tracker": false,
+    "visualizer": null,
+    "wandb_api_key": null,
+    "swanlab_api_key": null,
+    "name": "soak_20261109T021827_c5",
+    "outputs_dir": "/root/results/s7-soak/evalscope/soak_20261109T021827_c5",
+    "no_timestamp": true,
+    "max_prompt_length": 131072,
+    "min_prompt_length": 0,
+    "prefix_length": 0,
+    "prompt": null,
+    "query_template": null,
+    "apply_chat_template": true,
+    "image_width": 224,
+    "image_height": 224,
+    "image_format": "RGB",
+    "image_num": 1,
+    "image_patch_size": 28,
+    "dataset": "swe_smith",
+    "dataset_path": "/root/data/openhand-zai-org-GLM-5.3-256.json",
+    "dataset_offset": 228,
+    "frequency_penalty": null,
+    "repetition_penalty": null,
+    "logprobs": null,
+    "max_tokens": 220,
+    "min_tokens": null,
+    "n_choices": null,
+    "seed": null,
+    "stop": null,
+    "stop_token_ids": null,
+    "stream": true,
+    "temperature": 0.0,
+    "top_p": null,
+    "top_k": null,
+    "extra_args": {
+        "ignore_eos": true
+    },
+    "tokenize_prompt": false,
+    "multi_turn": true,
+    "min_turns": 1,
+    "max_turns": null,
+    "multi_turn_args": null
+}
+2026-11-09 02:18:28 - evalscope - INFO: Loading conversations from dataset: swe_smith
+2026-11-09 02:18:28 - evalscope - INFO: Loading pre-built dataset from /root/data/openhand-zai-org-GLM-5.3-256.json
+2026-11-09 02:18:28 - evalscope - INFO: Loaded 256 conversations (offset=228)
+2026-11-09 02:18:28 - evalscope - INFO: Loading[conversations]   0%| 10/? [Elapsed: 00:00 < Remaining: 00:00,  3.70it/s]
+2026-11-09 02:18:28 - evalscope - INFO: Loaded 10 conversations
+2026-11-09 02:18:30 - evalscope - INFO: Test connection successful.
+2026-11-09 02:18:30 - evalscope - INFO: Save the data base to: /root/results/s7-soak/evalscope/soak_20261109T021827_c5/parallel_5_number_10/benchmark_data.db
+2026-11-09 02:20:21 - evalscope - INFO: Processing[parallel_5_number_10]  10%| 1/10 [Elapsed: 01:50 < Remaining: 16:34, 110.53s/it]
+2026-11-09 02:21:52 - evalscope - INFO: {
+  "Test Duration (s)": 201.3938,
+  "Concurrency": 5,
+  "Request Rate (req/s)": -1.0,
+  "Total Requests": 100,
+  "Success Requests": 100,
+  "Failed Requests": 0,
+  "Req Throughput (req/s)": 0.4965,
+  "Avg Latency (s)": 9.9999,
+  "Avg Input Tokens": 78707.33,
+  "Output Throughput (tok/s)": 109.2387,
+  "Total Throughput (tok/s)": 39190.5508,
+  "TTFT (ms)": 3485.41,
+  "TPOT (ms)": 29.75,
+  "ITL (ms)": 121.15,
+  "Avg Output Tokens": 220.0,
+  "Avg Turns/Request": 5.95,
+  "KV Cache Hit Rate (%)": 89.2046,
+  "Decoded Tok/Iter": 4.138,
+  "Spec. Accept Rate": 0.7583
+}
+2026-11-09 02:22:11 - evalscope - INFO: Processing[parallel_5_number_10]  60%| 6/10 [Elapsed: 03:40 < Remaining: 02:23, 35.87s/it]
+2026-11-09 02:22:12 - evalscope - INFO: Processing[parallel_5_number_10] 100%| 10/10 [Elapsed: 03:41 < Remaining: 00:00,  8.78s/it]
+2026-11-09 02:22:12 - evalscope - INFO: 
+Benchmarking summary:
+┌────────────────────────────┬───────────────┐
+│ Metric                     │         Value │
+├────────────────────────────┼───────────────┤
+│ ── General ──              │               │
+│ Test Duration (s)          │        221.59 │
+│ Concurrency                │             5 │
+│ Request Rate (req/s)       │         -1.00 │
+│ Total / Success / Failed   │ 130 / 130 / 0 │
+│ Req Throughput (req/s)     │          0.59 │
+│ ── Latency ──              │               │
+│ Avg Latency (s)            │          8.50 │
+│ TTFT (ms)                  │       2820.70 │
+│ TPOT (ms)                  │         25.95 │
+│ ITL (ms)                   │        107.82 │
+│ ── Tokens ──               │               │
+│ Avg Input Tokens           │      79714.13 │
+│ Avg Output Tokens          │        220.00 │
+│ Output Throughput (tok/s)  │        129.06 │
+│ Total Throughput (tok/s)   │      46894.07 │
+│ ── Multi-turn ──           │               │
+│ Avg Turns/Request          │          7.00 │
+│ KV Cache Hit Rate (%)      │         91.47 │
+│ ── Speculative Decoding ── │               │
+│ Decoded Tok/Iter           │          4.21 │
+│ Spec. Accept Rate          │          0.76 │
+└────────────────────────────┴───────────────┘
+2026-11-09 02:22:12 - evalscope - INFO: 
+Percentile results:
+┌────────────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┐
+│ Metric         │       1% │       5% │      10% │      25% │      50% │      75% │      90% │      95% │      99% │
+├────────────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+│ Latency (s)    │     2.80 │     3.40 │     3.50 │     3.57 │     3.65 │     3.87 │    17.10 │    55.18 │    67.15 │
+│ TTFT (ms)      │   494.74 │   516.72 │   523.23 │   536.41 │   562.32 │   778.80 │   954.67 │ 15811.57 │ 52408.09 │
+│ ITL (ms)       │     1.97 │    16.38 │    27.82 │    37.89 │    39.90 │    40.91 │   323.51 │   375.23 │  1426.43 │
+│ TPOT (ms)      │     8.90 │    12.42 │    12.81 │    13.14 │    14.11 │    14.90 │    19.36 │   126.98 │   234.88 │
+│ Input tokens   │ 74173.00 │ 74173.00 │ 75011.00 │ 76719.00 │ 79732.00 │ 82767.00 │ 84718.00 │ 85424.00 │ 85696.00 │
+│ Output tokens  │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │   220.00 │
+│ Output (tok/s) │     3.28 │     3.99 │    15.56 │    56.91 │    60.31 │    61.57 │    63.09 │    64.67 │    78.59 │
+│ Total (tok/s)  │  1107.82 │  1348.18 │  6049.76 │ 19941.84 │ 22114.57 │ 22827.23 │ 23507.81 │ 24079.26 │ 30715.97 │
+│ Decode (tok/s) │     4.26 │     7.88 │    52.16 │    67.10 │    70.91 │    76.09 │    78.66 │    80.49 │   112.32 │
+└────────────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┘
+2026-11-09 02:22:12 - evalscope - INFO: Save the summary to: /root/results/s7-soak/evalscope/soak_20261109T021827_c5/parallel_5_number_10
+2026-11-09 02:22:12 - evalscope - INFO: Running[perf] 100%| 1/1 [Elapsed: 03:43 < Remaining: 00:00, 223.95s/it]
+2026-11-09 02:22:12 - evalscope - INFO: Performance summary saved to: /root/results/s7-soak/evalscope/soak_20261109T021827_c5/performance_summary.txt
+2026-11-09 02:22:12 - evalscope - INFO: HTML report generated: /root/results/s7-soak/evalscope/soak_20261109T021827_c5/perf_report.html
