@@ -11,3 +11,4 @@
 | 2026-11-08T23:33Z | L7 DSpark reverted; L4 at 1M did not boot; L5c+L4c running | $111.2998311639 (runpodctl user) | ~4.2 | about 5.0 h of balance left at $21.16/hr; deadline ~04:25Z |
 | 2026-11-09T00:19Z | Gate B: L5d best; Step 6 running | $93.5767632972 (runpodctl user) | ~5.0 | deadline ~04:26Z |
 | 2026-11-09T01:24Z | Gate C: Step 6 done (L5d confirmed); Step 7 soak running | $70.5391238305 (runpodctl user) | ~6.1 | runs out ~04:44Z; self-delete deadline ~04:26Z leaves ~$6 |
+| 2026-11-09T02:28Z | Soak stopped early; pod handed over for interactive use on recommended.args | $49.2926400083 (runpodctl user) | ~7.2 | deadline moved 04:26:26Z to 04:33:00Z so the balance ends near $5 |

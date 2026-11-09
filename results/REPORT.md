@@ -12,9 +12,10 @@ is in [`FINDINGS.md`](FINDINGS.md), and every table regenerates from raw data wi
   scores 96.7% on GSM8K (the FP8 reference is 97.1-97.4%) and passes 48/48 tool-call cases. It found every
   needle from 128K to 1M tokens. GPQA-Diamond is consistent with the card's 90.3% (97.0% of the answers that fit a
   32K-token budget, 80.3% counting the 17% that did not).
-- **Capacity: 4 concurrent agent sessions at the SLO with margin, 6 at the edge.** At 4 sessions each user gets 77 tok/s
-  (median request) with a 0.7 s median time to first token. At 6 the median request is at 50.0 tok/s, exactly on the
-  line.
+- **Capacity: 4 concurrent agent sessions at the SLO with margin, 5-6 at the edge.**
+  - At 4 sessions each user gets 67-77 tok/s (median request, over two runs on different conversations), with a
+    0.6-0.7 s median time to first token.
+  - At 5 and at 6 sessions the median request is at 50.0 tok/s, exactly on the line.
 - **Throughput is set by prefill, not decode.** The node completes 2,000-2,300 agent turns per hour whatever the
   concurrency. More sessions past 4-6 only slow everyone down.
 - **Cost: about $0.01 per agent turn, or $5.29 per session-hour at 4 sessions ($3.53 at 6).** That is about what NVIDIA
@@ -23,7 +24,9 @@ is in [`FINDINGS.md`](FINDINGS.md), and every table regenerates from raw data wi
   context.
 - **Context: 256K in the agentic config; 1M works as a separate profile.** At 1M a cold prompt takes 5.5 minutes to
   prefill, and it must bypass RunPod's HTTPS proxy.
-- **Stability:** PENDING (Step 7 soak).
+- **Stability:** zero request errors and zero preemptions in every run, up to 16 sessions and 32 concurrent max-effort
+  reasoning requests. GPU memory and host RSS stayed flat. An unplanned SIGKILL of vLLM recovered by itself in 257 s.
+  The longest soak ran 3 hours of engine uptime, cut short to hand the pod over, so day-scale leaks remain untested.
 - **Operations:** a cold start takes about 35 minutes, mostly the 373 GiB download, and a warm restart about 4.3
   minutes. No network volume is needed. Liveness must be checked with a real generation, because the API can stay up
   while the engine is dead.
@@ -43,6 +46,9 @@ is in [`FINDINGS.md`](FINDINGS.md), and every table regenerates from raw data wi
   - the `glm47` tool parser and the `glm45` reasoning parser.
 - **Long-context profile:** [`deploy/configs/L4d-ctx1m-bt2k.args`](../deploy/configs/L4d-ctx1m-bt2k.args), the same
   pod and weights with 2K chunks and 1M max length.
+- **Coding-agent client:** [`clients/opencode.jsonc`](../clients/opencode.jsonc) for OpenCode v2. It sets the endpoint,
+  256K/32K limits and tool support, sends `reasoning_content` back for prefix-cache hits, and defines low/high/max
+  effort variants. It was tested end to end through the public proxy.
 - **Client rules:**
   - Stream every request.
   - Send a real User-Agent.
@@ -137,8 +143,11 @@ acceptance, and zero errors. This is NVIDIA Dynamo's agentic SLO.
 | 8 | 39.5 | 19.7 | 0.60 / 8.4 / 77.4 s | 2,283 | 0.0093 | past SLO | 0 |
 | 16 | 24.2 | 12.3 | 2.38 / 23.5 / 153 s | 2,340 | 0.0090 | past SLO | 0 |
 
-**The answer: 4 sessions with margin, 6 at the edge.** At 6, the median request ran at 49.98 tok/s. The soak's
-repeated blocks at 5 and 6 sessions settle the boundary: PENDING (Step 7).
+**The answer: 4 sessions with margin; 5-6 at the edge.**
+- At 6 sessions the median request ran at 49.98 tok/s, and at 5 (in the soak) at 50.0: both sit on the line.
+- A second run at 4 sessions, on different conversations, gave 67.2 tok/s against 77.1, so expect about 13%
+  variation from workload mix alone.
+- Plan on 4.
 
 **Why the node saturates at about 2,300 turns per hour.** Each turn computes about 6.8K new prompt tokens on average:
 the cold 74K first turns amortized over 13 turns, plus about 1K new tokens per turn. 2,300 turns per hour is therefore
@@ -230,11 +239,21 @@ about 4.5 minutes. Keep agent sessions under 256K with context compaction, which
 
 ### 6. Is it stable for hours, and what fails?
 
-**Soak (Step 7):** PENDING. The soak runs the final config under cycling load at 2, 4, 5 and 6 sessions, with:
-- a real-generation liveness probe every 30 s;
-- GPU memory and container RSS every minute;
-- one GPQA-Diamond run at 32 concurrent max-effort requests;
-- one deliberate unplanned kill of vLLM.
+**Stable for the hours we measured.** The final config ran its full characterization, then a soak, with these results:
+- **Engine uptime:** 1 h 52 min before the deliberate kill, then 13 min more.
+- **Load:** a GPQA-Diamond run at 32 concurrent max-effort requests (2.7M tokens generated in 49 min), then
+  agentic blocks at 2, 4 and 5 sessions.
+- **Errors:** zero request errors and zero preemptions.
+- **Availability:** 111 of 111 liveness probes (one real generation every 30 s) passed outside the drill.
+- **Memory:** flat, at 140.2 GB per GPU and 336 GB of container RSS, which includes the pinned 300 GiB host tier.
+- **The deliberate SIGKILL:** clients saw 270 s of refused connections, then the server was back with no operator
+  action.
+
+The soak was cut short to hand the pod over, so leaks that take a day to show are untested. Watch the memory alert
+in the runbook during the first days.
+
+**One surprise:** a 16-token liveness probe can take 14-43 s while other sessions' cold first turns are prefilling,
+because vLLM schedules first come, first served. That is not a failure, but a 60 s probe timeout is too tight.
 
 **Failure modes seen during the study, and what each one requires of operations:**
 
@@ -321,8 +340,11 @@ Dynamo's KV router) do the same with real cache state and are worth it beyond a 
 4. Run the smoke test through the public URL: `evals/smoke.py`.
 
 **Health checks:**
-- **Liveness, every 30 s:** `evals/ready.sh`, a real 16-token generation. Restart vLLM after 2 consecutive failures. A
-  `/health` check alone does not catch a dead engine.
+- **Liveness, every 30 s:** `evals/ready.sh`, a real 16-token generation, run with `READY_TIMEOUT=120`. Restart vLLM
+  after 2 consecutive failures.
+  - Under heavy cold-prefill load a healthy server took up to 43 s to answer, so a 60 s timeout risks restarting a
+    busy server.
+  - A `/health` check alone does not catch a dead engine.
 - **Readiness after any restart:** the same probe, then put the pod back into routing.
 - **Config changes:** only through a gate (tool suite, 128K needle, 200 GSM8K questions), because OOMs from unprofiled
   buffers appear on the first large request, not at boot.
@@ -331,13 +353,13 @@ Dynamo's KV router) do the same with real cache state and are worth it beyond a 
 
 | Alert | Signal | Threshold | Meaning and action |
 |---|---|---|---|
-| Engine dead | probe | 2 consecutive failures (60 s) | Restart vLLM; page if 3 restarts in an hour |
+| Engine dead | probe (120 s timeout) | 2 consecutive failures | Restart vLLM; page if 3 restarts in an hour |
 | Users waiting | `vllm:num_requests_waiting` | > 0 for most of 15 min | Over capacity: admission cap or second pod |
 | Slow first token | per-request TTFT p50 | > 2 s over 15 min (warn), > 5 s (SLO breach) | Same; check for long-context traffic |
 | Cache cliff | GPU prefix-hit rate (`vllm:prefix_cache_hits` / `queries`) | below 50% while load is normal | Working set exceeds GPU KV; check the host tier is hitting |
 | Host tier not helping | `vllm:external_prefix_cache_hits` / `queries` | low while GPU hits are low | Cold re-prefills: affinity broken, or the tier is full |
 | Restart loop | restart counter in the supervisor log | 3 per hour | Bad config or hardware; roll back the config |
-| Memory growth | GPU memory used, container RSS | PENDING (soak trend) | Leak; schedule a warm restart |
+| Memory growth | GPU memory used, container RSS | more than 2% above the post-boot level (flat in the soak: 140.2 GB per GPU, 336 GB RSS) | Leak; schedule a warm restart |
 | 524s at the edge | client or proxy logs | any | A prompt or queue is past 100 s to the first byte |
 
 **Restart policy:**
@@ -345,7 +367,8 @@ Dynamo's KV router) do the same with real cache state and are worth it beyond a 
 - **Crash loops:** give up after 3 boots and roll back to the last good config.
 - **Planned restarts:** drain the pod (stop routing new sessions, let turns finish), restart, probe, and readmit. A
   restart drops the GPU and host KV caches, so every session's next turn is cold.
-- **Scheduled restarts:** only if the soak shows memory growth: PENDING.
+- **Scheduled restarts:** not needed on current evidence, since memory stayed flat. Add a nightly drained restart only if
+  the memory alert fires.
 
 **Weights storage:** the container disk. No network volume (question 7).
 
@@ -363,7 +386,8 @@ second pod before them, not after: a cold start takes 35 minutes.
 | Step 5 and L4: DSpark, 1M attempts | $111.30 | $26.53 |
 | L5c, L4d (1M at 2K chunks), Gate B | $93.58 | $17.72 |
 | Step 6: final characterization | $70.54 | $23.04 |
-| Step 7: soak | PENDING | |
+| Step 7: GPQA, crash drill, soak blocks; hand-over to interactive use | $49.29 at 02:28Z | $21.25 |
+| Interactive use until the pod self-deletes at 04:33Z | about $5 expected | about $44 |
 
 ## Limits of this study and what to try next
 
@@ -383,5 +407,8 @@ second pod before them, not after: a cold start takes 35 minutes.
 3. **The MTP schedule above 16 running requests.** It drops to 1 draft there (acceptance 1.74 on GPQA at c=32). A
    step at that load verifies only 64 tokens, so 3 drafts may be faster for decode-heavy batch work. This is cheap to
    test.
-4. **A real agent trace** (your own sessions) to replace the synthetic one in the capacity numbers.
-5. **The high-performance network-volume tier**, if cold starts become frequent.
+4. **Priority scheduling** (`--scheduling-policy priority`). Warm turns, with about 1K new tokens, would go ahead of
+   cold 74K-token first turns. That targets the TTFT p90/p99 tails and the 14-43 s waits seen by short requests.
+5. **A real agent trace** (your own sessions) to replace the synthetic one in the capacity numbers.
+6. **The high-performance network-volume tier**, if cold starts become frequent.
+7. **A day-long soak**, which this budget did not cover, to rule out slow leaks.

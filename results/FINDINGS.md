@@ -519,3 +519,46 @@ slice-to-slice variance; the soak measures that variance directly.
   includes the pinned 300 GiB host tier.
 
 Soak blocks cycling c = 2, 4, 5, 6 started at 02:13Z.
+
+## Step 7 (part 2): soak blocks, stopped early to hand the pod over (02:13-02:22Z); final serving config
+
+**The soak was cut short at the user's request,** after one full cycle of load blocks (c = 2, 4, 5; the c=6 block was
+interrupted and is not counted). The pod now serves `recommended.args` for interactive use.
+
+| Block | Turns | Errors | TTFT p50 | Per-user tok/s at real AL, median (mean) | Turns per hour | Same c in Step 6 |
+|---|---|---|---|---|---|---|
+| c=2 | 52 | 0 | 0.52 s | **101.4** (75.9) | 1,789 | 101.5 |
+| c=4 | 104 | 0 | 0.57 s | **67.2** (35.0) | 2,086 | 77.1 |
+| c=5 | 130 | 0 | 0.56 s | **50.0** (27.2), passes by a hair | 2,112 | not run |
+
+- **Slice-to-slice variance is about 13% at c=4** (67.2 against 77.1 on a different set of conversations). At c=2 the
+  two runs agree within 0.1%.
+- **The SLO boundary is therefore 5-6 sessions,** with 4 the honest planning number. Both c=5 (50.0) and c=6 (49.98)
+  sit on the line.
+
+**Stability over the soak window (1.03 h of probes; the engine served for 1 h 52 min before the drill and 13 min
+after):**
+- **Availability:** 120 probes, 111 of 111 passing outside the drill window (92.5% including the drill's 270 s).
+- **Memory:** GPU memory went from 140,287 to 140,227 MiB per GPU and container RSS from 336,649 to 336,441 MiB. Both
+  are flat, so there is no leak in this window.
+- **Errors:** 0 request errors and 0 preemptions in every block and in GPQA.
+
+**Liveness probes can be slow without anything being wrong.** During agentic blocks, a 16-token probe took 14-43 s
+when it arrived while other sessions' cold 74K first turns were prefilling. vLLM schedules first come, first served,
+so a new request waits for the queued prefill chunks. During decode-heavy GPQA the worst probe was 5.5 s.
+- **For operations:** a liveness timeout of 60 s (`ready.sh`'s default) is too close to the 43 s observed. Use 120 s and
+  2 consecutive failures, or a healthy but busy server gets restarted.
+- **For capacity:** this is the same queueing that produces the TTFT p90/p99 tails. An untested fix is
+  `--scheduling-policy priority`, with clients giving warm turns priority over cold first turns.
+
+**Final serving config (`jobs/s8-serve.sh`, 02:22-02:27Z):**
+- `bench.sh apply deploy/configs/recommended.args` took 257 s to ready.
+- The running command line has no `--profiler-config` and has the 128 capture cap.
+- The smoke test passed: auth, reasoning, tool call, time to first answer token, 20 s stream.
+- **OpenCode v2.2.6 works end to end through the public proxy** with `clients/opencode.jsonc`. A Read-tool call plus
+  answer took 4.6 s.
+- **OpenCode's background service does not inherit shell environment variables,** so `{env:...}` keys arrive empty (HTTP
+  401). The config reads the key from a file instead.
+
+**Deadline:** moved from 04:26:26Z to **04:33:00Z**, so the balance ends near the plan's $5 floor; it read
+$49.2926400083 at 02:28Z.
