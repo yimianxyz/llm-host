@@ -8,4 +8,61 @@ WARNING: vllm bench serve no longer sets temperature==0 (greedy) in requests by 
 Starting initial single prompt test run...
 Skipping endpoint ready check.
 Warming up with 2 requests...
-  0%|          | 0/2 [00:00<?, ?it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:26<00:26, 26.41s/it]100%|██████████| 2/2 [00:49<00:00, 24.60s/it]100%|██████████| 2/2 [00:49<00:00, 24.87s/it]
+Warmup run completed.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1.0 (Poisson process)
+Maximum request concurrency: 1
+  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:20<02:22, 20.41s/it] 25%|██▌       | 2/8 [00:47<02:24, 24.08s/it] 38%|███▊      | 3/8 [01:14<02:07, 25.40s/it] 50%|█████     | 4/8 [01:35<01:35, 23.95s/it] 62%|██████▎   | 5/8 [01:49<01:01, 20.45s/it] 75%|███████▌  | 6/8 [02:10<00:40, 20.46s/it] 88%|████████▊ | 7/8 [02:34<00:21, 21.48s/it]100%|██████████| 8/8 [03:01<00:00, 23.39s/it]100%|██████████| 8/8 [03:01<00:00, 22.69s/it]
+tip: install termplotlib and gnuplot to plot the metrics
+============ Serving Benchmark Result ============
+Successful requests:                     8         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  181.54    
+Total input tokens:                      65536     
+Total generated tokens:                  8192      
+Request throughput (req/s):              0.04      
+Request goodput (req/s):                 0.04      
+Output token throughput (tok/s):         45.13     
+Peak output token throughput (tok/s):    41.00     
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          406.13    
+---------------Time to First Token----------------
+Mean TTFT (ms):                          1270.55   
+Median TTFT (ms):                        1406.05   
+P50 TTFT (ms):                           1406.05   
+P90 TTFT (ms):                           1418.36   
+P99 TTFT (ms):                           1419.30   
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          20.94     
+Median TPOT (ms):                        20.76     
+P50 TPOT (ms):                           20.76     
+P90 TPOT (ms):                           25.14     
+P99 TPOT (ms):                           25.45     
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           25.28     
+Median ITL (ms):                         25.19     
+P50 ITL (ms):                            25.19     
+P90 ITL (ms):                            26.12     
+P99 ITL (ms):                            26.96     
+----------------End-to-end Latency----------------
+Mean E2EL (ms):                          22691.85  
+Median E2EL (ms):                        22650.10  
+P50 E2EL (ms):                           22650.10  
+P90 E2EL (ms):                           27131.27  
+P99 E2EL (ms):                           27454.87  
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     4.15      
+Acceptance length:                       1.21      
+Drafts:                                  6779      
+Draft tokens:                            33895     
+Accepted tokens:                         1407      
+Per-position acceptance (%):
+  Position 0:                            8.69      
+  Position 1:                            5.28      
+  Position 2:                            3.38      
+  Position 3:                            2.02      
+  Position 4:                            1.39      
+==================================================

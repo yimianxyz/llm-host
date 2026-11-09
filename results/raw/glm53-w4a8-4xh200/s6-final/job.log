@@ -157,3 +157,15 @@ evalscope exit=0 c=16 n=32 offset=144
   "kv_cache_usage_perc_end": 0.0
 }
 + bash evals/bench.sh reference 1 16 64
+bench exit=0 c=1 n=8
+{
+  "mtp_acceptance_length": 1.176,
+  "mtp_acceptance_rate": 0.035,
+  "prefix_cache_hit_rate": 0.1875,
+  "external_prefix_cache_hit_rate": 0.0077,
+  "preemptions": 0.0,
+  "prompt_tokens": 81920.0,
+  "generation_tokens": 10240.0,
+  "requests_finished": 10.0,
+  "kv_cache_usage_perc_end": 0.0
+}
