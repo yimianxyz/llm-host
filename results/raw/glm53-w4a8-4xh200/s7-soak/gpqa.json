@@ -1,0 +1,15 @@
+{
+  "task": "gpqa_diamond",
+  "n": 198,
+  "accuracy": 0.803,
+  "effort": "max",
+  "reference": {
+    "w4a8_card": 0.9028,
+    "fp8_card": 0.8965
+  },
+  "seconds": 2952.3,
+  "mean_completion_tokens": 13714,
+  "truncated": 34,
+  "unparsed": 34,
+  "wall_seconds": 2954.9
+}

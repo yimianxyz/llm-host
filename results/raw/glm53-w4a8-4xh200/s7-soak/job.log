@@ -5,3 +5,30 @@
   echo "$(date +%s),$(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits | paste -sd,),$(ps -eo rss= | awk "{s+=\$1} END {print int(s/1024)}")" >> "$0/mem.csv"
   sleep 60; done' /root/results/s7-soak
 Generating train split:   0%|          | 0/198 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 198/198 [00:00<00:00, 11946.49 examples/s]
+{
+  "task": "gpqa_diamond",
+  "n": 198,
+  "accuracy": 0.803,
+  "effort": "max",
+  "reference": {
+    "w4a8_card": 0.9028,
+    "fp8_card": 0.8965
+  },
+  "seconds": 2952.3,
+  "mean_completion_tokens": 13714,
+  "truncated": 34,
+  "unparsed": 34,
+  "wall_seconds": 2954.9
+}
+{
+  "mtp_acceptance_length": 1.738,
+  "mtp_acceptance_rate": 0.678,
+  "prefix_cache_hit_rate": 0.0,
+  "external_prefix_cache_hit_rate": 0.0,
+  "preemptions": 0.0,
+  "prompt_tokens": 48103.0,
+  "generation_tokens": 2715654.0,
+  "requests_finished": 296.0,
+  "kv_cache_usage_perc_end": 0.0
+}
++ bash evals/bench.sh drill

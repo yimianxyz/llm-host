@@ -1,0 +1,27 @@
+# L5d, the final candidate: L2 (B4 + L3's MTP schedule + CPU KV offload) with CUDA graphs captured only up to 128
+# tokens per step, the half of L5c that is worth keeping. Under the MTP schedule a decode step is at most 64 tokens
+# for 16 sessions and 128 for 64, and steps that carry prefill are almost always over 512 tokens, so they already ran
+# without CUDA graphs. The default cap of 512 costs about 4.5 GiB of graph memory per GPU (inside the util budget) and
+# 114 s of capture on every restart. L5c's 4K chunks are dropped: they cost 19% of prefill speed and 11% at c=4.
+--served-model-name glm-5.3
+--host 0.0.0.0
+--port 8000
+--trust-remote-code
+--tensor-parallel-size 4
+--enable-expert-parallel
+--kv-cache-dtype fp8_ds_mla
+--gpu-memory-utilization 0.92
+--max-model-len 262144
+--max-num-batched-tokens 8192
+--max-cudagraph-capture-size 128
+--speculative-config {"method":"mtp","num_speculative_tokens":5,"num_speculative_tokens_per_batch_size":[[1,4,5],[5,16,3],[17,1024,1]]}
+--enable-prefix-caching
+--enable-prompt-tokens-details
+--enable-per-request-metrics
+--enable-auto-tool-choice
+--tool-call-parser glm47
+--reasoning-parser glm45
+--decode-context-parallel-size 4
+--kv-offloading-size 300
+--kv-offloading-backend native
+--profiler-config {"profiler":"torch","torch_profiler_dir":"/root/results/profile","torch_profiler_with_stack":false}
