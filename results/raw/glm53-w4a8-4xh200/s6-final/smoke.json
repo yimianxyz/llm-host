@@ -1,0 +1,70 @@
+{
+  "base_url": "http://127.0.0.1:8000",
+  "ts": "2026-11-09T00:21:39Z",
+  "auth": {
+    "pass": true,
+    "no_key_status": 401,
+    "key_status": 200,
+    "models": [
+      "glm-5.3"
+    ]
+  },
+  "reasoning": {
+    "pass": true,
+    "content": "391",
+    "reasoning_chars": 11,
+    "finish": "stop"
+  },
+  "tool_call": {
+    "pass": true,
+    "finish": "tool_calls",
+    "calls": [
+      [
+        "get_weather",
+        "{\"city\": \"Paris\"}"
+      ]
+    ]
+  },
+  "ttfat": {
+    "pass": true,
+    "low": {
+      "ttft_s": 0.07824541395530105,
+      "time_to_first_answer_token_s": 0.15228198491968215,
+      "elapsed_s": 0.54,
+      "chunks": 20,
+      "completion_tokens": 59,
+      "finish": "stop",
+      "decode_tok_s": 127.1
+    },
+    "high": {
+      "ttft_s": 0.07419117609970272,
+      "time_to_first_answer_token_s": 0.30840509617701173,
+      "elapsed_s": 0.67,
+      "chunks": 25,
+      "completion_tokens": 80,
+      "finish": "stop",
+      "decode_tok_s": 134.4
+    },
+    "max": {
+      "ttft_s": 0.07526851003058255,
+      "time_to_first_answer_token_s": 0.3638042740058154,
+      "elapsed_s": 0.52,
+      "chunks": 19,
+      "completion_tokens": 75,
+      "finish": "stop",
+      "decode_tok_s": 169.3
+    }
+  },
+  "long_stream": {
+    "ttft_s": 0.10509796510450542,
+    "time_to_first_answer_token_s": 0.10509796510450542,
+    "elapsed_s": 20.02,
+    "chunks": 767,
+    "completion_tokens": null,
+    "finish": null,
+    "decode_tok_s": null,
+    "pass": true,
+    "survived_past_100s": false
+  },
+  "pass": true
+}
