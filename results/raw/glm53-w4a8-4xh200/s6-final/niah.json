@@ -1,0 +1,69 @@
+{
+  "task": "niah",
+  "max_model_len": 262144,
+  "words_per_token": 0.916,
+  "gate_pass": true,
+  "items": [
+    {
+      "length": 131072,
+      "depth": 0.1,
+      "prompt_tokens": 130549,
+      "found": true,
+      "ttft_s": 23.41,
+      "prefill_tok_s": 5576,
+      "decode_tok_s": 5088.8,
+      "answer": "lot-program-875"
+    },
+    {
+      "length": 131072,
+      "depth": 0.5,
+      "prompt_tokens": 130562,
+      "found": true,
+      "ttft_s": 23.36,
+      "prefill_tok_s": 5589,
+      "decode_tok_s": 6003.4,
+      "answer": "member-level-791"
+    },
+    {
+      "length": 131072,
+      "depth": 0.9,
+      "prompt_tokens": 130552,
+      "found": true,
+      "ttft_s": 23.37,
+      "prefill_tok_s": 5587,
+      "decode_tok_s": 268.0,
+      "answer": "place-mother-256"
+    },
+    {
+      "length": 204800,
+      "depth": 0.1,
+      "prompt_tokens": 204310,
+      "found": true,
+      "ttft_s": 37.33,
+      "prefill_tok_s": 5473,
+      "decode_tok_s": 980.1,
+      "answer": "power-company-270"
+    },
+    {
+      "length": 204800,
+      "depth": 0.5,
+      "prompt_tokens": 204318,
+      "found": true,
+      "ttft_s": 37.39,
+      "prefill_tok_s": 5464,
+      "decode_tok_s": 188.4,
+      "answer": "others-room-438"
+    },
+    {
+      "length": 204800,
+      "depth": 0.9,
+      "prompt_tokens": 204328,
+      "found": true,
+      "ttft_s": 37.37,
+      "prefill_tok_s": 5468,
+      "decode_tok_s": 1090.7,
+      "answer": "line-health-494"
+    }
+  ],
+  "wall_seconds": 183.2
+}
