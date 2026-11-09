@@ -124,3 +124,38 @@
 Processing[parallel_16_number_32]:   3%|▎         | 1/32 [05:08<2:39:16, 308.27s/it][A
 Processing[parallel_16_number_32]:   6%|▋         | 2/32 [05:09<1:03:52, 127.76s/it][A
 Processing[parallel_16_number_32]:   9%|▉         | 3/32 [05:14<34:31, 71.43s/it]   [A
+Processing[parallel_16_number_32]:  12%|█▎        | 4/32 [05:47<26:25, 56.61s/it][A
+Processing[parallel_16_number_32]:  16%|█▌        | 5/32 [05:50<16:44, 37.21s/it][A
+Processing[parallel_16_number_32]:  19%|█▉        | 6/32 [05:51<10:42, 24.70s/it][A
+Processing[parallel_16_number_32]:  22%|██▏       | 7/32 [05:54<07:21, 17.66s/it][A
+Processing[parallel_16_number_32]:  25%|██▌       | 8/32 [06:02<05:53, 14.73s/it][A
+Processing[parallel_16_number_32]:  28%|██▊       | 9/32 [06:14<05:13, 13.63s/it][A                                                    
+                                                                                 [A2026-11-09 00:45:33 - evalscope - [32mINFO[0m: Processing[parallel_16_number_32]  28%| 9/32 [Elapsed: 06:14 < Remaining: 05:13, 13.63s/it][0m
+Running[perf]:   0%|          | 0/1 [06:16<?, ?it/s]
+Processing[parallel_16_number_32]:  28%|██▊       | 9/32 [06:14<05:13, 13.63s/it][A
+Processing[parallel_16_number_32]:  31%|███▏      | 10/32 [06:26<04:53, 13.33s/it][A
+Processing[parallel_16_number_32]:  34%|███▍      | 11/32 [06:39<04:35, 13.12s/it][A                                                    
+                                                                                  [A2026-11-09 00:46:04 - evalscope - [32mINFO[0m: {
+  "Test Duration (s)": 404.9833,
+  "Concurrency": 16,
+  "Request Rate (req/s)": -1.0,
+  "Total Requests": 200,
+  "Success Requests": 200,
+  "Failed Requests": 0,
+  "Req Throughput (req/s)": 0.4938,
+  "Avg Latency (s)": 28.3447,
+  "Avg Input Tokens": 79492.07,
+  "Output Throughput (tok/s)": 108.6465,
+  "Total Throughput (tok/s)": 39365.6103,
+  "TTFT (ms)": 13538.57,
+  "TPOT (ms)": 67.61,
+  "ITL (ms)": 250.57,
+  "Avg Output Tokens": 220.0,
+  "Avg Turns/Request": 6.755,
+  "KV Cache Hit Rate (%)": 90.5396,
+  "Decoded Tok/Iter": 3.7453,
+  "Spec. Accept Rate": 0.733
+}[0m
+Running[perf]:   0%|          | 0/1 [06:47<?, ?it/s]
+Processing[parallel_16_number_32]:  34%|███▍      | 11/32 [06:44<04:35, 13.12s/it][A
+Processing[parallel_16_number_32]:  38%|███▊      | 12/32 [06:44<03:37, 10.85s/it][A

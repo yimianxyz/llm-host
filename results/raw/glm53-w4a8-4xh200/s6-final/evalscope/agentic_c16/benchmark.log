@@ -105,3 +105,25 @@
   "Spec. Accept Rate": 0.7255
 }
 2026-11-09 00:44:27 - evalscope - INFO: Processing[parallel_16_number_32]   3%| 1/32 [Elapsed: 05:08 < Remaining: 2:39:16, 308.27s/it]
+2026-11-09 00:45:33 - evalscope - INFO: Processing[parallel_16_number_32]  28%| 9/32 [Elapsed: 06:14 < Remaining: 05:13, 13.63s/it]
+2026-11-09 00:46:04 - evalscope - INFO: {
+  "Test Duration (s)": 404.9833,
+  "Concurrency": 16,
+  "Request Rate (req/s)": -1.0,
+  "Total Requests": 200,
+  "Success Requests": 200,
+  "Failed Requests": 0,
+  "Req Throughput (req/s)": 0.4938,
+  "Avg Latency (s)": 28.3447,
+  "Avg Input Tokens": 79492.07,
+  "Output Throughput (tok/s)": 108.6465,
+  "Total Throughput (tok/s)": 39365.6103,
+  "TTFT (ms)": 13538.57,
+  "TPOT (ms)": 67.61,
+  "ITL (ms)": 250.57,
+  "Avg Output Tokens": 220.0,
+  "Avg Turns/Request": 6.755,
+  "KV Cache Hit Rate (%)": 90.5396,
+  "Decoded Tok/Iter": 3.7453,
+  "Spec. Accept Rate": 0.733
+}
