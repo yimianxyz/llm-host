@@ -8,3 +8,4 @@
 (EngineCore pid=83719) INFO 11-09 00:01:29 [kv_cache_utils.py:1147] GPU KV cache size: 1,230,848 tokens, Maximum concurrency for 1,048,576 tokens per request: 1.17x
 + bash evals/bench.sh niah 131072 524288 1040000
 {"length": 131072, "depth": 0.5, "prompt_tokens": 130542, "found": true, "ttft_s": 30.83, "prefill_tok_s": 4235, "decode_tok_s": 11180.9, "answer": "information-team-481"}
+{"length": 524288, "depth": 0.5, "prompt_tokens": 523973, "found": true, "ttft_s": 135.86, "prefill_tok_s": 3857, "decode_tok_s": 247.6, "answer": "study-life-704"}
