@@ -1,0 +1,41 @@
+{
+  // OpenCode client for the self-hosted GLM-5.3 pod (deploy/configs/recommended.args).
+  // Key: (umask 077; grep '^VLLM_API_KEY=' ~/Projects/llm-host/.env | cut -d= -f2- | tr -d '\n' > ~/.config/opencode/glm53.key)
+  // A file, not {env:...}: OpenCode's background service does not see variables exported in your shell.
+  // Use: copy to <project>/opencode.jsonc (or merge into ~/.config/opencode/opencode.jsonc), then pick
+  // runpod/glm-5.3 in /models. Variants: #low, #high (default), #max.
+  "$schema": "https://opencode.ai/config.json",
+  "model": "runpod/glm-5.3",
+  "providers": {
+    "runpod": {
+      "name": "GLM-5.3 on RunPod (4x H200)",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "https://fbsy2njw0xt5mp-8000.proxy.runpod.net/v1",
+        "apiKey": "{file:~/.config/opencode/glm53.key}",
+      },
+      "models": {
+        "glm-5.3": {
+          "name": "GLM-5.3 W4A8 (self-hosted)",
+          "capabilities": {
+            "tools": true,
+            "input": ["text"],
+            "output": ["text"],
+            "reasoning": { "supported": true },
+          },
+          // 256K is the server's max-model-len; prompt + output must fit in it.
+          "limit": { "context": 262144, "output": 32768 },
+          // Send prior reasoning back unchanged so the server's prefix cache keeps hitting.
+          "compatibility": { "reasoningField": "reasoning_content" },
+          // GLM-5.3 reads effort from the chat template; omitted means max, which averages ~14K reasoning tokens.
+          "body": { "chat_template_kwargs": { "reasoning_effort": "high" } },
+          "variants": [
+            { "id": "low", "body": { "chat_template_kwargs": { "reasoning_effort": "low" } } },
+            { "id": "high", "body": { "chat_template_kwargs": { "reasoning_effort": "high" } } },
+            { "id": "max", "body": { "chat_template_kwargs": { "reasoning_effort": "max" } } },
+          ],
+        },
+      },
+    },
+  },
+}

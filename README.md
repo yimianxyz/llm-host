@@ -26,6 +26,7 @@ It runs at $21.16/hr. The config is [`deploy/configs/recommended.args`](deploy/c
 | `evals/quality.py` | GSM8K, tool-call suite, needle-in-a-haystack, GPQA-Diamond |
 | `evals/bench.sh` | Agentic multi-turn (EvalScope, vLLM blog workload), reference shapes, MTP acceptance, soak, probes |
 | `evals/metrics.py` | `/metrics` snapshots and diffs: MTP acceptance, prefix-cache hits, preemptions, KV usage |
+| `clients/opencode.jsonc` | OpenCode v2 provider config for the pod (endpoint, limits, reasoning field, effort variants) |
 | `results/` | `FINDINGS.md` (per-step log), `budget.md`, `raw/` (everything pulled from pods) |
 
 ## Run it
@@ -40,5 +41,5 @@ It runs at $21.16/hr. The config is [`deploy/configs/recommended.args`](deploy/c
 6. **Wait for first boot, then smoke-test.**
    - Queue a job containing `bash evals/bench.sh wait`.
    - Then run `VLLM_API_KEY=... python evals/smoke.py --base-url "$PROXY_URL" --out results/smoke.json`.
-7. **Clients.** Use the OpenAI-compatible API at `$PROXY_URL/v1` with `Authorization: Bearer $VLLM_API_KEY`, and always stream.
+7. **Clients.** Use the OpenAI-compatible API at `$PROXY_URL/v1` with `Authorization: Bearer $VLLM_API_KEY`, and always stream. For OpenCode, use [`clients/opencode.jsonc`](clients/opencode.jsonc); its header comment shows how to install the key file.
 8. **Tear down.** Run `python3 deploy/pod.py delete $POD_ID`. Nothing keeps billing, because there is no volume.
