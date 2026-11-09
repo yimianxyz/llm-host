@@ -51,6 +51,9 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s3b-reference | 16 | 64 | 8192 | 0 | 1575 | 13616 | 51.22 | 78.9 | 51.54 | 19.5 | 257 | 579 | 0.157 | 1.361 | 22.84 |
 | s3b-reference | 64 | 128 | 8192 | 0 | 5178 | 71439 | 109.5 | 214.61 | 91.43 | 9.1 | 390 | 877 | 0.024 | 1.371 | 15.08 |
 | s4f-l4d-ctx1m-bt2k | 1 | 1 | 1040000 | 0 | 335349 | 335349 | 21.86 | 21.86 | 23.88 | 45.7 | 1 | 763 | 0 | 1.016 | 7828.07 |
+| s6-final | 1 | 8 | 8192 | 0 | 1406 | 1418 | 20.76 | 25.14 | 25.19 | 48.2 | 45 | 102 | 0.044 | 1.176 | 130.26 |
+| s6-final | 16 | 64 | 8192 | 0 | 1592 | 13919 | 53.95 | 75.62 | 50.79 | 18.5 | 250 | 562 | 0.141 | 1.368 | 23.54 |
+| s6-final | 64 | 128 | 8192 | 0 | 5635 | 71742 | 114.39 | 181.14 | 69.13 | 8.7 | 419 | 942 | 0.016 | 1.23 | 14.04 |
 
 ## Quality, MTP acceptance, restarts, KV capacity
 | step | file | result |
@@ -87,6 +90,8 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s5a-l7-dspark | niah.json | 130589 tok d=0.5 found=True ttft=27.28s prefill=4787 tok/s decode=284.7 tok/s |
 | s5a-l7-dspark | toolcalls.json | 48/48 gate=True info={'info_untyped_json_null': False, 'info_untyped_json_null/stream': False, 'info_untyped_json_number': False, 'info_untyped_json_number/stream': False, 'info_untyped_json_bool': False, 'info_untyped_json_bool/stream': False, 'info_untyped_json_nested': False, 'info_untyped_json_nested/stream': False, 'info_markers_in_prose_vllm_64326': False, 'info_markers_in_prose_vllm_64326/stream': False, 'info_empty_props_oneof_glm5_169': False, 'info_empty_props_oneof_glm5_169/stream': False} |
 | s6-final | apply.json | restart to ready 257 s |
+| s6-final | niah.json | 130549 tok d=0.1 found=True ttft=23.41s prefill=5576 tok/s decode=5088.8 tok/s; 130562 tok d=0.5 found=True ttft=23.36s prefill=5589 tok/s decode=6003.4 tok/s; 130552 tok d=0.9 found=True ttft=23.37s prefill=5587 tok/s decode=268.0 tok/s; 204310 tok d=0.1 found=True ttft=37.33s prefill=5473 tok/s decode=980.1 tok/s; 204318 tok d=0.5 found=True ttft=37.39s prefill=5464 tok/s decode=188.4 tok/s; 204328 tok d=0.9 found=True ttft=37.37s prefill=5468 tok/s decode=1090.7 tok/s |
+| s6-final | toolcalls.json | 48/48 gate=True info={'info_untyped_json_null': False, 'info_untyped_json_null/stream': False, 'info_untyped_json_number': False, 'info_untyped_json_number/stream': False, 'info_untyped_json_bool': False, 'info_untyped_json_bool/stream': False, 'info_untyped_json_nested': False, 'info_untyped_json_nested/stream': False, 'info_markers_in_prose_vllm_64326': True, 'info_markers_in_prose_vllm_64326/stream': True, 'info_empty_props_oneof_glm5_169': False, 'info_empty_props_oneof_glm5_169/stream': False} |
 | r01-rehearsal | boot_facts | GPU KV cache size: 362,096 tokens, Maximum concurrency for 32,768 tokens per request: 11.05x |
 | s1e-apply-b2 | boot_facts | GPU KV cache size: 895,232 tokens, Maximum concurrency for 262,144 tokens per request: 3.42x |
 | s1f-apply-b4 | boot_facts | GPU KV cache size: 1,042,944 tokens, Maximum concurrency for 262,144 tokens per request: 3.98x |
