@@ -83,3 +83,6 @@
 2026-11-09 02:22:14 - evalscope - INFO: Loaded 12 conversations
 2026-11-09 02:22:16 - evalscope - INFO: Test connection successful.
 2026-11-09 02:22:16 - evalscope - INFO: Save the data base to: /root/results/s7-soak/evalscope/soak_20261109T022213_c6/parallel_6_number_12/benchmark_data.db
+2026-11-09 02:22:17 - evalscope - INFO: Got signal SIGTERM: exit
+2026-11-09 02:22:17 - evalscope - INFO: Got signal SIGTERM: exit
+2026-11-09 02:22:17 - evalscope - INFO: Running[perf]   0%| 0/1 [Elapsed: 00:03 < Remaining: ?, ?it/s]

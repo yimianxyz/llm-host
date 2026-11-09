@@ -1,0 +1,2 @@
++ rm -f /root/idle_soak
++ bash evals/bench.sh apply deploy/configs/recommended.args

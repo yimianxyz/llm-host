@@ -42,3 +42,5 @@
 2026-11-09T00:17:21Z start s6-final
 2026-11-09T01:20:01Z end s6-final exit=0
 2026-11-09T01:20:01Z start s7-soak
+2026-11-09T02:22:17Z end s7-soak exit=0
+2026-11-09T02:22:47Z start s8-serve
