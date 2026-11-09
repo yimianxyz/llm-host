@@ -392,3 +392,23 @@ The best config stays L2 (B4 + L3 + L2).
 - **1M is a separate long-context profile** of the same image and weights (`L4d-ctx1m-bt2k.args`, a 269 s restart away), or a separate pod behind a router that sends prompts over 256K to it.
 - **At 8K chunks the ceiling is about 256K:** the same workspace would be 8 GiB at 256K and 16 GiB at 512K, against about 11.8 GiB of headroom.
 - **Answer to design question 5:** 1M is possible on 4x H200, but only with 2K chunks and a dedicated profile. For agentic coding the ceiling is 256K.
+
+## Gate B (00:19Z): the best config is L5d, and spend is within plan
+
+**Ladder outcome on 4x H200 + W4A8 + vLLM v0.33.0:**
+
+| Rung | Change | Decision | Deciding evidence |
+|---|---|---|---|
+| L1 | DCP4 | kept (Step 1, as B4) | without it, KV is replicated and about 131K tokens means about 1 session |
+| L3 | MTP 5/3/1-draft schedule | kept | c=1 +8% at real acceptance; sessions level |
+| L5p | 16K chunks, util 0.91 | reverted | OOM on the 128K needle; cold-turn TTFT only -2.8% |
+| L2 | 300 GiB CPU KV tier | kept | c=16: collapse (0 conversations) becomes 16/16 in 5.5 min, 91% of hits from host memory |
+| L7 | DSpark drafter | reverted | +27% at c=1, but the KV pool halves and c=8 collapses (0% prefix hits) |
+| L4 | 1M context | separate profile | works only at 2K chunks (330 s TTFT at 1M); the agentic config stays at 256K |
+| L5c | 4K chunks + graph cap 128 | chunks reverted, cap kept | 4K: -19% prefill, -11% at c=4. Cap: +2.6 GiB KV per GPU, -100 s per restart |
+
+**Best config:** L5d = B4 + L3 + L2 + capture cap 128 (`deploy/configs/L5d-cg128.args`). Step 6 characterizes it.
+
+**Spend:** balance $93.5767632972 at 00:19Z, so $106.42 has been spent. The plan was about $95 at this point including the extra rung, so this is 12% over, within the 25% that would force cuts.
+- **Step 6:** about 75 min.
+- **Step 7 soak:** about 2.7 h, from about 01:35Z to the deadline at about 04:26Z, when the balance should be about $6.
