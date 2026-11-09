@@ -412,3 +412,77 @@ The best config stays L2 (B4 + L3 + L2).
 **Spend:** balance $93.5767632972 at 00:19Z, so $106.42 has been spent. The plan was about $95 at this point including the extra rung, so this is 12% over, within the 25% that would force cuts.
 - **Step 6:** about 75 min.
 - **Step 7 soak:** about 2.7 h, from about 01:35Z to the deadline at about 04:26Z, when the balance should be about $6.
+
+## Step 6: full characterization of L5d (00:19-01:24Z): CONFIRMED as the recommended config
+
+**Config:** `deploy/configs/L5d-cg128.args`, which is L2 + `--max-cudagraph-capture-size 128`. `recommended.args` is the
+same without the `--profiler-config` line, which would expose `/start_profile`.
+- Restart to ready took **257 s**.
+- **GPU KV is 1,169,664 tokens** (4.46 requests of 262K), 21% more than L2's 965,376.
+- In-pod smoke passed: auth (401 without the key, 200 with it), reasoning split, tool call, and a 20 s stream. Time to the
+  first answer token on a short prompt is 0.15 / 0.31 / 0.36 s at low / high / max effort.
+
+**Agentic sweep** (OpenHands trace, dataset slice at offset 100, `AGENTIC_TIMEOUT` 1800 s):
+
+| c | TTFT p50 / p90 / p99 | Engine step | Per-user tok/s at real AL, median (mean) | Logical tok/s per GPU | Turns per hour | $ per turn | GPU prefix hit | SLO |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 0.48 / 0.53 / 13.2 s | 24.0 ms | **147.7** (137.4) | 7,746 | 1,396 | 0.0152 | 91.5% | pass |
+| 2 | 0.52 / 0.79 / 25.9 s | 34.9 ms | **101.5** (75.4) | 9,896 | 1,784 | 0.0119 | 91.5% | pass |
+| 4 | 0.71 / 10.97 / 39.9 s | 46.0 ms | **77.1** (43.2) | 11,116 | 2,003 | 0.0106 | 91.5% | pass |
+| 6 | 0.76 / 1.34 / 64.8 s | 59.0 ms | **49.98** (26.7) | 12,121 | 2,182 | 0.0097 | 91.5% | fail by 0.04% |
+| 8 | 0.60 / 8.39 / 77.4 s | 74.7 ms | 39.5 (19.7) | 12,683 | 2,283 | 0.0093 | 91.5% | fail |
+| 16 | 2.38 / 23.5 / 153 s | | 24.2 (12.3) | 12,986 | 2,340 | 0.0090 | 12% on GPU; the rest from the host tier | fail |
+
+All 1,092 turns completed, with 0 failures and 0 preemptions, at c=16 too.
+
+**Max sessions at SLO: 4 with margin, 6 at the edge.** The soak's repeated blocks at c=5 and c=6 settle the boundary.
+
+**Throughput is prefill-bound and flat at 2,000-2,300 turns per hour from c=4 up.**
+- Each turn computes about 6.8K new prompt tokens on average: the 74K cold first turn amortized over 13 turns, plus
+  about 1K new tokens per turn.
+- So 2,300 turns per hour is about 4.3K tok/s of prefill, near the node's 5.6K ceiling.
+- Concurrency past the SLO only spreads the same throughput over more users.
+
+**Against the earlier rungs.** Each point runs on a different dataset slice, so differences of up to about 9% are within
+slice-to-slice variance; the soak measures that variance directly.
+- **c=1:** L3 145.9 to **147.7** tok/s. TTFT p50 397 to 480 ms; the host tier adds about 80 ms.
+- **c=4:** L3 71.6 to **77.1** median and 39.5 to 43.2 mean, but 2,189 to 2,003 turns per hour.
+- **c=8:** L2 38.4 to **39.5**; logical throughput 12,560 to 12,683 per GPU. So the capture cap is runtime-neutral, as
+  predicted, and its +21% KV and -100 s restart are free.
+
+**Reference shapes** (random 8192 in / 1024 out) against B4:
+
+| c | TTFT p50 | Per-user tok/s | Total tok/s per GPU | MTP AL |
+|---|---|---|---|---|
+| 1 | 1.40 to 1.41 s | 72 to **48.2 (-33%)** | 144 to 102 | 1.40 to 1.18 |
+| 16 | 1.58 to 1.59 s | 19.5 to 18.5 | 579 to 562 | 1.36 to 1.37 |
+| 64 | 5.18 to 5.64 s | 9.1 to 8.7 | 877 to **942 (+7%)** | 1.37 to 1.23 |
+
+- **The c=1 loss is the cost of 5 drafts on unpredictable text.** On random-token prompts, acceptance is 1.18 tokens per
+  step, so verifying 6 tokens per step costs more than it returns.
+- **The mechanism was not investigated.** The drop from 1.40 with 3 drafts to 1.18 with 5 is not explained, since the
+  first-position acceptance should not depend on draft count; the random prompts differ by seed.
+- **Coding content is the other case:** acceptance is 3.50, and the schedule wins by 8%.
+- **The implication:** a workload with unpredictable output (hashes, base64, random IDs) decodes about a third slower
+  for a single user with this schedule.
+
+**Full quality gate: PASS.**
+- **GSM8K, all 1,319:** **96.89%** (B4: 96.74%).
+  - 2 answers hit the 16,384-token cap mid-reasoning, against 0 on B4. One such straggler set the 484 s wall time.
+  - **For agents:** set a `max_tokens` budget and treat `finish_reason=length` as retryable.
+- **Tool calls:** 48/48.
+- **Needles:** 6/6 at 128K and 200K x 3 depths, prefilling at 5,464-5,589 tok/s, the same as B4.
+- **MTP acceptance on SPEED-Bench coding at c=4 (5 drafts):** **3.50** (L3: 3.54). Per-position acceptance is 0.79, 0.61,
+  0.46, 0.36, 0.28.
+
+## Gate C (01:24Z): L5d is the recommended config; the soak runs to the deadline
+
+- **The best config is L5d**, saved as `recommended.args`. Step 6 confirms the ladder's result on every axis: quality,
+  sessions at SLO, overload behavior and restart time.
+- **Spend:** balance $70.5391238305 at 01:24Z. Step 6 cost $23.04, and $129.46 is spent in total. At $21.16/hr the
+  balance lasts until about 04:44Z, so the pod's self-delete deadline (04:26Z) leaves about $6.
+- **Step 7 (`jobs/s7-soak.sh`) started at 01:23Z:**
+  - a real-generation probe every 30 s, and GPU memory plus container RSS every minute;
+  - GPQA-Diamond at c=32;
+  - one SIGKILL drill;
+  - then agentic blocks cycling c = 2, 4, 5, 6 until the pod is deleted.

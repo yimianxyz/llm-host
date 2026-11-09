@@ -112,6 +112,8 @@ def agentic_rows(price, gpus):
             "prefix_hit": m.get("prefix_cache_hit_rate"), "preemptions": m.get("preemptions"), "slo_ok": ok,
             "usd_per_session_hr": round(price / c, 2) if ok and c else None,
             "usd_per_m_out": round(price / (summ.get("Output Throughput (tok/s)") * 3600 / 1e6), 2) if summ.get("Output Throughput (tok/s)") else None,
+            "turns_per_hr": round(3600 * summ["Req Throughput (req/s)"]) if summ.get("Req Throughput (req/s)") else None,
+            "usd_per_turn": round(price / (3600 * summ["Req Throughput (req/s)"]), 4) if summ.get("Req Throughput (req/s)") else None,
         })
     return out
 
@@ -219,7 +221,7 @@ def main():
                      "tpot_mean_ms", "itl_p50_ms", "itl_p99_ms", "interactivity", "step_ms",
                      "al_real", "inter_real", "inter_real_mean", "out_tok_s",
                      "total_tok_s_per_gpu", "prefix_hit", "mtp_al", "preemptions",
-                     "slo_ok", "usd_per_session_hr", "usd_per_m_out"]),
+                     "slo_ok", "usd_per_session_hr", "usd_per_m_out", "turns_per_hr", "usd_per_turn"]),
           "\n## Max sessions at SLO per step\n"]
     best = {}
     for r in ag:
