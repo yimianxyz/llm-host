@@ -32,3 +32,7 @@
   "kv_cache_usage_perc_end": 0.0
 }
 + bash evals/bench.sh drill
+{"kill_to_ready_s": 257}
++ true
++ for c in ${SOAK_LEVELS:-2 4 5 6}
++ bash evals/bench.sh soak-block 2 15
