@@ -177,6 +177,52 @@ def quality_rows():
     return out
 
 
+def median(xs):
+    xs = sorted(xs)
+    return (xs[(len(xs) - 1) // 2] + xs[len(xs) // 2]) / 2 if xs else None
+
+
+def soak_rows(ag):
+    """Per soak step: liveness-probe availability and outages (probe.csv: ts,http_code,seconds), the memory trend
+    (mem.csv: ts, MiB used per GPU..., container RSS MiB), the crash drill, and SLO pass rates of repeated blocks."""
+    out = []
+    for p in live(sorted(glob.glob(f"{RAW}/*/*/probe.csv"))):
+        d = os.path.dirname(p)
+        step = os.path.basename(d)
+        probes = [l.strip().split(",") for l in open(p) if l.count(",") == 2]
+        ok = [float(s) for _, code, s in probes if code == "200"]
+        outages, run = [], []
+        for ts, code, _ in probes + [("0", "200", "0")]:
+            if code != "200":
+                run.append(int(ts))
+            elif run:
+                outages.append(f"{len(run)} probes from {run[0]} (~{run[-1] - run[0] + 30} s)")
+                run = []
+        row = {"step": step, "hours": round((int(probes[-1][0]) - int(probes[0][0])) / 3600, 2) if probes else 0,
+               "probes": len(probes), "availability_pct": round(100 * len(ok) / len(probes), 2) if probes else None,
+               "probe_s_p50": round(median(ok), 3) if ok else None,
+               "probe_s_max": round(max(ok), 2) if ok else None, "outages": "; ".join(outages) or "none"}
+        mem = [list(map(float, l.strip().split(","))) for l in open(os.path.join(d, "mem.csv"))] \
+            if os.path.exists(os.path.join(d, "mem.csv")) else []
+        if len(mem) >= 2:
+            hrs = (mem[-1][0] - mem[0][0]) / 3600 or 1
+            row["gpu_mib_first_last"] = f"{max(mem[0][1:-1]):.0f} -> {max(mem[-1][1:-1]):.0f}"
+            row["rss_mib_first_last"] = f"{mem[0][-1]:.0f} -> {mem[-1][-1]:.0f} ({(mem[-1][-1] - mem[0][-1]) / hrs:+.0f}/h)"
+        drill = load(os.path.join(d, "drill.json"))
+        row["drill_kill_to_ready_s"] = drill.get("kill_to_ready_s") if drill else None
+        blocks = {}
+        for r in ag:
+            if r["step"] == step and r["name"].startswith("soak_"):
+                blocks.setdefault(r["c"], []).append(r)
+        row["blocks"] = "; ".join(
+            f"c={c}: {sum(b['slo_ok'] for b in bs)}/{len(bs)} pass, median tok/s {min(b['inter_real'] for b in bs)}-"
+            f"{max(b['inter_real'] for b in bs)} (median {median([b['inter_real'] for b in bs]):.1f}), "
+            f"TTFT p50 median {median([b['ttft_p50_ms'] for b in bs]):.0f} ms, failed {sum(b['failed'] for b in bs)}"
+            for c, bs in sorted(blocks.items()) if all(b["inter_real"] for b in bs)) or "none"
+        out.append(row)
+    return out
+
+
 def pareto(rows, path):
     try:
         import matplotlib
@@ -187,7 +233,7 @@ def pareto(rows, path):
     fig, ax = plt.subplots(figsize=(8, 5))
     series = {}
     for r in rows:
-        if r["inter_real"] and not r["step"].startswith("r0"):
+        if r["inter_real"] and not r["step"].startswith("r0") and not r["name"].startswith("soak_"):
             series.setdefault(f"{r['step']}", []).append((r["inter_real"], r["total_tok_s_per_gpu"], r["c"]))
     for label, pts in series.items():
         pts.sort()
@@ -233,7 +279,10 @@ def main():
            table(ref, ["step", "c", "n", "in", "failed", "ttft_p50_ms", "ttft_p90_ms", "tpot_p50_ms", "tpot_p90_ms", "itl_p50_ms",
                        "interactivity",
                        "out_tok_s", "total_tok_s_per_gpu", "goodput_rps", "mtp_al", "usd_per_m_out"]),
-           "\n## Quality, MTP acceptance, restarts, KV capacity\n", table(quality_rows(), ["step", "file", "result"])]
+           "\n## Quality, MTP acceptance, restarts, KV capacity\n", table(quality_rows(), ["step", "file", "result"]),
+           "\n## Soak: liveness, memory trend, crash drill, repeated blocks\n",
+           table(soak_rows(ag), ["step", "hours", "probes", "availability_pct", "probe_s_p50", "probe_s_max", "outages",
+                                 "gpu_mib_first_last", "rss_mib_first_last", "drill_kill_to_ready_s", "blocks"])]
     if pareto(ag, os.path.join(ROOT, "results", "pareto.png")):
         md.append("\n![pareto](pareto.png)\n")
     with open(os.path.join(ROOT, "results", "REPORT_DATA.md"), "w") as f:

@@ -14,20 +14,20 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s3-baseline | 1 | 52 | 0 | 428.59 | 484.84 | 12910.29 | 5.74 | 5.93 | 23.11 | 29.25 | 174.2 | 21.8 | 2.95 | 135.2 | 130.8 | 81.6755 | 7431 | 0.9175 | 3.802 | 0.0 | True | 21.16 | 71.97 | 1337 | 0.0158 |
 | s3-baseline | 4 | 104 | 0 | 503.65 | 745.37 | 39379.9 | 11.4 | 19.92 | 33.68 | 1412.99 | 87.7 | 42.8 | 2.95 | 69.0 | 39.5 | 126.3797 | 11481 | 0.9176 | 3.752 | 0.0 | True | 5.29 | 46.51 | 2068 | 0.0102 |
 | s3-baseline | 8 | 208 | 0 | 576.89 | 1108.0 | 77281.53 | 17.51 | 38.57 | 43.21 | 1421.22 | 57.1 | 66.2 | 2.95 | 44.6 | 20.2 | 144.9076 | 13166 | 0.9176 | 3.78 | 0.0 | False |  | 40.56 | 2371 | 0.0089 |
-| s4a-l3-mtp-schedule | 1 | 52 | 0 | 396.77 | 468.25 | 12966.72 | 4.48 | 4.7 | 26.31 | 27.84 | 223.2 | 24.3 | 3.54 | 145.9 | 139.1 | 91.6837 | 8342 | 0.9178 | 5.419 | 0.0 | True | 21.16 | 64.11 | 1500 | 0.0141 |
-| s4a-l3-mtp-schedule | 4 | 104 | 0 | 569.25 | 1164.9 | 39456.65 | 9.42 | 17.05 | 39.96 | 1419.99 | 106.2 | 49.5 | 3.54 | 71.6 | 39.5 | 133.7617 | 12156 | 0.9177 | 5.255 | 0.0 | True | 5.29 | 43.94 | 2189 | 0.0097 |
+| s4a-l3-mtp-schedule | 1 | 52 | 0 | 396.77 | 468.25 | 12966.72 | 4.48 | 4.7 | 26.31 | 27.84 | 223.2 | 24.3 | 3.5 | 144.2 | 137.5 | 91.6837 | 8342 | 0.9178 | 5.419 | 0.0 | True | 21.16 | 64.11 | 1500 | 0.0141 |
+| s4a-l3-mtp-schedule | 4 | 104 | 0 | 569.25 | 1164.9 | 39456.65 | 9.42 | 17.05 | 39.96 | 1419.99 | 106.2 | 49.5 | 3.5 | 70.7 | 39.1 | 133.7617 | 12156 | 0.9177 | 5.255 | 0.0 | True | 5.29 | 43.94 | 2189 | 0.0097 |
 | s4a-l3-mtp-schedule | 8 | 208 | 0 | 573.46 | 1411.02 | 77454.93 | 17.75 | 37.92 | 43.97 | 1423.85 | 56.3 | 67.0 | 2.95 | 44.0 | 20.6 | 144.5272 | 13131 | 0.9176 | 3.777 | 0.0 | False |  | 40.67 | 2365 | 0.0089 |
 | s4b-l5p-prefill16k | 1 | 52 | 0 | 421.95 | 500.39 | 12604.71 | 6.1 | 6.72 | 23.94 | 24.93 | 163.9 | 21.4 | 2.95 | 138.0 | 125.3 | 77.4986 | 7042 | 0.9174 | 3.503 | 0.0 | True | 21.16 | 75.84 | 1268 | 0.0167 |
 | s4c-l2-offload | 8 | 208 | 0 | 613.52 | 1378.03 | 77700.76 | 20.23 | 39.52 | 44.06 | 1429.1 | 49.4 | 76.9 | 2.95 | 38.4 | 19.6 | 138.1952 | 12560 | 0.9146 | 3.799 | 0.0 | False |  | 42.53 | 2262 | 0.0094 |
 | s4c2-l2-c16 | 16 | 208 | 0 | 3949.56 | 26910.17 | 180351.55 | 28.3 | 51.42 | 51.95 | 1427.84 | 35.3 | 104.7 | 2.95 | 28.2 | 15.5 | 139.2877 | 12648 | 0.0051 | 3.701 | 0.0 | False |  | 42.2 | 2279 | 0.0093 |
-| s4e-l5c-l4-ctx1m | 1 | 52 | 0 | 486.98 | 549.38 | 16112.09 | 4.52 | 4.97 | 26.89 | 28.16 | 221.2 | 23.7 | 3.54 | 149.5 | 135.9 | 79.0724 | 7188 | 0.9145 | 5.243 | 0.0 | True | 21.16 | 74.33 | 1294 | 0.0164 |
-| s4e-l5c-l4-ctx1m | 4 | 104 | 0 | 571.09 | 2038.48 | 48386.3 | 10.95 | 22.09 | 40.69 | 889.93 | 91.3 | 55.8 | 3.54 | 63.5 | 31.5 | 111.32 | 10110 | 0.9145 | 5.093 | 0.0 | True | 5.29 | 52.8 | 1822 | 0.0116 |
+| s4e-l5c-l4-ctx1m | 1 | 52 | 0 | 486.98 | 549.38 | 16112.09 | 4.52 | 4.97 | 26.89 | 28.16 | 221.2 | 23.7 | 3.5 | 147.8 | 134.4 | 79.0724 | 7188 | 0.9145 | 5.243 | 0.0 | True | 21.16 | 74.33 | 1294 | 0.0164 |
+| s4e-l5c-l4-ctx1m | 4 | 104 | 0 | 571.09 | 2038.48 | 48386.3 | 10.95 | 22.09 | 40.69 | 889.93 | 91.3 | 55.8 | 3.5 | 62.8 | 31.1 | 111.32 | 10110 | 0.9145 | 5.093 | 0.0 | True | 5.29 | 52.8 | 1822 | 0.0116 |
 | s5a-l7-dspark | 1 | 52 | 0 | 457.37 | 524.97 | 15240.92 | 3.61 | 4.27 | 25.75 | 27.35 | 277.0 | 21.2 | 3.92 | 185.0 | 156.4 | 87.0677 | 7911 | 0.9161 | 5.868 | 0.0 | True | 21.16 | 67.51 | 1425 | 0.0149 |
 | s5a-l7-dspark | 4 | 104 | 0 | 545.38 | 971.07 | 46397.86 | 8.41 | 20.4 | 41.95 | 1666.7 | 118.9 | 48.9 | 3.92 | 80.2 | 33.0 | 117.233 | 10650 | 0.916 | 5.812 | 0.0 | True | 5.29 | 50.14 | 1918 | 0.011 |
-| s6-final | 1 | 52 | 0 | 479.74 | 532.3 | 13166.7 | 4.78 | 5.14 | 26.55 | 27.77 | 209.2 | 24.0 | 3.54 | 147.7 | 137.4 | 85.2919 | 7746 | 0.9146 | 5.016 | 0.0 | True | 21.16 | 68.91 | 1396 | 0.0152 |
+| s6-final | 1 | 52 | 0 | 479.74 | 532.3 | 13166.7 | 4.78 | 5.14 | 26.55 | 27.77 | 209.2 | 24.0 | 3.5 | 146.0 | 135.8 | 85.2919 | 7746 | 0.9146 | 5.016 | 0.0 | True | 21.16 | 68.91 | 1396 | 0.0152 |
 | s6-final | 16 | 416 | 0 | 2377.46 | 23475.7 | 153317.92 | 32.68 | 64.39 | 57.5 | 1427.52 | 30.6 | 121.7 | 2.95 | 24.2 | 12.3 | 143.0016 | 12986 | 0.1195 | 3.723 | 0.0 | False |  | 41.1 | 2340 | 0.009 |
-| s6-final | 2 | 52 | 0 | 521.85 | 794.24 | 25923.32 | 6.65 | 8.95 | 31.95 | 388.98 | 150.4 | 34.9 | 3.54 | 101.5 | 75.4 | 109.0095 | 9896 | 0.9145 | 5.248 | 0.0 | True | 10.58 | 53.92 | 1784 | 0.0119 |
-| s6-final | 4 | 104 | 0 | 714.32 | 10971.42 | 39907.73 | 9.52 | 16.97 | 40.53 | 1421.68 | 105.0 | 46.0 | 3.54 | 77.1 | 43.2 | 122.4186 | 11116 | 0.9145 | 4.827 | 0.0 | True | 5.29 | 48.01 | 2003 | 0.0106 |
+| s6-final | 2 | 52 | 0 | 521.85 | 794.24 | 25923.32 | 6.65 | 8.95 | 31.95 | 388.98 | 150.4 | 34.9 | 3.5 | 100.3 | 74.5 | 109.0095 | 9896 | 0.9145 | 5.248 | 0.0 | True | 10.58 | 53.92 | 1784 | 0.0119 |
+| s6-final | 4 | 104 | 0 | 714.32 | 10971.42 | 39907.73 | 9.52 | 16.97 | 40.53 | 1421.68 | 105.0 | 46.0 | 3.5 | 76.2 | 42.7 | 122.4186 | 11116 | 0.9145 | 4.827 | 0.0 | True | 5.29 | 48.01 | 2003 | 0.0106 |
 | s6-final | 6 | 156 | 0 | 762.2 | 1342.91 | 64820.55 | 15.26 | 28.55 | 39.47 | 1421.17 | 65.5 | 59.0 | 2.95 | 50.0 | 26.7 | 133.3715 | 12121 | 0.9147 | 3.868 | 0.0 | False |  | 44.07 | 2182 | 0.0097 |
 | s6-final | 8 | 208 | 0 | 604.77 | 8385.82 | 77438.4 | 19.69 | 39.45 | 43.6 | 1423.73 | 50.8 | 74.7 | 2.95 | 39.5 | 19.7 | 139.5031 | 12683 | 0.9146 | 3.795 | 0.0 | False |  | 42.13 | 2283 | 0.0093 |
 
@@ -90,6 +90,8 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s5a-l7-dspark | niah.json | 130589 tok d=0.5 found=True ttft=27.28s prefill=4787 tok/s decode=284.7 tok/s |
 | s5a-l7-dspark | toolcalls.json | 48/48 gate=True info={'info_untyped_json_null': False, 'info_untyped_json_null/stream': False, 'info_untyped_json_number': False, 'info_untyped_json_number/stream': False, 'info_untyped_json_bool': False, 'info_untyped_json_bool/stream': False, 'info_untyped_json_nested': False, 'info_untyped_json_nested/stream': False, 'info_markers_in_prose_vllm_64326': False, 'info_markers_in_prose_vllm_64326/stream': False, 'info_empty_props_oneof_glm5_169': False, 'info_empty_props_oneof_glm5_169/stream': False} |
 | s6-final | apply.json | restart to ready 257 s |
+| s6-final | gsm8k.json | acc 0.9689 n=1319 gate=True tokens=164 |
+| s6-final | mtp_al.json | AL 3.501467782181124 rate 50.02935564362249 tpot 10.36 ms |
 | s6-final | niah.json | 130549 tok d=0.1 found=True ttft=23.41s prefill=5576 tok/s decode=5088.8 tok/s; 130562 tok d=0.5 found=True ttft=23.36s prefill=5589 tok/s decode=6003.4 tok/s; 130552 tok d=0.9 found=True ttft=23.37s prefill=5587 tok/s decode=268.0 tok/s; 204310 tok d=0.1 found=True ttft=37.33s prefill=5473 tok/s decode=980.1 tok/s; 204318 tok d=0.5 found=True ttft=37.39s prefill=5464 tok/s decode=188.4 tok/s; 204328 tok d=0.9 found=True ttft=37.37s prefill=5468 tok/s decode=1090.7 tok/s |
 | s6-final | toolcalls.json | 48/48 gate=True info={'info_untyped_json_null': False, 'info_untyped_json_null/stream': False, 'info_untyped_json_number': False, 'info_untyped_json_number/stream': False, 'info_untyped_json_bool': False, 'info_untyped_json_bool/stream': False, 'info_untyped_json_nested': False, 'info_untyped_json_nested/stream': False, 'info_markers_in_prose_vllm_64326': True, 'info_markers_in_prose_vllm_64326/stream': True, 'info_empty_props_oneof_glm5_169': False, 'info_empty_props_oneof_glm5_169/stream': False} |
 | r01-rehearsal | boot_facts | GPU KV cache size: 362,096 tokens, Maximum concurrency for 32,768 tokens per request: 11.05x |
@@ -102,5 +104,11 @@ interactivity is the raw 1000/TPOT p50 (per-request median); step_ms = TPOT p50 
 | s4f-l4d-ctx1m-bt2k | boot_facts | GPU KV cache size: 1,230,848 tokens, Maximum concurrency for 1,048,576 tokens per request: 1.17x |
 | s5a-l7-dspark | boot_facts | GPU KV cache size: 484,557 tokens, Maximum concurrency for 262,144 tokens per request: 1.85x |
 | s6-final | boot_facts | GPU KV cache size: 1,169,664 tokens, Maximum concurrency for 262,144 tokens per request: 4.46x |
+
+## Soak: liveness, memory trend, crash drill, repeated blocks
+| step | hours | probes | availability_pct | probe_s_p50 | probe_s_max | outages | gpu_mib_first_last | rss_mib_first_last | drill_kill_to_ready_s | blocks |
+|---|---|---|---|---|---|---|---|---|---|---|
+| r01-rehearsal | 0.01 | 4 | 100.0 | 0.105 | 0.11 | none |  |  |  | none |
+| s7-soak | 0.09 | 12 | 100.0 | 0.234 | 0.3 | none | 140287 -> 140287 | 336649 -> 336843 (+2320/h) |  | none |
 
 ![pareto](pareto.png)
